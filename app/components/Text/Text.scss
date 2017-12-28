@@ -1,0 +1,13 @@
+.Text {
+  font-size: sg-font-size();
+  padding-bottom:(sg-font-size() * 1.4);
+  line-height: (sg-font-size() * 1.6);
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.Link {
+  color: sg-color(ink, light);
+  cursor: pointer;
+}

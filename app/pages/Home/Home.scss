@@ -1,0 +1,117 @@
+.Hero {
+  display: block;
+  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+    display: grid;
+    grid-template-columns: 570px 1fr;
+  }
+}
+
+.HeroLogo {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  svg {
+    margin-left: auto;
+    max-height: (sg-layout-height(hero-logo) * 0.5);
+    max-width: (sg-layout-height(hero-logo) * 0.5);
+    padding: 0 sg-spacing(loose) sg-spacing(loose) 0;
+    @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+      max-width: sg-layout-width(hero-logo);
+      max-height: sg-layout-height(hero-logo);
+      padding: 0;
+      // margin-right: sg-spacing(huge);
+    }
+  }
+  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.HeroContent {
+  grid-column: 1;
+  grid-row: 1;
+  // text-align: center;
+  button {
+    margin-top: sg-spacing();
+  }
+}
+
+.TwoColumnDescription {
+  display: block;
+  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+  }
+  h2 {
+    padding-bottom: rem(18px);
+  }
+  h3 {
+    padding-bottom: rem(30px);
+  }
+}
+
+.Timeline {
+  text-align: center;
+}
+
+.SingleTimeline {
+  position: relative;
+  display: inline-block;
+  max-width: rem(370px);
+}
+
+.TimelineVisualWrap {
+  position: relative;
+}
+
+.TimelineLine {
+  content: '';
+  z-index: 0;
+  position: absolute;
+  height: rem(3px);
+  width: 100%;
+  top: 50%;
+  background-color: sg-color(circle);
+}
+
+.TimelineCircle {
+  position: relative;
+  border-radius: sg-radius(circle);
+  height: rem(70px);
+  width: rem(70px);
+  margin: rem(60px) 0;
+  background-color: sg-color(circle);
+  z-index: sg-index(surface);
+}
+
+.TimelineWrap {
+  text-align: initial;
+  & > .SingleTimeline {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    &:nth-child(even) {
+      flex-direction: column;
+    }
+    &:nth-child(odd) {
+      & .TimelineContent {
+        flex-direction: column;
+      }
+    }
+    &:last-child {
+      .TimelineCircle {
+        background-color: sg-color(circle, active);
+      }
+      .TimelineLine {
+        display: none;
+      }
+    }
+  }
+}
+
+.TimelineContent {
+  display: flex;
+  flex-direction: column;
+}
+
+

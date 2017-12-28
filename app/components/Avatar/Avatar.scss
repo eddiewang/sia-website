@@ -1,0 +1,40 @@
+.AvatarWrap {
+  & > div {
+    @media only screen and (min-width: sg-breakpoint()) {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      width: 100%;
+      max-width: rem(870px);
+      align-items: center;
+      padding: rem(50px) 0;
+      &:nth-child(even) {
+        float: right;
+      }
+    }
+  }
+}
+
+.AvatarBio {
+  @media only screen and (min-width: sg-breakpoint()) {
+    margin-left: rem(130px);
+  }
+}
+
+.Avatar {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  max-width: sg-layout-width(avatar);
+  max-height: sg-layout-height(avatar);
+  border-radius: sg-radius(circle);
+  border: sg-border(avatar);
+  padding: sg-spacing(loose);
+  @media only screen and (max-width: sg-breakpoint()) {
+    max-width: (sg-layout-width(avatar) * 0.5);
+    max-height: (sg-layout-height(avatar) * 0.5);
+    padding: sg-spacing() sg-spacing() sg-spacing() 0;
+    border: none;
+    margin-left: rem(-18px);
+  }
+}

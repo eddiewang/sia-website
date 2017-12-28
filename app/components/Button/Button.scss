@@ -1,0 +1,24 @@
+.Button {
+  height: rem(50px);
+  background: sg-color(sia-green);
+  color: sg-color(white);
+  padding-left: sg-spacing(tight);
+  padding-right: sg-spacing(tight);
+  border-radius: sg-radius();
+}
+
+.typeNav {
+  background: sg-color(sia-green);
+  margin-left: rem(30px);
+  margin-top: rem(10px);
+  @media only screen and (max-width: sg-breakpoint() - 1px) {
+    margin-left: rem(45px);
+  }
+}
+
+.typeHero {
+  height: rem(70px);
+  font-size: sg-font-size(h4);
+  padding-left: sg-spacing(loose);
+  padding-right: sg-spacing(loose);
+}
