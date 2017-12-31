@@ -20,4 +20,6 @@ export const TimelineWrap: string;
 export const timelineWrap: string;
 export const TimelineContent: string;
 export const timelineContent: string;
+export const Stats: string;
+export const stats: string;
 export const skeletonShimmerAnimation: string;

@@ -119,5 +119,12 @@ $accepted-heading-levels: 1, 2, 3, 4, 5;
 }
 
 .isLighter {
-  color: sg-color(ink, lighter);
+  color: sg-color(ink, light);
+}
+
+.typeStat {
+  color: sg-color(sia-green);
+  font-size: sg-font-size(h4);
+  line-height: rem(40px);
+  margin-bottom: rem(10px);
 }

@@ -88,7 +88,7 @@
 }
 
 .Link {
-  @include sg-TypeHeading(4);
+  font-size: sg-font-size(nav);
   @include sg-type-reset-margin-bottom-and-line-height;
   display: block;
   color: sg-color(ink);
@@ -125,12 +125,12 @@
     }
 
     &:hover {
-      color: sg-color(ink, dark);
+      color: sg-color(ink);
     }
 
     &:active,
     &:focus {
-      color: sg-color(ink, dark);
+      color: sg-color(ink);
 
       &::before {
         background-color: sg-color(sia-green);
@@ -163,7 +163,7 @@
     font-weight: 500;
 
     @media only screen and (min-width: sg-breakpoint()) {
-      color: sg-color(ink, dark);
+      color: sg-color(ink);
 
       &::before {
         transform: translateY(0);

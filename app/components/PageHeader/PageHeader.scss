@@ -13,7 +13,7 @@
 .LogoFull {
   width: sg-layout-width(logo-header);
   height: sg-layout-height(logo-header);
-  color: sg-color(ink, darker);
+  color: sg-color(ink);
   transition: opacity, color;
   transition-duration: sg-duration();
   transition-timing-function: sg-easing();

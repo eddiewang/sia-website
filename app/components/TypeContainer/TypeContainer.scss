@@ -107,7 +107,7 @@
     margin-bottom: sg-spacing();
     border: 0;
     border-top: sg-border(thin);
-    color: sg-color(ink, darker);
+    color: sg-color(ink);
 
     @media only screen and (min-width: sg-breakpoint(portrait, '1080p')) {
       margin-top: sg-spacing(loosest);

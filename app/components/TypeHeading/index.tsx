@@ -16,7 +16,8 @@ export interface Props {
   tight?: boolean,
   inline?: boolean,
   lighter?: boolean,
-  classes?: string
+  classes?: string,
+  type?: string
 }
 
 export default function TypeHeading({
@@ -28,6 +29,7 @@ export default function TypeHeading({
   tight,
   classes,
   lighter,
+  type,
   element: Element = HeadingTagName[level],
   children
 }: Props) {
@@ -43,6 +45,7 @@ export default function TypeHeading({
     inline && styles[variationName('is', 'inlined')],
     tight && styles[variationName('is', 'tight')],
     lighter && styles[variationName('is', 'lighter')],
+    type && styles[variationName('type', type)],
     classes
   )
 

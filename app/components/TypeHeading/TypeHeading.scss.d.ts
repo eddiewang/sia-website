@@ -10,4 +10,5 @@ export const isUnderlined: string;
 export const isInlined: string;
 export const isTight: string;
 export const isLighter: string;
+export const typeStat: string;
 export const skeletonShimmerAnimation: string;

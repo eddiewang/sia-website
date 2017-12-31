@@ -8,6 +8,7 @@ import Button from 'components/Button'
 import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
+import Globe from 'components/Globe'
 
 import SiaLogo from 'svg/sia-logo.svg'
 import DavidAvatar from 'svg/avatar-david.svg'
@@ -40,117 +41,45 @@ class Home extends React.Component {
             </div>
             {/* Hero left */}
             <div className={styles.HeroContent}>
-              <TypeHeading level={1}>The token sale you've been waiting for</TypeHeading>
-              <TypeHeading level={5}>
-                Sia is offering 750 Siafunds from our wallet in this token sale, which will take
-                place between 00/00/00 — 00/00/00.
-              </TypeHeading>
-              <Button type="hero">Invest</Button>
-            </div>
-          </LayoutContainer>
-        </Section>
-        <Section>
-          <LayoutContainer classes={styles.TwoColumnDescription}>
-            <div>
-              <TypeHeading inline underlined level={2}>
-                Siafund
-              </TypeHeading>
-            </div>
-            <div>
+              <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
               <Text>
-                Siafunds offer an innovative method to fundraise cryptocurrency projects and provide
-                a profit-sharing mechanism for investors. A Siafund is a tokenized dividend that
-                automatically receives a percentage of all revenue on the Sia network. Thus,
-                Siafunds only generate revenue if users pay for storage on the Sia network.
+                Sia is the first peer-to-peer, decentralized storage platform secured by blockchain.
+                We leverage unused hard drive space to create a storage marketplace that is more
+                reliable and lower cost than traditional cloud providers.
               </Text>
-              <Text>
-                It is distinct from Siacoin, a cryptocurrency that can be exchanged for space on
-                Sia's decentralized storage network.
-              </Text>
-              <Text>
-                The value of a Siafund is the net present value of the network's future value. This
-                creates an incentive for the Sia team to focus on the long-term value of the storage
-                network and builds a strong foundation for growth.
-              </Text>
-            </div>
-          </LayoutContainer>
-        </Section>
-        <Section>
-          <LayoutContainer classes={styles.TwoColumnDescription}>
-            <div>
-              <TypeHeading inline underlined level={2}>
-                Vision
-              </TypeHeading>
-            </div>
-            <div>
-              <TypeHeading level={3}>
-                Sia offers a new kind of cloud storage product. Our technology automatically
-                connects users who need storage with hosts worldwide who rent unused space on their
-                hard drives.
-              </TypeHeading>
-              <Text>
-                The blockchain allows us to run this marketplace without an intermediary. We secure
-                storage transactions with smart contracts which creates a more reliable and lower
-                cost option than traditional cloud providers. Every entity that stores data is
-                responsible for the liability they assume. No one organization can censor or deny
-                access to data — not the miners, not the developers, not the government. Our
-                distributed, decentralized storage is stronger, more secure, more efficient, and
-                more equitable for all.
-              </Text>
-              <Text>
-                Individuals and institutions should not be beholden to large corporations. We formed
-                Sia to promote and safeguard users’ freedoms. Sia is our attempt to bring
-                decentralized, blockchain technology to the mainstream, without sacrificing price or
-                performance.
-              </Text>
-              <Text>
-                Sia was established in 2014. Based in Boston, Sia is funded by First Star Ventures
-                and Raptor Group.
-              </Text>
+              <Button type="hero">Download</Button>
             </div>
           </LayoutContainer>
         </Section>
         <Section>
           <LayoutContainer>
-            <TypeHeading inline underlined level={2}>
-              Team
-            </TypeHeading>
-            <Avatar profiles={avatarData} />
-          </LayoutContainer>
-        </Section>
-        <Section bordered>
-          <LayoutContainer classes={styles.Timeline}>
-            <TypeHeading inline underlined level={2}>
-              Roadmap
-            </TypeHeading>
-            <div className={styles.TimelineWrap}>
-              <div className={styles.SingleTimeline}>
-                <div className={styles.TimelineVisualWrap}>
-                  <div className={styles.TimelineLine} />
-                  <div className={styles.TimelineCircle} />
-                </div>
-                <div className={styles.TimelineContent}>
-                  <TypeHeading lighter level={3}>
-                    2014
-                  </TypeHeading>
-                  <TypeHeading lighter level={5}>
-                    Nebulous, Inc. is founded to build Sia. Raises first capital.
-                  </TypeHeading>
-                </div>
+            <div>
+              <Globe />
+            </div>
+            <div className={styles.Stats}>
+              <div>
+                <TypeHeading level={4} type="stat">
+                  3.5PB
+                </TypeHeading>
+                <Text type="stat">Storage Capacity</Text>
               </div>
-              <div className={styles.SingleTimeline}>
-                <div className={styles.TimelineVisualWrap}>
-                  <div className={styles.TimelineLine} />
-                  <div className={styles.TimelineCircle} />
-                </div>
-                <div className={styles.TimelineContent}>
-                  <TypeHeading lighter level={3}>
-                    2014
-                  </TypeHeading>
-                  <TypeHeading lighter level={5}>
-                    Nebulous, Inc. is founded to build Sia. Raises first capital.
-                  </TypeHeading>
-                </div>
+              <div>
+                <TypeHeading level={4} type="stat">
+                  950
+                </TypeHeading>
+                <Text type="stat">Active Hosts</Text>
+              </div>
+              <div>
+                <TypeHeading level={4} type="stat">
+                  105TB
+                </TypeHeading>
+                <Text type="stat">Used Storage</Text>
+              </div>
+              <div>
+                <TypeHeading level={4} type="stat">
+                  $1B
+                </TypeHeading>
+                <Text type="stat">Market Cap</Text>
               </div>
             </div>
           </LayoutContainer>

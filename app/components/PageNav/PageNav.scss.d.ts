@@ -10,6 +10,7 @@ export const isUnderlined: string;
 export const isInlined: string;
 export const isTight: string;
 export const isLighter: string;
+export const typeStat: string;
 export const PageNav: string;
 export const pageNav: string;
 export const Interior: string;

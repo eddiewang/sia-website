@@ -90,8 +90,8 @@ class PageNav extends React.Component<Props & BreakpointContext, State> {
       return <Item key={index} href={fullPath} title={name} current={false} />
     })
 
-    const investButton = ( <Button key='invest' type='nav'>Invest</Button>)
-    pageNavListItems.push(investButton)
+    const downloadButton = ( <Button key='download' type='nav'>Download</Button>)
+    pageNavListItems.push(downloadButton)
     return (
       <div id="navigation" className={styles.PageNav}>
         <nav id="PageNavInterior" className={classNameInterior} aria-hidden={menuAriaHidden}>

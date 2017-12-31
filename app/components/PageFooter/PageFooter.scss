@@ -1,0 +1,15 @@
+.PageFooter {
+  height: sg-layout-height(page-footer);
+  background: sg-color(ink);
+  padding: 100px 0;
+  &Layout {
+    display: grid;
+    grid-template-columns: repeat(6, 200px);
+    width: 100%;
+  }
+  &CTA {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-column: 5/7;
+  }
+}

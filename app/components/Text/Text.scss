@@ -11,3 +11,16 @@
   color: sg-color(ink, light);
   cursor: pointer;
 }
+
+.isInverse {
+  color: sg-color(white);
+}
+
+.typeFooterTitle{
+  margin-bottom: rem(32px);
+  color: sg-color(white);
+}
+
+.typeFooterText {
+  color: sg-color(ink, lightest);
+}

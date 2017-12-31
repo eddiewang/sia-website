@@ -47,7 +47,7 @@
     left: 0;
     height: $hamburger-line-height;
     border-radius: $hamburger-line-height;
-    background-color: sg-color(ink, darker);
+    background-color: sg-color(ink);
     animation-duration: sg-duration();
     animation-timing-function: sg-easing();
     animation-fill-mode: both;
@@ -80,7 +80,7 @@
 .isExpanded {
   .Hamburger::before,
   .Hamburger::after {
-    background-color: sg-color(ink, dark);
+    background-color: sg-color(ink);
   }
 
   .Hamburger::before {

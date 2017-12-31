@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom'
 import CurrentSectionProvider from 'components/CurrentSectionProvider'
 import PageHeader from 'components/PageHeader'
 import PageNav from 'components/PageNav'
+import PageFooter from 'components/PageFooter'
 
 interface Props {
   location: Location
@@ -20,20 +21,17 @@ class Layout extends React.Component<Props, any> {
     const { children, location } = this.props
     const navItems = [
       {
-        name: 'Vision',
+        name: 'Get Started',
         path: '#vision'
       }, {
-        name: 'Team',
+        name: 'About',
         path: '#team'
       }, {
-        name: 'Roadmap',
+        name: 'How it works',
         path: '#roadmap'
       }, {
-        name: 'Learn',
+        name: 'Roadmap',
         path: '#learn'
-      }, {
-        name: 'Community',
-        path: '#community'
       }
     ]
 
@@ -45,6 +43,7 @@ class Layout extends React.Component<Props, any> {
             <PageNav basePath={''} items={navItems} activePath={location.pathname} />
           </PageHeader>
           {children}
+          <PageFooter />
         </div>
       </CurrentSectionProvider>
     )

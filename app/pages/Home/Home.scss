@@ -2,7 +2,7 @@
   display: block;
   @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
     display: grid;
-    grid-template-columns: 570px 1fr;
+    grid-template-columns: 670px 1fr;
   }
 }
 
@@ -114,4 +114,9 @@
   flex-direction: column;
 }
 
+.Stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
 
