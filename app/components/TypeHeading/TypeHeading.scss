@@ -3,7 +3,7 @@
 /// @group components/TypeHeading/TypeHeading
 ////
 
-$accepted-heading-levels: 1, 2, 3, 4, 5;
+$accepted-heading-levels: 1, 2, 3, 4, 5, 6;
 
 @mixin sg-TypeHeading($level) {
   @if type-of($level) != number or index($accepted-heading-levels, $level) == null {
@@ -64,6 +64,13 @@ $accepted-heading-levels: 1, 2, 3, 4, 5;
     font-weight: 400;
     line-height: 1.6;
   }
+
+  // Heading 6
+  @if $level == 6 {
+    margin-bottom: 3rem;
+    font-size: sg-font-size(h6);
+    font-weight: 400;
+  }
 }
 
 ///
@@ -97,6 +104,10 @@ $accepted-heading-levels: 1, 2, 3, 4, 5;
   @include sg-TypeHeading(5);
 }
 
+.level6 {
+  @include sg-TypeHeading(6);
+}
+
 // --- Colors
 .isInverse {
   color: sg-color(white);
@@ -127,4 +138,10 @@ $accepted-heading-levels: 1, 2, 3, 4, 5;
   font-size: sg-font-size(h4);
   line-height: rem(40px);
   margin-bottom: rem(10px);
+}
+
+.typeDeveloperStat {
+  color: sg-color(sia-green);
+  font-size: sg-font-size(h1);
+  margin-bottom: 0;
 }

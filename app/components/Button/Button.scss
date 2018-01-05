@@ -11,9 +11,6 @@
   background: sg-color(sia-green);
   margin-left: rem(30px);
   margin-top: rem(10px);
-  @media only screen and (max-width: sg-breakpoint() - 1px) {
-    margin-left: rem(45px);
-  }
 }
 
 .typeHero {

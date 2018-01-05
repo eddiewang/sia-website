@@ -72,8 +72,8 @@ export default class PageFooter extends React.PureComponent {
           <Text type="footerTitle">{sitemap.title}</Text>
           <ul>
           {
-            sitemap.links.map((l : FooterLink) => (
-              <li><Text.Link type="footerText" to={l.url}>{l.name}</Text.Link></li>
+            sitemap.links.map((l : FooterLink, idx: number) => (
+              <li key={idx}><Text.Link type="footerText" to={l.url}>{l.name}</Text.Link></li>
             ))
           }
           </ul>

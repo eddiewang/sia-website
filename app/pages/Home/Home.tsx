@@ -17,6 +17,11 @@ import ChrisAvatar from 'svg/avatar-chris.svg'
 import ZachAvatar from 'svg/avatar-zach.svg'
 import SteveAvatar from 'svg/avatar-steve.svg'
 
+import DevCommits from 'svg/dev-commits.svg'
+import DevReleases from 'svg/dev-releases.svg'
+import DevForks from 'svg/dev-forks.svg'
+import DevContributors from 'svg/dev-contributors.svg'
+
 import avatarData from './team-data'
 
 import * as styles from './Home.scss'
@@ -29,7 +34,6 @@ class Home extends React.Component {
       <div>
         <Section>
           <LayoutContainer classes={styles.Hero}>
-            {/* Hero right */}
             <div className={styles.HeroLogo}>
               <Icon
                 src={SiaLogo.id}
@@ -39,7 +43,6 @@ class Home extends React.Component {
                 aria-hidden="true"
               />
             </div>
-            {/* Hero left */}
             <div className={styles.HeroContent}>
               <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
               <Text>
@@ -82,6 +85,131 @@ class Home extends React.Component {
                 <Text type="stat">Market Cap</Text>
               </div>
             </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.Pitch}>
+            <div className={styles.PitchRow}>
+              <div className={styles.PitchRowImage} />
+              <div>
+                <TypeHeading level={6}>Completely Private</TypeHeading>
+                <Text>
+                  Sia splits apart, encrypts, and distributes your files across a decentralized
+                  network. Since you hold the keys, you own your data. No outside company can access
+                  or control your files, unlike traditional cloud storage providers.
+                </Text>
+              </div>
+            </div>
+            <div className={styles.PitchRow}>
+              <div className={styles.PitchRowImage} />
+              <div>
+                <TypeHeading level={6}>Far More Affordable</TypeHeading>
+                <Text>
+                  Sia's decentralized cloud is on average 10x less expensive than current cloud
+                  storage providers. Storing 1TB on Sia costs about $2 per month, compared with $23
+                  on Amazon S3.
+                </Text>
+              </div>
+            </div>
+            <div className={styles.PitchRow}>
+              <div className={styles.PitchRowImage} />
+              <div>
+                <TypeHeading level={6}>Highly Redundant</TypeHeading>
+                <Text>
+                  Sia stores tiny pieces of your files on dozens of nodes across the globe. This
+                  eliminates any single point of failure and ensures highest possible uptime, on par
+                  with other cloud storage providers.
+                </Text>
+              </div>
+            </div>
+            <div className={styles.PitchRow}>
+              <div className={styles.PitchRowImage} />
+              <div>
+                <TypeHeading level={6}>Open source</TypeHeading>
+                <Text>
+                  Sia is completely open source. Over a dozen individuals have contributed to Sia's
+                  software, and there is an active community building innovative applications on top
+                  of the Sia API.
+                </Text>
+              </div>
+            </div>
+            <div className={styles.PitchRow}>
+              <div className={styles.PitchRowImage} />
+              <div>
+                <TypeHeading level={6}>Blockchain Marketplace</TypeHeading>
+                <Text>
+                  Using the Sia blockchain, Sia creates a decentralized storage marketplace in which
+                  hosts compete for your business – this leads to the lowest possible prices.
+                  Renters pay using Siacoin, which can also be mined and traded.
+                </Text>
+              </div>
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section type="skyLight">
+          <LayoutContainer classes={styles.Newsletter}>
+            <TypeHeading level={6}>Sign up for announcements</TypeHeading>
+            </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.Developer}>
+            <div className={styles.DeveloperStatBlock}>
+            <Icon
+                src={DevCommits.id}
+                viewBox={DevCommits.viewBox}
+                aspectRatio="xMinYMin"
+                accessibleLabel="Developer Commits"
+                aria-hidden="true"
+                classes={styles.DeveloperIcon}
+              />
+              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
+              <TypeHeading level={6}>Commits</TypeHeading>
+            </div>
+            <div className={styles.DeveloperStatBlock}>
+            <Icon
+                src={DevCommits.id}
+                viewBox={DevCommits.viewBox}
+                aspectRatio="xMinYMin"
+                accessibleLabel="Developer Commits"
+                aria-hidden="true"
+                classes={styles.DeveloperIcon}
+              />
+              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
+              <TypeHeading level={6}>Commits</TypeHeading>
+            </div>
+            <div className={styles.DeveloperStatBlock}>
+            <Icon
+                src={DevCommits.id}
+                viewBox={DevCommits.viewBox}
+                aspectRatio="xMinYMin"
+                accessibleLabel="Developer Commits"
+                aria-hidden="true"
+                classes={styles.DeveloperIcon}
+              />
+              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
+              <TypeHeading level={6}>Commits</TypeHeading>
+            </div>
+            <div className={styles.DeveloperStatBlock}>
+            <Icon
+                src={DevCommits.id}
+                viewBox={DevCommits.viewBox}
+                aspectRatio="xMinYMin"
+                accessibleLabel="Developer Commits"
+                aria-hidden="true"
+                classes={styles.DeveloperIcon}
+              />
+              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
+              <TypeHeading level={6}>Commits</TypeHeading>
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer>
+            <TypeHeading underlined inline level={4}>
+              Learn
+            </TypeHeading>
+
+
           </LayoutContainer>
         </Section>
       </div>

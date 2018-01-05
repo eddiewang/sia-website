@@ -1,15 +1,23 @@
 .PageFooter {
-  height: sg-layout-height(page-footer);
+  min-height: sg-layout-height(page-footer);
   background: sg-color(ink);
-  padding: 100px 0;
+  padding: rem(50px) rem(20px);
+  @media screen and (min-width: sg-breakpoint()) {
+    padding: rem(100px) rem(20px);
+  }
   &Layout {
     display: grid;
-    grid-template-columns: repeat(6, 200px);
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
+    @media screen and (min-width: sg-breakpoint()) {
+      grid-template-columns: repeat(6, minmax(100px,200px));
+    }
   }
   &CTA {
     display: grid;
-    grid-template-columns: 200px 200px;
-    grid-column: 5/7;
+    @media screen and (min-width: sg-breakpoint()) {
+      grid-template-columns: repeat(2,minmax(100px, 200px));
+      grid-column: 5/7;
+    }
   }
 }

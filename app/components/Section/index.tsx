@@ -4,7 +4,7 @@ import { variationName } from 'utilities/styles'
 
 import * as styles from './Section.scss'
 
-type SectionType = 'main' | 'home' | '404'
+type SectionType = 'main' | 'home' | '404' | 'skyLight' | 'sky'
 
 export interface Props {
   type?: SectionType,

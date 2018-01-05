@@ -22,16 +22,19 @@ class Layout extends React.Component<Props, any> {
     const navItems = [
       {
         name: 'Get Started',
-        path: '#vision'
+        path: 'get-started'
       }, {
         name: 'About',
-        path: '#team'
+        path: 'about'
       }, {
         name: 'How it works',
-        path: '#roadmap'
+        path: 'how-it-works'
+      },  {
+        name: 'Learn',
+        path: 'learn'
       }, {
         name: 'Roadmap',
-        path: '#learn'
+        path: 'roadmap'
       }
     ]
 
