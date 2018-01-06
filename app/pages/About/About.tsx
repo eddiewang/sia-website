@@ -106,7 +106,6 @@ class About extends React.Component {
                 <Icon src={github.id}  aspectRatio="xMinYMin" />
                 <Icon src={facebook.id}  aspectRatio="xMinYMin" />
                 <Icon src={linkedin.id}  aspectRatio="xMinYMin" />
-
               </div>
             </div>
           </LayoutContainer>

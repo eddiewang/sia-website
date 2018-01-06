@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as styles from './HowItWorks.scss'
 import { inject, observer } from 'mobx-react'
 
 import LayoutContainer from 'components/LayoutContainer'
@@ -14,13 +15,16 @@ import * as styles from './HowItWorks.scss'
 
 @inject('main')
 @observer
-class Home extends React.Component {
+class HowItWorks extends React.Component {
   public render() {
     return (
       <div>
         <Section>
-          <LayoutContainer>
-          <h1>hi</h1>
+          <LayoutContainer classes={styles.Intro}>
+            <TypeHeading classes={styles.IntroHeading} level={6}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et.
+            </TypeHeading>
           </LayoutContainer>
         </Section>
       </div>
@@ -28,4 +32,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default HowItWorks
