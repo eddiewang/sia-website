@@ -32,4 +32,6 @@ export const DeveloperStatBlock: string;
 export const developerStatBlock: string;
 export const Developer: string;
 export const developer: string;
+export const Learn: string;
+export const learn: string;
 export const skeletonShimmerAnimation: string;

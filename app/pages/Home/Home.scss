@@ -162,3 +162,10 @@
     align-items: center;
   }
 }
+
+.Learn {
+  display: grid;
+  @media screen and (min-width: sg-breakpoint()) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

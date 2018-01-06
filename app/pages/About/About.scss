@@ -1,0 +1,32 @@
+.Vision {
+  display: grid;
+  grid-template-columns: 370px 1fr;
+}
+
+.Team {
+  text-align: center;
+  &Cofounders {
+    display: grid;
+    grid-template-columns: repeat(6, [col] 1fr);
+    grid-column-gap: rem(30px);
+    grid-row-gap: rem(30px);
+    margin-top: rem(100px);
+    & > div:nth-child(1) {
+      grid-column: col 1 / span 3;
+    }
+    & > div:nth-child(2) {
+      grid-column: col 4 / span 3;
+    }
+    & > div {
+      grid-column: span 2;
+    }
+  }
+}
+
+.Investors {
+  padding: rem(200px) 0;
+  text-align: center;
+  &Logos {
+    margin-top: rem(100px);
+  }
+}

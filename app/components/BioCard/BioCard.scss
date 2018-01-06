@@ -1,0 +1,29 @@
+.Card {
+  text-align: center;
+  border-radius: 6px;
+  border: 3px solid sg-color(sky);
+  height: rem(504px);
+  &Avatar {
+    display: inline-block;
+    height: rem(170px);
+  }
+  &Top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(370px);
+    background: sg-color(sky, light);
+    border-bottom: 3px solid sg-color(sky);
+  }
+  &Bottom {
+    padding: rem(30px);
+  }
+  &Desc {
+    margin-top: rem(30px);
+  }
+}
+
+.Large {
+  width: 100%;
+  height: rem(700px);
+}

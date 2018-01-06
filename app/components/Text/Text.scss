@@ -1,7 +1,8 @@
 .Text {
   font-size: sg-font-size();
   padding-bottom:(sg-font-size() * 1.4);
-  line-height: (sg-font-size() * 1.6);
+  line-height: 1.6;
+
   &:last-child {
     padding-bottom: 0;
   }
@@ -23,3 +24,40 @@
 .typeFooterText {
   color: sg-color(ink, lightest);
 }
+
+.typeMediaCardTitle {
+  color: sg-color(ink, lightest);
+  padding-top: 0;
+  padding-bottom: sg-spacing(tightest);
+}
+
+.typeMediaCardText {
+  font-size: rem(24px);
+}
+
+.typeLinkCardHeader {
+  font-size: rem(24px);
+  color: sg-color(sia-green);
+  padding-bottom: rem(16px);
+}
+
+.typeLinkCardText {
+  font-size: rem(16px);
+}
+
+.typeLinkCardFooter {
+  font-weight: 600;
+  padding-bottom: 0;
+}
+
+.typeLinkCardLink {
+  color: sg-color(sia-green);
+  font-weight: 600;
+}
+
+.typeVisionHeading {
+  font-size: sg-font-size(h6);
+  line-height: 1.2;
+  margin-bottom: rem(80px);
+}
+

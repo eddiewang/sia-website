@@ -9,18 +9,68 @@ import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
 import Globe from 'components/Globe'
+import LinkCard from 'components/LinkCard'
 
 import * as styles from './GetStarted.scss'
 
 @inject('main')
 @observer
-class Home extends React.Component {
+class GetStarted extends React.Component {
   public render() {
     return (
-      <div>
+      <div className={styles.GetStarted}>
         <Section>
-          <LayoutContainer>
-          <h1>hi</h1>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Core Software</TypeHeading>
+            <div className={styles.Core}>
+              <LinkCard />
+              <LinkCard />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Mining</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard />
+              <LinkCard />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Network Stats</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Built on Sia</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Integrations (Beta)</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+              <LinkCard />
+            </div>
           </LayoutContainer>
         </Section>
       </div>
@@ -28,4 +78,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default GetStarted

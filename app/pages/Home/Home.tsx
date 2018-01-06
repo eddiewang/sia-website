@@ -9,6 +9,7 @@ import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
 import Globe from 'components/Globe'
+import MediaCard from 'components/MediaCard'
 
 import SiaLogo from 'svg/sia-logo.svg'
 import DavidAvatar from 'svg/avatar-david.svg'
@@ -208,8 +209,11 @@ class Home extends React.Component {
             <TypeHeading underlined inline level={4}>
               Learn
             </TypeHeading>
-
-
+            <div className={styles.Learn}>
+              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
+              <MediaCard type='talks'>Watch David Vorick talk about the business models behind tokens.</MediaCard>
+              <MediaCard type='documentation'>This guide will walk you through uploading a file to Sia using the API.</MediaCard>
+            </div>
           </LayoutContainer>
         </Section>
       </div>

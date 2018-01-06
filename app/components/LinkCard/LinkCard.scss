@@ -1,0 +1,17 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 3px solid sg-color(sky);
+  padding: rem(30px);
+  height: rem(270px);
+  width: 100%;
+  border-radius: rem(6px);
+  margin-top: rem(30px);
+  p {
+    padding-bottom: 0;
+  }
+  @media screen and (min-width: sg-breakpoint()) {
+    margin-top: 0;
+  }
+}

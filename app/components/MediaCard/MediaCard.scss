@@ -1,0 +1,21 @@
+.MediaCard {
+  max-width: 370px;
+  border: 3px solid sg-color(sky);
+  margin-top: rem(30px);
+  &Upper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: sg-color(sky, light);
+    border-bottom: 3px solid sg-color(sky);
+  }
+  &Lower {
+    padding: rem(30px);
+    height: rem(210px);
+  }
+  &Icon {
+    display: inline-block;
+    height: rem(87px);
+  }
+}

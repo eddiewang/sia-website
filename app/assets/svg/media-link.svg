@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="74px" height="74px" viewBox="0 0 74 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Link Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Link-Card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-148.000000, -63.000000)" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Link-Icon" transform="translate(184.779029, 99.779029) rotate(-45.000000) translate(-184.779029, -99.779029) translate(142.279029, 84.779029)" stroke-width="3">
+            <path d="M47.9375,22.5625 C47.9375,26.5645 51.1855,29.8125 55.1875,29.8125 L73.3125,29.8125 C79.29375,29.8125 84.1875,24.91875 84.1875,18.9375 L84.1875,11.6875 C84.1875,5.70625 79.29375,0.8125 73.3125,0.8125 L55.1875,0.8125 C51.1855,0.8125 47.9375,4.0605 47.9375,8.0625" id="Stroke-143" stroke="#7F8C8D"></path>
+            <path d="M37.0625,22.5625 C37.0625,26.5645 33.8145,29.8125 29.8125,29.8125 L11.6875,29.8125 C5.70625,29.8125 0.8125,24.91875 0.8125,18.9375 L0.8125,11.6875 C0.8125,5.70625 5.70625,0.8125 11.6875,0.8125 L29.8125,0.8125 C33.8145,0.8125 37.0625,4.0605 37.0625,8.0625" id="Stroke-144" stroke="#7F8C8D"></path>
+            <path d="M22.5625,15.3125 L62.4375,15.3125" id="Stroke-145" stroke="#20EE82"></path>
+        </g>
+    </g>
+</svg>
