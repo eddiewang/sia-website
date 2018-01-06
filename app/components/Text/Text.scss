@@ -17,6 +17,18 @@
   color: sg-color(white);
 }
 
+.isLight {
+  color: sg-color(ink, light);
+}
+
+.isMedium {
+  font-weight: 600;
+}
+
+.isBold {
+  font-weight: 800;
+}
+
 .typeFooterTitle{
   color: sg-color(white);
 }
@@ -61,3 +73,34 @@
   margin-bottom: rem(80px);
 }
 
+.typeQuoteText {
+  display: inline-block;
+  position: relative;
+  font-size: sg-font-size(h6);
+  &:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: rem(-25px);
+    transform: translateX(-50%);
+    width: rem(70px);
+    height: 2px;
+    background: black;
+  }
+}
+
+.typeQuoteAuthor {
+  display: block;
+  margin-top: rem(100px);
+  font-size: rem(24px);
+  padding-bottom: 0;
+}
+
+.typeQuoteRole {
+  display: block;
+}
+
+.typeContactHeader {
+  display: block;
+  padding-bottom: 0;
+}

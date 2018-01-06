@@ -43,14 +43,14 @@ class Home extends React.Component {
                 accessibleLabel="Sia Logo"
                 aria-hidden="true"
               />
-            </div>
+          </div>
             <div className={styles.HeroContent}>
               <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
-              <Text>
+              <Text.Paragraph>
                 Sia is the first peer-to-peer, decentralized storage platform secured by blockchain.
                 We leverage unused hard drive space to create a storage marketplace that is more
                 reliable and lower cost than traditional cloud providers.
-              </Text>
+              </Text.Paragraph>
               <Button type="hero">Download</Button>
             </div>
           </LayoutContainer>
@@ -94,55 +94,55 @@ class Home extends React.Component {
               <div className={styles.PitchRowImage} />
               <div>
                 <TypeHeading level={6}>Completely Private</TypeHeading>
-                <Text>
+                <Text.Paragraph>
                   Sia splits apart, encrypts, and distributes your files across a decentralized
                   network. Since you hold the keys, you own your data. No outside company can access
                   or control your files, unlike traditional cloud storage providers.
-                </Text>
+                </Text.Paragraph>
               </div>
             </div>
             <div className={styles.PitchRow}>
               <div className={styles.PitchRowImage} />
               <div>
                 <TypeHeading level={6}>Far More Affordable</TypeHeading>
-                <Text>
+                <Text.Paragraph>
                   Sia's decentralized cloud is on average 10x less expensive than current cloud
                   storage providers. Storing 1TB on Sia costs about $2 per month, compared with $23
                   on Amazon S3.
-                </Text>
+                </Text.Paragraph>
               </div>
             </div>
             <div className={styles.PitchRow}>
               <div className={styles.PitchRowImage} />
               <div>
                 <TypeHeading level={6}>Highly Redundant</TypeHeading>
-                <Text>
+                <Text.Paragraph>
                   Sia stores tiny pieces of your files on dozens of nodes across the globe. This
                   eliminates any single point of failure and ensures highest possible uptime, on par
                   with other cloud storage providers.
-                </Text>
+                </Text.Paragraph>
               </div>
             </div>
             <div className={styles.PitchRow}>
               <div className={styles.PitchRowImage} />
               <div>
                 <TypeHeading level={6}>Open source</TypeHeading>
-                <Text>
+                <Text.Paragraph>
                   Sia is completely open source. Over a dozen individuals have contributed to Sia's
                   software, and there is an active community building innovative applications on top
                   of the Sia API.
-                </Text>
+                </Text.Paragraph>
               </div>
             </div>
             <div className={styles.PitchRow}>
               <div className={styles.PitchRowImage} />
               <div>
                 <TypeHeading level={6}>Blockchain Marketplace</TypeHeading>
-                <Text>
+                <Text.Paragraph>
                   Using the Sia blockchain, Sia creates a decentralized storage marketplace in which
                   hosts compete for your business – this leads to the lowest possible prices.
                   Renters pay using Siacoin, which can also be mined and traded.
-                </Text>
+                </Text.Paragraph>
               </div>
             </div>
           </LayoutContainer>

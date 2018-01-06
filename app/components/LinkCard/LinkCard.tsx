@@ -9,7 +9,7 @@ class LinkCard extends React.Component {
       <div className={styles.Card}>
       <div className={styles.CardTop}>
       <Text type="linkCardHeader">Title</Text>
-      <Text type="linkCardText"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</Title>
+      <Text.Paragraph type="linkCardText"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</Text.Paragraph>
       </div>
       <div className={styles.CardBottom}>
       <Text type="linkCardFooter">Getting Started Guide ></Text>

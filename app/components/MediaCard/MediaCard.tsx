@@ -53,7 +53,7 @@ class MediaCard extends React.Component<Props, {}> {
         </div>
         <div className={styles.MediaCardLower}>
           <Text type="mediaCardTitle">{capitalize(type)}</Text>
-          <Text type="mediaCardText">{children}</Text>
+          <Text.Paragraph type="mediaCardText">{children}</Text.Paragraph>
         </div>
       </div>
     )
