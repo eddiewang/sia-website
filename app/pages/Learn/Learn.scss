@@ -1,0 +1,7 @@
+.MediaGrid {
+  @media screen and (min-width: sg-breakpoint()) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  margin-bottom: rem(100px);
+}

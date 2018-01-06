@@ -10,13 +10,14 @@ export interface Props {
   type?: SectionType,
   bordered?: boolean,
   children?: React.ReactNode
+  classes?: string
 }
 
 export default class Section extends React.Component<Props, {}> {
   public render() {
-    const { type, children, bordered } = this.props
+    const { type, children, bordered, classes } = this.props
 
-    const className = classNames(styles.Section, type && styles[variationName('type', type)], bordered && styles[variationName('is', 'bordered')])
+    const className = classNames(styles.Section, type && styles[variationName('type', type)], bordered && styles[variationName('is', 'bordered')], classes)
 
     return <section className={className}>{children}</section>
   }
