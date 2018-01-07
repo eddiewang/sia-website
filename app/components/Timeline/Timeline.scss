@@ -1,0 +1,90 @@
+.Timeline {
+  height: 100%;
+  text-align: center;
+  &Ending {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: rem(570px);
+  }
+}
+.Roadmap {
+  li {
+    display: block;
+    position: relative;
+    color: sg-color(ink, lightest);
+    text-align: left;
+    height: rem(260px);
+    padding-bottom: 150px;
+    @media screen and (min-width: sg-breakpoint()) {
+      &:nth-child(even) {
+        text-align: right;
+        left: 100%;
+        transform: translateX(-100%);
+      }
+    }
+    h6 {
+      margin-bottom: rem(10px);
+      color: sg-color(ink, lightest);
+    }
+    &:last-child {
+      padding-bottom: 0;
+      height: rem(110px);
+    }
+  }
+  &Content {
+    display: inline-block;
+    max-width: rem(370px);
+    @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        height: rem(130px);
+        width: rem(3px);
+        background: black;
+        bottom: rem(10px);
+        left: 0;
+        transform: translateX(50%);
+      }
+    }
+  }
+  &Circle {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    background: black;
+    height: rem(70px);
+    width: rem(70px);
+    border-radius: 50%;
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      height: rem(190px);
+      width: rem(3px);
+      background: black;
+      right: 50%;
+      top: rem(70px);
+      transform: translateX(50%);
+    }
+    @media screen and (min-width: sg-breakpoint()) {
+      right: 50%;
+      transform: translateX(50%);
+    }
+    @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
+      display: none;
+    }
+  }
+}
+
+.Last {
+  display: block;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  width: rem(30px);
+  height: rem(30px);
+  background: black;
+  border-radius: 50%;
+}
