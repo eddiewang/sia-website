@@ -224,14 +224,18 @@ class Home extends React.Component<{}, State> {
           </LayoutContainer>
         </Section>
         <Section>
-          <LayoutContainer>
+          <LayoutContainer classes={styles.Learn}>
             <TypeHeading underlined inline level={4}>
               Learn
             </TypeHeading>
-            <div className={styles.Learn}>
+            <div className={styles.LearnBoxes}>
               <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
               <MediaCard type='talks'>Watch David Vorick talk about the business models behind tokens.</MediaCard>
               <MediaCard type='documentation'>This guide will walk you through uploading a file to Sia using the API.</MediaCard>
+            </div>
+            <div className={styles.LearnMore}>
+            <Text type='mediaCardText'>Learn More</Text>
+
             </div>
           </LayoutContainer>
         </Section>

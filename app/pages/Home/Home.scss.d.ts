@@ -40,4 +40,8 @@ export const Developer: string;
 export const developer: string;
 export const Learn: string;
 export const learn: string;
+export const LearnBoxes: string;
+export const learnBoxes: string;
+export const LearnMore: string;
+export const learnMore: string;
 export const skeletonShimmerAnimation: string;
