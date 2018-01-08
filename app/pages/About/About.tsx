@@ -8,7 +8,6 @@ import Button from 'components/Button'
 import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
-import Globe from 'components/Globe'
 import BioCard, { UserDetails } from 'components/BioCard'
 import QuoteBlock from 'components/QuoteBlock'
 

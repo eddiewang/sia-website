@@ -1,0 +1,10 @@
+.Globe {
+  height: rem(600px);
+  background: sg-color(sky);
+  @media screen and (max-width:sg-breakpoint(landscape, iphone6)) {
+    height: rem(300px);
+  }
+  canvas {
+   cursor: pointer;
+  }
+}

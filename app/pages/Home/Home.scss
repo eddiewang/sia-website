@@ -114,6 +114,11 @@
   flex-direction: column;
 }
 
+.Globe {
+  height: 100%;
+  padding-bottom: rem(60px);
+}
+
 .Stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -142,8 +147,26 @@
 }
 
 .Newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 100px 0;
   text-align: center;
+  &CTA {
+    max-width: rem(570px);
+    @media screen and (min-width: sg-breakpoint()) {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      grid-column-gap: rem(30px);
+    }
+  }
+  &Button {
+    margin-top: rem(20px);
+    @media screen and (min-width: sg-breakpoint()) {
+      margin-top: 0;
+    }
+  }
+
 }
 
 .Developer {

@@ -10,6 +10,7 @@ import Text from 'components/Text'
 import Avatar from 'components/Avatar'
 import Globe from 'components/Globe'
 import MediaCard from 'components/MediaCard'
+import Input from 'components/Input'
 
 import SiaLogo from 'svg/sia-logo.svg'
 import DavidAvatar from 'svg/avatar-david.svg'
@@ -27,9 +28,22 @@ import avatarData from './team-data'
 
 import * as styles from './Home.scss'
 
+interface State {
+  newsletterEmail: string
+}
+
 @inject('main')
 @observer
-class Home extends React.Component {
+class Home extends React.Component<{}, State> {
+  public state: State = {
+    newsletterEmail: ''
+  }
+
+  public handleCTA = (e) : void => {
+    this.setState({
+      newsletterEmail: e.target.value
+    })
+  }
   public render() {
     return (
       <div>
@@ -51,13 +65,13 @@ class Home extends React.Component {
                 We leverage unused hard drive space to create a storage marketplace that is more
                 reliable and lower cost than traditional cloud providers.
               </Text.Paragraph>
-              <Button type="hero">Download</Button>
+              <Button type="largeCTA">Download</Button>
             </div>
           </LayoutContainer>
         </Section>
         <Section>
           <LayoutContainer>
-            <div>
+            <div className={styles.Globe}>
               <Globe />
             </div>
             <div className={styles.Stats}>
@@ -150,6 +164,10 @@ class Home extends React.Component {
         <Section type="skyLight">
           <LayoutContainer classes={styles.Newsletter}>
             <TypeHeading level={6}>Sign up for announcements</TypeHeading>
+            <div className={styles.NewsletterCTA}>
+              <Input value={this.state.newsletterEmail} onChange={this.handleCTA} placeholder="Your email"/>
+              <Button classes={styles.NewsletterButton} type="largeCTA">Submit</Button>
+            </div>
             </LayoutContainer>
         </Section>
         <Section>
@@ -166,41 +184,42 @@ class Home extends React.Component {
               <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
               <TypeHeading level={6}>Commits</TypeHeading>
             </div>
+
             <div className={styles.DeveloperStatBlock}>
             <Icon
-                src={DevCommits.id}
-                viewBox={DevCommits.viewBox}
+                src={DevForks.id}
+                viewBox={DevForks.viewBox}
                 aspectRatio="xMinYMin"
-                accessibleLabel="Developer Commits"
+                accessibleLabel="Developer Forks"
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
-              <TypeHeading level={6}>Commits</TypeHeading>
+              <TypeHeading type='developerStat' level={1}>244</TypeHeading>
+              <TypeHeading level={6}>Forks</TypeHeading>
             </div>
             <div className={styles.DeveloperStatBlock}>
             <Icon
-                src={DevCommits.id}
-                viewBox={DevCommits.viewBox}
+                src={DevReleases.id}
+                viewBox={DevReleases.viewBox}
                 aspectRatio="xMinYMin"
-                accessibleLabel="Developer Commits"
+                accessibleLabel="Developer Releases"
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
-              <TypeHeading level={6}>Commits</TypeHeading>
+              <TypeHeading type='developerStat' level={1}>40</TypeHeading>
+              <TypeHeading level={6}>Releases</TypeHeading>
             </div>
             <div className={styles.DeveloperStatBlock}>
             <Icon
-                src={DevCommits.id}
-                viewBox={DevCommits.viewBox}
+                src={DevContributors.id}
+                viewBox={DevContributors.viewBox}
                 aspectRatio="xMinYMin"
-                accessibleLabel="Developer Commits"
+                accessibleLabel="Developer Contributors"
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
-              <TypeHeading level={6}>Commits</TypeHeading>
+              <TypeHeading type='developerStat' level={1}>40</TypeHeading>
+              <TypeHeading level={6}>Contributors</TypeHeading>
             </div>
           </LayoutContainer>
         </Section>
