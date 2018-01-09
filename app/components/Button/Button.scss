@@ -16,8 +16,15 @@
 
 .typeLargeCTA {
   height: rem(69px);
+  line-height: rem(69px);
   font-weight: 400;
   font-size: sg-font-size(large-button);
   padding-left: sg-spacing(loose);
   padding-right: sg-spacing(loose);
+}
+
+.Link {
+  display: inline-block;
+  line-height: rem(50px);
+  color: sg-color(white) !important;
 }

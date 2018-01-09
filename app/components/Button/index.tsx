@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'react-router-dom'
+import Link from './Link'
 import * as styles from './Button.scss'
 import * as classNames from 'classnames'
 import { variationName } from 'utilities/styles'
@@ -13,6 +13,7 @@ export interface Props {
 }
 
 class Button extends React.Component<Props, {}> {
+  public static Link = Link
   public render() {
     const { children, type, classes } = this.props
     const className = classNames(styles.Button, type && styles[variationName('type', type)], classes)

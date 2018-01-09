@@ -96,7 +96,6 @@ DAT.Globe = function(container, opts) {
     var shader, uniforms, material;
     w = container.offsetWidth || window.innerWidth;
     h = container.offsetHeight || window.innerHeight;
-    console.log('wf', w, h, container.offsetHeight, container.offsetWidth, window.innerHeight, window.innerWidth )
 
     camera = new THREE.PerspectiveCamera(30, w / h, 1, 10000);
     camera.position.z = distance;

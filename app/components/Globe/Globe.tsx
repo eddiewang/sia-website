@@ -20,7 +20,6 @@ class Globe extends React.Component {
       Detector.addGetWebGLMessage();
     } else {
 
-      const years = ['1990','1995','2000'];
       const opts = {imgDir: 'assets/'};
       const globe = new DAT.Globe(this.container, opts);
       const tweens = [];
