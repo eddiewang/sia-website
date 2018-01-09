@@ -2,7 +2,16 @@
   text-align: center;
   border-radius: 6px;
   border: 3px solid sg-color(sky);
-  height: rem(504px);
+  min-height: rem(504px);
+  &AvatarWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 6px solid sg-color(sia-green);
+    height: rem(270px);
+    width: rem(270px);
+    border-radius: 50%;
+  }
   &Avatar {
     display: inline-block;
     height: rem(170px);
@@ -11,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: rem(370px);
+    min-height: rem(370px);
     background: sg-color(sky, light);
     border-bottom: 3px solid sg-color(sky);
   }
@@ -25,5 +34,5 @@
 
 .Large {
   width: 100%;
-  height: rem(700px);
+  min-height: rem(700px);
 }

@@ -17,7 +17,7 @@ import * as styles from './Learn.scss'
 class Learn extends React.Component {
   public render() {
     return (
-      <div>
+      <div className={styles.LearnContainer}>
         <Section>
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Sia</TypeHeading>

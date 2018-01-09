@@ -1,5 +1,7 @@
 export const Card: string;
 export const card: string;
+export const CardAvatarWrap: string;
+export const cardAvatarWrap: string;
 export const CardAvatar: string;
 export const cardAvatar: string;
 export const CardTop: string;

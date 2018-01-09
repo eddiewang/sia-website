@@ -20,10 +20,7 @@ class Layout extends React.Component<Props, any> {
   public render() {
     const { children, location } = this.props
     const navItems = [
-      {
-        name: 'Get Started',
-        path: 'get-started'
-      }, {
+       {
         name: 'About',
         path: 'about'
       }, {

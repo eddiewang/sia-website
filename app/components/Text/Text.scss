@@ -1,6 +1,6 @@
 .Text {
   font-size: sg-font-size();
-  padding-bottom:(sg-font-size() * 1.4);
+  padding-bottom: (sg-font-size() * 1.4);
   line-height: 1.6;
 
   &:last-child {
@@ -29,7 +29,7 @@
   font-weight: 800;
 }
 
-.typeFooterTitle{
+.typeFooterTitle {
   color: sg-color(white);
 }
 
@@ -44,7 +44,9 @@
 }
 
 .typeMediaCardText {
-  font-size: rem(24px);
+  @media screen and (min-height: sg-breakpoint(portrait, tablet)) {
+    font-size: rem(24px);
+  }
 }
 
 .typeLinkCardHeader {
@@ -68,17 +70,26 @@
 }
 
 .typeVisionHeading {
-  font-size: sg-font-size(h6);
-  line-height: 1.2;
-  margin-bottom: rem(80px);
+  font-weight: 600;
+  @media screen and (min-width: sg-breakpoint()) {
+    font-size: sg-font-size(h6);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: rem(80px);
+  }
 }
 
 .typeQuoteText {
   display: inline-block;
   position: relative;
-  font-size: sg-font-size(h6);
+  font-size: initial;
+  font-weight: 600;
+  @media screen and (min-width: sg-breakpoint()) {
+    font-size: sg-font-size(h6);
+    font-weight: 400;
+  }
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     left: 50%;
     bottom: rem(-25px);

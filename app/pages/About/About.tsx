@@ -32,7 +32,7 @@ class About extends React.Component {
       <div>
         <Section>
           <LayoutContainer classes={styles.Vision}>
-            <div>
+            <div className={styles.VisionHeading}>
               <TypeHeading level={3} inline underlined>
                 Vision
               </TypeHeading>
@@ -89,7 +89,7 @@ class About extends React.Component {
         <Section type="skyLight">
           <LayoutContainer classes={styles.Contact}>
             <div>
-              <TypeHeading underlined level={3} inline>
+              <TypeHeading type="contactHeading" underlined level={3} inline>
                 Contact
               </TypeHeading>
             </div>

@@ -39,7 +39,7 @@ class Home extends React.Component<{}, State> {
     newsletterEmail: ''
   }
 
-  public handleCTA = (e) : void => {
+  public handleCTA = (e): void => {
     this.setState({
       newsletterEmail: e.target.value
     })
@@ -57,7 +57,7 @@ class Home extends React.Component<{}, State> {
                 accessibleLabel="Sia Logo"
                 aria-hidden="true"
               />
-          </div>
+            </div>
             <div className={styles.HeroContent}>
               <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
               <Text.Paragraph>
@@ -165,15 +165,21 @@ class Home extends React.Component<{}, State> {
           <LayoutContainer classes={styles.Newsletter}>
             <TypeHeading level={6}>Sign up for announcements</TypeHeading>
             <div className={styles.NewsletterCTA}>
-              <Input value={this.state.newsletterEmail} onChange={this.handleCTA} placeholder="Your email"/>
-              <Button classes={styles.NewsletterButton} type="largeCTA">Submit</Button>
+              <Input
+                value={this.state.newsletterEmail}
+                onChange={this.handleCTA}
+                placeholder="Your email"
+              />
+              <Button classes={styles.NewsletterButton} type="largeCTA">
+                Submit
+              </Button>
             </div>
-            </LayoutContainer>
+          </LayoutContainer>
         </Section>
         <Section>
           <LayoutContainer classes={styles.Developer}>
             <div className={styles.DeveloperStatBlock}>
-            <Icon
+              <Icon
                 src={DevCommits.id}
                 viewBox={DevCommits.viewBox}
                 aspectRatio="xMinYMin"
@@ -181,12 +187,14 @@ class Home extends React.Component<{}, State> {
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading type='developerStat' level={1}>7,926</TypeHeading>
-              <TypeHeading level={6}>Commits</TypeHeading>
+              <TypeHeading type="developerStat" level={1}>
+                7,926
+              </TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>Commits</TypeHeading>
             </div>
 
             <div className={styles.DeveloperStatBlock}>
-            <Icon
+              <Icon
                 src={DevForks.id}
                 viewBox={DevForks.viewBox}
                 aspectRatio="xMinYMin"
@@ -194,11 +202,13 @@ class Home extends React.Component<{}, State> {
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading type='developerStat' level={1}>244</TypeHeading>
-              <TypeHeading level={6}>Forks</TypeHeading>
+              <TypeHeading type="developerStat" level={1}>
+                244
+              </TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>Forks</TypeHeading>
             </div>
             <div className={styles.DeveloperStatBlock}>
-            <Icon
+              <Icon
                 src={DevReleases.id}
                 viewBox={DevReleases.viewBox}
                 aspectRatio="xMinYMin"
@@ -206,11 +216,13 @@ class Home extends React.Component<{}, State> {
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading type='developerStat' level={1}>40</TypeHeading>
-              <TypeHeading level={6}>Releases</TypeHeading>
+              <TypeHeading  type="developerStat" level={1}>
+                40
+              </TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>Releases</TypeHeading>
             </div>
             <div className={styles.DeveloperStatBlock}>
-            <Icon
+              <Icon
                 src={DevContributors.id}
                 viewBox={DevContributors.viewBox}
                 aspectRatio="xMinYMin"
@@ -218,8 +230,10 @@ class Home extends React.Component<{}, State> {
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading type='developerStat' level={1}>40</TypeHeading>
-              <TypeHeading level={6}>Contributors</TypeHeading>
+              <TypeHeading  type="developerStat" level={1}>
+                40
+              </TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>Contributors</TypeHeading>
             </div>
           </LayoutContainer>
         </Section>
@@ -229,13 +243,18 @@ class Home extends React.Component<{}, State> {
               Learn
             </TypeHeading>
             <div className={styles.LearnBoxes}>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='talks'>Watch David Vorick talk about the business models behind tokens.</MediaCard>
-              <MediaCard type='documentation'>This guide will walk you through uploading a file to Sia using the API.</MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="talks">
+                Watch David Vorick talk about the business models behind tokens.
+              </MediaCard>
+              <MediaCard type="documentation">
+                This guide will walk you through uploading a file to Sia using the API.
+              </MediaCard>
             </div>
             <div className={styles.LearnMore}>
-            <Text type='mediaCardText'>Learn More</Text>
-
+              <Text type="mediaCardText">Learn More</Text>
             </div>
           </LayoutContainer>
         </Section>

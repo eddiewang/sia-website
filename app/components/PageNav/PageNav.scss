@@ -72,7 +72,7 @@
 
 .List {
   @media only screen and (max-width: sg-breakpoint() - 1px) {
-    padding-top: sg-spacing(looser);
+    padding-top: rem(80px);
     padding-bottom: sg-spacing(tightest);
   }
 

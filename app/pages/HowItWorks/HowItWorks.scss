@@ -8,9 +8,11 @@
 .Tutorial {
   background: sg-color(sky, light);
   &Layout {
-    display: grid;
-    grid-template-columns: repeat(12, [col] 1fr);
     padding: rem(135px) 0;
+    @media screen and (min-width: sg-breakpoint()) {
+      display: grid;
+      grid-template-columns: repeat(12, [col] 1fr);
+    }
   }
   &Image {
     grid-column: col 1/ span 5;

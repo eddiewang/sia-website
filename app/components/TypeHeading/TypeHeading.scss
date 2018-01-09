@@ -78,10 +78,6 @@ $accepted-heading-levels: 1, 2, 3, 4, 5, 6;
 
 .TypeHeading {
   color: sg-color(ink);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .level1 {
@@ -115,7 +111,7 @@ $accepted-heading-levels: 1, 2, 3, 4, 5, 6;
 
 .isUnderlined {
   &::after {
-    content: "";
+    content: '';
     display: block;
     border-top: rem(6px) solid sg-color(sia-green);
   }
@@ -135,16 +131,30 @@ $accepted-heading-levels: 1, 2, 3, 4, 5, 6;
 
 .typeStat {
   color: sg-color(sia-green);
-  font-size: sg-font-size(h4);
-  line-height: rem(40px);
+  font-size: rem(32px);
+  line-height: 1.0;
   margin-bottom: rem(10px);
-  font-weight: 600;
+  @media screen and (min-width: sg-breakpoint()) {
+    font-size: sg-font-size(h4);
+    margin-bottom: rem(10px);
+    font-weight: 600;
+  }
 }
 
 .typeDeveloperStat {
   color: sg-color(sia-green);
-  font-size: sg-font-size(h1);
+  font-size: sg-font-size(h6);
+  @media screen and (min-width: sg-breakpoint()) {
+    font-size: sg-font-size(h1);
+  }
   margin-bottom: 0;
+}
+
+.typeDeveloperStatSubheading {
+  font-size: rem(24px);
+  @media screen and (min-width: sg-breakpoint()) {
+    font-size: sg-font-size(h6);
+  }
 }
 
 .typeBioHeading {
@@ -153,4 +163,8 @@ $accepted-heading-levels: 1, 2, 3, 4, 5, 6;
 
 .typeBioLink {
   margin-bottom: 30px;
+}
+
+.typeContactHeading {
+  padding-bottom: rem(40px);
 }

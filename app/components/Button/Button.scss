@@ -5,6 +5,7 @@
   padding-left: sg-spacing(tight);
   padding-right: sg-spacing(tight);
   border-radius: sg-radius();
+  font-weight: 800;
 }
 
 .typeNav {
@@ -15,6 +16,7 @@
 
 .typeLargeCTA {
   height: rem(69px);
+  font-weight: 400;
   font-size: sg-font-size(large-button);
   padding-left: sg-spacing(loose);
   padding-right: sg-spacing(loose);

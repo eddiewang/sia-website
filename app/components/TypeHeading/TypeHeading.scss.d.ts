@@ -13,6 +13,8 @@ export const isTight: string;
 export const isLighter: string;
 export const typeStat: string;
 export const typeDeveloperStat: string;
+export const typeDeveloperStatSubheading: string;
 export const typeBioHeading: string;
 export const typeBioLink: string;
+export const typeContactHeading: string;
 export const skeletonShimmerAnimation: string;

@@ -6,6 +6,12 @@
     left: 50%;
     transform: translateX(-50%);
     max-width: rem(570px);
+    padding-bottom: rem(100px);
+    h6 {
+      @media screen and (max-width: sg-breakpoint()) {
+        font-size: rem(22px);
+      }
+    }
   }
 }
 .Roadmap {
@@ -14,37 +20,39 @@
     position: relative;
     color: sg-color(ink, lightest);
     text-align: left;
-    height: rem(260px);
     padding-bottom: 150px;
+
+    h6 {
+      margin-bottom: rem(10px);
+      color: sg-color(ink, lightest);
+    }
+
     @media screen and (min-width: sg-breakpoint()) {
+      min-height: rem(260px);
       &:nth-child(even) {
         text-align: right;
         left: 100%;
         transform: translateX(-100%);
       }
     }
-    h6 {
-      margin-bottom: rem(10px);
-      color: sg-color(ink, lightest);
-    }
     &:last-child {
       padding-bottom: 0;
-      height: rem(110px);
+      min-height: rem(80px);
     }
   }
   &Content {
     display: inline-block;
     max-width: rem(370px);
-    @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
-      &::after {
+    &::after {
+      @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
         display: block;
-        content: "";
+        content: '';
         position: absolute;
         height: rem(130px);
         width: rem(3px);
         background: black;
         bottom: rem(10px);
-        left: 0;
+        right: 50%;
         transform: translateX(50%);
       }
     }
@@ -59,9 +67,9 @@
     border-radius: 50%;
     &::after {
       display: block;
-      content: "";
+      content: '';
       position: absolute;
-      height: rem(190px);
+      min-height: rem(220px);
       width: rem(3px);
       background: black;
       right: 50%;
@@ -87,4 +95,8 @@
   height: rem(30px);
   background: black;
   border-radius: 50%;
+  margin-top: rem(-20px);
+  @media screen and (min-width: sg-breakpoint()) {
+    margin-top: 0;
+  }
 }

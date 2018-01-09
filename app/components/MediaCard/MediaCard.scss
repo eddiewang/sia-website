@@ -6,13 +6,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px;
+    min-height: 200px;
     background: sg-color(sky, light);
     border-bottom: 3px solid sg-color(sky);
   }
   &Lower {
     padding: rem(30px);
-    height: rem(210px);
+    @media screen and (min-width: sg-breakpoint()) {
+      min-height: rem(210px);
+    }
   }
   &Icon {
     display: inline-block;
