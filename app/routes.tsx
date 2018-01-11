@@ -26,7 +26,7 @@ function getComponent(page) {
   return Loadable({
     loader: () => System.import(`pages/${page}`),
     loading() {
-      return <div> Loading </div>
+      return <div style={{ height: '100vh' }} />
     }
   })
 }

@@ -8,7 +8,8 @@ import Button from 'components/Button'
 import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
-import Globe from 'components/Globe'
+// import Globe from 'components/Globe'
+import Map from 'components/Map'
 import MediaCard from 'components/MediaCard'
 import Input from 'components/Input'
 
@@ -72,7 +73,7 @@ class Home extends React.Component<{}, State> {
         <Section>
           <LayoutContainer>
             <div className={styles.Globe}>
-              <Globe />
+              <Map />
             </div>
             <div className={styles.Stats}>
               <div>
@@ -102,8 +103,8 @@ class Home extends React.Component<{}, State> {
             </div>
           </LayoutContainer>
         </Section>
-        <Section>
-          <LayoutContainer classes={styles.Pitch}>
+        <Section classes={styles.Pitch}>
+          <LayoutContainer>
             <div className={styles.PitchRow}>
               <div className={styles.PitchRowImage} />
               <div>
@@ -190,7 +191,9 @@ class Home extends React.Component<{}, State> {
               <TypeHeading type="developerStat" level={1}>
                 7,926
               </TypeHeading>
-              <TypeHeading type="developerStatSubheading" level={6}>Commits</TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>
+                Commits
+              </TypeHeading>
             </div>
 
             <div className={styles.DeveloperStatBlock}>
@@ -205,7 +208,9 @@ class Home extends React.Component<{}, State> {
               <TypeHeading type="developerStat" level={1}>
                 244
               </TypeHeading>
-              <TypeHeading type="developerStatSubheading" level={6}>Forks</TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>
+                Forks
+              </TypeHeading>
             </div>
             <div className={styles.DeveloperStatBlock}>
               <Icon
@@ -216,10 +221,12 @@ class Home extends React.Component<{}, State> {
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading  type="developerStat" level={1}>
+              <TypeHeading type="developerStat" level={1}>
                 40
               </TypeHeading>
-              <TypeHeading type="developerStatSubheading" level={6}>Releases</TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>
+                Releases
+              </TypeHeading>
             </div>
             <div className={styles.DeveloperStatBlock}>
               <Icon
@@ -230,10 +237,12 @@ class Home extends React.Component<{}, State> {
                 aria-hidden="true"
                 classes={styles.DeveloperIcon}
               />
-              <TypeHeading  type="developerStat" level={1}>
+              <TypeHeading type="developerStat" level={1}>
                 40
               </TypeHeading>
-              <TypeHeading type="developerStatSubheading" level={6}>Contributors</TypeHeading>
+              <TypeHeading type="developerStatSubheading" level={6}>
+                Contributors
+              </TypeHeading>
             </div>
           </LayoutContainer>
         </Section>

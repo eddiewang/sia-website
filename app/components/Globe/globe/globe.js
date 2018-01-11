@@ -75,6 +75,8 @@ DAT.Globe = function(container, opts) {
   var mesh, atmosphere, point;
 
   var overRenderer;
+  var isZoomed = false;
+  var totalGameTime = 0;
 
   var curZoomSpeed = 0;
   var zoomSpeed = 50;
@@ -153,7 +155,7 @@ DAT.Globe = function(container, opts) {
 
     container.addEventListener('mousedown', onMouseDown, false);
 
-    // container.addEventListener('mousewheel', onMouseWheel, false);
+    container.addEventListener('dblclick', onMouseWheel, false);
 
     document.addEventListener('keydown', onDocumentKeyDown, false);
 
@@ -316,8 +318,12 @@ DAT.Globe = function(container, opts) {
 
   function onMouseWheel(event) {
     event.preventDefault();
-    if (overRenderer) {
-      zoom(event.wheelDeltaY * 0.3);
+    if (overRenderer && !isZoomed) {
+      zoom(250);
+      isZoomed = true
+    } else {
+      zoom(-250);
+      isZoomed = false
     }
     return false;
   }
@@ -347,6 +353,20 @@ DAT.Globe = function(container, opts) {
     distanceTarget = distanceTarget < 350 ? 350 : distanceTarget;
   }
 
+  var lastFrameTime = new Date().getTime() / 1000;
+  function update(delta, now) {
+    rotation.y  += 1/32 * delta
+    setTimeout(function() {
+      var currTime = new Date().getTime() / 1000;
+        var dt = currTime - (lastFrameTime || currTime);
+        totalGameTime += dt;
+
+        update(dt, totalGameTime);
+
+        lastFrameTime = currTime;
+    }, 0)
+  }
+
   function animate() {
     requestAnimationFrame(animate);
     render();
@@ -366,6 +386,7 @@ DAT.Globe = function(container, opts) {
     camera.lookAt(mesh.position);
 
     renderer.render(scene, camera);
+
   }
 
   init();
