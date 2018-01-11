@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
+import PageShell from './PageShell'
 
 import Layout from './Layout'
 import Home from 'pages/Home'
@@ -25,6 +26,10 @@ export default class Routes extends React.Component {
 function getComponent(page) {
   return Loadable({
     loader: () => System.import(`pages/${page}`),
+    render(loaded, props) {
+      const Component = loaded.default
+      return PageShell(Component)
+    },
     loading() {
       return <div style={{ height: '100vh' }} />
     }

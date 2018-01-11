@@ -4,8 +4,8 @@
 ////
 
 @mixin layout-padding {
-  padding-right: sg-spacing(tight);
-  padding-left: sg-spacing(tight);
+  padding-right: sg-spacing(loose);
+  padding-left: sg-spacing(loose);
 
   @media only screen and (min-width: sg-breakpoint()) {
     padding-right: sg-spacing();

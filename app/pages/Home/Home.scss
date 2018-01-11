@@ -133,9 +133,6 @@
 }
 
 .Pitch {
-  @media screen and (max-width: sg-breakpoint()) {
-    padding-top: rem(10px);
-  }
   &Row {
     margin: 40px 0;
     @media screen and (min-width: sg-breakpoint()) {
