@@ -42,7 +42,7 @@ module.exports = require('./webpack.base.babel.js')({
       inject: true
     }),
     new ExtractTextPlugin('[name].[contenthash].css'),
-    new MinifyPlugin()
+    // new MinifyPlugin()
   ],
   performance: {
     assetFilter: assetFilename =>

@@ -43,7 +43,7 @@ function getComponent(page) {
   return Loadable({
     loader: () => System.import(`pages/${page}`),
     loading() {
-      return <div style={{ height: '100vh' }} />
+      return <div style={{ height: '100vh', width: '100%' }} />
     }
   })
 }
