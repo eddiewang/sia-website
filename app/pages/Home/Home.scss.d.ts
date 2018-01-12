@@ -1,7 +1,5 @@
 export const Hero: string
 export const hero: string
-export const HeroLogo: string
-export const heroLogo: string
 export const HeroContent: string
 export const heroContent: string
 export const TwoColumnDescription: string

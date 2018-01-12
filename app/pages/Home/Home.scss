@@ -6,32 +6,13 @@
   }
 }
 
-.HeroLogo {
-  display: flex;
-  grid-column: 2;
-  grid-row: 1;
-  svg {
-    margin-left: auto;
-    max-height: (sg-layout-height(hero-logo) * 0.5);
-    max-width: (sg-layout-height(hero-logo) * 0.5);
-    padding: 0 sg-spacing(loose) sg-spacing(loose) 0;
-    @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
-      max-width: sg-layout-width(hero-logo);
-      max-height: sg-layout-height(hero-logo);
-      padding: 0;
-      // margin-right: sg-spacing(huge);
-    }
-  }
-  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
-    justify-content: flex-end;
-    align-items: center;
-  }
-}
-
 .HeroContent {
   grid-column: 1;
   grid-row: 1;
   // text-align: center;
+  h2 {
+    margin-bottom: 30px;
+  }
   button {
     margin-top: sg-spacing();
   }

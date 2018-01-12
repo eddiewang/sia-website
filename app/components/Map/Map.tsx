@@ -1,6 +1,7 @@
 import * as React from 'react'
 import ReactMapboxGl, { Layer, Feature, GeoJSONLayer } from 'react-mapbox-gl'
 import geojson from './geojson.json'
+import * as styles from './Map.scss'
 
 interface Props {
   width?: number
@@ -17,14 +18,7 @@ const MapBox = ReactMapboxGl({
 export default class Map extends React.Component<Props, {}> {
   public render() {
     return (
-      <MapBox
-        style="mapbox://styles/mapbox/light-v9"
-        containerStyle={{
-          height: '500px',
-          width: '100%'
-        }}
-        zoom={[1]}
-      >
+      <MapBox style="mapbox://styles/mapbox/light-v9" className={styles.MapBox} zoom={[1]}>
         <GeoJSONLayer
           data={geojson}
           circlePaint={{

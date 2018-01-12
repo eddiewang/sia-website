@@ -50,15 +50,6 @@ class Home extends React.Component<{}, State> {
       <div>
         <Section>
           <LayoutContainer classes={styles.Hero}>
-            <div className={styles.HeroLogo}>
-              <Icon
-                src={SiaLogo.id}
-                viewBox={SiaLogo.viewBox}
-                aspectRatio="xMinYMin"
-                accessibleLabel="Sia Logo"
-                aria-hidden="true"
-              />
-            </div>
             <div className={styles.HeroContent}>
               <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
               <Text.Paragraph>
