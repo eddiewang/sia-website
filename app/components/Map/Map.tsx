@@ -1,5 +1,6 @@
 import * as React from 'react'
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl'
+import ReactMapboxGl, { Layer, Feature, GeoJSONLayer } from 'react-mapbox-gl'
+import geojson from './geojson.json'
 
 interface Props {
   width?: number
@@ -8,7 +9,9 @@ interface Props {
 
 const MapBox = ReactMapboxGl({
   accessToken:
-    'pk.eyJ1IjoiZWRkaWV3YW5nIiwiYSI6ImNqY2EzenN3OTA4NTgyd3A1MWRydWZqYTAifQ.6Ni0LTAYS5vVnjSNduZawA'
+    'pk.eyJ1IjoiZWRkaWV3YW5nIiwiYSI6ImNqY2EzenN3OTA4NTgyd3A1MWRydWZqYTAifQ.6Ni0LTAYS5vVnjSNduZawA',
+  interactive: false,
+  attributionControl: false
 })
 
 export default class Map extends React.Component<Props, {}> {
@@ -22,9 +25,16 @@ export default class Map extends React.Component<Props, {}> {
         }}
         zoom={[1]}
       >
-        <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-          <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
-        </Layer>
+        <GeoJSONLayer
+          data={geojson}
+          circlePaint={{
+            // make circles larger as the user zooms from z12 to z22
+            'circle-radius': 3,
+            // color circles by ethnicity, using data-driven styles
+            'circle-color': '#20EE82',
+            'circle-opacity': 0.25
+          }}
+        />
       </MapBox>
     )
   }
