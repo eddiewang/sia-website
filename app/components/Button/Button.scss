@@ -6,12 +6,20 @@
   padding-right: sg-spacing(tight);
   border-radius: sg-radius();
   font-weight: 800;
+  font-size: rem(16px);
+  transition: all sg-duration(fast) sg-easing();
+  &:hover, &:active {
+    background: #00C760;
+  }
 }
 
 .typeNav {
   background: sg-color(sia-green);
-  margin-left: rem(30px);
-  margin-top: rem(10px);
+  margin-top: rem(20px);
+  @media screen and (min-width: sg-breakpoint()) {
+    margin-left: rem(30px);
+    margin-top: rem(7px);
+  }
 }
 
 .typeLargeCTA {

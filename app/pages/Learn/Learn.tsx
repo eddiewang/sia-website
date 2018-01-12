@@ -22,12 +22,24 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Sia</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="blog">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="documentation">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="talks">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
             </div>
           </LayoutContainer>
         </Section>
@@ -36,12 +48,24 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Cryptocurrency</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
             </div>
           </LayoutContainer>
         </Section>
@@ -50,12 +74,24 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Cloud Storage</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
-              <MediaCard type='video'>Here’s a quick-start video on how to download and install Sia.</MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
+              <MediaCard type="video">
+                Here’s a quick-start video on how to download and install Sia.
+              </MediaCard>
             </div>
           </LayoutContainer>
         </Section>

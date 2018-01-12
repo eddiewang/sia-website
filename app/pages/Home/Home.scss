@@ -117,7 +117,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 0;
+  padding: rem(60px) 0;
   text-align: center;
   &CTA {
     max-width: rem(570px);
@@ -136,6 +136,7 @@
 }
 
 .Developer {
+  padding: rem(60px) 0;
   &Icon {
     display: inline-block;
     height: rem(69px);
@@ -143,11 +144,14 @@
   }
   &StatBlock {
     text-align: center;
-    padding: sg-spacing(tight) 0;
+    @media screen and (min-width: sg-breakpoint()) {
+      padding: sg-spacing(tight) 0;
+    }
   }
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: rem(24px);
+  grid-column-gap: rem(24px);
   @media screen and (min-width: sg-breakpoint()) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

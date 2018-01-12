@@ -14,14 +14,13 @@ const firstChild = props => {
 }
 
 const pageRoutes = ({ location }) => {
-  console.log(location)
   return (
     <TransitionGroup component={firstChild}>
       <AnimatedSwitch key={location.key} location={location}>
         <Route exact path="/" component={Home} />
         <Route exact path="/get-started" component={getComponent('GetStarted')} />
         <Route exact path="/about" component={getComponent('About')} />
-        <Route exact path="/how-it-works" component={getComponent('HowItWorks')} />
+        <Route exact path="/technology" component={getComponent('HowItWorks')} />
         <Route exact path="/learn" component={getComponent('Learn')} />
         <Route exact path="/roadmap" component={getComponent('Roadmap')} />
       </AnimatedSwitch>

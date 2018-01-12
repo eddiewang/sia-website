@@ -138,7 +138,7 @@ $accepted-heading-levels: 1, 2, 3, 4, 5, 6;
   line-height: 1.0;
   margin-bottom: rem(10px);
   @media screen and (min-width: sg-breakpoint()) {
-    font-size: sg-font-size(h4);
+    font-size: sg-font-size(h1);
     margin-bottom: rem(10px);
     font-weight: 600;
   }

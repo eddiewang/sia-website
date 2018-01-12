@@ -11,30 +11,17 @@ interface Props {
 }
 
 class PitchRow extends React.Component<Props, {}> {
-  public state = {
-    visible: false,
-    message: 'hi'
-  }
-  public appearIn = () => {
-    console.log('hi')
-    this.setState({
-      message: 'entered'
-    })
-  }
   public render() {
     const { title, content } = this.props
-    const { visible, message } = this.state
-    const PitchRowClass = classNames(styles.PitchRow, visible && styles.isVisible)
+    const PitchRowClass = classNames(styles.PitchRow)
     return (
-      <Waypoint onEnter={this.appearIn}>
-        <div className={PitchRowClass}>
-          <div className={styles.PitchRowImage} />
-          <div>
-            <TypeHeading level={6}>{title}</TypeHeading>
-            <Text.Paragraph>{content}</Text.Paragraph>
-          </div>
+      <div className={PitchRowClass}>
+        <div className={styles.PitchRowImage} />
+        <div>
+          <TypeHeading level={6}>{title}</TypeHeading>
+          <Text.Paragraph>{content}</Text.Paragraph>
         </div>
-      </Waypoint>
+      </div>
     )
   }
 }

@@ -11,22 +11,23 @@ interface Props {
 const MapBox = ReactMapboxGl({
   accessToken:
     'pk.eyJ1IjoiZWRkaWV3YW5nIiwiYSI6ImNqY2EzenN3OTA4NTgyd3A1MWRydWZqYTAifQ.6Ni0LTAYS5vVnjSNduZawA',
-  interactive: false,
+  interactive: true,
+  scrollZoom: false,
   attributionControl: false
 })
 
 export default class Map extends React.Component<Props, {}> {
   public render() {
     return (
-      <MapBox style="mapbox://styles/mapbox/light-v9" className={styles.MapBox} zoom={[1]}>
+      <MapBox style="mapbox://styles/mapbox/light-v9" className={styles.MapBox} zoom={[1.8]}>
         <GeoJSONLayer
           data={geojson}
           circlePaint={{
             // make circles larger as the user zooms from z12 to z22
-            'circle-radius': 3,
+            'circle-radius': 5,
             // color circles by ethnicity, using data-driven styles
             'circle-color': '#20EE82',
-            'circle-opacity': 0.25
+            'circle-opacity': 0.55
           }}
         />
       </MapBox>

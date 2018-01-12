@@ -38,14 +38,17 @@
 }
 
 .typeMediaCardTitle {
+  display: inline-block;
   color: sg-color(ink, lightest);
   padding-top: 0;
-  padding-bottom: sg-spacing(tightest);
+  padding-bottom: 0;
+  margin-bottom: sg-spacing(tighter);
 }
 
 .typeMediaCardText {
-  @media screen and (min-height: sg-breakpoint(portrait, tablet)) {
-    font-size: rem(24px);
+  font-size: rem(20px);
+  @media screen and (max-width: sg-breakpoint()) {
+    font-size: rem(18px);
   }
 }
 
@@ -84,6 +87,7 @@
   position: relative;
   font-size: initial;
   font-weight: 600;
+  max-width: rem(850px);
   @media screen and (min-width: sg-breakpoint()) {
     font-size: sg-font-size(h6);
     font-weight: 400;
@@ -114,4 +118,12 @@
 .typeContactHeader {
   display: block;
   padding-bottom: 0;
+}
+
+.typeStat {
+  font-weight: 600;
+  font-size: rem(14px);
+  @media screen and (min-width: sg-breakpoint(portrait, tablet)) {
+   font-size: rem(18px);
+  }
 }

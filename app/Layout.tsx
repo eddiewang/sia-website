@@ -25,8 +25,8 @@ class Layout extends React.Component<Props, any> {
         path: 'about'
       },
       {
-        name: 'How it works',
-        path: 'how-it-works'
+        name: 'Technology',
+        path: 'technology'
       },
       {
         name: 'Learn',

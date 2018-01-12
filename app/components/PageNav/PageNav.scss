@@ -72,8 +72,9 @@
 
 .List {
   @media only screen and (max-width: sg-breakpoint() - 1px) {
-    padding-top: rem(80px);
+    padding-top: rem(60px);
     padding-bottom: sg-spacing(tightest);
+    text-align: center;
   }
 
   @media only screen and (min-width: sg-breakpoint()) {
@@ -82,6 +83,7 @@
 }
 
 .Item {
+  text-align: center;
   @media only screen and (min-width: sg-breakpoint()) {
     flex: 0 0 auto;
   }
@@ -90,11 +92,12 @@
 .Link {
   font-size: sg-font-size(nav);
   @include sg-type-reset-margin-bottom-and-line-height;
+  font-weight: 600;
   display: block;
   color: sg-color(ink);
 
   @media only screen and (max-width: sg-breakpoint() - 1px) {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     height: sg-layout-height(page-nav-link);
     padding-right: sg-spacing(tighter);
@@ -104,8 +107,7 @@
 
   @media only screen and (min-width: sg-breakpoint()) {
     position: relative;
-    padding: sg-spacing(tight) sg-spacing(tighter) sg-spacing(tighter)
-      sg-spacing(tighter);
+    padding: sg-spacing(tight);
     color: sg-color(ink);
     transition: color sg-duration() sg-easing();
 
@@ -131,10 +133,6 @@
     &:active,
     &:focus {
       color: sg-color(ink);
-
-      &::before {
-        background-color: sg-color(sia-green);
-      }
     }
   }
 }
