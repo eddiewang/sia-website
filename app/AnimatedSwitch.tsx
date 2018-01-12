@@ -20,6 +20,10 @@ export default class AnimatedSwitch extends Switch<{}, React.ComponentClass> {
     }, 0)
   }
 
+  public componentWillUnmount() {
+    this.setState({ in: false })
+  }
+
   public componentWillAppear = cb => {
     console.log('componentWillAppear')
     Animated.spring(this.state.animate, { toValue: 1 }).start()

@@ -14,22 +14,25 @@ interface Props {
   children?: React.ReactNode
 }
 
-const PAGE_NAME = 'Your App'
+const PAGE_NAME = 'Sia'
 
 class Layout extends React.Component<Props, any> {
   public render() {
     const { children, location } = this.props
     const navItems = [
-       {
+      {
         name: 'About',
         path: 'about'
-      }, {
+      },
+      {
         name: 'How it works',
         path: 'how-it-works'
-      },  {
+      },
+      {
         name: 'Learn',
         path: 'learn'
-      }, {
+      },
+      {
         name: 'Roadmap',
         path: 'roadmap'
       }

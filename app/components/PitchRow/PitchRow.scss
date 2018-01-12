@@ -1,0 +1,18 @@
+.PitchRow {
+  opacity: 1;
+  transition: all sg-duration() sg-easing();
+  margin: 40px 0;
+  @media screen and (min-width: sg-breakpoint()) {
+    display: grid;
+    max-width: rem(900px);
+    grid-template-columns: 300px 1fr;
+    padding: 80px 0;
+    &:nth-child(even) {
+      margin-left: auto;
+    }
+  }
+}
+
+.isVisible {
+  opacity: 0;
+}

@@ -22,8 +22,6 @@ export const Globe: string
 export const globe: string
 export const Stats: string
 export const stats: string
-export const PitchRow: string
-export const pitchRow: string
 export const Newsletter: string
 export const newsletter: string
 export const NewsletterCTA: string
