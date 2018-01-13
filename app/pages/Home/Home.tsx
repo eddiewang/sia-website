@@ -58,7 +58,9 @@ class Home extends React.Component<{}, State> {
                 We leverage unused hard drive space to create a storage marketplace that is more
                 reliable and lower cost than traditional cloud providers.
               </Text.Paragraph>
-              <Button type="largeCTA">Download</Button>
+              <Button.Link to="/get-started" type="largeCTA">
+                Download
+              </Button.Link>
             </div>
           </LayoutContainer>
         </Section>

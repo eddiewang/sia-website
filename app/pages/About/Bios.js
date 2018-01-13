@@ -31,7 +31,8 @@ export default [
     social: {
       title: 'Github',
       url: '#'
-    }
+    },
+    content: 'In a world of distributed storage there will be no downtimes, no companies spying on your data, and no massive cloud leaks. Storage will be faster, safer, and cheaper.'
   },
   {
     name: 'Zach Herbert',
@@ -39,7 +40,8 @@ export default [
     social: {
       title: 'LinkedIn',
       url: '#'
-    }
+    },
+    content: 'At Sia, we are constantly thinking long-term, putting product ahead of marketing, and building a strong technical foundation for future success.'
   },
   {
     name: 'Steve Funk',
@@ -47,6 +49,7 @@ export default [
     social: {
       title: 'LinkedIn',
       url: '#'
-    }
+    },
+    content: 'Sia has a team that truly cares about the experience, and a passionate community that inspires us to do our best.'
   }
 ]
