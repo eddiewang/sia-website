@@ -9,7 +9,7 @@ import Button from 'components/Button'
 import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
-
+import Helmet from 'react-helmet'
 import * as styles from './Learn.scss'
 
 @inject('main')
@@ -18,6 +18,7 @@ class Learn extends React.Component {
   public render() {
     return (
       <div className={styles.LearnContainer}>
+        <Helmet title="Learn" />
         <Section>
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Sia</TypeHeading>
