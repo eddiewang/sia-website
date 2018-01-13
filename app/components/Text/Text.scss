@@ -30,11 +30,21 @@
 }
 
 .typeFooterTitle {
+  display: block;
   color: sg-color(white);
 }
 
 .typeFooterText {
   color: sg-color(ink, lightest);
+}
+
+.typeFooterContact {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: rem(20px);
+  color: sg-color(ink, lightest);
+  height: rem(42px);
 }
 
 .typeMediaCardTitle {

@@ -10,3 +10,19 @@
     border: 3px solid sg-color(sia-green);
   }
 }
+
+.typeFooter {
+  height: rem(30px) !important;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid sg-color(ink, light);
+  font-size: rem(18px);
+  margin-bottom: rem(20px);
+  &::placeholder {
+    color: sg-color(ink, lightest);
+  }
+  &:hover, &:focus {
+    border: none;
+    border-bottom: 2px solid sg-color(ink, lightest);
+  }
+}

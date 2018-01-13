@@ -36,3 +36,13 @@
   line-height: rem(50px);
   color: sg-color(white) !important;
 }
+
+.typeFooter {
+  width: 100%;
+  background: transparent;
+  border: 2px solid sg-color(white);
+  &:hover, &:active {
+    background: sg-color(sia-green);
+    border: none;
+  }
+}

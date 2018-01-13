@@ -8,6 +8,7 @@ export const isMedium: string
 export const isBold: string
 export const typeFooterTitle: string
 export const typeFooterText: string
+export const typeFooterContact: string
 export const typeMediaCardTitle: string
 export const typeMediaCardText: string
 export const typeLinkCardHeader: string
