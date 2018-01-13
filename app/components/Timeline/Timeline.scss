@@ -12,6 +12,11 @@
         font-size: rem(22px);
       }
     }
+    @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint() - 1px) {
+        left: 0;
+        transform: translateX(0);
+        text-align: left;
+    }
   }
 }
 .Roadmap {
@@ -148,6 +153,11 @@
   border: 3px solid sg-color(sia-green);
   border-radius: 50%;
   margin-top: rem(-20px);
+  @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint()) {
+    transform: translateX(-50%);
+    right: 5px;
+    bottom: 0;
+  }
   @media screen and (min-width: sg-breakpoint()) {
     margin-top: 0;
   }
