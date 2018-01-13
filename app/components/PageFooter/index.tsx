@@ -1,6 +1,7 @@
 import React from 'react'
 import LayoutContainer from 'components/LayoutContainer'
 import * as styles from './PageFooter.scss'
+import { inject, observer } from 'mobx-react'
 import Text from 'components/Text'
 import Button from 'components/Button'
 import Input from 'components/Input'
@@ -8,6 +9,7 @@ import Input from 'components/Input'
 interface FooterLink {
   name: string
   url: string
+  main: any
 }
 
 interface SitemapItem {
@@ -15,10 +17,9 @@ interface SitemapItem {
   links: FooterLink[]
 }
 
-export default class PageFooter extends React.PureComponent {
-  public state = {
-    newsletterEmail: ''
-  }
+@inject('main')
+@observer
+export default class PageFooter extends React.Component {
   public render() {
     const sitemapLinks: SitemapItem[] = [
       {
@@ -112,8 +113,8 @@ export default class PageFooter extends React.PureComponent {
               <Input
                 type="footer"
                 placeholder="Your Email"
-                value={this.state.newsletterEmail}
-                onChange={this.handleFooterEmail}
+                value={this.props.main.footerEmail}
+                onChange={this.handleEmail}
               />
               <Button type="footer">Submit</Button>
             </div>
@@ -127,9 +128,7 @@ export default class PageFooter extends React.PureComponent {
       </div>
     )
   }
-  private handleFooterEmail = e => {
-    this.setState({
-      newsletterEmail: e.target.value
-    })
+  private handleEmail = e => {
+    this.props.main.footerEmail = e.target.value
   }
 }

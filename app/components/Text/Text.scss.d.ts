@@ -11,6 +11,7 @@ export const typeFooterText: string
 export const typeFooterContact: string
 export const typeMediaCardTitle: string
 export const typeMediaCardText: string
+export const typeMediaCardTextLink: string
 export const typeLinkCardHeader: string
 export const typeLinkCardText: string
 export const typeLinkCardFooter: string

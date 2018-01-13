@@ -10,6 +10,7 @@ import Button from 'components/Button'
 import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
+import Helmet from 'react-helmet'
 
 import * as styles from './HowItWorks.scss'
 
@@ -19,6 +20,7 @@ class HowItWorks extends React.Component {
   public render() {
     return (
       <div>
+        <Helmet title="Technology" />
         <Section>
           <LayoutContainer classes={styles.Intro}>
             <TypeHeading classes={styles.IntroHeading} level={6}>

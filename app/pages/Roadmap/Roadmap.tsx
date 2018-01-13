@@ -8,6 +8,7 @@ import Button from 'components/Button'
 import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
+import Helmet from 'react-helmet'
 import Timeline, { TimelineStory } from 'components/Timeline'
 
 import * as styles from './Roadmap.scss'
@@ -19,38 +20,41 @@ class Roadmap extends React.Component {
     const data: TimelineStory[] = [
       {
         year: 2014,
-        content: "Nebulous, Inc. is founded to build Sia. Raises first capital."
+        content: 'Nebulous, Inc. is founded to build Sia. Raises first capital.'
       },
       {
         year: 2015,
-        content: "Sia network is released in Beta and improved throughout the year."
+        content: 'Sia network is released in Beta and improved throughout the year.'
       },
       {
         year: 2016,
-        content: "Sia comes out of Beta and releases v1.0."
+        content: 'Sia comes out of Beta and releases v1.0.'
       },
       {
         year: 2017,
-        content: "Sia gains significant speed, stability, scalability upgrades, and team growth."
+        content: 'Sia gains significant speed, stability, scalability upgrades, and team growth.'
       },
       {
         year: 2018,
-        content: "Sia becomes production-ready for cold storage, begins to be used by companies, and introduces file sharing."
+        content:
+          'Sia becomes production-ready for cold storage, begins to be used by companies, and introduces file sharing.'
       },
       {
         year: 2019,
-        content: "Sia starts to approach Amazon S3 speeds, moves to warmer storage, and introduces CDN features."
+        content:
+          'Sia starts to approach Amazon S3 speeds, moves to warmer storage, and introduces CDN features.'
       },
       {
         year: 2020,
-        content: "Sia becomes a true competitor to Amazon S3 and companies start to switch to Sia."
+        content: 'Sia becomes a true competitor to Amazon S3 and companies start to switch to Sia.'
       }
     ]
     return (
       <div>
         <Section>
+          <Helmet title="Roadmap" />
           <LayoutContainer>
-            <Timeline data={data}/>
+            <Timeline data={data} />
           </LayoutContainer>
         </Section>
       </div>

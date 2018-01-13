@@ -14,11 +14,13 @@ import { TypeHeading } from 'components/TypeHeading/TypeHeading.scss'
 
 interface Props {
   type: 'video' | 'talks' | 'documentation' | 'blog' | 'link'
+  // Should be mandantory
+  href?: string
 }
 
 class MediaCard extends React.Component<Props, {}> {
   public render() {
-    const { type, children } = this.props
+    const { type, children, href } = this.props
     let mediaType
     switch (type) {
       case 'video':
@@ -40,7 +42,7 @@ class MediaCard extends React.Component<Props, {}> {
         console.warn('Something is very wrong - wrong prop for Media Card!')
     }
     return (
-      <div className={styles.MediaCard}>
+      <a href={href || '#'} target="_blank" className={styles.MediaCard}>
         <div className={styles.MediaCardUpper}>
           <Icon
             src={mediaType.id}
@@ -55,7 +57,7 @@ class MediaCard extends React.Component<Props, {}> {
           <Text type="mediaCardTitle">{capitalize(type)}</Text>
           <Text.Paragraph type="mediaCardText">{children}</Text.Paragraph>
         </div>
-      </div>
+      </a>
     )
   }
 }

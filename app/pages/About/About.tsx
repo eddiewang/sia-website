@@ -10,6 +10,7 @@ import Text from 'components/Text'
 import Avatar from 'components/Avatar'
 import BioCard, { UserDetails } from 'components/BioCard'
 import QuoteBlock from 'components/QuoteBlock'
+import Helmet from 'react-helmet'
 
 import * as styles from './About.scss'
 import Bios from './Bios'
@@ -30,6 +31,7 @@ class About extends React.Component {
     })
     return (
       <div>
+        <Helmet title="About" />
         <Section>
           <LayoutContainer classes={styles.Vision}>
             <div className={styles.VisionHeading}>
@@ -95,16 +97,18 @@ class About extends React.Component {
             </div>
             <div className={styles.ContactDetails}>
               <Text type="contactHeader">Nebulous Inc.</Text>
-              <Text light>280 Congress St., Floor 12<br/>Boston, MA 02210 USA<br/> hello@sia.tech</Text>
+              <Text light>
+                280 Congress St., Floor 12<br />Boston, MA 02210 USA<br /> hello@sia.tech
+              </Text>
             </div>
             <div className={styles.ContactSocial}>
               <Text medium>Follow Us</Text>
               <div className={styles.ContactSocialIcons}>
                 <Icon src={medium.id} aspectRatio="xMinYMin" />
-                <Icon src={twitter.id}  aspectRatio="xMinYMin" />
-                <Icon src={github.id}  aspectRatio="xMinYMin" />
-                <Icon src={facebook.id}  aspectRatio="xMinYMin" />
-                <Icon src={linkedin.id}  aspectRatio="xMinYMin" />
+                <Icon src={twitter.id} aspectRatio="xMinYMin" />
+                <Icon src={github.id} aspectRatio="xMinYMin" />
+                <Icon src={facebook.id} aspectRatio="xMinYMin" />
+                <Icon src={linkedin.id} aspectRatio="xMinYMin" />
               </div>
             </div>
           </LayoutContainer>

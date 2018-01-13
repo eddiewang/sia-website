@@ -17,6 +17,11 @@ interface Props {
 const PAGE_NAME = 'Sia'
 
 class Layout extends React.Component<Props, any> {
+  public componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0)
+    }
+  }
   public render() {
     const { children, location } = this.props
     const navItems = [

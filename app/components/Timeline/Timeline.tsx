@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as styles from './Timeline.scss'
+import * as classNames from 'classnames'
 
 import Text from 'components/Text'
 import TypeHeading from 'components/TypeHeading'
@@ -13,16 +14,48 @@ interface Props {
 }
 
 class Timeline extends React.Component<Props, {}> {
+  public state = {
+    year: 2017,
+    day: 0
+  }
+
+  public componentDidMount() {
+    const year = new Date().getFullYear()
+    const now = new Date()
+    const start = new Date(now.getFullYear(), 0, 0)
+    const diff = (now as any) - (start as any)
+    const oneDay = 1000 * 60 * 60 * 24
+    const day = Math.floor(diff / oneDay)
+    this.setState({
+      year,
+      day
+    })
+  }
   public render() {
     const { data } = this.props
+    const { year, day } = this.state
+    const beforeClass = classNames(styles.Before)
+    const duringClass = classNames(styles.During)
+    const futureClass = classNames(styles.Future)
     const mappedTimeline = data.map((d, i) => {
+      let mapClass
+      const lineLength = Math.ceil(120 / 365 * day / 10)
+      if (d.year < year) {
+        mapClass = beforeClass
+      } else if (d.year === year) {
+        mapClass = duringClass
+      } else if (d.year > year) {
+        mapClass = futureClass
+      } else {
+        console.warn('Invalid year supplied')
+      }
       return (
-        <li key={i}>
+        <li key={i} className={mapClass}>
           <div className={styles.RoadmapContent}>
             <TypeHeading level={6}>{d.year}</TypeHeading>
             <Text>{d.content}</Text>
           </div>
-          <div className={styles.RoadmapCircle} />
+          <div data-length={lineLength} className={styles.RoadmapCircle} />
         </li>
       )
     })
@@ -35,7 +68,9 @@ class Timeline extends React.Component<Props, {}> {
           </li>
         </ul>
         <div className={styles.TimelineEnding}>
-          <TypeHeading level={6}>Become the storage layer of <br/>The Internet</TypeHeading>
+          <TypeHeading level={6}>
+            Become the storage layer of <br />The Internet
+          </TypeHeading>
         </div>
       </div>
     )

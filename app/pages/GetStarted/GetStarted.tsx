@@ -9,6 +9,7 @@ import Icon from 'components/Icon'
 import Text from 'components/Text'
 import Avatar from 'components/Avatar'
 import LinkCard from 'components/LinkCard'
+import Helmet from 'react-helmet'
 
 import * as styles from './GetStarted.scss'
 
@@ -18,6 +19,7 @@ class GetStarted extends React.Component {
   public render() {
     return (
       <div className={styles.GetStarted}>
+        <Helmet title="Get Started" />
         <Section>
           <LayoutContainer classes={styles.LinkSection}>
             <TypeHeading level={6}>Core Software</TypeHeading>

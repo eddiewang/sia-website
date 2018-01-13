@@ -209,10 +209,16 @@ class Home extends React.Component<{}, State> {
               Learn
             </TypeHeading>
             <div className={styles.LearnBoxes}>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard
+                type="blog"
+                href="https://blog.sia.tech/sia-triannual-update-september-december-2017-8afdf9c10325"
+              >
+                Read our latest triannual Sia update for September - December 2017.
               </MediaCard>
-              <MediaCard type="talks">
+              <MediaCard
+                href="https://www.infoq.com/presentations/decentralized-storage"
+                type="talks"
+              >
                 Watch David Vorick talk about the business models behind tokens.
               </MediaCard>
               <MediaCard type="documentation">
@@ -220,7 +226,9 @@ class Home extends React.Component<{}, State> {
               </MediaCard>
             </div>
             <div className={styles.LearnMore}>
-              <Text type="mediaCardText">Learn More</Text>
+              <Text.Link to="/learn" type="mediaCardTextLink">
+                Learn More
+              </Text.Link>
             </div>
           </LayoutContainer>
         </Section>

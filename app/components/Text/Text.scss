@@ -62,6 +62,12 @@
   }
 }
 
+.typeMediaCardTextLink {
+  &:hover, &:active {
+    color: sg-color(sia-green);
+  }
+}
+
 .typeLinkCardHeader {
   font-size: rem(24px);
   color: sg-color(sia-green);

@@ -1,7 +1,13 @@
 .MediaGrid {
+  @media screen and (max-width: sg-breakpoint() - 1px ) and (min-width: sg-breakpoint(landscape, mobile)) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: rem(30px);
+  }
   @media screen and (min-width: sg-breakpoint()) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: rem(30px);
   }
   margin-bottom: rem(100px);
 }

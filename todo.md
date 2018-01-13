@@ -1,7 +1,3 @@
-interface with map with mouse
-default zoom = 
-align menu to the right
-top button font-size and layout
 update stats live.
 Mailchimp integration.
 Marketcap - add toFixed(1)

@@ -84,6 +84,45 @@
       display: none;
     }
   }
+  .Before {
+    .RoadmapCircle {
+      background: sg-color(sky);
+      &::after {
+        background: sg-color(sky);
+      }
+    }
+  }
+  .During {
+    .RoadmapCircle {
+      background: sg-color(sia-green);
+      &::after {
+        background: sg-color(sky);
+      }
+      @for $i from 1 through 10 {
+        &[data-length='#{$i}']::before {
+          display: block;
+          content: '';
+          z-index: 3;
+          position: absolute;
+          width: rem(3px);
+          min-height: rem(12px * $i);
+          background: sg-color(sia-green);
+          right: 50%;
+          top: rem(70px);
+          transform: translateX(50%);
+        }
+      }
+    }
+  }
+  .Future {
+    .RoadmapCircle {
+      background: sg-color(white);
+      border: 3px solid sg-color(sia-green);
+      &::after {
+        background: sg-color(sky);
+      }
+    }
+  }
 }
 
 .Last {
@@ -93,7 +132,8 @@
   transform: translateX(50%);
   width: rem(30px);
   height: rem(30px);
-  background: black;
+  background: sg-color(white);
+  border: 3px solid sg-color(sia-green);
   border-radius: 50%;
   margin-top: rem(-20px);
   @media screen and (min-width: sg-breakpoint()) {

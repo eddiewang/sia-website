@@ -18,6 +18,9 @@
   border-bottom: 2px solid sg-color(ink, light);
   font-size: rem(18px);
   margin-bottom: rem(20px);
+  color: sg-color(white);
+  padding-left: 0;
+  padding-right: 0;
   &::placeholder {
     color: sg-color(ink, lightest);
   }
