@@ -50,7 +50,7 @@
         position: absolute;
         height: rem(130px);
         width: rem(3px);
-        background: black;
+        background: sg-color(sia-green);
         bottom: rem(10px);
         right: 50%;
         transform: translateX(50%);
@@ -71,7 +71,7 @@
       position: absolute;
       min-height: rem(220px);
       width: rem(3px);
-      background: black;
+      background: sg-color(sky);
       right: 50%;
       top: rem(70px);
       transform: translateX(50%);
@@ -93,6 +93,12 @@
     }
   }
   .During {
+    .RoadmapContent {
+      color: sg-color(ink);
+      h6 {
+        color: sg-color(sia-green);
+      }
+    }
     .RoadmapCircle {
       background: sg-color(sia-green);
       &::after {
@@ -115,6 +121,12 @@
     }
   }
   .Future {
+    .RoadmapContent {
+      color: sg-color(ink);
+      h6 {
+        color: sg-color(ink);
+      }
+    }
     .RoadmapCircle {
       background: sg-color(white);
       border: 3px solid sg-color(sia-green);
