@@ -64,10 +64,6 @@
       @include _sg-PageNavOpened;
     }
   }
-
-  @media only screen and (min-width: sg-breakpoint()) {
-    margin-right: sg-spacing(tighter);
-  }
 }
 
 .List {
@@ -79,6 +75,7 @@
 
   @media only screen and (min-width: sg-breakpoint()) {
     display: flex;
+    width: 100%;
   }
 }
 
