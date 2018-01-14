@@ -14,9 +14,11 @@
     }
   }
   &Image {
+    text-align: right;
     svg {
-      max-height: rem(270px);
-      width: rem(270px);
+      display: inline-block;
+      max-height: rem(200px);
+      width: rem(200px);
     }
   }
 }

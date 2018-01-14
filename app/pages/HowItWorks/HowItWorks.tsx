@@ -53,6 +53,16 @@ class HowItWorks extends React.Component {
                 ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
                 mei.
               </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
             </div>
           </LayoutContainer>
         </Section>
@@ -68,6 +78,16 @@ class HowItWorks extends React.Component {
             </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Pieces are Encrypted</TypeHeading>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
               <Text.Paragraph>
                 Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
                 ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
@@ -93,6 +113,16 @@ class HowItWorks extends React.Component {
                 ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
                 mei.
               </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
             </div>
           </LayoutContainer>
         </Section>
@@ -108,6 +138,16 @@ class HowItWorks extends React.Component {
             </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Both Host and Renter Pay</TypeHeading>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
               <Text.Paragraph>
                 Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
                 ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
@@ -133,6 +173,16 @@ class HowItWorks extends React.Component {
                 ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
                 mei.
               </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
             </div>
           </LayoutContainer>
         </Section>
@@ -148,6 +198,16 @@ class HowItWorks extends React.Component {
             </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Host Submits a Storage Proof</TypeHeading>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
+                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
+                mei.
+              </Text.Paragraph>
               <Text.Paragraph>
                 Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
                 ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
