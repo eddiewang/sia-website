@@ -32,6 +32,8 @@ import PitchRedundant from 'svg/pitch-redundant.svg'
 import PitchOpenSource from 'svg/pitch-open.svg'
 import PitchMarketplace from 'svg/pitch-marketplace.svg'
 
+import Hero from 'svg/hero.svg'
+
 import avatarData from './team-data'
 
 import * as styles from './Home.scss'
@@ -67,6 +69,14 @@ class Home extends React.Component<{}, State> {
               <Button.Link to="/get-started" type="largeCTA">
                 Download
               </Button.Link>
+            </div>
+            <div classNames={styles.HeroImage}>
+              <Icon
+                src={Hero.id}
+                viewBox={Hero.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
             </div>
           </LayoutContainer>
         </Section>
