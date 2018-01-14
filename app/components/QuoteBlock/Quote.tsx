@@ -20,17 +20,17 @@ class Quote extends React.Component<QuoteProps & AnimProps, {}> {
       // Start with component invisible and shifted up by 10%
       entering: {
         opacity: 0,
-        transform: 'translateY(100%)'
+        transform: 'translateX(100%)'
       },
       // Transition to component being visible and having its position reset.
       entered: {
         opacity: 1,
-        transform: 'translateY(0)'
+        transform: 'translateX(0)'
       },
       // Fade element out and slide it back up on exit.
       exiting: {
         opacity: 0,
-        transform: 'translateY(-100%)'
+        transform: 'translateX(-100%)'
       }
     }
     return (
