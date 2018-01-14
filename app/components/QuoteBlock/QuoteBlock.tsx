@@ -33,31 +33,22 @@ const Quotes: QuoteProps[] = [
 @inject('main')
 @observer
 class QuoteBlock extends React.Component<Props, {}> {
-  public sliderTimer
-  public componentDidMount() {
-    const slideLength = Quotes.length
-    this.sliderTimer = setInterval(() => {
-      this.props.main.aboutSliderIndex = (this.props.main.aboutSliderIndex + 1) % slideLength
-    }, 10000)
-  }
-  public componentWillUnmount() {
-    clearInterval(this.sliderTimer)
+  public slideInterval
+  public state = {
+    slide: 0
   }
   public render() {
     const { main } = this.props
-    const { aboutSliderIndex } = main
+    const { slide } = this.state
 
     return (
       <div>
         <TransitionGroup component={SliderWrap}>
-          <Quote {...Quotes[main.aboutSliderIndex]} duration={500} />
+          <Quote {...Quotes[this.state.slide]} duration={500} />
         </TransitionGroup>
         <div className={styles.Selector}>
           {Quotes.map((_, i) => {
-            const dotClass = classNames(
-              styles.SelectorDot,
-              i === aboutSliderIndex && styles.SelectorDotActive
-            )
+            const dotClass = classNames(styles.SelectorDot, i === slide && styles.SelectorDotActive)
             return <div key={i} className={dotClass} onClick={this.setSlider(i)} />
           })}
         </div>
@@ -66,7 +57,9 @@ class QuoteBlock extends React.Component<Props, {}> {
   }
   private setSlider = i => e => {
     e.preventDefault()
-    this.props.main.aboutSliderIndex = i
+    this.setState({
+      slide: i
+    })
   }
 }
 
