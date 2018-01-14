@@ -26,6 +26,12 @@ import DevReleases from 'svg/dev-releases.svg'
 import DevForks from 'svg/dev-forks.svg'
 import DevContributors from 'svg/dev-contributors.svg'
 
+import PitchHome from 'svg/pitch-home.svg'
+import PitchAffordable from 'svg/pitch-affordable.svg'
+import PitchRedundant from 'svg/pitch-redundant.svg'
+import PitchOpenSource from 'svg/pitch-open.svg'
+import PitchMarketplace from 'svg/pitch-marketplace.svg'
+
 import avatarData from './team-data'
 
 import * as styles from './Home.scss'
@@ -102,22 +108,27 @@ class Home extends React.Component<{}, State> {
             <PitchRow
               title="Home"
               content="Sia splits apart, encrypts, and distributes your files across a decentralized network. Since you hold the keys, you own your data. No outside company can access or control your files, unlike traditional cloud storage providers."
+              src={PitchHome}
             />
             <PitchRow
               title="Far More Affordable"
               content="Sia's decentralized cloud is on average 10x less expensive than current cloud storage providers. Storing 1TB on Sia costs about $2 per month, compared with $23 on Amazon S3."
+              src={PitchAffordable}
             />
             <PitchRow
               title="Highly Redundant"
               content="Sia stores tiny pieces of your files on dozens of nodes across the globe. This eliminates any single point of failure and ensures highest possible uptime, on par with other cloud storage providers."
+              src={PitchRedundant}
             />
             <PitchRow
               title="Open source"
               content="Sia is completely open source. Over a dozen individuals have contributed to Sia's software, and there is an active community building innovative applications on top of the Sia API."
+              src={PitchOpenSource}
             />
             <PitchRow
               title="Blockchain Marketplace"
               content="Using the Sia blockchain, Sia creates a decentralized storage marketplace in which hosts compete for your business – this leads to the lowest possible prices. Renters pay using Siacoin, which can also be mined and traded."
+              src={PitchMarketplace}
             />
           </LayoutContainer>
         </Section>

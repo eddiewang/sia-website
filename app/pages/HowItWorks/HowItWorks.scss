@@ -12,11 +12,16 @@
     @media screen and (min-width: sg-breakpoint()) {
       display: grid;
       grid-template-columns: repeat(12, [col] 1fr);
+      align-items: center;
     }
   }
   &Image {
     grid-column: col 1/ span 5;
     width: 100%;
+    svg {
+      width: rem(470px);
+      max-height: rem(470px);
+    }
   }
   &Content {
     grid-column: col 7 / span 6;
@@ -24,7 +29,8 @@
   &:nth-child(odd) {
     background: sg-color(sky);
     .TutorialImage {
-      grid-column: col 7 / span 5;
+      grid-column: col 8 / span 5;
+      grid-row: 1;
     }
     .TutorialContent {
       grid-column: col 1 / span 6;

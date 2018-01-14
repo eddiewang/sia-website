@@ -12,6 +12,13 @@ import Text from 'components/Text'
 import Avatar from 'components/Avatar'
 import Helmet from 'react-helmet'
 
+import TechnologySplit from 'svg/technology-split.svg'
+import TechnologyEncrypted from 'svg/technology-encrypted.svg'
+import TechnologyPay from 'svg/technology-pay.svg'
+import TechnologyProof from 'svg/technology-proof.svg'
+import TechnologySmart from 'svg/technology-smart.svg'
+import TechnologyTime from 'svg/technology-time.svg'
+
 import * as styles from './HowItWorks.scss'
 
 @inject('main')
@@ -31,7 +38,14 @@ class HowItWorks extends React.Component {
         </Section>
         <Section classes={styles.Tutorial}>
           <LayoutContainer classes={styles.TutorialLayout}>
-            <div className={styles.TutorialImage} />
+            <div className={styles.TutorialImage}>
+              <Icon
+                src={TechnologySplit.id}
+                viewBox={TechnologySplit.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
+            </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>File is Split Up</TypeHeading>
               <Text.Paragraph>
@@ -44,7 +58,14 @@ class HowItWorks extends React.Component {
         </Section>
         <Section classes={styles.Tutorial}>
           <LayoutContainer classes={styles.TutorialLayout}>
-            <div className={styles.TutorialImage} />
+            <div className={styles.TutorialImage}>
+              <Icon
+                src={TechnologyEncrypted.id}
+                viewBox={TechnologyEncrypted.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
+            </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Pieces are Encrypted</TypeHeading>
               <Text.Paragraph>
@@ -57,7 +78,14 @@ class HowItWorks extends React.Component {
         </Section>
         <Section classes={styles.Tutorial}>
           <LayoutContainer classes={styles.TutorialLayout}>
-            <div className={styles.TutorialImage} />
+            <div className={styles.TutorialImage}>
+              <Icon
+                src={TechnologySmart.id}
+                viewBox={TechnologySmart.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
+            </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Sent to Hosts Using Blockchain Smart Contracts</TypeHeading>
               <Text.Paragraph>
@@ -70,7 +98,14 @@ class HowItWorks extends React.Component {
         </Section>
         <Section classes={styles.Tutorial}>
           <LayoutContainer classes={styles.TutorialLayout}>
-            <div className={styles.TutorialImage} />
+            <div className={styles.TutorialImage}>
+              <Icon
+                src={TechnologyPay.id}
+                viewBox={TechnologyPay.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
+            </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Both Host and Renter Pay</TypeHeading>
               <Text.Paragraph>
@@ -83,7 +118,14 @@ class HowItWorks extends React.Component {
         </Section>
         <Section classes={styles.Tutorial}>
           <LayoutContainer classes={styles.TutorialLayout}>
-            <div className={styles.TutorialImage} />
+            <div className={styles.TutorialImage}>
+              <Icon
+                src={TechnologyTime.id}
+                viewBox={TechnologyTime.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
+            </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Time Elapses</TypeHeading>
               <Text.Paragraph>
@@ -96,7 +138,14 @@ class HowItWorks extends React.Component {
         </Section>
         <Section classes={styles.Tutorial}>
           <LayoutContainer classes={styles.TutorialLayout}>
-            <div className={styles.TutorialImage} />
+            <div className={styles.TutorialImage}>
+              <Icon
+                src={TechnologyProof.id}
+                viewBox={TechnologyProof.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
+            </div>
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Host Submits a Storage Proof</TypeHeading>
               <Text.Paragraph>
