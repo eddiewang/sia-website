@@ -91,9 +91,9 @@
 .typeVisionHeading {
   font-weight: 600;
   @media screen and (min-width: sg-breakpoint()) {
-    font-size: sg-font-size(h6);
+    font-size: rem(36px);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.4;
     margin-bottom: rem(80px);
   }
 }

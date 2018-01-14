@@ -69,6 +69,7 @@ $accepted-heading-levels: 1, 2, 3, 4, 5, 6;
   @if $level == 6 {
     margin-bottom: 3rem;
     font-size: sg-font-size(h6);
+    line-height: 1.4;
     font-weight: 400;
     @media only screen and (min-width: sg-breakpoint(portrait, '1080p')) {
       font-size: sg-font-size(h6, desktop);
