@@ -153,12 +153,12 @@
   border: 3px solid sg-color(sia-green);
   border-radius: 50%;
   margin-top: rem(-20px);
-  @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint()) {
+  @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint() - 1px) {
     transform: translateX(-50%);
     right: 5px;
-    bottom: 0;
+    bottom: rem(10px);
   }
   @media screen and (min-width: sg-breakpoint()) {
-    margin-top: 0;
+    margin-top: rem(10px);
   }
 }
