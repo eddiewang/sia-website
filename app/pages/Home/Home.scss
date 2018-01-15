@@ -1,12 +1,16 @@
 .Hero {
   display: block;
+  &Image {
+    display: none;
+    svg {
+      display: block;
+    }
+  }
   @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
     display: grid;
     grid-template-columns: 670px 1fr;
     align-items: center;
-  }
-  &Image {
-    svg {
+    &Image {
       display: block;
     }
   }
@@ -138,6 +142,9 @@
     @media screen and (min-width: sg-breakpoint()) {
       margin-top: 0;
     }
+  }
+  &Status {
+    margin-top: rem(10px);
   }
 }
 

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
+import jsonp from 'jsonp'
 
 import LayoutContainer from 'components/LayoutContainer'
 import TypeHeading from 'components/TypeHeading'
@@ -40,13 +41,19 @@ import * as styles from './Home.scss'
 
 interface State {
   newsletterEmail: string
+  newsletterStatus: null | 'error' | 'sending' | 'success'
+  newsletterMessage: null | string
 }
+
+const getAjaxUrl = url => url.replace('/post?', '/post-json?')
 
 @inject('main')
 @observer
 class Home extends React.Component<{}, State> {
   public state: State = {
-    newsletterEmail: ''
+    newsletterEmail: '',
+    newsletterStatus: null,
+    newsletterMessage: null
   }
 
   public handleCTA = (e): void => {
@@ -54,7 +61,53 @@ class Home extends React.Component<{}, State> {
       newsletterEmail: e.target.value
     })
   }
+  public submitEmail = e => {
+    e.preventDefault()
+    const { newsletterEmail } = this.state
+    if (!newsletterEmail || newsletterEmail.length < 5 || newsletterEmail.indexOf('@') === -1) {
+      this.setState({
+        newsletterStatus: 'error'
+      })
+      return
+    }
+    const url =
+      getAjaxUrl(
+        'https://tech.us11.list-manage.com/subscribe/post?u=5df238d9e852f9801b5f2c92e&amp;id=49533cf53d'
+      ) + `&EMAIL=${encodeURIComponent(newsletterEmail)}`
+    this.setState(
+      {
+        newsletterStatus: 'sending',
+        newsletterMessage: null
+      },
+      () =>
+        jsonp(
+          url,
+          {
+            param: 'c'
+          },
+          (err, data) => {
+            if (err) {
+              this.setState({
+                newsletterStatus: 'error',
+                newsletterMessage: err
+              })
+            } else if (data.result !== 'success') {
+              this.setState({
+                newsletterStatus: 'error',
+                newsletterMessage: 'This email is already subscribed!'
+              })
+            } else {
+              this.setState({
+                newsletterStatus: 'success',
+                newsletterMessage: data.msg
+              })
+            }
+          }
+        )
+    )
+  }
   public render() {
+    const { newsletterStatus } = this.state
     return (
       <div>
         <Section>
@@ -70,7 +123,7 @@ class Home extends React.Component<{}, State> {
                 Download
               </Button.Link>
             </div>
-            <div classNames={styles.HeroImage}>
+            <div className={styles.HeroImage}>
               <Icon
                 src={Hero.id}
                 viewBox={Hero.viewBox}
@@ -147,13 +200,22 @@ class Home extends React.Component<{}, State> {
             <TypeHeading level={6}>Sign up for announcements</TypeHeading>
             <div className={styles.NewsletterCTA}>
               <Input
+                error={this.state.newsletterStatus === 'error'}
                 value={this.state.newsletterEmail}
                 onChange={this.handleCTA}
                 placeholder="Your email"
               />
-              <Button classes={styles.NewsletterButton} type="largeCTA">
+              <Button
+                loading={newsletterStatus === 'sending'}
+                classes={styles.NewsletterButton}
+                onClick={this.submitEmail}
+                type="largeCTA"
+              >
                 Submit
               </Button>
+              <div className={styles.NewsletterStatus}>
+                <Text>{this.state.newsletterMessage}</Text>
+              </div>
             </div>
           </LayoutContainer>
         </Section>

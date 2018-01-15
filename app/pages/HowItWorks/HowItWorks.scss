@@ -9,19 +9,24 @@
 .Tutorial {
   background: sg-color(sky, light);
   &Layout {
-    padding: rem(135px) 0;
+    text-align: center;
+    padding-bottom: rem(80px);
     @media screen and (min-width: sg-breakpoint()) {
+      text-align: initial;
+      padding: rem(135px) 0;
       display: grid;
       grid-template-columns: repeat(12, [col] 1fr);
       align-items: center;
     }
   }
   &Image {
-    grid-column: col 1/ span 5;
-    width: 100%;
-    svg {
-      width: rem(470px);
-      max-height: rem(470px);
+    @media screen and (min-width: sg-breakpoint()) {
+      grid-column: col 1/ span 5;
+      width: 100%;
+      svg {
+        width: rem(470px);
+        max-height: rem(470px);
+      }
     }
   }
   &Content {

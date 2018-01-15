@@ -29,3 +29,10 @@
     border-bottom: 2px solid sg-color(ink, lightest);
   }
 }
+
+.isError {
+  border: 3px solid color(red);
+  &:hover, &:focus {
+    border: 3px solid color(red);
+  }
+}

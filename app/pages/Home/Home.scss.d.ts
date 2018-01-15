@@ -30,6 +30,8 @@ export const NewsletterCTA: string
 export const newsletterCta: string
 export const NewsletterButton: string
 export const newsletterButton: string
+export const NewsletterStatus: string
+export const newsletterStatus: string
 export const Developer: string
 export const developer: string
 export const DeveloperIcon: string
