@@ -34,6 +34,7 @@ import PitchOpenSource from 'svg/pitch-open.svg'
 import PitchMarketplace from 'svg/pitch-marketplace.svg'
 
 import Hero from 'svg/hero.svg'
+import HeroGif from 'img/hero.gif'
 
 import avatarData from './team-data'
 
@@ -124,12 +125,13 @@ class Home extends React.Component<{}, State> {
               </Button.Link>
             </div>
             <div className={styles.HeroImage}>
-              <Icon
+              <img src={HeroGif} />
+              {/* <Icon
                 src={Hero.id}
                 viewBox={Hero.viewBox}
                 aspectRatio="xMinYMin"
                 aria-hidden="true"
-              />
+              /> */}
             </div>
           </LayoutContainer>
         </Section>
