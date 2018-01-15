@@ -104,11 +104,27 @@ class About extends React.Component {
             <div className={styles.ContactSocial}>
               <Text medium>Follow Us</Text>
               <div className={styles.ContactSocialIcons}>
-                <Icon src={medium.id} aspectRatio="xMinYMin" />
-                <Icon src={twitter.id} aspectRatio="xMinYMin" />
-                <Icon src={github.id} aspectRatio="xMinYMin" />
-                <Icon src={facebook.id} aspectRatio="xMinYMin" />
-                <Icon src={linkedin.id} aspectRatio="xMinYMin" />
+                <Icon href="https://blog.sia.tech/" src={medium.id} aspectRatio="xMinYMin" />
+                <Icon
+                  href="https://twitter.com/SiaTechHQ"
+                  src={twitter.id}
+                  aspectRatio="xMinYMin"
+                />
+                <Icon
+                  href="https://github.com/NebulousLabs"
+                  src={github.id}
+                  aspectRatio="xMinYMin"
+                />
+                <Icon
+                  href="https://www.facebook.com/SiaTechHQ/"
+                  src={facebook.id}
+                  aspectRatio="xMinYMin"
+                />
+                <Icon
+                  href="https://www.linkedin.com/company/17901008/"
+                  src={linkedin.id}
+                  aspectRatio="xMinYMin"
+                />
               </div>
             </div>
           </LayoutContainer>

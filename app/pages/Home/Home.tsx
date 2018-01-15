@@ -171,7 +171,7 @@ class Home extends React.Component<{}, State> {
         <Section classes={styles.Pitch}>
           <LayoutContainer>
             <PitchRow
-              title="Home"
+              title="Completely Private"
               content="Sia splits apart, encrypts, and distributes your files across a decentralized network. Since you hold the keys, you own your data. No outside company can access or control your files, unlike traditional cloud storage providers."
               src={PitchHome}
             />
@@ -308,7 +308,10 @@ class Home extends React.Component<{}, State> {
               >
                 Watch David Vorick talk about the business models behind tokens.
               </MediaCard>
-              <MediaCard type="documentation">
+              <MediaCard
+                href="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
+                type="documentation"
+              >
                 This guide will walk you through uploading a file to Sia using the API.
               </MediaCard>
             </div>
