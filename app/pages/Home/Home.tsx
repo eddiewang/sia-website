@@ -33,7 +33,7 @@ import PitchRedundant from 'svg/pitch-redundant.svg'
 import PitchOpenSource from 'svg/pitch-open.svg'
 import PitchMarketplace from 'svg/pitch-marketplace.svg'
 
-import Hero from 'svg/hero.svg'
+// import Hero from 'svg/hero.svg'
 import HeroGif from 'img/hero.gif'
 
 import avatarData from './team-data'

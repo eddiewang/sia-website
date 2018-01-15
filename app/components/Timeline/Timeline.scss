@@ -13,9 +13,9 @@
       }
     }
     @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint() - 1px) {
-        left: 0;
-        transform: translateX(0);
-        text-align: left;
+      left: 0;
+      transform: translateX(0) translateY(-35%);
+      text-align: left;
     }
   }
 }
@@ -91,9 +91,9 @@
   }
   .Before {
     .RoadmapCircle {
-      background: sg-color(sky);
+      background: sg-color(sia-green);
       &::after {
-        background: sg-color(sky);
+        background: sg-color(sia-green);
       }
     }
   }
@@ -105,7 +105,9 @@
       }
     }
     .RoadmapCircle {
-      background: sg-color(sia-green);
+      background: url('assets/img/timeline-logo.png') no-repeat center;
+      background-color: sg-color(white);
+      border: 3px solid sg-color(sia-green);
       &::after {
         background: sg-color(sky);
       }
@@ -131,15 +133,19 @@
       h6 {
         color: sg-color(ink);
       }
+      &::after {
+        background: sg-color(sky) !important;
+        @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
+          background: sg-color(sky) !important;
+        }
+      }
     }
     .RoadmapCircle {
       background: sg-color(white);
-      border: 3px solid sg-color(sia-green);
-      &::after {
-        background: sg-color(sky);
-      }
+      border: 3px solid sg-color(sky);
     }
   }
+
 }
 
 .Last {
@@ -147,16 +153,16 @@
   position: absolute;
   right: 50%;
   transform: translateX(50%);
-  width: rem(30px);
-  height: rem(30px);
-  background: sg-color(white);
-  border: 3px solid sg-color(sia-green);
+  width: rem(50px);
+  height: rem(50px);
+  background: url('assets/img/timeline-logo-sky.png') no-repeat center;
+  // border: 3px solid sg-color(sia-green);
   border-radius: 50%;
-  margin-top: rem(-20px);
+  margin-top: rem(-25px);
   @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint() - 1px) {
     transform: translateX(-50%);
-    right: 5px;
-    bottom: rem(10px);
+    right: -15px;
+    bottom: rem(5px);
   }
   @media screen and (min-width: sg-breakpoint()) {
     margin-top: rem(10px);
