@@ -8,10 +8,11 @@
   }
   @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
     display: grid;
-    grid-template-columns: 670px 1fr;
+    grid-template-columns: 650px 1fr;
     align-items: center;
     &Image {
       display: block;
+      margin-top: rem(-100px);
     }
   }
 }
