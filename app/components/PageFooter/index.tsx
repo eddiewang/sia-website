@@ -9,7 +9,6 @@ import Input from 'components/Input'
 interface FooterLink {
   name: string
   url: string
-  main: any
 }
 
 interface SitemapItem {
@@ -26,16 +25,16 @@ export default class PageFooter extends React.Component {
         title: 'What is Sia',
         links: [
           {
-            name: 'Getting Started',
-            url: '/getting-started'
-          },
-          {
             name: 'About',
             url: '/about'
           },
           {
-            name: 'FAQ',
-            url: '/faq'
+            name: 'Technology',
+            url: '/technology'
+          },
+          {
+            name: 'Learn',
+            url: '/learn'
           },
           {
             name: 'Download',
@@ -44,23 +43,27 @@ export default class PageFooter extends React.Component {
         ]
       },
       {
-        title: 'More about Sia',
+        title: 'Resources',
         links: [
           {
-            name: 'Get Siacoin',
-            url: '/getting-siacoin'
+            name: 'Whitepaper',
+            url: 'https://sia.tech/whitepaper.pdf'
+          },
+          {
+            name: 'Support',
+            url: 'https://support.sia.tech/help_center'
           },
           {
             name: 'Roadmap',
-            url: '/roadmap'
+            url: 'https://trello.com/b/Io1dDyuI/sia-public-roadmap'
           },
           {
-            name: 'Github-UI',
-            url: '#'
+            name: 'Wiki',
+            url: 'https://siawiki.tech/'
           },
           {
-            name: 'Github',
-            url: '#'
+            name: 'Get Siacoin',
+            url: '/get-siacoin'
           }
         ]
       },
@@ -69,19 +72,23 @@ export default class PageFooter extends React.Component {
         links: [
           {
             name: 'Blog',
-            url: '/blog'
+            url: 'https://blog.sia.tech/'
           },
           {
             name: 'Discord',
-            url: '#'
+            url: 'https://discordapp.com/invite/sia'
           },
           {
             name: 'Forum',
-            url: '#'
+            url: 'https://forum.sia.tech/'
+          },
+          {
+            name: 'Github',
+            url: 'https://github.com/nebulouslabs'
           },
           {
             name: 'Twitter',
-            url: '#'
+            url: 'https://twitter.com/siatechhq'
           }
         ]
       }
@@ -94,7 +101,7 @@ export default class PageFooter extends React.Component {
           <ul>
             {sitemap.links.map((l: FooterLink, idx: number) => (
               <li key={idx}>
-                <Text.Link type="footerText" to={l.url}>
+                <Text.Link type="footerText" href={l.url}>
                   {l.name}
                 </Text.Link>
               </li>
