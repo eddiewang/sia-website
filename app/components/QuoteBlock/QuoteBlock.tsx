@@ -23,9 +23,10 @@ const Quotes: QuoteProps[] = [
     key: 0
   },
   {
-    content: 'Sia is seriously really cool.',
-    author: 'Random Dude',
-    role: 'Managing Director, T-rex Capital Management',
+    content:
+      "Sia's founding team has a long track record putting the project and community, not themselves, first. They always act with the highest integrity, even when no one is looking.",
+    author: 'Drew Volpe',
+    role: 'Managing Director, First Star (aka Procyon Ventures)',
     key: 1
   }
 ]

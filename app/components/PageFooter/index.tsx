@@ -25,6 +25,10 @@ export default class PageFooter extends React.Component {
         title: 'What is Sia',
         links: [
           {
+            name: 'Home',
+            url: '/'
+          },
+          {
             name: 'About',
             url: '/about'
           },

@@ -11,4 +11,4 @@ update used storage live
 <!-- Investors - Slider Component -->
 <!-- Shrink down quote section -->
 <!-- Technology Page -->
-Get Siacoin
+<!-- Get Siacoin -->
