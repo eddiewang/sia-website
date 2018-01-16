@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
 import * as classNames from 'classnames'
-import { variationName } from 'utilities//styles'
+import { variationName } from 'utilities/styles'
+import { isUrlExternal } from 'utilities//feature-detect'
 import AssetSVG, { Props as AssetProps } from '../AssetSVG'
 import Circle from './Circle'
 
@@ -64,11 +65,25 @@ export default class Icon extends React.Component<Props & AssetProps, {}> {
 
     function renderMe() {
       if (href) {
-        return (
-          <Link to={href} className={className} aria-label={accessibleLabel} id={id}>
-            {renderAsset}
-          </Link>
-        )
+        if (isUrlExternal(href)) {
+          return (
+            <a
+              target="_blank"
+              href={href}
+              className={className}
+              aria-label={accessibleLabel}
+              id={id}
+            >
+              {renderAsset}
+            </a>
+          )
+        } else {
+          return (
+            <Link to={href} className={className} aria-label={accessibleLabel} id={id}>
+              {renderAsset}
+            </Link>
+          )
+        }
       } else {
         return (
           <div className={className} aria-label={accessibleLabel} id={id}>

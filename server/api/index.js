@@ -2,6 +2,10 @@ const router = require('express').Router()
 const axios = require('axios')
 const hosts = require('../hostdb/active_hosts.json')
 const fs = require('fs')
+const CoinMarketCap = require('coinmarketcap-api')
+
+const cmc = new CoinMarketCap()
+
 router.get('/test', (req, res) => {
   res.send({ result: 'success' })
 })
@@ -54,6 +58,16 @@ router.get('/hosts', (req, res) => {
       .catch(err => console.log('ERROR', err))
   })
   res.send({ done: 'success' })
+})
+
+router.get('/marketcap', (req, res) => {
+  cmc.getTicker({
+    currency: 'siacoin'
+  }).then(data => {
+    res.send(data)
+  }).catch(err => {
+    res.status(400).send(err)
+  })
 })
 
 module.exports = router

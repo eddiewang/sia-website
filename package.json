@@ -86,6 +86,7 @@
     "babel-preset-env": "^1.6.1",
     "body-parser": "^1.16.0",
     "classnames": "2.2.5",
+    "coinmarketcap-api": "2.0.0",
     "compression": "^1.7.0",
     "detect-port": "^1.2.1",
     "express": "^4.15.4",

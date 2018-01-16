@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import jsonp from 'jsonp'
+import axios from 'axios'
 
 import LayoutContainer from 'components/LayoutContainer'
 import TypeHeading from 'components/TypeHeading'
@@ -44,6 +45,22 @@ interface State {
   newsletterEmail: string
   newsletterStatus: null | 'error' | 'sending' | 'success'
   newsletterMessage: null | string
+  marketCap: string
+}
+
+interface CoinMarketCapData {
+  id: string
+  name: string
+  symbol: string
+  rank: string
+  price_usd: string
+  price_btc: string
+  '24_volume_usd': string
+  market_cap_usd: string
+  available_supply: string
+  total_supply: string
+  max_supply: string
+  last_updated: string
 }
 
 const getAjaxUrl = url => url.replace('/post?', '/post-json?')
@@ -54,7 +71,23 @@ class Home extends React.Component<{}, State> {
   public state: State = {
     newsletterEmail: '',
     newsletterStatus: null,
-    newsletterMessage: null
+    newsletterMessage: null,
+    marketCap: '1.2'
+  }
+
+  public componentDidMount() {
+    axios
+      .get('/api/marketcap')
+      .then(({ data }) => {
+        const marketCap = parseInt(data[0].market_cap_usd, 10)
+        const inBillions = (marketCap / 1000000000).toFixed(2)
+        this.setState({
+          marketCap: inBillions
+        })
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 
   public handleCTA = (e): void => {
@@ -161,7 +194,7 @@ class Home extends React.Component<{}, State> {
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
-                  $1B
+                  ${this.state.marketCap}B
                 </TypeHeading>
                 <Text type="stat">Market Cap</Text>
               </div>

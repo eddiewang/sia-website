@@ -40,6 +40,31 @@ class Layout extends React.Component<Props, any> {
       {
         name: 'Roadmap',
         path: 'roadmap'
+      },
+      {
+        name: 'Community',
+        subitems: [
+          {
+            name: 'Blog',
+            path: 'https://blog.sia.tech/'
+          },
+          {
+            name: 'Discord',
+            path: 'https://discordapp.com/invite/sia'
+          },
+          {
+            name: 'Forum',
+            path: 'https://forum.sia.tech/'
+          },
+          {
+            name: 'Github',
+            path: 'https://github.com/nebulouslabs'
+          },
+          {
+            name: 'Twitter',
+            path: 'https://twitter.com/siatechhq'
+          }
+        ]
       }
     ]
 

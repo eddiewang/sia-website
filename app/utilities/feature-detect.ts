@@ -42,3 +42,26 @@ export function supportsEventListenerPassiveOption() {
   document.removeEventListener('test', noop)
   return supportsPassive
 }
+
+export function isUrlExternal(url) {
+  const host = window.location.hostname
+
+  const linkHost = u => {
+    if (/^https?:\/\//.test(u)) {
+      // Absolute URL.
+      // The easy way to parse an URL, is to create <a> element.
+      // @see: https://gist.github.com/jlong/2428561
+      const parser = document.createElement('a')
+      parser.href = u
+
+      return parser.hostname
+    } else {
+      // Relative URL.
+      return window.location.hostname
+    }
+  }
+
+  const testHost = linkHost(url)
+
+  return host !== testHost
+}

@@ -11,12 +11,14 @@ import Icon from '../../components/Icon'
 import Activator from './Activator'
 import Item from './Item'
 import Button from 'components/Button'
+import Dropdown from './Dropdown'
 
 import * as styles from './PageNav.scss'
 
-interface NavItem {
+export interface NavItem {
   name: string
   path: string
+  subitems?: NavItem[]
 }
 
 export interface Props {
@@ -83,14 +85,22 @@ class PageNav extends React.Component<Props & BreakpointContext, State> {
 
     const menuAriaHidden = !(opened || currentBreakpoint === Breakpoint.Desktop)
 
-    const pageNavListItems = items.map(({ path, name }: NavItem, index: number) => {
-      const fullPath = `${basePath}/${path}`
-      const isActiveRoute = activePath.indexOf(fullPath.replace(/([^/])\/.+$/, '$1')) === 0
+    const pageNavListItems = items.map(({ path, name, subitems }: NavItem, index: number) => {
+      if (subitems) {
+        return <Dropdown key={index} title={name} subitems={subitems} />
+      } else {
+        const fullPath = `${basePath}/${path}`
+        const isActiveRoute = activePath.indexOf(fullPath.replace(/([^/])\/.+$/, '$1')) === 0
 
-      return <Item key={index} href={fullPath} title={name} current={false} />
+        return <Item key={index} href={fullPath} title={name} current={false} />
+      }
     })
 
-    const downloadButton = ( <Button.Link to='/get-started' key='download' type='nav'>Download</Button.Link>)
+    const downloadButton = (
+      <Button.Link to="/get-started" key="download" type="nav">
+        Download
+      </Button.Link>
+    )
     pageNavListItems.push(downloadButton)
     return (
       <div id="navigation" className={styles.PageNav}>
