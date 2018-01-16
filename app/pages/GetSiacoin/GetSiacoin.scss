@@ -1,0 +1,7 @@
+.Exchanges {
+  display: grid;
+  @media screen and (min-width: sg-breakpoint()) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: rem(30px);
+  }
+}

@@ -24,6 +24,7 @@ const pageRoutes = ({ location }) => {
         <Route exact path="/technology" component={getComponent('HowItWorks')} />
         <Route exact path="/learn" component={getComponent('Learn')} />
         <Route exact path="/roadmap" component={getComponent('Roadmap')} />
+        <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />
       </AnimatedSwitch>
     </TransitionGroup>
   )
