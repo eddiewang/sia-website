@@ -42,6 +42,31 @@ class Layout extends React.Component<Props, any> {
         path: 'roadmap'
       },
       {
+        name: 'Resources',
+        subitems: [
+          {
+            name: 'Knowledge',
+            path: 'https://support.sia.tech/help_center'
+          },
+          {
+            name: 'FAQ',
+            path: 'https://sia.tech/faq/'
+          },
+          {
+            name: 'Forum',
+            path: 'https://forum.sia.tech/'
+          },
+          {
+            name: 'Wiki',
+            path: 'https://siawiki.tech/'
+          },
+          {
+            name: 'Get Siacoin',
+            path: 'https://siawiki.tech/'
+          }
+        ]
+      },
+      {
         name: 'Community',
         subitems: [
           {

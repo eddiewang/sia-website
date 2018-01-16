@@ -6,7 +6,7 @@ update used storage live
 <!-- Marketcap - add toFixed(1 -->
 <!-- Standardize Stats Fonts -->
 <!-- Remove top border from nav -->
-Put resources dropdown at the top
+<!-- Put resources dropdown at the top -->
 <!-- Shrink da team page -->
 <!-- Investors - Slider Component -->
 <!-- Shrink down quote section -->

@@ -20,16 +20,19 @@ interface State {
 @inject('main')
 @observer
 class Dropdown extends React.Component<Props, State> {
+  public state: State = {
+    visible: false
+  }
   public toggleDropdown = () => {
-    console.log(this.props.main.navDropdown)
-    this.props.main.navDropdown = !this.props.main.navDropdown
+    this.setState({
+      visible: !this.state.visible
+    })
   }
   public render() {
     const { title, subitems } = this.props
-    const { navDropdown } = this.props.main
+    const { visible } = this.state
     const className = classNames(styles.Item, styles.Dropdown)
-    const sublistClass = classNames(styles.Sublist, navDropdown && styles.SublistVisible)
-    console.log('sublistClass', sublistClass, navDropdown)
+    const sublistClass = classNames(styles.Sublist, visible && styles.SublistVisible)
     const mapSubitems = subitems.map((s: NavItem, i) => {
       if (isUrlExternal(s.path)) {
         return (
