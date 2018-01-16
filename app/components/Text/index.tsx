@@ -12,6 +12,7 @@ interface Props {
   light?: boolean
   medium?: boolean
   bold?: boolean
+  ink?: boolean
 }
 
 class Text extends React.PureComponent<Props, {}> {
@@ -19,18 +20,17 @@ class Text extends React.PureComponent<Props, {}> {
   public static Paragraph = Paragraph
 
   public render() {
-    const { children, inverse, type, light, medium, bold } = this.props
+    const { children, inverse, type, light, medium, bold, ink } = this.props
     const textClass = classNames(
       styles.Text,
       inverse && styles[variationName('is', 'inverse')],
+      ink && styles[variationName('is', 'ink')],
       light && styles[variationName('is', 'light')],
       medium && styles[variationName('is', 'medium')],
       bold && styles[variationName('is', 'bold')],
       type && styles[variationName('type', type)]
     )
-    return (
-      <span className={textClass}>{children}</span>
-    )
+    return <span className={textClass}>{children}</span>
   }
 }
 

@@ -13,9 +13,7 @@
   cursor: pointer;
 }
 
-.isInverse {
-  color: sg-color(white);
-}
+
 
 .isLight {
   color: sg-color(ink, light);
@@ -69,6 +67,7 @@
 }
 
 .typeLinkCardHeader {
+  display: inline-block;
   font-size: rem(24px);
   color: sg-color(sia-green);
   padding-bottom: rem(16px);
@@ -86,6 +85,7 @@
 .typeLinkCardLink {
   color: sg-color(sia-green);
   font-weight: 600;
+  padding-bottom: 0;
 }
 
 .typeVisionHeading {
@@ -142,4 +142,12 @@
   @media screen and (min-width: sg-breakpoint(portrait, tablet)) {
    font-size: rem(18px);
   }
+}
+
+.isInverse {
+  color: sg-color(white);
+}
+
+.isInk {
+  color: sg-color(ink);
 }

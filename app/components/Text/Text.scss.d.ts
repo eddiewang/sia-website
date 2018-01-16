@@ -2,7 +2,6 @@ export const Text: string
 export const text: string
 export const Link: string
 export const link: string
-export const isInverse: string
 export const isLight: string
 export const isMedium: string
 export const isBold: string
@@ -22,4 +21,6 @@ export const typeQuoteAuthor: string
 export const typeQuoteRole: string
 export const typeContactHeader: string
 export const typeStat: string
+export const isInverse: string
+export const isInk: string
 export const skeletonShimmerAnimation: string

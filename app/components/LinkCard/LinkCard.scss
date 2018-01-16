@@ -14,4 +14,25 @@
   @media screen and (min-width: sg-breakpoint()) {
     margin-top: 0;
   }
+  &Links {
+    a {
+      padding-right: rem(10px);
+      padding-left: rem(10px);
+      border-right: 1px solid sg-color(sky);
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+  &Icon {
+    width: rem(30px);
+    height: rem(30px);
+    float: right;
+    &Third {
+      width: rem(50px);
+    }
+  }
 }
