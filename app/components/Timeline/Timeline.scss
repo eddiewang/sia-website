@@ -118,10 +118,10 @@
           z-index: 3;
           position: absolute;
           width: rem(3px);
-          min-height: rem(12px * $i);
+          min-height: rem(20px * $i);
           background: sg-color(sia-green);
           right: 50%;
-          top: rem(70px);
+          top: rem(67px);
           transform: translateX(50%);
         }
       }
