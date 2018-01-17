@@ -49,6 +49,7 @@ interface State {
   usedStorage: number
   activeHosts: number
   storageCapacity: string
+  mapData: any
 }
 
 interface CoinMarketCapData {
@@ -86,7 +87,8 @@ class Home extends React.Component<{}, State> {
     marketCap: '1.2',
     usedStorage: 100,
     activeHosts: 600,
-    storageCapacity: '3'
+    storageCapacity: '3',
+    mapData: null
   }
 
   public getMarketCap() {
@@ -97,9 +99,13 @@ class Home extends React.Component<{}, State> {
     return axios.get('/api/stats')
   }
 
+  public getMap() {
+    return axios.get('/api/hosts')
+  }
+
   public componentDidMount() {
-    axios.all([this.getMarketCap(), this.getStats()]).then(
-      axios.spread((marketcap, stats) => {
+    axios.all([this.getMarketCap(), this.getStats(), this.getMap()]).then(
+      axios.spread((marketcap, stats, hosts) => {
         const marketCap = parseInt(marketcap.data[0].market_cap_usd, 10)
         const inBillions = (marketCap / 1000000000).toFixed(2)
         const { data } = stats
@@ -107,26 +113,34 @@ class Home extends React.Component<{}, State> {
         const usedStorage = data.usedstorage.toFixed(0)
         const storageCapacity = (data.totalstorage / 1000).toFixed(2)
 
+        const mapData = hosts.data
+        const geoJsonFormatter = hostdata => {
+          const geoJson = {
+            type: 'FeatureCollection',
+            features: [] as any[]
+          }
+          hostdata.forEach(h => {
+            geoJson.features.push({
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: [h.lon, h.lat]
+              }
+            })
+          })
+          return geoJson
+        }
+        const geoData = geoJsonFormatter(mapData)
+
         this.setState({
           marketCap: inBillions,
           usedStorage,
           activeHosts,
-          storageCapacity
+          storageCapacity,
+          mapData: geoData
         })
       })
     )
-    // axios
-    //   .get('/api/marketcap')
-    //   .then(({ data }) => {
-    //     const marketCap = parseInt(data[0].market_cap_usd, 10)
-    //     const inBillions = (marketCap / 1000000000).toFixed(2)
-    //     this.setState({
-    //       marketCap: inBillions
-    //     })
-    //   })
-    //   .catch(err => {
-    //     console.error(err)
-    //   })
   }
 
   public handleCTA = (e): void => {
@@ -213,7 +227,7 @@ class Home extends React.Component<{}, State> {
         <Section>
           <LayoutContainer>
             <div className={styles.Globe}>
-              <Map />
+              <Map data={this.state.mapData} />
             </div>
             <div className={styles.Stats}>
               <div>
