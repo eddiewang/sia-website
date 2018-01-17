@@ -41,30 +41,29 @@ const pushLocation = (long, lat) => {
   fs.writeFile('hosts_geojson.json', JSON.stringify(geojson), 'utf8')
 }
 
-router.get('/hosts', (req, res) => {
-  const h = hosts.hosts
-  const ips = h.map(x => x.netaddress)
-  let n = 0
-  ips.forEach(i => {
-    n++
-    let ip = i.split(':')[0]
-    console.log('ip is', ip)
-    axios
-      .get(`http://freegeoip.net/json/${ip}`)
-      .then(result => {
-        const { data } = result
-        pushLocation(data.longitude, data.latitude)
-      })
-      .catch(err => console.log('ERROR', err))
-  })
-  res.send({ done: 'success' })
-})
-
 router.get('/marketcap', (req, res) => {
   cmc.getTicker({
     currency: 'siacoin'
   }).then(data => {
     res.send(data)
+  }).catch(err => {
+    res.status(400).send(err)
+  })
+})
+
+router.get('/hosts', (req, res) => {
+  axios.get('https://siastats.info/dbs/hostscoordinates.json')
+  .then(({data}) => {
+    res.send(data)
+  }).catch(err => {
+    res.status(400).send(err)
+  })
+})
+
+router.get('/stats', (req, res) => {
+  axios.get('https://siastats.info/dbs/hostsRTdb.json')
+  .then(({data}) => {
+    res.send(data[0])
   }).catch(err => {
     res.status(400).send(err)
   })

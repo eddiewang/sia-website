@@ -4,6 +4,7 @@ import geojson from './geojson.json'
 import * as styles from './Map.scss'
 
 interface Props {
+  data?: any
   width?: number
   height?: number
 }
@@ -18,10 +19,11 @@ const MapBox = ReactMapboxGl({
 
 export default class Map extends React.Component<Props, {}> {
   public render() {
+    const { data } = this.props
     return (
       <MapBox style="mapbox://styles/mapbox/light-v9" className={styles.MapBox} zoom={[1.8]}>
         <GeoJSONLayer
-          data={geojson}
+          data={data ? data : geojson}
           circlePaint={{
             // make circles larger as the user zooms from z12 to z22
             'circle-radius': 5,

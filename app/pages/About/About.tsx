@@ -41,28 +41,28 @@ class About extends React.Component {
             </div>
             <div>
               <Text.Paragraph type="visionHeading">
-                Sia offers a new kind of cloud storage product. Our technology automatically
-                connects users who need storage with hosts worldwide who rent unused space on their
-                hard drives.
+                Sia is reinventing cloud storage. Our technology connects users who need file
+                storage with hosts worldwide offering underutilized hard drive capacity. Our
+                blockchain technology secures their data and enables breakthrough economics for
+                users and hosts.
               </Text.Paragraph>
               <Text.Paragraph>
-                The blockchain allows us to run this marketplace without an intermediary. We secure
-                storage transactions with smart contracts which creates a more reliable and lower
-                cost option than traditional cloud providers. Every entity that stores data is
-                responsible for the liability they assume. No one organization can censor or deny
-                access to data — not the miners, not the developers, not the government. Our
-                distributed, decentralized storage is stronger, more secure, more efficient, and
-                more equitable for all.
+                The Sia blockchain allows us to run this marketplace without an intermediary. We
+                secure storage transactions with smart contracts, creating a more reliable and
+                affordable offering when compared to traditional cloud providers. No one person or
+                organization can censor or deny access to data — not miners, not developers, nor any
+                government. Sia’s distributed, decentralized storage technology is stronger, more
+                secure, more efficient, and more equitable for the entire ecosystem.
               </Text.Paragraph>
               <Text.Paragraph>
-                Individuals and institutions should not be beholden to large corporations. We formed
-                Sia to promote and safeguard users’ freedoms. Sia is our attempt to bring
-                decentralized, blockchain technology to the mainstream, without sacrificing price or
-                performance.
+                Sia believes that neither Individuals nor institutions should be beholden to large
+                corporations. Sia was created to promote and safeguard users’ freedoms. It’s our
+                attempt to bring decentralized storage built on blockchain technology to the
+                mainstream without sacrificing price or performance.
               </Text.Paragraph>
               <Text.Paragraph>
-                Sia was established in 2014. Based in Boston, Sia is funded by First Star Ventures
-                and Raptor Group.
+                Nebulous, Inc. was was established in 2014 and launched the Sia Storage Platform in
+                2015. Based in Boston, Nebulous is funded by Raptor Group and First Star Ventures.
               </Text.Paragraph>
             </div>
           </LayoutContainer>

@@ -46,6 +46,9 @@ interface State {
   newsletterStatus: null | 'error' | 'sending' | 'success'
   newsletterMessage: null | string
   marketCap: string
+  usedStorage: number
+  activeHosts: number
+  storageCapacity: string
 }
 
 interface CoinMarketCapData {
@@ -63,6 +66,14 @@ interface CoinMarketCapData {
   last_updated: string
 }
 
+interface ApiStats {
+  timestamp: number
+  activehosts: number
+  totalstorage: number
+  usedstorage: number
+  usage: number
+}
+
 const getAjaxUrl = url => url.replace('/post?', '/post-json?')
 
 @inject('main')
@@ -72,22 +83,50 @@ class Home extends React.Component<{}, State> {
     newsletterEmail: '',
     newsletterStatus: null,
     newsletterMessage: null,
-    marketCap: '1.2'
+    marketCap: '1.2',
+    usedStorage: 100,
+    activeHosts: 600,
+    storageCapacity: '3'
+  }
+
+  public getMarketCap() {
+    return axios.get('/api/marketcap')
+  }
+
+  public getStats() {
+    return axios.get('/api/stats')
   }
 
   public componentDidMount() {
-    axios
-      .get('/api/marketcap')
-      .then(({ data }) => {
-        const marketCap = parseInt(data[0].market_cap_usd, 10)
+    axios.all([this.getMarketCap(), this.getStats()]).then(
+      axios.spread((marketcap, stats) => {
+        const marketCap = parseInt(marketcap.data[0].market_cap_usd, 10)
         const inBillions = (marketCap / 1000000000).toFixed(2)
+        const { data } = stats
+        const activeHosts = data.activehosts
+        const usedStorage = data.usedstorage.toFixed(0)
+        const storageCapacity = (data.totalstorage / 1000).toFixed(2)
+
         this.setState({
-          marketCap: inBillions
+          marketCap: inBillions,
+          usedStorage,
+          activeHosts,
+          storageCapacity
         })
       })
-      .catch(err => {
-        console.error(err)
-      })
+    )
+    // axios
+    //   .get('/api/marketcap')
+    //   .then(({ data }) => {
+    //     const marketCap = parseInt(data[0].market_cap_usd, 10)
+    //     const inBillions = (marketCap / 1000000000).toFixed(2)
+    //     this.setState({
+    //       marketCap: inBillions
+    //     })
+    //   })
+    //   .catch(err => {
+    //     console.error(err)
+    //   })
   }
 
   public handleCTA = (e): void => {
@@ -147,11 +186,14 @@ class Home extends React.Component<{}, State> {
         <Section>
           <LayoutContainer classes={styles.Hero}>
             <div className={styles.HeroContent}>
-              <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
+              <TypeHeading level={2}>
+                Cloud storage is about to change. Are you ready for the future?
+              </TypeHeading>
               <Text.Paragraph>
-                Sia is the first peer-to-peer, decentralized storage platform secured by blockchain.
-                We leverage unused hard drive space to create a storage marketplace that is more
-                reliable and lower cost than traditional cloud providers.
+                Sia is the first decentralized storage platform secured by blockchain technology.
+                The Sia Storage Platform leverages underutilized hard drive capacity around the
+                world to create a data storage marketplace that is more reliable and lower cost than
+                traditional cloud storage providers.
               </Text.Paragraph>
               <Button.Link to="/get-started" type="largeCTA">
                 Download
@@ -176,19 +218,19 @@ class Home extends React.Component<{}, State> {
             <div className={styles.Stats}>
               <div>
                 <TypeHeading level={4} type="stat">
-                  3.5PB
+                  {this.state.storageCapacity}PB
                 </TypeHeading>
                 <Text type="stat">Storage Capacity</Text>
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
-                  950
+                  {this.state.activeHosts}
                 </TypeHeading>
                 <Text type="stat">Active Hosts</Text>
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
-                  105TB
+                  {this.state.usedStorage}TB
                 </TypeHeading>
                 <Text type="stat">Used Storage</Text>
               </div>
@@ -205,27 +247,27 @@ class Home extends React.Component<{}, State> {
           <LayoutContainer>
             <PitchRow
               title="Completely Private"
-              content="Sia splits apart, encrypts, and distributes your files across a decentralized network. Since you hold the keys, you own your data. No outside company can access or control your files, unlike traditional cloud storage providers."
+              content="Sia encrypts and distributes files across a decentralized network. You control your private encryption keys and you own your data. No outside company or third party can access or control your files, unlike traditional cloud storage providers."
               src={PitchHome}
             />
             <PitchRow
               title="Far More Affordable"
-              content="Sia's decentralized cloud is on average 10x less expensive than current cloud storage providers. Storing 1TB on Sia costs about $2 per month, compared with $23 on Amazon S3."
+              content="On average, Sia's decentralized cloud storage costs 90% less than incumbent cloud storage providers. Storing 1TB of files on Sia costs about $2 per month, compared with $23 on Amazon S3."
               src={PitchAffordable}
             />
             <PitchRow
               title="Highly Redundant"
-              content="Sia stores tiny pieces of your files on dozens of nodes across the globe. This eliminates any single point of failure and ensures highest possible uptime, on par with other cloud storage providers."
+              content="Sia distributes and stores file segments  on nodes across the globe, eliminating any single point of failure and ensuring uptime that rivals  traditional cloud storage providers."
               src={PitchRedundant}
             />
             <PitchRow
               title="Open source"
-              content="Sia is completely open source. Over a dozen individuals have contributed to Sia's software, and there is an active community building innovative applications on top of the Sia API."
+              content="Sia’s software is completely open source, with contributions from leading software engineers and a thriving community of developers building innovative applications on the Sia API."
               src={PitchOpenSource}
             />
             <PitchRow
-              title="Blockchain Marketplace"
-              content="Using the Sia blockchain, Sia creates a decentralized storage marketplace in which hosts compete for your business – this leads to the lowest possible prices. Renters pay using Siacoin, which can also be mined and traded."
+              title="Blockchain-powered Marketplace"
+              content="Using the Sia blockchain, Sia creates a decentralized storage marketplace in which hosts compete for your business, which leads to the lowest possible prices. Renters pay using Siacoin, which can also be mined and traded."
               src={PitchMarketplace}
             />
           </LayoutContainer>
