@@ -20,7 +20,7 @@ class Roadmap extends React.Component {
     const data: TimelineStory[] = [
       {
         year: 2014,
-        content: 'Nebulous, Inc. is founded to build Sia. Raises first capital.'
+        content: 'Nebulous, Inc. is founded to build Sia. Raises first capital in a crowdsale.'
       },
       {
         year: 2015,
@@ -32,21 +32,22 @@ class Roadmap extends React.Component {
       },
       {
         year: 2017,
-        content: 'Sia gains significant speed, stability, scalability upgrades, and team growth.'
+        content: 'Sia gains significant speed, stability, and scalability upgrades. The team grows.'
       },
       {
         year: 2018,
         content:
-          'Sia becomes production-ready for cold storage, begins to be used by companies, and introduces file sharing.'
+          'Our goal: Sia becomes production-ready for cold storage, begins to be used by companies, and introduces file sharing.'
       },
       {
         year: 2019,
         content:
-          'Sia starts to approach Amazon S3 speeds, moves to warmer storage, and introduces CDN features.'
+          'Our goal: Sia starts to approach Amazon S3 speeds, moves to warmer storage, and introduces content distribution features.'
       },
       {
         year: 2020,
-        content: 'Sia becomes a true competitor to Amazon S3 and companies start to switch to Sia.'
+        content:
+          'Our goal: Sia becomes a true competitor to Amazon S3 and companies start to switch to Sia as an alternative.'
       }
     ]
     return (

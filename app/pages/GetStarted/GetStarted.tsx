@@ -27,9 +27,9 @@ class GetStarted extends React.Component {
               <LinkCard
                 icon="sia"
                 title="Sia UI"
-                content="Download the latest version of Sia with a Graphical User Interface"
-                linkTitle="Getting Started Guide"
-                linkTo="https://github.com/NebulousLabs/Sia-UI"
+                content="Download the latest version of Sia with a Graphical User Interface. Built for users who'd prefer to use a GUI over command line."
+                linkTitle="Guide to Uploading Data to Sia"
+                linkTo="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
                 links={[
                   {
                     title: 'Windows',
@@ -51,9 +51,9 @@ class GetStarted extends React.Component {
               <LinkCard
                 icon="sia"
                 title="Sia Daemon"
-                content="Download the latest Sia Daemon for use with your CLI"
-                linkTitle="Getting Started Guide"
-                linkTo="https://github.com/NebulousLabs/Sia-UI"
+                content="Download the latest Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
+                linkTitle="Documentation for Developers"
+                linkTo="https://github.com/NebulousLabs/Sia/tree/master/doc"
                 links={[
                   {
                     title: 'Windows',
@@ -107,6 +107,20 @@ class GetStarted extends React.Component {
                   }
                 ]}
               />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Marlin Miner"
+                content="A Siacoin Stratum miner developed by SiaMining"
+                linkTitle="Source Code"
+                linkTo="https://github.com/SiaMining/marlin"
+                links={[
+                  {
+                    title: 'Download',
+                    to: 'https://github.com/SiaMining/marlin/releases/latest'
+                  }
+                ]}
+              />
             </div>
           </LayoutContainer>
         </Section>
@@ -129,24 +143,24 @@ class GetStarted extends React.Component {
               <LinkCard
                 darkTitle
                 icon="third"
-                title="SiaStats"
-                content="Charts and metrics for the Sia network"
-                links={[
-                  {
-                    title: 'siastats.info >',
-                    to: 'https://siastats.info/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
                 title="SiaHub"
                 content="Sia network stats and other tools"
                 links={[
                   {
                     title: 'siahub.info >',
                     to: 'https://siahub.info/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="SiaStats"
+                content="Charts and metrics for the Sia network"
+                links={[
+                  {
+                    title: 'siastats.info >',
+                    to: 'https://siastats.info/'
                   }
                 ]}
               />
@@ -189,7 +203,19 @@ class GetStarted extends React.Component {
                 links={[
                   {
                     title: 'obelisk.tech >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to: 'https://obelisk.tech'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="PixelDrain"
+                content="File sharing site powered by Sia"
+                links={[
+                  {
+                    title: 'sia.pixeldrain.com >',
+                    to: 'https://sia.pixeldrain.com/'
                   }
                 ]}
               />
@@ -200,9 +226,8 @@ class GetStarted extends React.Component {
                 content="OS for using Sia on Raspberry Pi"
                 links={[
                   {
-                    title: 'forum.sia.tech >',
-                    to:
-                      'https://forum.sia.tech/topic/1652/introducing-siaberryos-a-linux-operating-system-for-using-siacoin-on-raspberry-pi-3'
+                    title: 'siaberry.com >',
+                    to: 'http://www.siaberry.com/'
                   }
                 ]}
               />

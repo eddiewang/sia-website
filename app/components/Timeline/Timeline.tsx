@@ -69,7 +69,7 @@ class Timeline extends React.Component<Props, {}> {
         </ul>
         <div className={styles.TimelineEnding}>
           <TypeHeading level={6}>
-            Become the storage layer of <br />The Internet
+            Long term goal: Sia becomes the storage layer of the Internet
           </TypeHeading>
         </div>
       </div>
