@@ -69,4 +69,13 @@ router.get('/stats', (req, res) => {
   })
 })
 
+router.get('/siahub/network', (req, res) => {
+  axios.get('https://siahub.info/api/network')
+  .then(({data}) => {
+    res.send(data[data.length - 1])
+  }).catch( err => {
+    res.status(400).send(err)
+  })
+})
+
 module.exports = router

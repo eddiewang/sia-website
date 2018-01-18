@@ -21,7 +21,28 @@ export default class Map extends React.Component<Props, {}> {
   public render() {
     const { data } = this.props
     return (
-      <MapBox style="mapbox://styles/mapbox/light-v9" className={styles.MapBox} zoom={[1.8]}>
+      <MapBox
+        style="mapbox://styles/mapbox/light-v9"
+        className={styles.MapBox}
+        zoom={[1.2]}
+        center={[0, 30]}
+      >
+        <Layer
+          type="symbol"
+          layout={{
+            'text-field': 'Sia Active Hosts',
+            'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+            'text-size': 18,
+            'text-transform': 'uppercase',
+            'text-letter-spacing': 0.05
+          }}
+          paint={{
+            'text-color': '#7f8c8d'
+          }}
+          id="asdf"
+        >
+          <Feature coordinates={[-485, 65]} />
+        </Layer>
         <GeoJSONLayer
           data={data ? data : geojson}
           circlePaint={{

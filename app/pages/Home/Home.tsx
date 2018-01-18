@@ -46,7 +46,7 @@ interface State {
   newsletterStatus: null | 'error' | 'sending' | 'success'
   newsletterMessage: null | string
   marketCap: string
-  usedStorage: number
+  usedStorage: string
   activeHosts: number
   storageCapacity: string
   mapData: any
@@ -85,7 +85,7 @@ class Home extends React.Component<{}, State> {
     newsletterStatus: null,
     newsletterMessage: null,
     marketCap: '1.2',
-    usedStorage: 100,
+    usedStorage: '100',
     activeHosts: 600,
     storageCapacity: '3',
     mapData: null
@@ -103,15 +103,20 @@ class Home extends React.Component<{}, State> {
     return axios.get('/api/hosts')
   }
 
+  public getNetwork() {
+    return axios.get('api/siahub/network')
+  }
+
   public componentDidMount() {
-    axios.all([this.getMarketCap(), this.getStats(), this.getMap()]).then(
+    axios.all([this.getMarketCap(), this.getNetwork(), this.getMap()]).then(
       axios.spread((marketcap, stats, hosts) => {
         const marketCap = parseInt(marketcap.data[0].market_cap_usd, 10)
-        const inBillions = (marketCap / 1000000000).toFixed(2)
+        const inBillions = (marketCap / 1000000000).toFixed(1)
         const { data } = stats
-        const activeHosts = data.activehosts
-        const usedStorage = data.usedstorage.toFixed(0)
-        const storageCapacity = (data.totalstorage / 1000).toFixed(2)
+        const activeHosts = data.active_hosts
+        const totalStorage = data.totalstorage
+        const usedStorage = ((data.totalstorage - data.remainingstorage) / 1e12).toFixed(0)
+        const storageCapacity = (data.totalstorage / 1e15).toFixed(1)
 
         const mapData = hosts.data
         const geoJsonFormatter = hostdata => {
