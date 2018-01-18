@@ -6,4 +6,5 @@ export const CardIcon: string
 export const cardIcon: string
 export const CardIconThird: string
 export const cardIconThird: string
+export const isActive: string
 export const skeletonShimmerAnimation: string

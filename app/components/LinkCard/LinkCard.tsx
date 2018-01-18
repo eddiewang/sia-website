@@ -20,11 +20,12 @@ interface Props {
   links: Link[]
   darkTitle?: boolean
   icon?: 'sia' | 'third'
+  active?: boolean
 }
 
 class LinkCard extends React.Component<Props, {}> {
   public render() {
-    const { title, content, linkTitle, linkTo, links, darkTitle, icon } = this.props
+    const { title, active, content, linkTitle, linkTo, links, darkTitle, icon } = this.props
     const renderList = links.map((l: Link, i) => (
       <Text.Link type="linkCardLink" href={l.to} key={i}>
         {l.title}
@@ -42,8 +43,9 @@ class LinkCard extends React.Component<Props, {}> {
         renderClass = classNames(styles.CardIcon, styles.CardIconThird)
         break
     }
+    const CardClass = classNames(styles.Card, active && styles.isActive)
     return (
-      <div className={styles.Card}>
+      <div className={CardClass}>
         <div className={styles.CardTop}>
           <Text ink={darkTitle} type="linkCardHeader">
             {title}

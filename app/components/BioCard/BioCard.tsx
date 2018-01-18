@@ -13,12 +13,13 @@ export interface UserDetails {
     title: 'Github' | 'LinkedIn'
     url: string
   }
+  role: string
   content?: string
 }
 
 class BioCard extends React.Component<UserDetails, {}> {
   public render() {
-    const { name, svg, social, content } = this.props
+    const { name, svg, social, content, role } = this.props
     const CardClass = classNames(styles.Card, content && styles.Large)
     return (
       <div className={CardClass}>
@@ -37,6 +38,7 @@ class BioCard extends React.Component<UserDetails, {}> {
           <TypeHeading type="bioHeading" level={6}>
             {name}
           </TypeHeading>
+          <Text type="bioLink">{role}</Text>
           <Text.Link type="bioLink" href={social.url}>
             {social.title}
           </Text.Link>

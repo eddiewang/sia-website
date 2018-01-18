@@ -25,6 +25,7 @@ class GetStarted extends React.Component {
             <TypeHeading level={6}>Core Software</TypeHeading>
             <div className={styles.Core}>
               <LinkCard
+                active
                 icon="sia"
                 title="Sia UI"
                 content="Download the latest version of Sia with a Graphical User Interface. Built for users who'd prefer to use a GUI over command line."

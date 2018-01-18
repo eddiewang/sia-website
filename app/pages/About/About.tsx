@@ -26,8 +26,8 @@ import github from 'svg/social-github.svg'
 @observer
 class About extends React.Component {
   public render() {
-    const mappedBios = Bios.map(({ content, name, social, svg }: UserDetails, i: number) => {
-      return <BioCard key={i} content={content} name={name} social={social} svg={svg} />
+    const mappedBios = Bios.map(({ content, name, social, svg, role }: UserDetails, i: number) => {
+      return <BioCard key={i} content={content} name={name} social={social} svg={svg} role={role} />
     })
     return (
       <div>

@@ -8,6 +8,7 @@ export default [
   {
     name: 'David Vorick',
     svg: David,
+    role: 'Cofounder',
     social: {
       title: 'Github',
       url: 'https://github.com/DavidVorick'
@@ -18,6 +19,7 @@ export default [
   {
     name: 'Luke Champine',
     svg: Luke,
+    role: 'Cofounder',
     social: {
       title: 'Github',
       url: 'https://github.com/lukechampine'
@@ -28,6 +30,7 @@ export default [
   {
     name: 'Zach Herbert',
     svg: Zach,
+    role: 'VP of Operations',
     social: {
       title: 'LinkedIn',
       url: 'https://www.linkedin.com/in/zherbert'
@@ -37,6 +40,7 @@ export default [
   {
     name: 'Chris Schinnerl',
     svg: Chris,
+    role: 'Core Developer',
     social: {
       title: 'Github',
       url: 'https://github.com/chrisschinnerl'
@@ -46,6 +50,7 @@ export default [
   {
     name: 'Steve Funk',
     svg: Steve,
+    role: 'Community Manager',
     social: {
       title: 'LinkedIn',
       url: 'https://www.linkedin.com/in/stevengfunk/'

@@ -37,7 +37,9 @@ class HowItWorks extends React.Component {
               End users (renters) and hosts (organizations making underutilized hard drive space
               available to the Sia Storage Platform network both install software which is available
               for download at no cost at{' '}
-              <Text.Link to="get-started">sia.tech/get-started</Text.Link>
+              <Text.Link type="techLink" to="download">
+                sia.tech/download
+              </Text.Link>
             </Text.Paragraph>
             <Text.Paragraph>Here’s what happens to files uploaded to Sia:</Text.Paragraph>
           </LayoutContainer>

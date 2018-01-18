@@ -11,9 +11,14 @@
 .Link {
   color: sg-color(ink, light);
   cursor: pointer;
+  &:hover, &:active {
+    color: sg-color(sia-green);
+  }
 }
 
-
+.typeTechLink {
+  color: sg-color(sia-green);
+}
 
 .isLight {
   color: sg-color(ink, light);
@@ -100,7 +105,7 @@
     font-size: rem(28px);
     font-weight: 400;
     line-height: 1.4;
-    margin-bottom: rem(80px);
+    margin-bottom: rem(40px);
   }
 }
 
@@ -150,6 +155,12 @@
   }
 }
 
+.typeBioLink {
+  display: block;
+  padding-bottom: 0;
+  margin-bottom: rem(5px);
+}
+
 .isInverse {
   color: sg-color(white);
 }
@@ -157,3 +168,4 @@
 .isInk {
   color: sg-color(ink);
 }
+

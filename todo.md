@@ -24,11 +24,11 @@ Free maps?
 <!-- Make input box validate green on Thanks. -->
 <!-- Github Live update stats -->
 <!-- Make newsletter at bottom function -->
-On contact click open up Groove Overlay.
-Reduce spacing in About (Vision section)
-Titles in Bios.
-Same spacing between sections
-Make link green (technology)
+<!-- On contact click open up Groove Overlay. -->
+<!-- Reduce spacing in About (Vision section) -->
+<!-- Titles in Bios. -->
+<!-- Same spacing between sections -->
+<!-- Make link green (technology) -->
 Outline Sia-UI in green.
 Add counter on downloads page.
 
