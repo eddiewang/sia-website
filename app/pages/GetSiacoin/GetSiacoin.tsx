@@ -26,9 +26,8 @@ class GetSiacoin extends React.Component {
             <div className={styles.Exchanges}>
               <LinkCard
                 darkTitle
-                icon="third"
                 title="Bittrex"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Based and fully regulated in the USA, Bittrex is the go-to spot for traders who demand lightning fast trade execution, stable wallets, and industry-best security practices."
                 links={[
                   {
                     title: 'bittrex.com >',
@@ -38,9 +37,8 @@ class GetSiacoin extends React.Component {
               />
               <LinkCard
                 darkTitle
-                icon="third"
                 title="Shapeshift"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Shapeshift is an innovative new low-friction cryptocurrency exchange that doesn't have a lengthy signup process. Simply set your input to a currency that you have, set the output to Siacoin, put your Siacoin address in the box, and click start."
                 links={[
                   {
                     title: 'shapeshift.io >',

@@ -27,42 +27,48 @@ class GetStarted extends React.Component {
               <LinkCard
                 icon="sia"
                 title="Sia UI"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Download the latest version of Sia with a Graphical User Interface"
                 linkTitle="Getting Started Guide"
                 linkTo="https://github.com/NebulousLabs/Sia-UI"
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.1/Sia-UI-v1.3.1-win32-x64.zip'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.1/Sia-UI-v1.3.1-osx-x64.zip'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.1/Sia-UI-v1.3.1-linux-x64.zip'
                   }
                 ]}
               />
               <LinkCard
                 icon="sia"
                 title="Sia Daemon"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Download the latest Sia Daemon for use with your CLI"
                 linkTitle="Getting Started Guide"
                 linkTo="https://github.com/NebulousLabs/Sia-UI"
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://github.com/NebulousLabs/Sia/releases/download/v1.3.1/Sia-v1.3.1-windows-amd64.zip'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://github.com/NebulousLabs/Sia/releases/download/v1.3.1/Sia-v1.3.1-darwin-amd64.zip'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://github.com/NebulousLabs/Sia/releases/download/v1.3.1/Sia-v1.3.1-linux-amd64.zip'
                   }
                 ]}
               />
@@ -77,13 +83,13 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="sia"
                 title="Miner"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="The official GPU miner"
                 linkTitle="Source Code"
-                linkTo="https://github.com/NebulousLabs/Sia-UI"
+                linkTo="https://github.com/NebulousLabs/Sia-GPU-Miner"
                 links={[
                   {
                     title: 'Download',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to: 'https://github.com/NebulousLabs/Sia-GPU-Miner/releases/latest'
                   }
                 ]}
               />
@@ -91,13 +97,13 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="Alternate Miner"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="A GPU miner for Sia in Go"
                 linkTitle="Source Code"
-                linkTo="https://github.com/NebulousLabs/Sia-UI"
+                linkTo="https://github.com/robvanmieghem/gominer"
                 links={[
                   {
                     title: 'Download',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to: 'https://github.com/robvanmieghem/gominer/releases/latest'
                   }
                 ]}
               />
@@ -112,11 +118,11 @@ class GetStarted extends React.Component {
                 icon="sia"
                 darkTitle
                 title="Explorer"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="The official Sia Explorer"
                 links={[
                   {
                     title: 'explore.sia.tech >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to: 'https://explore.sia.tech/'
                   }
                 ]}
               />
@@ -124,11 +130,11 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="SiaStats"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Charts and metrics for the Sia network"
                 links={[
                   {
                     title: 'siastats.info >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to: 'https://siastats.info/'
                   }
                 ]}
               />
@@ -136,11 +142,11 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="SiaHub"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Sia network stats and other tools"
                 links={[
                   {
                     title: 'siahub.info >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to: 'https://siahub.info/'
                   }
                 ]}
               />
@@ -155,11 +161,11 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="Luxor"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Building Sia-centric apps and services"
                 links={[
                   {
-                    title: 'Link >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    title: 'luxor.tech >',
+                    to: 'https://mining.luxor.tech/'
                   }
                 ]}
               />
@@ -167,11 +173,11 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="Minebox"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Next generation NAS powered by Sia"
                 links={[
                   {
-                    title: 'Link >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    title: 'minebox.io >',
+                    to: 'https://minebox.io/'
                   }
                 ]}
               />
@@ -179,10 +185,10 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="Obelisk"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="The first ASIC miner for Siacoin"
                 links={[
                   {
-                    title: 'Link >',
+                    title: 'obelisk.tech >',
                     to: 'https://github.com/NebulousLabs/Sia-UI'
                   }
                 ]}
@@ -191,11 +197,12 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="SiaBerry"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="OS for using Sia on Raspberry Pi"
                 links={[
                   {
-                    title: 'Link >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    title: 'forum.sia.tech >',
+                    to:
+                      'https://forum.sia.tech/topic/1652/introducing-siaberryos-a-linux-operating-system-for-using-siacoin-on-raspberry-pi-3'
                   }
                 ]}
               />
@@ -203,11 +210,11 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="SiaDrive"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Mount Sia as a drive on your desktop"
                 links={[
                   {
-                    title: 'Link >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    title: 'bitbucket.org >',
+                    to: 'https://bitbucket.org/siaextensions/siadrive/overview'
                   }
                 ]}
               />
@@ -222,11 +229,12 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="Duplicati"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Automated backup software with friendly UI"
                 links={[
                   {
                     title: 'Link >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://blog.sia.tech/introducing-full-computer-backup-with-sia-through-the-new-duplicati-integration-62dd17cbcfb7'
                   }
                 ]}
               />
@@ -234,11 +242,12 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="Minio"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="S3-compatible distributed object storage server"
                 links={[
                   {
                     title: 'Link >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://blog.sia.tech/introducing-s3-style-file-sharing-for-sia-through-the-new-minio-integration-bb880af2366a'
                   }
                 ]}
               />
@@ -246,11 +255,12 @@ class GetStarted extends React.Component {
                 darkTitle
                 icon="third"
                 title="Nextcloud"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et."
+                content="Self-hosted Dropbox alternative"
                 links={[
                   {
                     title: 'Link >',
-                    to: 'https://github.com/NebulousLabs/Sia-UI'
+                    to:
+                      'https://blog.sia.tech/using-sia-as-a-storage-back-end-for-nextcloud-90eab037959d'
                   }
                 ]}
               />

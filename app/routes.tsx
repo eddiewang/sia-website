@@ -19,7 +19,7 @@ const pageRoutes = ({ location }) => {
     <TransitionGroup component={firstChild}>
       <AnimatedSwitch key={location.key} location={location}>
         <Route exact path="/" component={Home} />
-        <Route exact path="/get-started" component={getComponent('GetStarted')} />
+        <Route exact path="/download" component={getComponent('GetStarted')} />
         <Route exact path="/about" component={getComponent('About')} />
         <Route exact path="/technology" component={getComponent('HowItWorks')} />
         <Route exact path="/learn" component={getComponent('Learn')} />

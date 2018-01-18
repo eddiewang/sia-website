@@ -58,7 +58,7 @@ export default class PageFooter extends React.Component {
             url: 'https://support.sia.tech/help_center'
           },
           {
-            name: 'Roadmap',
+            name: 'Trello',
             url: 'https://trello.com/b/Io1dDyuI/sia-public-roadmap'
           },
           {

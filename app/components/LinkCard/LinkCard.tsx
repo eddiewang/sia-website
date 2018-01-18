@@ -19,7 +19,7 @@ interface Props {
   linkTo?: string
   links: Link[]
   darkTitle?: boolean
-  icon: 'sia' | 'third'
+  icon?: 'sia' | 'third'
 }
 
 class LinkCard extends React.Component<Props, {}> {
@@ -49,12 +49,14 @@ class LinkCard extends React.Component<Props, {}> {
             {title}
           </Text>
           <div className={renderClass}>
-            <Icon
-              src={renderIcon.id}
-              viewBox={renderIcon.viewBox}
-              aspectRatio="xMinYMin"
-              aria-hidden="true"
-            />
+            {renderIcon && (
+              <Icon
+                src={renderIcon.id}
+                viewBox={renderIcon.viewBox}
+                aspectRatio="xMinYMin"
+                aria-hidden="true"
+              />
+            )}
           </div>
           <Text.Paragraph type="linkCardText">{content}</Text.Paragraph>
         </div>
