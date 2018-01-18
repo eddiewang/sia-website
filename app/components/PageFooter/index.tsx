@@ -5,6 +5,7 @@ import { inject, observer } from 'mobx-react'
 import Text from 'components/Text'
 import Button from 'components/Button'
 import Input from 'components/Input'
+import jsonp from 'jsonp'
 
 interface FooterLink {
   name: string
@@ -16,9 +17,49 @@ interface SitemapItem {
   links: FooterLink[]
 }
 
+const getAjaxUrl = url => url.replace('/post?', '/post-json?')
+
 @inject('main')
 @observer
 export default class PageFooter extends React.Component {
+  public state = {
+    newsletterStatus: null,
+    newsletterMessage: null
+  }
+  public submitEmail = e => {
+    e.preventDefault()
+    console.log('sending')
+    const newsletterEmail = this.props.main.footerEmail
+    if (!newsletterEmail || newsletterEmail.length < 5 || newsletterEmail.indexOf('@') === -1) {
+      this.setState({
+        newsletterStatus: 'error'
+      })
+      return
+    }
+    const url =
+      getAjaxUrl(
+        'https://tech.us11.list-manage.com/subscribe/post?u=5df238d9e852f9801b5f2c92e&amp;id=49533cf53d'
+      ) + `&EMAIL=${encodeURIComponent(newsletterEmail)}`
+
+    const { main } = this.props
+    main.footerStatus = 'sending'
+    main.footerMessage = null
+    jsonp(
+      url,
+      {
+        param: 'c'
+      },
+      (err, data) => {
+        if (err) {
+          ;(main.footerStatus = 'error'), (main.footerMessage = err)
+        } else if (data.result !== 'success') {
+          ;(main.footerStatus = 'error'), (main.footerMessage = 'This email is already subscribed!')
+        } else {
+          ;(main.footerStatus = 'success'), (main.footerMessage = data.msg)
+        }
+      }
+    )
+  }
   public render() {
     const sitemapLinks: SitemapItem[] = [
       {
@@ -127,12 +168,21 @@ export default class PageFooter extends React.Component {
                 value={this.props.main.footerEmail}
                 onChange={this.handleEmail}
               />
-              <Button type="footer">Submit</Button>
+              <Button onClick={this.submitEmail} type="footer">
+                Submit
+              </Button>
+              <div style={{ textAlign: 'center' }}>
+                <Text type="footerMessage" inverse>
+                  {this.props.main.footerMessage}
+                </Text>
+              </div>
             </div>
             <div>
               <Text type="footerTitle">Questions?</Text>
               <Text type="footerContact">Get in touch!</Text>
-              <Button type="footer">Contact</Button>
+              <Button onClick={this.openGroove} type="footer">
+                Contact
+              </Button>
             </div>
           </div>
         </LayoutContainer>
@@ -141,5 +191,10 @@ export default class PageFooter extends React.Component {
   }
   private handleEmail = e => {
     this.props.main.footerEmail = e.target.value
+  }
+  private openGroove = e => {
+    if (window.groove) {
+      window.groove.widget('open')
+    }
   }
 }

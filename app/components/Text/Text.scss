@@ -45,6 +45,12 @@
   height: rem(42px);
 }
 
+.typeFooterMessage {
+  display: inline-block;
+  font-size: rem(12px);
+  margin-top: rem(10px);
+}
+
 .typeMediaCardTitle {
   display: inline-block;
   color: sg-color(ink, lightest);

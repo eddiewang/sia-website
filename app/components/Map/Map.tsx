@@ -30,7 +30,7 @@ export default class Map extends React.Component<Props, {}> {
         <Layer
           type="symbol"
           layout={{
-            'text-field': 'Sia Active Hosts',
+            'text-field': 'Active Sia Hosts',
             'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
             'text-size': 18,
             'text-transform': 'uppercase',
@@ -41,7 +41,7 @@ export default class Map extends React.Component<Props, {}> {
           }}
           id="asdf"
         >
-          <Feature coordinates={[-485, 65]} />
+          <Feature coordinates={[500, 67]} />
         </Layer>
         <GeoJSONLayer
           data={data ? data : geojson}

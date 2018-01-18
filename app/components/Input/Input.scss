@@ -36,3 +36,10 @@
     border: 3px solid color(red);
   }
 }
+
+.isSuccess {
+  border: 3px solid sg-color(sia-green);
+  &:hover, &:focus {
+    border: 3px solid sg-color(sia-green);
+  }
+}

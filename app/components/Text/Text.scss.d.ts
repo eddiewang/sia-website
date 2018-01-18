@@ -8,6 +8,7 @@ export const isBold: string
 export const typeFooterTitle: string
 export const typeFooterText: string
 export const typeFooterContact: string
+export const typeFooterMessage: string
 export const typeMediaCardTitle: string
 export const typeMediaCardText: string
 export const typeMediaCardTextLink: string

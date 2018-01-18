@@ -50,6 +50,12 @@ interface State {
   activeHosts: number
   storageCapacity: string
   mapData: any
+  github: {
+    commits: number
+    forks: number
+    releases: number
+    contributors: number
+  }
 }
 
 interface CoinMarketCapData {
@@ -88,7 +94,13 @@ class Home extends React.Component<{}, State> {
     usedStorage: '100',
     activeHosts: 600,
     storageCapacity: '3',
-    mapData: null
+    mapData: null,
+    github: {
+      commits: 7000,
+      forks: 244,
+      releases: 30,
+      contributors: 40
+    }
   }
 
   public getMarketCap() {
@@ -107,9 +119,13 @@ class Home extends React.Component<{}, State> {
     return axios.get('api/siahub/network')
   }
 
+  public getGithub() {
+    return axios.get('api/github')
+  }
+
   public componentDidMount() {
-    axios.all([this.getMarketCap(), this.getNetwork(), this.getMap()]).then(
-      axios.spread((marketcap, stats, hosts) => {
+    axios.all([this.getMarketCap(), this.getNetwork(), this.getMap(), this.getGithub()]).then(
+      axios.spread((marketcap, stats, hosts, github) => {
         const marketCap = parseInt(marketcap.data[0].market_cap_usd, 10)
         const inBillions = (marketCap / 1000000000).toFixed(1)
         const { data } = stats
@@ -142,7 +158,13 @@ class Home extends React.Component<{}, State> {
           usedStorage,
           activeHosts,
           storageCapacity,
-          mapData: geoData
+          mapData: geoData,
+          github: {
+            commits: github.data.total_commits,
+            contributors: github.data.total_contributors,
+            forks: github.data.total_forks,
+            releases: github.data.total_releases
+          }
         })
       })
     )
@@ -297,6 +319,7 @@ class Home extends React.Component<{}, State> {
             <div className={styles.NewsletterCTA}>
               <Input
                 error={this.state.newsletterStatus === 'error'}
+                success={this.state.newsletterStatus === 'success'}
                 value={this.state.newsletterEmail}
                 onChange={this.handleCTA}
                 placeholder="Your email"
@@ -327,7 +350,7 @@ class Home extends React.Component<{}, State> {
                 classes={styles.DeveloperIcon}
               />
               <TypeHeading type="developerStat" level={1}>
-                7,926
+                {this.state.github.commits}
               </TypeHeading>
               <TypeHeading type="developerStatSubheading" level={6}>
                 Commits
@@ -344,7 +367,7 @@ class Home extends React.Component<{}, State> {
                 classes={styles.DeveloperIcon}
               />
               <TypeHeading type="developerStat" level={1}>
-                244
+                {this.state.github.forks}
               </TypeHeading>
               <TypeHeading type="developerStatSubheading" level={6}>
                 Forks
@@ -360,7 +383,7 @@ class Home extends React.Component<{}, State> {
                 classes={styles.DeveloperIcon}
               />
               <TypeHeading type="developerStat" level={1}>
-                40
+                {this.state.github.releases}
               </TypeHeading>
               <TypeHeading type="developerStatSubheading" level={6}>
                 Releases
@@ -376,7 +399,7 @@ class Home extends React.Component<{}, State> {
                 classes={styles.DeveloperIcon}
               />
               <TypeHeading type="developerStat" level={1}>
-                40
+                {this.state.github.contributors}
               </TypeHeading>
               <TypeHeading type="developerStatSubheading" level={6}>
                 Contributors
