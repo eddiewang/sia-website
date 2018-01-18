@@ -205,9 +205,7 @@ class Home extends React.Component<{}, State> {
         <Section>
           <LayoutContainer classes={styles.Hero}>
             <div className={styles.HeroContent}>
-              <TypeHeading level={2}>
-                Cloud storage is about to change. Are you ready for the future?
-              </TypeHeading>
+              <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
               <Text.Paragraph>
                 Sia is the first decentralized storage platform secured by blockchain technology.
                 The Sia Storage Platform leverages underutilized hard drive capacity around the
@@ -266,7 +264,7 @@ class Home extends React.Component<{}, State> {
           <LayoutContainer>
             <PitchRow
               title="Completely Private"
-              content="Sia encrypts and distributes files across a decentralized network. You control your private encryption keys and you own your data. No outside company or third party can access or control your files, unlike traditional cloud storage providers."
+              content="Sia encrypts and distributes your files across a decentralized network. You control your private encryption keys and you own your data. No outside company or third party can access or control your files, unlike traditional cloud storage providers."
               src={PitchHome}
             />
             <PitchRow
@@ -276,16 +274,16 @@ class Home extends React.Component<{}, State> {
             />
             <PitchRow
               title="Highly Redundant"
-              content="Sia distributes and stores file segments  on nodes across the globe, eliminating any single point of failure and ensuring uptime that rivals  traditional cloud storage providers."
+              content="Sia distributes and stores redundant file segments on nodes across the globe, eliminating any single point of failure and ensuring uptime that rivals traditional cloud storage providers."
               src={PitchRedundant}
             />
             <PitchRow
-              title="Open source"
+              title="Open Source"
               content="Sia’s software is completely open source, with contributions from leading software engineers and a thriving community of developers building innovative applications on the Sia API."
               src={PitchOpenSource}
             />
             <PitchRow
-              title="Blockchain-powered Marketplace"
+              title="Marketplace on Blockchain"
               content="Using the Sia blockchain, Sia creates a decentralized storage marketplace in which hosts compete for your business, which leads to the lowest possible prices. Renters pay using Siacoin, which can also be mined and traded."
               src={PitchMarketplace}
             />
@@ -394,19 +392,16 @@ class Home extends React.Component<{}, State> {
                 type="blog"
                 href="https://blog.sia.tech/sia-triannual-update-september-december-2017-8afdf9c10325"
               >
-                Read our latest triannual Sia update for September - December 2017.
+                Read our latest Sia triannual update for September - December 2017.
               </MediaCard>
-              <MediaCard
-                href="https://www.infoq.com/presentations/decentralized-storage"
-                type="talks"
-              >
-                Watch David Vorick talk about the business models behind tokens.
+              <MediaCard href="https://youtu.be/OC2OcOdLQqY" type="talks">
+                Watch Sia CEO David Vorick discuss the business models behind tokens.
               </MediaCard>
               <MediaCard
                 href="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
                 type="documentation"
               >
-                This guide will walk you through uploading a file to Sia using the API.
+                Learn how to upload data to the Sia network.
               </MediaCard>
             </div>
             <div className={styles.LearnMore}>

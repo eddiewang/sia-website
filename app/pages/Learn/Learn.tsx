@@ -23,8 +23,8 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Sia</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard type="video" href="https://sia.tech">
+                David Vorick talkin about stuff.
               </MediaCard>
               <MediaCard type="blog">
                 Here’s a quick-start video on how to download and install Sia.
@@ -38,7 +38,7 @@ class Learn extends React.Component {
               <MediaCard type="video">
                 Here’s a quick-start video on how to download and install Sia.
               </MediaCard>
-              <MediaCard type="video">
+              <MediaCard type="link">
                 Here’s a quick-start video on how to download and install Sia.
               </MediaCard>
             </div>
