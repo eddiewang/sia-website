@@ -24,6 +24,10 @@ interface Props {
   tag?: number | string
 }
 
+const numberWithCommas = x => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
 class LinkCard extends React.Component<Props, {}> {
   public render() {
     const { title, active, content, linkTitle, linkTo, links, darkTitle, icon, tag } = this.props
@@ -76,7 +80,7 @@ class LinkCard extends React.Component<Props, {}> {
               )}
             <div className={styles.CardLinks}>{renderList}</div>
           </div>
-          {tag && <Text.Tag>{tag}</Text.Tag>}
+          {tag && <Text.Tag>{numberWithCommas(tag)} downloads</Text.Tag>}
         </div>
       </div>
     )
