@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as styles from './HowItWorks.scss'
+import * as styles from './Technology.scss'
 import * as classNames from 'classnames'
 import { inject, observer } from 'mobx-react'
 
@@ -18,8 +18,6 @@ import TechnologyPay from 'svg/technology-pay.svg'
 import TechnologyProof from 'svg/technology-proof.svg'
 import TechnologySmart from 'svg/technology-smart.svg'
 import TechnologyTime from 'svg/technology-time.svg'
-
-import * as styles from './HowItWorks.scss'
 
 @inject('main')
 @observer

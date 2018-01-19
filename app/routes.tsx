@@ -19,9 +19,9 @@ const pageRoutes = ({ location }) => {
     <TransitionGroup component={firstChild}>
       <AnimatedSwitch key={location.key} location={location}>
         <Route exact path="/" component={Home} />
-        <Route exact path="/download" component={getComponent('GetStarted')} />
+        <Route exact path="/download" component={getComponent('Download')} />
         <Route exact path="/about" component={getComponent('About')} />
-        <Route exact path="/technology" component={getComponent('HowItWorks')} />
+        <Route exact path="/technology" component={getComponent('Technology')} />
         <Route exact path="/learn" component={getComponent('Learn')} />
         <Route exact path="/roadmap" component={getComponent('Roadmap')} />
         <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />

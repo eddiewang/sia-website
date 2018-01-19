@@ -12,7 +12,7 @@ import Avatar from 'components/Avatar'
 import LinkCard from 'components/LinkCard'
 import Helmet from 'react-helmet'
 
-import * as styles from './GetStarted.scss'
+import * as styles from './Download.scss'
 
 interface State {
   sia: number
@@ -21,7 +21,7 @@ interface State {
 
 @inject('main')
 @observer
-class GetStarted extends React.Component<{}, State> {
+class Download extends React.Component<{}, State> {
   public state = {
     sia: 10000,
     siaui: 600000
@@ -324,4 +324,4 @@ class GetStarted extends React.Component<{}, State> {
   }
 }
 
-export default GetStarted
+export default Download
