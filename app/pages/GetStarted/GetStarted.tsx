@@ -1,4 +1,5 @@
 import * as React from 'react'
+import axios from 'axios'
 import { inject, observer } from 'mobx-react'
 
 import LayoutContainer from 'components/LayoutContainer'
@@ -13,10 +14,33 @@ import Helmet from 'react-helmet'
 
 import * as styles from './GetStarted.scss'
 
+interface State {
+  sia: number
+  siaui: number
+}
+
 @inject('main')
 @observer
-class GetStarted extends React.Component {
+class GetStarted extends React.Component<{}, State> {
+  public state = {
+    sia: 10000,
+    siaui: 600000
+  }
+  public componentDidMount() {
+    axios
+      .get('/api/downloadstats')
+      .then(({ data }) => {
+        this.setState({
+          sia: data.sia,
+          siaui: data.siaui
+        })
+      })
+      .catch(err => {
+        console.warn('Error: ', err)
+      })
+  }
   public render() {
+    const { sia, siaui } = this.state
     return (
       <div className={styles.GetStarted}>
         <Helmet title="Get Started" />
@@ -30,6 +54,7 @@ class GetStarted extends React.Component {
                 title="Sia UI"
                 content="Download the latest version of Sia with a Graphical User Interface. Built for users who'd prefer to use a GUI over command line."
                 linkTitle="Guide to Uploading Data to Sia"
+                tag={siaui}
                 linkTo="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
                 links={[
                   {
@@ -55,6 +80,7 @@ class GetStarted extends React.Component {
                 content="Download the latest Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
                 linkTitle="Documentation for Developers"
                 linkTo="https://github.com/NebulousLabs/Sia/tree/master/doc"
+                tag={sia}
                 links={[
                   {
                     title: 'Windows',

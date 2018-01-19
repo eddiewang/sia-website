@@ -14,6 +14,11 @@
   @media screen and (min-width: sg-breakpoint()) {
     margin-top: 0;
   }
+  &Header {
+    display: flex;
+    align-items: center;
+    padding-bottom: rem(16px);
+  }
   &Links {
     a {
       padding-right: rem(10px);
@@ -30,10 +35,14 @@
   &Icon {
     width: rem(30px);
     height: rem(30px);
-    float: right;
+    margin-left: auto;
     &Third {
       width: rem(50px);
     }
+  }
+  &Bottom {
+    display: flex;
+    align-items: center;
   }
 }
 

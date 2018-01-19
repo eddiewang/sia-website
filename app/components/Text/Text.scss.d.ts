@@ -2,6 +2,8 @@ export const Text: string
 export const text: string
 export const Link: string
 export const link: string
+export const Tag: string
+export const tag: string
 export const typeTechLink: string
 export const isLight: string
 export const isMedium: string

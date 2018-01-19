@@ -99,6 +99,10 @@ function getReleases() {
   return axios.get('https://api.github.com/repos/NebulousLabs/Sia/releases?per_page=100')
 }
 
+function getUIReleases() {
+  return axios.get('https://api.github.com/repos/NebulousLabs/Sia-UI/releases?per_page=100')
+}
+
 router.get('/github', (req, res) => {
   axios
     .all([getCommits(), getForks(), getReleases()])
@@ -119,6 +123,39 @@ router.get('/github', (req, res) => {
     .catch(err => {
       res.status(400).send(err)
     })
+})
+
+router.get('/downloadstats', (req, res) => {
+  let totalSiaCount = 0
+  let totalSiaUICount = 0
+
+  axios.all([getReleases(), getUIReleases()])
+  .then(
+    axios.spread((sia, siaui) => {
+      sia.data.forEach( d => {
+        let currCount = 0
+        d.assets.forEach( a => {
+          currCount += a.download_count
+        })
+        totalSiaCount += currCount
+      })
+
+      siaui.data.forEach( d => {
+        let currCount = 0
+        d.assets.forEach( a => {
+          currCount += a.download_count
+        })
+        totalSiaUICount += currCount
+      })
+
+      res.send({
+        sia: totalSiaCount,
+        siaui: totalSiaUICount
+      })
+    })
+  ).catch(err => {
+    res.status(400).send(err)
+  })
 })
 
 module.exports = router

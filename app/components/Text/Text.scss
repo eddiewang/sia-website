@@ -16,6 +16,16 @@
   }
 }
 
+.Tag {
+  padding: sg-spacing(tightest) sg-spacing(tighter);
+  padding-bottom: sg-spacing(tightest) !important;
+  background: sg-color(sky);
+  margin-left: auto;
+  border-radius: rem(6px);
+  font-size: rem(12px);
+  height: 100%;
+}
+
 .typeTechLink {
   color: sg-color(sia-green);
 }
@@ -81,7 +91,7 @@
   display: inline-block;
   font-size: rem(24px);
   color: sg-color(sia-green);
-  padding-bottom: rem(16px);
+  padding-bottom: 0;
 }
 
 .typeLinkCardText {

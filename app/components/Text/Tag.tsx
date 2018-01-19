@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from './Link'
-import Tag from './Tag'
 import Paragraph from './Paragraph'
 import { variationName } from 'utilities/styles'
 import * as classNames from 'classnames'
@@ -19,12 +18,12 @@ interface Props {
 class Text extends React.PureComponent<Props, {}> {
   public static Link = Link
   public static Paragraph = Paragraph
-  public static Tag = Tag
 
   public render() {
     const { children, inverse, type, light, medium, bold, ink } = this.props
     const textClass = classNames(
       styles.Text,
+      styles.Tag,
       inverse && styles[variationName('is', 'inverse')],
       ink && styles[variationName('is', 'ink')],
       light && styles[variationName('is', 'light')],

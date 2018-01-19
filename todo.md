@@ -29,6 +29,6 @@ Free maps?
 <!-- Titles in Bios. -->
 <!-- Same spacing between sections -->
 <!-- Make link green (technology) -->
-Outline Sia-UI in green.
-Add counter on downloads page.
+<!-- Outline Sia-UI in green. -->
+<!-- Add counter on downloads page. -->
 

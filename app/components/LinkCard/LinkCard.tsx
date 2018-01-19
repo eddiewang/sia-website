@@ -21,11 +21,12 @@ interface Props {
   darkTitle?: boolean
   icon?: 'sia' | 'third'
   active?: boolean
+  tag?: number | string
 }
 
 class LinkCard extends React.Component<Props, {}> {
   public render() {
-    const { title, active, content, linkTitle, linkTo, links, darkTitle, icon } = this.props
+    const { title, active, content, linkTitle, linkTo, links, darkTitle, icon, tag } = this.props
     const renderList = links.map((l: Link, i) => (
       <Text.Link type="linkCardLink" href={l.to} key={i}>
         {l.title}
@@ -47,29 +48,35 @@ class LinkCard extends React.Component<Props, {}> {
     return (
       <div className={CardClass}>
         <div className={styles.CardTop}>
-          <Text ink={darkTitle} type="linkCardHeader">
-            {title}
-          </Text>
-          <div className={renderClass}>
-            {renderIcon && (
-              <Icon
-                src={renderIcon.id}
-                viewBox={renderIcon.viewBox}
-                aspectRatio="xMinYMin"
-                aria-hidden="true"
-              />
-            )}
+          <div className={styles.CardHeader}>
+            <Text ink={darkTitle} type="linkCardHeader">
+              {title}
+            </Text>
+
+            <div className={renderClass}>
+              {renderIcon && (
+                <Icon
+                  src={renderIcon.id}
+                  viewBox={renderIcon.viewBox}
+                  aspectRatio="xMinYMin"
+                  aria-hidden="true"
+                />
+              )}
+            </div>
           </div>
           <Text.Paragraph type="linkCardText">{content}</Text.Paragraph>
         </div>
         <div className={styles.CardBottom}>
-          {linkTo &&
-            linkTitle && (
-              <Text.Link to={linkTo} type="linkCardFooter">
-                {linkTitle} >
-              </Text.Link>
-            )}
-          <div className={styles.CardLinks}>{renderList}</div>
+          <div>
+            {linkTo &&
+              linkTitle && (
+                <Text.Link to={linkTo} type="linkCardFooter">
+                  {linkTitle} >
+                </Text.Link>
+              )}
+            <div className={styles.CardLinks}>{renderList}</div>
+          </div>
+          {tag && <Text.Tag>{tag}</Text.Tag>}
         </div>
       </div>
     )
