@@ -104,47 +104,33 @@ class Download extends React.Component<{}, State> {
         </Section>
         <Section>
           <LayoutContainer classes={styles.LinkSection}>
-            <TypeHeading level={6}>Mining</TypeHeading>
+            <TypeHeading level={6}>Mining Pools</TypeHeading>
             <div className={styles.Grid}>
               <LinkCard
                 darkTitle
-                icon="sia"
-                title="Miner"
-                content="The official GPU miner"
-                linkTitle="Source Code"
-                linkTo="https://github.com/NebulousLabs/Sia-GPU-Miner"
+                icon="third"
+                title="Luxor"
+                content="Mining pool for Siacoin that donates a portion of profits to the Sia Core team"
+                linkTitle="Setup Guide"
+                linkTo="https://sia.luxor.tech/setup#7"
                 links={[
                   {
-                    title: 'Download',
-                    to: 'https://github.com/NebulousLabs/Sia-GPU-Miner/releases/latest'
+                    title: 'sia.luxor.tech',
+                    to: 'https://sia.luxor.tech/'
                   }
                 ]}
               />
               <LinkCard
                 darkTitle
                 icon="third"
-                title="Alternate Miner"
-                content="A GPU miner for Sia in Go"
-                linkTitle="Source Code"
-                linkTo="https://github.com/robvanmieghem/gominer"
+                title="SiaMining"
+                content="The first mining pool for Siacoin"
+                linkTitle="Setup Guide"
+                linkTo="https://siamining.com/help"
                 links={[
                   {
-                    title: 'Download',
-                    to: 'https://github.com/robvanmieghem/gominer/releases/latest'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="Marlin Miner"
-                content="A Siacoin Stratum miner developed by SiaMining"
-                linkTitle="Source Code"
-                linkTo="https://github.com/SiaMining/marlin"
-                links={[
-                  {
-                    title: 'Download',
-                    to: 'https://github.com/SiaMining/marlin/releases/latest'
+                    title: 'siamining.com',
+                    to: 'https://siamining.com/'
                   }
                 ]}
               />
@@ -171,7 +157,7 @@ class Download extends React.Component<{}, State> {
                 darkTitle
                 icon="third"
                 title="SiaHub"
-                content="Sia network stats and other tools"
+                content="Sia hosting stats, blockchain download, and explorer"
                 links={[
                   {
                     title: 'siahub.info >',
