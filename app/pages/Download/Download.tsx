@@ -123,7 +123,7 @@ class Download extends React.Component<{}, State> {
                 darkTitle
                 icon="third"
                 title="SiaMining"
-                content="The first mining pool for Siacoin"
+                content="The first and largest mining pool for Siacoin"
                 linkTitle="Setup Guide"
                 linkTo="https://siamining.com/help"
                 links={[
