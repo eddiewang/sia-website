@@ -29,17 +29,12 @@ class HowItWorks extends React.Component {
         <Section>
           <LayoutContainer classes={styles.Intro}>
             <TypeHeading classes={styles.IntroHeading} level={6}>
-              How Sia Leverages Blockchain Technology To Supercharge Distributed Systems
+              Sia combines a peer-to-peer network with blockchain technology to create the world's
+              first decentralized storage platform.
             </TypeHeading>
-            <Text.Paragraph>
-              End users (renters) and hosts (organizations making underutilized hard drive space
-              available to the Sia Storage Platform network both install software which is available
-              for download at no cost at{' '}
-              <Text.Link type="techLink" to="download">
-                sia.tech/download
-              </Text.Link>
-            </Text.Paragraph>
-            <Text.Paragraph>Here’s what happens to files uploaded to Sia:</Text.Paragraph>
+            <TypeHeading classes={styles.IntroHeading} level={6}>
+              Here's how Sia works.
+            </TypeHeading>
           </LayoutContainer>
         </Section>
         <Section classes={styles.Tutorial}>
@@ -55,10 +50,25 @@ class HowItWorks extends React.Component {
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Files Are Divided Prior To Upload</TypeHeading>
               <Text.Paragraph>
-                Before a file is uploaded to Sia, our software divides it into many segments, each
-                targeted for distribution across nodes around the world. This distribution assures
-                that no one node represents a single point of failure and reinforces overall network
+                Before a file is uploaded to Sia, our software divides it into 30 segments, each
+                targeted for distribution to hosts around the world. This distribution assures that
+                no one host represents a single point of failure and reinforces overall network
                 uptime and redundancy.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                File segments are created using a technology called{' '}
+                <Text.Link
+                  type="techLink"
+                  href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction"
+                >
+                  Reed-Solomon erasure coding
+                </Text.Link>, commonly used in CDs and DVDs. Erasure coding allows Sia to divide
+                files in a redundant manner, where any 10 of 30 segments can fully recover a user's
+                files.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                This means that if 20 out of 30 hosts go offline, a Sia user is still able to
+                download her files.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
@@ -74,10 +84,23 @@ class HowItWorks extends React.Component {
               />
             </div>
             <div className={styles.TutorialContent}>
-              <TypeHeading level={6}>Every File Segment Is Encrypted</TypeHeading>
+              <TypeHeading level={6}>Each File Segment Is Encrypted</TypeHeading>
               <Text.Paragraph>
-                Before leaving a renters’ computer, each file segment is encrypted using the Twofish
-                algorithm, one of the industry’s most secure.
+                Before leaving a renters’ computer, each file segment is encrypted. This ensures
+                that hosts only store encrypted segments of user data.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                This differs from traditional cloud storage providers like Amazon, who do not
+                encrypt user data by default. Sia is more secure than existing solutions because
+                hosts only store encrypted file segmnents, rather than whole files.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Sia uses the{' '}
+                <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Twofish">
+                  Twofish algorithm
+                </Text.Link>
+                , an open source secure encryption standard that was a finalist in the Advanced
+                Encryption Standard (AES) contest.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
@@ -93,13 +116,21 @@ class HowItWorks extends React.Component {
               />
             </div>
             <div className={styles.TutorialContent}>
-              <TypeHeading level={6}>
-                File Segments Are Sent To Hosts Using Blockchain-powered Smart Contracts
-              </TypeHeading>
+              <TypeHeading level={6}>Files Are Sent To Hosts Using Smart Contracts</TypeHeading>
               <Text.Paragraph>
-                Files stored on the Sia Storage Network are governed by smart contracts built on the
-                Sia blockchain. These contracts set pricing, uptime commitments, and other aspects
-                of the relationship between the renter and host.
+                Using the Sia blockchain, renters form file contracts with hosts. These contracts
+                set pricing, uptime commitments, and other aspects of the relationship between the
+                renters and the hosts.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                File contracts are a type of{' '}
+                <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Smart_contract">
+                  smart contract
+                </Text.Link>. The Sia blockchain is specifically designed to store two types of
+                data: Siacoin transactions and file contracts.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Renters typically form 50 file contracts with top hosts on the Sia network.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
@@ -115,12 +146,23 @@ class HowItWorks extends React.Component {
               />
             </div>
             <div className={styles.TutorialContent}>
-              <TypeHeading level={6}>Hosts and Renters Use Siacoin Cryptocurrency</TypeHeading>
+              <TypeHeading level={6}>Renters and Hosts Pay With Siacoin</TypeHeading>
               <Text.Paragraph>
-                Both renters and host use Siacoins, a unique cryptocurrency built on the Sia
-                blockchain. Renters use Siacoins to pay for capacity used, while hosts deposit
-                Siacoins with each file contract as collateral. It’s one of the most practical uses
-                of blockchain technology and cryptocurrency in use today.
+                Both renters and host use Siacoin, a unique cryptocurrency built on the Sia
+                blockchain. Renters use Siacoin to buy storage capacity from hosts, while hosts
+                deposit Siacoin imto each file contract as collateral.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Micropayments flow between renters and hosts using a technology called{' '}
+                <Text.Link type="techLink" href="https://en.bitcoin.it/wiki/Payment_channels">
+                  payment channels
+                </Text.Link>, which is similar to Bitcoin's lightning network. Payments between
+                renters and hosts occur off-chain, greatly increasing network efficiency and
+                scalability.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Since hosts pay collateral into every storage contract, they have a strong
+                disincentive to go offline.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
@@ -136,17 +178,20 @@ class HowItWorks extends React.Component {
               />
             </div>
             <div className={styles.TutorialContent}>
-              <TypeHeading level={6}>Contract Renewals Over Time</TypeHeading>
+              <TypeHeading level={6}>Contracts Renew Over Time</TypeHeading>
               <Text.Paragraph>
-                Each contract sets aside a fixed amount of Siacoins to be spent on storing and
-                transferring data over a fixed, predetermined period. The renter pays all the
-                Siacoins in advance, but any unused coins are returned to them at the end of the
-                contract period.
+                Renters prepay for storage within file contracts, setting aside a fixed amount of
+                Siacoin to be spent on storing and transferring data. File contracts typically last
+                90 days.
               </Text.Paragraph>
               <Text.Paragraph>
-                Sia’s software automatically renews contracts when they are within a certain window
-                of expiring, but it does so taking into account actual capacity stored to ensure
-                cost efficiencies relative to initial contract estimates.
+                Sia automatically renews contracts when they are within a certain window of
+                expiring. If contracts are not renewed, Sia returns any unused coins to the renter
+                at the end of the contract period.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                As individual hosts go offline, Sia automatically moves renter data to new hosts in
+                a process called file repair.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
@@ -162,11 +207,22 @@ class HowItWorks extends React.Component {
               />
             </div>
             <div className={styles.TutorialContent}>
-              <TypeHeading level={6}>Host Submits a Storage Proof</TypeHeading>
+              <TypeHeading level={6}>Hosts Submit Storage Proofs</TypeHeading>
               <Text.Paragraph>
-                Lorem ipsum dolor sit amet, ne vocent recteque vel. Vim brute fabulas an, quas lorem
-                ne mea. Delectus atomorum rationibus est ex. Cu posidonium elaboraret voluptatibus
-                mei.
+                When file contracts expire, hosts must prove they are still storing renter data.
+                This is called a storage proof. If storage proofs appears on the blockchain within a
+                certain timeframe, hosts are paid. If not, they are penalized.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Storage proofs are performed using a technology called{' '}
+                <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Merkle_tree">
+                  Merkle trees
+                </Text.Link>. This requires that hosts produce only a tiny 64 byte data segment,
+                rather than a much larger file segment.
+              </Text.Paragraph>
+              <Text.Paragraph>
+                Merkle trees allow Sia to quickly and efficiently confirm that hosts are storing
+                renter data.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
