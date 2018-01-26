@@ -51,7 +51,7 @@ class Download extends React.Component<{}, State> {
               <LinkCard
                 icon="sia"
                 title="Sia UI"
-                content="Download the latest version of Sia with a Graphical User Interface. Built for users who'd prefer to use a GUI over command line."
+                content="Download the latest version of Sia with a Graphical User Interface. Built for users who prefer to use a GUI over command line."
                 linkTitle="Guide to Uploading Data to Sia"
                 tag={siaui}
                 linkTo="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
