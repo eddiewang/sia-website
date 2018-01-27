@@ -1,10 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const {
-  CheckerPlugin,
-  TsConfigPathsPlugin
-} = require('awesome-typescript-loader')
+const { CheckerPlugin, TsConfigPathsPlugin } = require('awesome-typescript-loader')
 
 process.noDeprecation = true
 
@@ -25,7 +22,10 @@ module.exports = options => ({
           { loader: 'react-hot-loader/webpack' },
           { loader: 'cache-loader' },
           {
-            loader: 'awesome-typescript-loader'
+            loader: 'awesome-typescript-loader',
+            options: {
+              useBabel: true
+            }
           }
         ],
         exclude: [/node_modules/]

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { variationName } from 'utilities/styles'
 import { isUrlExternal } from 'utilities/feature-detect'
 import * as styles from './Text.scss'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 
 interface Props {
   href?: string

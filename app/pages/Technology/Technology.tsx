@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as styles from './Technology.scss'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import { inject, observer } from 'mobx-react'
 
 import LayoutContainer from 'components/LayoutContainer'

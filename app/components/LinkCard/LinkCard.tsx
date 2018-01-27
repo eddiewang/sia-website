@@ -2,7 +2,7 @@ import React from 'react'
 import Text from 'components/Text'
 import Icon from 'components/Icon'
 
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import * as styles from './LinkCard.scss'
 import sia from 'svg/card-icon-logo.svg'
 import third from 'svg/card-icon-thirdparty.svg'

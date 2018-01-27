@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from './Link'
 import { variationName } from 'utilities/styles'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import * as styles from './Text.scss'
 
 interface Props {
@@ -18,9 +18,7 @@ class Paragraph extends React.PureComponent<Props, {}> {
       inverse && styles[variationName('is', 'inverse')],
       type && styles[variationName('type', type)]
     )
-    return (
-      <p className={textClass}>{children}</p>
-    )
+    return <p className={textClass}>{children}</p>
   }
 }
 

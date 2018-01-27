@@ -2,7 +2,7 @@ import React from 'react'
 import Link from './Link'
 import Spinner from 'components/Spinner'
 import * as styles from './Button.scss'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import { variationName } from 'utilities/styles'
 
 type ButtonType = 'main' | 'nav' | 'hero' | 'largeCTA' | 'footer'

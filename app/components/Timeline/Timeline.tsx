@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as styles from './Timeline.scss'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 
 import Text from 'components/Text'
 import TypeHeading from 'components/TypeHeading'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router-dom'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import { variationName } from 'utilities/styles'
 import { isUrlExternal } from 'utilities//feature-detect'
 import AssetSVG, { Props as AssetProps } from '../AssetSVG'

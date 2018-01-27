@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as styles from './BioCard.scss'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 
 import Icon from 'components/Icon'
 import TypeHeading from 'components/TypeHeading'

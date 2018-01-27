@@ -2,7 +2,7 @@ import React from 'react'
 import Link from './Link'
 import Paragraph from './Paragraph'
 import { variationName } from 'utilities/styles'
-import * as classNames from 'classnames'
+import classNames from 'classnames'
 import * as styles from './Text.scss'
 
 interface Props {
