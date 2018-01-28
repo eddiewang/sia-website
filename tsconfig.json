@@ -27,7 +27,8 @@
     "allowJs": true
   },
   "awesomeTypescriptLoaderOptions": {
-    "transpileOnly": true
+    "transpileOnly": true,
+    "useBabel": true
   },
   "exclude": [
     "node_modules"

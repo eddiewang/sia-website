@@ -5,6 +5,9 @@
     "react"
   ],
   "plugins": [
+    ["react-intl", {
+      "messagesDir": "./translations/extractedMessages"
+    }],
     "react-hot-loader/babel",
     "transform-async-to-generator",
     "transform-decorators-legacy"

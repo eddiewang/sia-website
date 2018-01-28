@@ -2,6 +2,7 @@ import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import jsonp from 'jsonp'
 import axios from 'axios'
+import { FormattedMessage, defineMessages, injectIntl } from 'react-intl'
 
 import LayoutContainer from 'components/LayoutContainer'
 import TypeHeading from 'components/TypeHeading'
@@ -35,6 +36,7 @@ import PitchOpenSource from 'svg/pitch-open.svg'
 import PitchMarketplace from 'svg/pitch-marketplace.svg'
 
 // import Hero from 'svg/hero.svg'
+// @ts-ignore
 import HeroGif from 'img/hero.gif'
 
 import avatarData from './team-data'
@@ -83,9 +85,17 @@ interface ApiStats {
 
 const getAjaxUrl = url => url.replace('/post?', '/post-json?')
 
+const messages = defineMessages({
+  greeting: {
+    id: 'app.home.greeting',
+    description: 'Welcome hero text',
+    defaultMessage: 'Cloud storage is about to change. Are you ready?'
+  }
+})
+
 @inject('main')
 @observer
-class Home extends React.Component<{}, State> {
+class Home extends React.Component<{ intl: any }, State> {
   public state: State = {
     newsletterEmail: '',
     newsletterStatus: null,
@@ -222,12 +232,13 @@ class Home extends React.Component<{}, State> {
   }
   public render() {
     const { newsletterStatus } = this.state
+    const { intl } = this.props
     return (
       <div>
         <Section>
           <LayoutContainer classes={styles.Hero}>
             <div className={styles.HeroContent}>
-              <TypeHeading level={2}>Cloud storage is about to change. Are you ready?</TypeHeading>
+              <TypeHeading level={2}>{intl.formatMessage(messages.greeting)}</TypeHeading>
               <Text.Paragraph>
                 Sia is the first decentralized storage platform secured by blockchain technology.
                 The Sia Storage Platform leverages underutilized hard drive capacity around the
@@ -240,12 +251,6 @@ class Home extends React.Component<{}, State> {
             </div>
             <div className={styles.HeroImage}>
               <img src={HeroGif} />
-              {/* <Icon
-                src={Hero.id}
-                viewBox={Hero.viewBox}
-                aspectRatio="xMinYMin"
-                aria-hidden="true"
-              /> */}
             </div>
           </LayoutContainer>
         </Section>
@@ -282,7 +287,7 @@ class Home extends React.Component<{}, State> {
             </div>
           </LayoutContainer>
         </Section>
-        <Section classes={styles.Pitch}>
+        <Section>
           <LayoutContainer>
             <PitchRow
               title="Completely Private"
@@ -439,4 +444,4 @@ class Home extends React.Component<{}, State> {
   }
 }
 
-export default Home
+export default injectIntl(Home)

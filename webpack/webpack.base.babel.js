@@ -22,10 +22,7 @@ module.exports = options => ({
           { loader: 'react-hot-loader/webpack' },
           { loader: 'cache-loader' },
           {
-            loader: 'awesome-typescript-loader',
-            options: {
-              useBabel: true
-            }
+            loader: 'awesome-typescript-loader'
           }
         ],
         exclude: [/node_modules/]
