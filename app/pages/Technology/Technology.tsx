@@ -50,10 +50,10 @@ class HowItWorks extends React.Component {
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Files Are Divided Prior To Upload</TypeHeading>
               <Text.Paragraph>
-                Before a file is uploaded to Sia, our software divides it into 30 segments, each
-                targeted for distribution to hosts around the world. This distribution assures that
-                no one host represents a single point of failure and reinforces overall network
-                uptime and redundancy.
+                The Sia software divides files into 30 segments before uploading, each targeted for
+                distribution to hosts across the world. This distribution assures that no one host
+                represents a single point of failure and reinforces overall network uptime and
+                redundancy.
               </Text.Paragraph>
               <Text.Paragraph>
                 File segments are created using a technology called{' '}
@@ -97,9 +97,9 @@ class HowItWorks extends React.Component {
               <Text.Paragraph>
                 Sia uses the{' '}
                 <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Twofish">
-                  Twofish algorithm
+                  Twofish
                 </Text.Link>
-                , an open source secure encryption standard that was a finalist in the Advanced
+                , an open source and secure encryption standard that was a finalist in the Advanced
                 Encryption Standard (AES) contest.
               </Text.Paragraph>
             </div>
@@ -150,7 +150,7 @@ class HowItWorks extends React.Component {
               <Text.Paragraph>
                 Both renters and host use Siacoin, a unique cryptocurrency built on the Sia
                 blockchain. Renters use Siacoin to buy storage capacity from hosts, while hosts
-                deposit Siacoin imto each file contract as collateral.
+                deposit Siacoin into each file contract as collateral.
               </Text.Paragraph>
               <Text.Paragraph>
                 Micropayments flow between renters and hosts using a technology called{' '}
