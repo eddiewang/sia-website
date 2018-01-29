@@ -74,7 +74,7 @@ class LinkCard extends React.Component<Props, {}> {
           <div>
             {linkTo &&
               linkTitle && (
-                <Text.Link to={linkTo} type="linkCardFooter">
+                <Text.Link href={linkTo} type="linkCardFooter">
                   {linkTitle} >
                 </Text.Link>
               )}
