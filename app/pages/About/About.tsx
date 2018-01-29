@@ -61,14 +61,18 @@ class About extends React.Component {
                 secure, more efficient, and more equitable for the entire ecosystem.
               </Text.Paragraph>
               <Text.Paragraph>
-                Sia believes that neither Individuals nor institutions should be beholden to large
+                Sia believes that neither individuals nor institutions should be beholden to large
                 corporations. Sia was created to promote and safeguard users’ freedoms. It’s our
                 attempt to bring decentralized storage built on blockchain technology to the
                 mainstream without sacrificing price or performance.
               </Text.Paragraph>
               <Text.Paragraph>
+                Our long term goal is for Sia to become the backbone storage layer of the Internet.
+              </Text.Paragraph>
+              <Text.Paragraph>
                 Nebulous, Inc. was was established in 2014 and launched the Sia Storage Platform in
-                2015. Based in Boston, Nebulous is funded by Raptor Group and First Star Ventures.
+                2015. Based in Boston, Nebulous is funded by Raptor Group, First Star Ventures,
+                Fenbushi Capital, and INBlockchain.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
