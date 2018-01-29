@@ -23,23 +23,26 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Sia</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard type="video" href="https://sia.tech">
-                David Vorick talkin about stuff.
+              <MediaCard
+                type="blog"
+                href="https://blog.sia.tech/sia-triannual-update-september-december-2017-8afdf9c10325"
+              >
+                Read our latest Sia triannual update for September - December 2017.
               </MediaCard>
-              <MediaCard type="blog">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard type="video" href="https://youtu.be/9cEEG3WOemI">
+                Watch a fun video from a community member about how Sia works.
               </MediaCard>
-              <MediaCard type="documentation">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard
+                type="documentation"
+                href="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
+              >
+                Learn how to upload data to the Sia network.
               </MediaCard>
-              <MediaCard type="talks">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard type="talks" href="https://youtu.be/cR8YL05nq4A">
+                Watch CEO David Vorick explain Sia at MIT's 2016 Bitcoin Expo.
               </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
-              </MediaCard>
-              <MediaCard type="link">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard type="blog" href="https://blog.sia.tech/the-sia-ethos-48f72f1cf382">
+                Read about the Sia Ethos on our blog.
               </MediaCard>
             </div>
           </LayoutContainer>
@@ -49,23 +52,30 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Cryptocurrency</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard type="link" href="https://bitcoin.org/en/developer-guide">
+                Get a technical overview of Bitcoin and blockchains from the Bitcoin Developer
+                Guide.
               </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard
+                type="blog"
+                href="https://blog.sia.tech/dont-write-your-own-smart-contracts-24e8fc9f71ec"
+              >
+                Read about why you should not write your own smart contracts.
               </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard
+                type="blog"
+                href="https://blog.sia.tech/choosing-asics-for-sia-b318505b5b51"
+              >
+                Learn about the importance of ASIC mining.
               </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard
+                type="blog"
+                href="https://blog.sia.tech/want-to-deflate-the-token-bubble-fix-the-market-cap-indicator-d50f7f1e1ec4"
+              >
+                Read about the issues with using market cap as a metric.
               </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
-              </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard type="link" href="http://lopp.net/bitcoin.html">
+                View a robust list of Bitcoin resources at Jameson Lopp's website.
               </MediaCard>
             </div>
           </LayoutContainer>
@@ -75,23 +85,17 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Cloud Storage</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard
+                type="blog"
+                href="https://blog.sia.tech/why-blockchains-are-the-future-of-cloud-storage-91f0b48cfce9"
+              >
+                Read about why blockchains are the future of cloud storage.
               </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
-              </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
-              </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
-              </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
-              </MediaCard>
-              <MediaCard type="video">
-                Here’s a quick-start video on how to download and install Sia.
+              <MediaCard
+                type="blog"
+                href="https://blog.sia.tech/decentralization-could-have-saved-users-of-amazon-drive-7e363cb3214a"
+              >
+                Learn why decentralization could have saved the users of Amazon Drive.
               </MediaCard>
             </div>
           </LayoutContainer>
