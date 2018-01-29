@@ -28,7 +28,6 @@ export default class PageFooter extends React.Component {
   }
   public submitEmail = e => {
     e.preventDefault()
-    console.log('sending')
     const newsletterEmail = this.props.main.footerEmail
     if (!newsletterEmail || newsletterEmail.length < 5 || newsletterEmail.indexOf('@') === -1) {
       this.setState({

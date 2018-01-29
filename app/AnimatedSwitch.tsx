@@ -25,16 +25,13 @@ export default class AnimatedSwitch extends Switch<{}, React.ComponentClass> {
   }
 
   public componentWillAppear = cb => {
-    console.log('componentWillAppear')
     Animated.spring(this.state.animate, { toValue: 1 }).start()
   }
   public componentWillEnter = cb => {
     setTimeout(() => Animated.spring(this.state.animate, { toValue: 1 }).start(), 250)
-    console.log('componentWillEnter')
   }
   public componentWillLeave = cb => {
     Animated.spring(this.state.animate, { toValue: 0 }).start()
-    console.log('componentWillLeave')
   }
   public render() {
     const style = {
