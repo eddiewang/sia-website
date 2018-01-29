@@ -218,8 +218,8 @@ router.get('/downloadstats', (req, res) => {
           )
           .catch(err => {
             res.send({
-              sia: 725844 ,
-              siaui: 111332
+              sia: 111332 ,
+              siaui: 725844
             })
           })
       } else {
