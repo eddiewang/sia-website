@@ -81,8 +81,8 @@ export default class PageFooter extends React.Component {
             url: '/learn'
           },
           {
-            name: 'Download',
-            url: '/download'
+            name: 'Get Started',
+            url: '/get-started'
           }
         ]
       },
