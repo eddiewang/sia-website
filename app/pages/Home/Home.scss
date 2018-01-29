@@ -4,6 +4,8 @@
     display: none;
     svg {
       display: block;
+      margin-left: auto;
+      max-width: rem(370px);
     }
   }
   @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
@@ -11,9 +13,10 @@
     grid-template-columns: 650px 1fr;
     align-items: center;
     &Image {
+      // max-width: rem(300px);
       display: block;
-      margin-left: auto;
-      margin-top: rem(-50px);
+      // margin-left: auto;
+      margin-top: rem(-20px);
     }
   }
 }
