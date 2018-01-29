@@ -168,7 +168,12 @@ router.get('/github', (req, res) => {
             })
           )
           .catch(err => {
-            res.status(400).send(err)
+            res.send({
+              total_commits: 8235,
+              total_forks: 319,
+              total_releases: 33,
+              total_contributors: 45
+            })
           })
       } else {
         res.send(val)
@@ -212,9 +217,9 @@ router.get('/downloadstats', (req, res) => {
             })
           )
           .catch(err => {
-            console.log('github err', err)
-            res.status(400).send({
-              error: 'error'
+            res.send({
+              sia: 70000,
+              siaui: 80000
             })
           })
       } else {
