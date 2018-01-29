@@ -161,12 +161,14 @@ export default class PageFooter extends React.Component {
           <div className={styles.PageFooterCTA}>
             <div>
               <Text type="footerTitle">Newsletter</Text>
-              <Input
-                type="footer"
-                placeholder="Your Email"
-                value={this.props.main.footerEmail}
-                onChange={this.handleEmail}
-              />
+              <div className={styles.PageFooterInput}>
+                <Input
+                  type="footer"
+                  placeholder="Your Email"
+                  value={this.props.main.footerEmail}
+                  onChange={this.handleEmail}
+                />
+              </div>
               <Button onClick={this.submitEmail} type="footer">
                 Submit
               </Button>

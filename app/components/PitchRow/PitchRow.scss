@@ -2,6 +2,10 @@
   opacity: 1;
   transition: all sg-duration() sg-easing();
   margin: rem(40px) 0;
+  svg {
+    display: block;
+    border-radius: 50% !important;
+  }
   @media screen and (max-width: sg-breakpoint() - 1px) {
     &Image {
       display: block;

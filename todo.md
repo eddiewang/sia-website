@@ -48,3 +48,5 @@ Add error message state for email footer
 Brand Page
 Mobile map detection (change defaults)
 Bitmain - link to Rick Roll
+Square SVGs on Linux Firefox
+Add Home to Navbar

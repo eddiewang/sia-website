@@ -12,13 +12,16 @@
 }
 
 .typeFooter {
-  height: rem(30px) !important;
+  box-sizing: content-box;
+  height: rem(30px);
+  padding-bottom: rem(5px);
+  padding-top: rem(5px);
   background: transparent;
   border: none;
   border-bottom: 2px solid sg-color(ink, light);
   font-size: rem(18px);
   margin-bottom: rem(20px);
-  color: sg-color(white);
+  color: sg-color(white) !important;
   padding-left: 0;
   padding-right: 0;
   &::placeholder {
