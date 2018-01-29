@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import Spinner from 'components/Spinner'
 // import PageShell from './PageShell'
-import AnimatedSwitch from './AnimatedSwitch'
+// import AnimatedSwitch from './AnimatedSwitch'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 import Layout from './Layout'
@@ -16,19 +16,15 @@ const firstChild = props => {
 
 const pageRoutes = ({ location }) => {
   return (
-    <TransitionGroup component={firstChild}>
-      <Switch>
-        {/* <AnimatedSwitch key={location.key} location={location}> */}
-        <Route exact path="/" component={Home} />
-        <Route exact path="/get-started" component={getComponent('GetStarted')} />
-        <Route exact path="/about" component={getComponent('About')} />
-        <Route exact path="/technology" component={getComponent('Technology')} />
-        <Route exact path="/learn" component={getComponent('Learn')} />
-        <Route exact path="/roadmap" component={getComponent('Roadmap')} />
-        <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />
-      </Switch>
-      {/* </AnimatedSwitch> */}
-    </TransitionGroup>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/get-started" component={getComponent('GetStarted')} />
+      <Route exact path="/about" component={getComponent('About')} />
+      <Route exact path="/technology" component={getComponent('Technology')} />
+      <Route exact path="/learn" component={getComponent('Learn')} />
+      <Route exact path="/roadmap" component={getComponent('Roadmap')} />
+      <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />
+    </Switch>
   )
 }
 
