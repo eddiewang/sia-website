@@ -17,7 +17,8 @@ const firstChild = props => {
 const pageRoutes = ({ location }) => {
   return (
     <TransitionGroup component={firstChild}>
-      <AnimatedSwitch key={location.key} location={location}>
+      <Switch>
+        {/* <AnimatedSwitch key={location.key} location={location}> */}
         <Route exact path="/" component={Home} />
         <Route exact path="/get-started" component={getComponent('GetStarted')} />
         <Route exact path="/about" component={getComponent('About')} />
@@ -25,7 +26,8 @@ const pageRoutes = ({ location }) => {
         <Route exact path="/learn" component={getComponent('Learn')} />
         <Route exact path="/roadmap" component={getComponent('Roadmap')} />
         <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />
-      </AnimatedSwitch>
+      </Switch>
+      {/* </AnimatedSwitch> */}
     </TransitionGroup>
   )
 }

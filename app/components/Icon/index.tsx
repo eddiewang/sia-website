@@ -65,7 +65,7 @@ export default class Icon extends React.Component<Props & AssetProps, {}> {
 
     function renderMe() {
       if (href) {
-        if (isUrlExternal(href)) {
+        if (isUrlExternal(href) || /^https?:\/\//.test(href)) {
           return (
             <a
               target="_blank"

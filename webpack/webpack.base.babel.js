@@ -25,7 +25,7 @@ module.exports = options => ({
             loader: 'awesome-typescript-loader'
           }
         ],
-        exclude: [/node_modules/]
+        exclude: [/node_modules/, 'app/components/Map/**']
       },
       {
         enforce: 'pre',
