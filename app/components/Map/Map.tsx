@@ -22,7 +22,7 @@ export default class Map extends React.Component<Props, {}> {
     const { data } = this.props
     return (
       <MapBox
-        style="https://free.tilehosting.com/styles/positron/style.json?key=Xid3gsApdaqcZsDTWLen"
+        style="mapbox://styles/mapbox/light-v9"
         className={styles.MapBox}
         zoom={[1.2]}
         center={[0, 30]}
