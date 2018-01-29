@@ -110,7 +110,7 @@ class About extends React.Component {
               </TypeHeading>
             </div>
             <div className={styles.ContactDetails}>
-              <Text type="contactHeader">Nebulous Inc.</Text>
+              <Text type="contactHeader">Nebulous, Inc.</Text>
               <Text light>
                 280 Congress St., Floor 12<br />Boston, MA 02210 USA<br /> hello@sia.tech
               </Text>
