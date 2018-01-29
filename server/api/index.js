@@ -3,12 +3,10 @@ const axios = require('axios')
 const hosts = require('../hostdb/active_hosts.json')
 const fs = require('fs')
 const CoinMarketCap = require('coinmarketcap-api')
+const NodeCache = require('node-cache')
+const cache = new NodeCache({ stdTTL: 900, checkperiod: 600 })
 
 const cmc = new CoinMarketCap()
-
-router.get('/test', (req, res) => {
-  res.send({ result: 'success' })
-})
 
 const geojson = {
   type: 'FeatureCollection',
@@ -41,50 +39,94 @@ const pushLocation = (long, lat) => {
   fs.writeFile('hosts_geojson.json', JSON.stringify(geojson), 'utf8')
 }
 
+// keys
+const PRICE = 'price_data'
+const HOSTS = 'host_data'
+const STATS = 'sia_stats'
+const SIAHUB = 'siahub'
+const GITHUB = 'github'
+const DOWNLOADS = 'downloads'
+
 router.get('/marketcap', (req, res) => {
-  cmc
-    .getTicker({
-      currency: 'siacoin'
-    })
-    .then(data => {
-      res.send(data)
-    })
-    .catch(err => {
-      res.status(400).send(err)
-    })
+  cache.get(PRICE, (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        cmc
+          .getTicker({
+            currency: 'siacoin'
+          })
+          .then(data => {
+            cache.set(PRICE, data)
+            res.send(data)
+          })
+          .catch(err => {
+            res.status(400).send(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/hosts', (req, res) => {
-  axios
-    .get('https://siastats.info/dbs/hostscoordinates.json')
-    .then(({ data }) => {
-      res.send(data)
-    })
-    .catch(err => {
-      res.status(400).send(err)
-    })
+  cache.get(HOSTS, (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        axios
+          .get('https://siastats.info/dbs/hostscoordinates.json')
+          .then(({ data }) => {
+            cache.set(HOSTS, data)
+            res.send(data)
+          })
+          .catch(err => {
+            res.status(400).send(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/stats', (req, res) => {
-  axios
-    .get('https://siastats.info/dbs/hostsRTdb.json')
-    .then(({ data }) => {
-      res.send(data[0])
-    })
-    .catch(err => {
-      res.status(400).send(err)
-    })
+  cache.get(STATS, (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        axios
+          .get('https://siastats.info/dbs/hostsRTdb.json')
+          .then(({ data }) => {
+            cache.set(STATS, data[0])
+            res.send(data[0])
+          })
+          .catch(err => {
+            res.status(400).send(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/siahub/network', (req, res) => {
-  axios
-    .get('https://siahub.info/api/network')
-    .then(({ data }) => {
-      res.send(data[data.length - 1])
-    })
-    .catch(err => {
-      res.status(400).send(err)
-    })
+  cache.get(SIAHUB, (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        axios
+          .get('https://siahub.info/api/network')
+          .then(({ data }) => {
+            cache.set(SIAHUB, data[data.length - 1])
+            res.send(data[data.length - 1])
+          })
+          .catch(err => {
+            res.status(400).send(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 function getCommits() {
@@ -104,57 +146,78 @@ function getUIReleases() {
 }
 
 router.get('/github', (req, res) => {
-  axios
-    .all([getCommits(), getForks(), getReleases()])
-    .then(
-      axios.spread((commits, forks, releases) => {
-        let total_commits = 0
-        commits.data.forEach(d => {
-          total_commits += d.contributions
-        })
-        res.send({
-          total_commits,
-          total_contributors: commits.data.length,
-          total_forks: forks.data.items[0].forks_count,
-          total_releases: releases.data.length
-        })
-      })
-    )
-    .catch(err => {
-      res.status(400).send(err)
-    })
+  cache.get(GITHUB, (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        axios
+          .all([getCommits(), getForks(), getReleases()])
+          .then(
+            axios.spread((commits, forks, releases) => {
+              let total_commits = 0
+              commits.data.forEach(d => {
+                total_commits += d.contributions
+              })
+              const githubStats = {
+                total_commits,
+                total_contributors: commits.data.length,
+                total_forks: forks.data.items[0].forks_count,
+                total_releases: releases.data.length
+              }
+              cache.set(GITHUB, githubStats)
+              res.send(githubStats)
+            })
+          )
+          .catch(err => {
+            res.status(400).send(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
+  })
 })
 
 router.get('/downloadstats', (req, res) => {
-  let totalSiaCount = 0
-  let totalSiaUICount = 0
+  cache.get(DOWNLOADS, (err, val) => {
+    if (!err) {
+      if (val === undefined) {
+        let totalSiaCount = 0
+        let totalSiaUICount = 0
+        axios
+          .all([getReleases(), getUIReleases()])
+          .then(
+            axios.spread((sia, siaui) => {
+              sia.data.forEach(d => {
+                let currCount = 0
+                d.assets.forEach(a => {
+                  currCount += a.download_count
+                })
+                totalSiaCount += currCount
+              })
 
-  axios.all([getReleases(), getUIReleases()])
-  .then(
-    axios.spread((sia, siaui) => {
-      sia.data.forEach( d => {
-        let currCount = 0
-        d.assets.forEach( a => {
-          currCount += a.download_count
-        })
-        totalSiaCount += currCount
-      })
+              siaui.data.forEach(d => {
+                let currCount = 0
+                d.assets.forEach(a => {
+                  currCount += a.download_count
+                })
+                totalSiaUICount += currCount
+              })
+              const downloadStat = {
+                sia: totalSiaCount,
+                siaui: totalSiaUICount
+              }
+              cache.set(DOWNLOADS, downloadStat)
 
-      siaui.data.forEach( d => {
-        let currCount = 0
-        d.assets.forEach( a => {
-          currCount += a.download_count
-        })
-        totalSiaUICount += currCount
-      })
-
-      res.send({
-        sia: totalSiaCount,
-        siaui: totalSiaUICount
-      })
-    })
-  ).catch(err => {
-    res.status(400).send(err)
+              res.send(downloadStat)
+            })
+          )
+          .catch(err => {
+            res.status(400).send(err)
+          })
+      } else {
+        res.send(val)
+      }
+    }
   })
 })
 
