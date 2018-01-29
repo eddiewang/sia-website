@@ -38,6 +38,7 @@ import PitchMarketplace from 'svg/pitch-marketplace.svg'
 // import Hero from 'svg/hero.svg'
 // @ts-ignore
 import HeroGif from 'img/hero.gif'
+import HeroStatic from 'img/hero-static.png'
 
 import avatarData from './team-data'
 
@@ -250,7 +251,7 @@ class Home extends React.Component<{ intl: any }, State> {
               </Button.Link>
             </div>
             <div className={styles.HeroImage}>
-              <img src={HeroGif} />
+              <img src={HeroStatic} />
             </div>
           </LayoutContainer>
         </Section>
