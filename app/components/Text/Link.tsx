@@ -20,7 +20,7 @@ export default ({ href, children, inverse, to, type }: Props) => {
     inverse && styles[variationName('is', 'inverse')],
     type && styles[variationName('type', type)]
   )
-  if (isUrlExternal(href)) {
+  if ((href && isUrlExternal(href)) || (href && /^https?:\/\//.test(href))) {
     return (
       <a className={linkStyle} data-polaris-unstyled target="_blank" href={href}>
         {children}
