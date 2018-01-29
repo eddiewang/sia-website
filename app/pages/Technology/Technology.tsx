@@ -209,20 +209,18 @@ class HowItWorks extends React.Component {
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Hosts Submit Storage Proofs</TypeHeading>
               <Text.Paragraph>
-                When file contracts expire, hosts must prove they are still storing renter data.
-                This is called a storage proof. If storage proofs appears on the blockchain within a
-                certain timeframe, hosts are paid. If not, they are penalized.
+                At the end of a file contract, the host must prove that she is storing the renter's
+                data. This is called a storage proof. If the storage proof appears on the blockchain
+                within a certain timeframe, the host is paid. If not, the host is penalized.
               </Text.Paragraph>
               <Text.Paragraph>
-                Storage proofs are performed using a technology called{' '}
+                Storage proofs are made possible by a technology called{' '}
                 <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Merkle_tree">
                   Merkle trees
-                </Text.Link>. This requires that hosts produce only a tiny 64 byte data segment,
-                rather than a much larger file segment.
-              </Text.Paragraph>
-              <Text.Paragraph>
-                Merkle trees allow Sia to quickly and efficiently confirm that hosts are storing
-                renter data.
+                </Text.Link>. Merkle trees make it possible to prove that a small segment of data is
+                part of a larger file. The advantage of these proofs is that they are very small, no
+                matter how large the file is. This is important because the proofs are stored
+                permanently on the blockchain.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
