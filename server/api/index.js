@@ -212,7 +212,10 @@ router.get('/downloadstats', (req, res) => {
             })
           )
           .catch(err => {
-            res.status(400).send(err)
+            console.log('github err', err)
+            res.status(400).send({
+              error: 'error'
+            })
           })
       } else {
         res.send(val)
