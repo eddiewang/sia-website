@@ -30,7 +30,7 @@ class Learn extends React.Component {
                 Read our latest Sia triannual update for September - December 2017.
               </MediaCard>
               <MediaCard type="video" href="https://youtu.be/9cEEG3WOemI">
-                Watch a fun video from a community member about how Sia works.
+                Watch a fun video from a community member explaining how Sia works.
               </MediaCard>
               <MediaCard
                 type="documentation"

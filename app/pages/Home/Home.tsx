@@ -424,8 +424,8 @@ class Home extends React.Component<{ intl: any }, State> {
               >
                 Read our latest Sia triannual update for September - December 2017.
               </MediaCard>
-              <MediaCard href="https://youtu.be/OC2OcOdLQqY" type="talks">
-                Watch Sia CEO David Vorick discuss the business models behind tokens.
+              <MediaCard href="https://youtu.be/9cEEG3WOemI" type="video">
+                Watch a fun video from a community member explaining how Sia works.
               </MediaCard>
               <MediaCard
                 href="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
