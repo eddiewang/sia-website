@@ -246,7 +246,7 @@ class Home extends React.Component<{ intl: any }, State> {
                 traditional cloud storage providers.
               </Text.Paragraph>
               <Button.Link to="/get-started" type="largeCTA">
-                Download
+                Get Started
               </Button.Link>
             </div>
             <div className={styles.HeroImage}>

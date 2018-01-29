@@ -44,7 +44,7 @@
   &::after,
   .MiddleLine {
     position: absolute;
-    left: 0;
+    right: 0;
     height: $hamburger-line-height;
     border-radius: $hamburger-line-height;
     background-color: sg-color(ink);

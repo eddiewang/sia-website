@@ -12,7 +12,7 @@ import Avatar from 'components/Avatar'
 import LinkCard from 'components/LinkCard'
 import Helmet from 'react-helmet'
 
-import * as styles from './Download.scss'
+import * as styles from './GetStarted.scss'
 
 interface State {
   sia: number

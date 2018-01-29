@@ -14,10 +14,9 @@
 <!-- Get Siacoin -->
 
 <!-- Use Siahub -->
-Change hero image
+<!-- Change hero image -->
 <!-- Add a title "Sia Live Host Map" in the map overlay -->
 <!-- Greyscale Favicon -->
-Free maps?
 <!-- Move map down -->
 <!-- toFixed(1) for stats -->
 <!-- reduce spacing b/w sections in home. -->
@@ -32,3 +31,20 @@ Free maps?
 <!-- Outline Sia-UI in green. -->
 <!-- Add counter on downloads page. -->
 
+
+<!-- Hero Image Readjust padding - mrom -->
+<!-- Free maps - PRIORITY -->
+<!-- Investor Logos - Reorder images (mobile block layout) -->
+<!-- Technology Page - reduce padding by 50% - mrom -->
+<!-- Roadmap - Sia Logo -->
+<!-- Fix get started page for Mobile Responsiveness -->
+
+
+Nice to haves--
+
+See if we can absolute position the "Sia Host" Title
+Update state caches in some sort of config.json
+Add error message state for email footer
+Brand Page
+Mobile map detection (change defaults)
+Bitmain - link to Rick Roll

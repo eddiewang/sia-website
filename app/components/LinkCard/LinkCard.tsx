@@ -80,7 +80,11 @@ class LinkCard extends React.Component<Props, {}> {
               )}
             <div className={styles.CardLinks}>{renderList}</div>
           </div>
-          {tag && <Text.Tag>{numberWithCommas(tag)} downloads</Text.Tag>}
+          {tag && (
+            <div className={styles.CardTag}>
+              <Text.Tag>{numberWithCommas(tag)} downloads</Text.Tag>
+            </div>
+          )}
         </div>
       </div>
     )

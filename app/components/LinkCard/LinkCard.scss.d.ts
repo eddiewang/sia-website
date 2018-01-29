@@ -10,5 +10,7 @@ export const CardIconThird: string
 export const cardIconThird: string
 export const CardBottom: string
 export const cardBottom: string
+export const CardTag: string
+export const cardTag: string
 export const isActive: string
 export const skeletonShimmerAnimation: string

@@ -20,7 +20,6 @@
   padding: sg-spacing(tightest) sg-spacing(tighter);
   padding-bottom: sg-spacing(tightest) !important;
   background: sg-color(sky);
-  margin-left: auto;
   border-radius: rem(6px);
   font-size: rem(12px);
   height: 100%;
@@ -165,9 +164,15 @@
   }
 }
 
+.typeBioText {
+  display: block;
+  padding-bottom: 0;
+}
+
 .typeBioLink {
   display: block;
   padding-bottom: 0;
+  font-size: rem(16px);
   margin-bottom: rem(5px);
 }
 

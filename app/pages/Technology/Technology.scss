@@ -1,5 +1,8 @@
 .Intro {
-  padding: rem(100px) 0;
+  padding: 0;
+  @media screen and (min-width: sg-breakpoint()) {
+    padding: rem(100px) 0;
+  }
   &Heading {
     max-width: rem(770px);
     line-height: 1.4;
@@ -9,9 +12,14 @@
 .Tutorial {
   background: sg-color(sky, light);
   &Layout {
-    text-align: center;
+    h6 {
+      text-align: center;
+    }
     padding-bottom: rem(80px);
     @media screen and (min-width: sg-breakpoint()) {
+      h6 {
+        text-align: initial;
+      }
       text-align: initial;
       padding: rem(135px) 0;
       display: grid;

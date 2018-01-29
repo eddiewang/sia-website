@@ -1,4 +1,5 @@
 import * as React from 'react'
+import className from 'classnames'
 import { inject, observer } from 'mobx-react'
 
 import LayoutContainer from 'components/LayoutContainer'
@@ -16,6 +17,11 @@ import * as styles from './About.scss'
 import Bios from './Bios'
 
 import investorLogos from 'img/investor-logos.png'
+import raptor from 'img/investor-raptor.png'
+import fbs from 'img/investor-fbs.png'
+import fsv from 'img/investor-fsv.png'
+import inb from 'img/investor-inb.png'
+
 import facebook from 'svg/social-facebook.svg'
 import medium from 'svg/social-medium.svg'
 import twitter from 'svg/social-twitter.svg'
@@ -68,7 +74,7 @@ class About extends React.Component {
           </LayoutContainer>
         </Section>
         <Section>
-          <LayoutContainer classes={styles.Team}>
+          <LayoutContainer classes={className(styles.Team, styles.Section)}>
             <TypeHeading level={3} inline underlined>
               Team
             </TypeHeading>
@@ -76,7 +82,7 @@ class About extends React.Component {
           </LayoutContainer>
         </Section>
         <Section>
-          <LayoutContainer classes={styles.Investors}>
+          <LayoutContainer classes={className(styles.Investors, styles.Section)}>
             <TypeHeading level={3} inline underlined>
               Investors
             </TypeHeading>
@@ -84,7 +90,11 @@ class About extends React.Component {
               <QuoteBlock />
             </div>
             <div className={styles.InvestorsLogos}>
-              <img src={investorLogos} />
+              {/* <img src={investorLogos} /> */}
+              <img src={raptor} />
+              <img src={fsv} />
+              <img src={fbs} />
+              <img src={inb} />
             </div>
           </LayoutContainer>
         </Section>

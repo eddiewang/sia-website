@@ -1,7 +1,7 @@
 .PitchRow {
   opacity: 1;
   transition: all sg-duration() sg-easing();
-  margin: rem(60px) 0;
+  margin: rem(40px) 0;
   @media screen and (max-width: sg-breakpoint() - 1px) {
     &Image {
       display: block;

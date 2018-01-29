@@ -10,7 +10,7 @@ export interface UserDetails {
   name: string
   svg: any
   social: {
-    title: 'Github' | 'LinkedIn'
+    title: string
     url: string
   }
   role: string
@@ -38,7 +38,7 @@ class BioCard extends React.Component<UserDetails, {}> {
           <TypeHeading type="bioHeading" level={6}>
             {name}
           </TypeHeading>
-          <Text type="bioLink">{role}</Text>
+          <Text type="bioText">{role}</Text>
           <Text.Link type="bioLink" href={social.url}>
             {social.title}
           </Text.Link>

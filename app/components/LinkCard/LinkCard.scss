@@ -4,7 +4,7 @@
   justify-content: space-between;
   border: 3px solid sg-color(sky);
   padding: rem(30px);
-  height: rem(270px);
+  height: 100%;
   width: 100%;
   border-radius: rem(6px);
   margin-top: rem(30px);
@@ -12,6 +12,7 @@
     padding-bottom: 0;
   }
   @media screen and (min-width: sg-breakpoint()) {
+    height: rem(270px);
     margin-top: 0;
   }
   &Header {
@@ -42,7 +43,15 @@
   }
   &Bottom {
     display: flex;
+    flex-direction: column;
     align-items: flex-end;
+    @media screen and (min-width: sg-breakpoint()) {
+      flex-direction: row;
+    }
+  }
+  &Tag {
+    margin-left: auto;
+    margin-top: rem(30px);
   }
 }
 

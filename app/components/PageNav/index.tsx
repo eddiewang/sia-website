@@ -97,8 +97,8 @@ class PageNav extends React.Component<Props & BreakpointContext, State> {
     })
 
     const downloadButton = (
-      <Button.Link to="/download" key="download" type="nav">
-        Download
+      <Button.Link to="/get-started" key="getStarted" type="nav">
+        Get Started
       </Button.Link>
     )
     pageNavListItems.push(downloadButton)
