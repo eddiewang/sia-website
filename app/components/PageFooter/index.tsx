@@ -91,7 +91,7 @@ export default class PageFooter extends React.Component {
         links: [
           {
             name: 'Whitepaper',
-            url: 'https://sia.tech/whitepaper.pdf'
+            url: 'https://sia.tech/sia.pdf'
           },
           {
             name: 'Support',
