@@ -92,7 +92,7 @@ class HowItWorks extends React.Component {
               <Text.Paragraph>
                 This differs from traditional cloud storage providers like Amazon, who do not
                 encrypt user data by default. Sia is more secure than existing solutions because
-                hosts only store encrypted file segmnents, rather than whole files.
+                hosts only store encrypted file segments, rather than whole files.
               </Text.Paragraph>
               <Text.Paragraph>
                 Sia uses the{' '}
