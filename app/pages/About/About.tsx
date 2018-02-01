@@ -70,7 +70,7 @@ class About extends React.Component {
                 Our long term goal is for Sia to become the backbone storage layer of the Internet.
               </Text.Paragraph>
               <Text.Paragraph>
-                Nebulous, Inc. was was established in 2014 and launched the Sia Storage Platform in
+                Nebulous, Inc. was established in 2014 and launched the Sia Storage Platform in
                 2015. Based in Boston, Nebulous is funded by Raptor Group, First Star Ventures,
                 Fenbushi Capital, and INBlockchain.
               </Text.Paragraph>
