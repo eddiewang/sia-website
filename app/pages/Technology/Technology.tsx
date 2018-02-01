@@ -86,7 +86,7 @@ class HowItWorks extends React.Component {
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Each File Segment Is Encrypted</TypeHeading>
               <Text.Paragraph>
-                Before leaving a renters’ computer, each file segment is encrypted. This ensures
+                Before leaving a renter's computer, each file segment is encrypted. This ensures
                 that hosts only store encrypted segments of user data.
               </Text.Paragraph>
               <Text.Paragraph>
@@ -99,8 +99,8 @@ class HowItWorks extends React.Component {
                 <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Twofish">
                   Twofish
                 </Text.Link>
-                , an open source and secure encryption standard that was a finalist in the Advanced
-                Encryption Standard (AES) contest.
+                algorithm, an open source and secure encryption standard that was a finalist in the
+                Advanced Encryption Standard (AES) contest.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
@@ -126,11 +126,12 @@ class HowItWorks extends React.Component {
                 File contracts are a type of{' '}
                 <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Smart_contract">
                   smart contract
-                </Text.Link>. The Sia blockchain is specifically designed to store two types of
-                data: Siacoin transactions and file contracts.
+                </Text.Link>. They allow us to create cryptographic service level agreements (SLAs)
+                that are stored on the Sia blockchain.
               </Text.Paragraph>
               <Text.Paragraph>
-                Renters typically form 50 file contracts with top hosts on the Sia network.
+                Since file contracts are automatically enforced by the network, Sia has no need for
+                intermediaries or trusted third parties.
               </Text.Paragraph>
             </div>
           </LayoutContainer>
@@ -148,7 +149,7 @@ class HowItWorks extends React.Component {
             <div className={styles.TutorialContent}>
               <TypeHeading level={6}>Renters and Hosts Pay With Siacoin</TypeHeading>
               <Text.Paragraph>
-                Both renters and host use Siacoin, a unique cryptocurrency built on the Sia
+                Both renters and hosts use Siacoin, a unique cryptocurrency built on the Sia
                 blockchain. Renters use Siacoin to buy storage capacity from hosts, while hosts
                 deposit Siacoin into each file contract as collateral.
               </Text.Paragraph>
@@ -156,7 +157,7 @@ class HowItWorks extends React.Component {
                 Micropayments flow between renters and hosts using a technology called{' '}
                 <Text.Link type="techLink" href="https://en.bitcoin.it/wiki/Payment_channels">
                   payment channels
-                </Text.Link>, which is similar to Bitcoin's lightning network. Payments between
+                </Text.Link>, which is similar to Bitcoin's Lightning Network. Payments between
                 renters and hosts occur off-chain, greatly increasing network efficiency and
                 scalability.
               </Text.Paragraph>
