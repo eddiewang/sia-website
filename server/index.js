@@ -3,9 +3,7 @@ const logger = require('./logger')
 const argv = require('minimist')(process.argv.slice(2))
 const setup = require('./middleware/frontendMiddleware')
 const isDev = process.env.NODE_ENV !== 'production'
-const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel
-  ? require('ngrok')
-  : false
+const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false
 const resolve = require('path').resolve
 const bodyParser = require('body-parser')
 const detect = require('detect-port')
@@ -20,8 +18,16 @@ app.use(bodyParser.json())
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 app.use('/api', myApi)
 
-app.get("/whitepaper.pdf", (req, res) => {
-  res.redirect("/sia.pdf")
+app.get('/whitepaper.pdf', (req, res) => {
+  res.redirect('/sia.pdf')
+})
+
+app.get('/apps', (req, res) => {
+  res.redirect('/get-started')
+})
+
+app.get('/download', (req, res) => {
+  res.redirect('/get-started')
 })
 
 // In production we need to pass these values in instead of relying on webpack
@@ -65,30 +71,26 @@ function run(port) {
 }
 
 if (isDev) {
-detect(DEFAULT_PORT).then(port => {
-  if (port === DEFAULT_PORT) {
-    run(port)
-    return
-  }
+  detect(DEFAULT_PORT).then(port => {
+    if (port === DEFAULT_PORT) {
+      run(port)
+      return
+    }
 
-  if (isInteractive) {
-    const question = chalk.yellow(
-      `Something is already running on port ${DEFAULT_PORT}. Change ports?`
-    )
+    if (isInteractive) {
+      const question = chalk.yellow(
+        `Something is already running on port ${DEFAULT_PORT}. Change ports?`
+      )
 
-    prompt(question, true).then(shouldChangePort => {
-      if (shouldChangePort) {
-        run(port)
-      }
-    })
-  } else {
-    console.log(
-      chalk.red(`Something is already running on port ${DEFAULT_PORT}`)
-    )
-  }
-})
+      prompt(question, true).then(shouldChangePort => {
+        if (shouldChangePort) {
+          run(port)
+        }
+      })
+    } else {
+      console.log(chalk.red(`Something is already running on port ${DEFAULT_PORT}`))
+    }
+  })
 } else {
   run(DEFAULT_PORT)
 }
-
-
