@@ -34,6 +34,16 @@ app.get('/downloads', (req, res) => {
   res.redirect('/get-started')
 })
 
+app.get('/img/svg/sia-wordmark.svg', (req, res) => {
+  res.redirect('/assets/svg/sia-wordmark.svg')
+})
+
+app.get('/img/svg/sia-green-logo.svg', (req, res) => {
+  res.redirect('/assets/svg/sia-green-logo.svg')
+})
+
+app.get('/app/')
+
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),
