@@ -93,10 +93,7 @@ export default class PageFooter extends React.Component {
             name: 'Jobs',
             url: 'https://sia.tech/jobs'
           },
-          {
-            name: 'Whitepaper',
-            url: 'https://sia.tech/sia.pdf'
-          },
+
           {
             name: 'Support',
             url: 'https://support.sia.tech/help_center'
@@ -112,6 +109,10 @@ export default class PageFooter extends React.Component {
           {
             name: 'Get Siacoin',
             url: '/get-siacoin'
+          },
+          {
+            name: 'Whitepaper',
+            url: 'https://sia.tech/sia.pdf'
           }
         ]
       },
