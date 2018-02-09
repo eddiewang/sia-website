@@ -90,6 +90,10 @@ export default class PageFooter extends React.Component {
         title: 'Resources',
         links: [
           {
+            name: 'Jobs',
+            url: 'https://sia.tech/jobs'
+          },
+          {
             name: 'Whitepaper',
             url: 'https://sia.tech/sia.pdf'
           },

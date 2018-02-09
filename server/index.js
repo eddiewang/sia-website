@@ -34,6 +34,10 @@ app.get('/downloads', (req, res) => {
   res.redirect('/get-started')
 })
 
+app.get('/jobs', (req, res) => {
+  res.redirect('https://angel.co/siatechhq/jobs')
+})
+
 app.get('/img/svg/sia-wordmark.svg', (req, res) => {
   res.redirect('/assets/svg/sia-wordmark.svg')
 })
