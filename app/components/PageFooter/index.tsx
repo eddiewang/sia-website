@@ -185,7 +185,7 @@ export default class PageFooter extends React.Component {
             </div>
             <div>
               <Text type="footerTitle">Questions?</Text>
-              <Text type="footerContact">Were here to help!</Text>
+              <Text type="footerContact">We're here to help!</Text>
               <Button.Link href="http://support.sia.tech/" type="footer">
                 Contact
               </Button.Link>
