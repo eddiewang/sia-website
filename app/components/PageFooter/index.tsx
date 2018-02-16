@@ -185,10 +185,10 @@ export default class PageFooter extends React.Component {
             </div>
             <div>
               <Text type="footerTitle">Questions?</Text>
-              <Text type="footerContact">Get in touch!</Text>
-              <Button onClick={this.openGroove} type="footer">
+              <Text type="footerContact">Were here to help!</Text>
+              <Button.Link href="http://support.sia.tech/" type="footer">
                 Contact
-              </Button>
+              </Button.Link>
             </div>
           </div>
         </LayoutContainer>

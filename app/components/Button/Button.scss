@@ -7,6 +7,7 @@
   border-radius: sg-radius();
   font-weight: 800;
   font-size: rem(16px);
+  text-align: center;
   transition: all sg-duration(fast) sg-easing();
   &:hover, &:active {
     background: #00C760;
