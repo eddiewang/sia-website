@@ -96,7 +96,7 @@ export default class PageFooter extends React.Component {
 
           {
             name: 'Support',
-            url: 'https://support.sia.tech/help_center'
+            url: 'https://support.sia.tech/'
           },
           {
             name: 'Trello',
@@ -187,7 +187,7 @@ export default class PageFooter extends React.Component {
               <Text type="footerTitle">Questions?</Text>
               <Text type="footerContact">We're here to help!</Text>
               <Button.Link href="http://support.sia.tech/" type="footer">
-                Contact
+                Get Support
               </Button.Link>
             </div>
           </div>
