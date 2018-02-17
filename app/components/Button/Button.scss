@@ -35,7 +35,7 @@ a.Button {
 
 .typeLargeCTA {
   height: rem(69px);
-  line-height: rem(69px);
+  line-height: rem(69px) !important;
   font-weight: 400;
   font-size: sg-font-size(large-button);
   padding-left: sg-spacing(loose);
