@@ -14,6 +14,10 @@
   }
 }
 
+a.Button {
+  line-height: rem(48px);
+}
+
 .typeNav {
   background: sg-color(sia-green);
   margin-top: rem(20px);
@@ -43,6 +47,7 @@
   background: transparent;
   border: 2px solid sg-color(white);
   &:hover, &:active {
+    border: 2px solid sg-color(sia-green) !important;
     background: sg-color(sia-green);
     border: none;
   }
