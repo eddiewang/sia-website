@@ -46,8 +46,8 @@ app.get('/img/svg/sia-green-logo.svg', (req, res) => {
   res.redirect('/assets/svg/sia-green-logo.svg')
 })
 
-app.get('/img/logo.png', (req, res) => {
-  res.redirect('/assets/img/static-logo.png')
+app.get('/logo.png', (req, res) => {
+  res.redirect('/assets/logo.png')
 })
 
 app.get('/app/')
