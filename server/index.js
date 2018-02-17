@@ -46,6 +46,10 @@ app.get('/img/svg/sia-green-logo.svg', (req, res) => {
   res.redirect('/assets/svg/sia-green-logo.svg')
 })
 
+app.get('/img/logo.png', (req, res) => {
+  res.redirect('/assets/img/static-logo.png')
+})
+
 app.get('/app/')
 
 // In production we need to pass these values in instead of relying on webpack
