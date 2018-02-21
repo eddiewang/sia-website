@@ -11,7 +11,7 @@ interface Props {
 
 const MapBox = ReactMapboxGl({
   accessToken:
-    'pk.eyJ1IjoiZWRkaWV3YW5nIiwiYSI6ImNqY2EzenN3OTA4NTgyd3A1MWRydWZqYTAifQ.6Ni0LTAYS5vVnjSNduZawA',
+    'pk.eyJ1IjoiZWRkaWVsdXhvciIsImEiOiJjamR4NzV4eTgzbzlhMnFxcDhuZTc2MXNyIn0.GYFUp0T8Fgel_Dbxh59VYw',
   interactive: true,
   scrollZoom: false,
   attributionControl: false
