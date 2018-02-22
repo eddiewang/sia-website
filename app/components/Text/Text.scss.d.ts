@@ -29,4 +29,5 @@ export const typeBioText: string
 export const typeBioLink: string
 export const isInverse: string
 export const isInk: string
+export const typeTopbarLink: string
 export const skeletonShimmerAnimation: string

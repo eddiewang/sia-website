@@ -35,3 +35,21 @@
     // margin-left: auto;
   }
 }
+
+.Announcement {
+  display: fixed;
+  top: 0;
+  left: 0;
+  height: rem(50px);
+  width: 100%;
+  background: sg-color(sia-green);
+  &Layout {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: sg-color(white);
+    font-weight: 600;
+  }
+}

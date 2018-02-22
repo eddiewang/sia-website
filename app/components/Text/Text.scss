@@ -183,3 +183,9 @@
   color: sg-color(ink);
 }
 
+.typeTopbarLink {
+  color: sg-color(white);
+  &:hover {
+    color: sg-color(sky, light);
+  }
+}
