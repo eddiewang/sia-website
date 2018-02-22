@@ -40,12 +40,15 @@
   display: fixed;
   top: 0;
   left: 0;
-  height: rem(50px);
+  height: 100%;
   width: 100%;
+  padding: 1rem 2rem;
   background: sg-color(sia-green);
   &Layout {
+    text-align: center;
+    min-height: rem(40px);
     display: flex;
-    height: 100%;
+    top: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
