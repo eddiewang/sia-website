@@ -19,7 +19,8 @@ export default function PageHeader({ children }: Props) {
       <div className={styles.Announcement}>
         <LayoutContainer classes={styles.AnnouncementLayout}>
           <Text.Link href="https://siafunds.tech/" type="topbarLink">
-            The Siafund TSO is officially open for Investor Registration!
+            Nebulous is currently conducting a Tokenized Securities Offering of Siafunds to fund Sia
+            development. Learn more at Siafunds.tech
           </Text.Link>
         </LayoutContainer>
       </div>
