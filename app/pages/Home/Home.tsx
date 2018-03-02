@@ -242,9 +242,9 @@ class Home extends React.Component<{ intl: any }, State> {
             <div className={styles.HeroContent}>
               <TypeHeading level={2}>{intl.formatMessage(messages.greeting)}</TypeHeading>
               <Text.Paragraph>
-                Sia is the first decentralized storage platform secured by blockchain technology.
-                The Sia Storage Platform leverages underutilized hard drive capacity around the
-                world to create a data storage marketplace that is more reliable and lower cost than
+                Sia is a decentralized storage platform secured by blockchain technology. The Sia
+                Storage Platform leverages underutilized hard drive capacity around the world to
+                create a data storage marketplace that is more reliable and lower cost than
                 traditional cloud storage providers.
               </Text.Paragraph>
               <Button.Link to="/get-started" type="largeCTA">
@@ -312,7 +312,7 @@ class Home extends React.Component<{ intl: any }, State> {
               src={PitchOpenSource}
             />
             <PitchRow
-              title="Marketplace on Blockchain"
+              title="Marketplace On Blockchain"
               content="Using the Sia blockchain, Sia creates a decentralized storage marketplace in which hosts compete for your business, which leads to the lowest possible prices. Renters pay using Siacoin, which can also be mined and traded."
               src={PitchMarketplace}
             />

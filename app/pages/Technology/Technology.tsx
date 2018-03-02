@@ -98,7 +98,7 @@ class HowItWorks extends React.Component {
                 Sia uses the{' '}
                 <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Twofish">
                   Twofish
-                </Text.Link>
+                </Text.Link>{' '}
                 algorithm, an open source and secure encryption standard that was a finalist in the
                 Advanced Encryption Standard (AES) contest.
               </Text.Paragraph>
@@ -147,7 +147,7 @@ class HowItWorks extends React.Component {
               />
             </div>
             <div className={styles.TutorialContent}>
-              <TypeHeading level={6}>Renters and Hosts Pay With Siacoin</TypeHeading>
+              <TypeHeading level={6}>Renters And Hosts Pay With Siacoin</TypeHeading>
               <Text.Paragraph>
                 Both renters and hosts use Siacoin, a unique cryptocurrency built on the Sia
                 blockchain. Renters use Siacoin to buy storage capacity from hosts, while hosts
