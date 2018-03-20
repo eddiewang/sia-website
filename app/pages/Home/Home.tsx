@@ -102,10 +102,10 @@ class Home extends React.Component<{ intl: any }, State> {
     newsletterEmail: '',
     newsletterStatus: null,
     newsletterMessage: null,
-    marketCap: '1.2',
-    usedStorage: '100',
-    activeHosts: 600,
-    storageCapacity: '3',
+    marketCap: '0.5',
+    usedStorage: '206',
+    activeHosts: 895,
+    storageCapacity: '4.5',
     mapData: null,
     github: {
       commits: 7000,
@@ -135,51 +135,63 @@ class Home extends React.Component<{ intl: any }, State> {
     return axios.get('api/github')
   }
 
+  public getSiastats() {
+    return axios.get('api/siastats')
+  }
+
   public componentDidMount() {
-    axios.all([this.getMarketCap(), this.getNetwork(), this.getMap(), this.getGithub()]).then(
-      axios.spread((marketcap, stats, hosts, github) => {
-        const marketCap = parseInt(marketcap.data[0].market_cap_usd, 10)
-        const inBillions = (marketCap / 1000000000).toFixed(1)
-        const { data } = stats
-        const activeHosts = data.active_hosts
-        const totalStorage = data.totalstorage
-        const usedStorage = ((data.totalstorage - data.remainingstorage) / 1e12).toFixed(0)
-        const storageCapacity = (data.totalstorage / 1e15).toFixed(1)
+    axios
+      .all([
+        this.getMarketCap(),
+        this.getNetwork(),
+        this.getMap(),
+        this.getGithub(),
+        this.getSiastats()
+      ])
+      .then(
+        axios.spread((marketcap, stats, hosts, github, siastats) => {
+          const marketCap = parseInt(marketcap.data[0].market_cap_usd, 10)
+          const inBillions = (marketCap / 1000000000).toFixed(1)
+          const { data } = stats
+          const activeHosts = data.active_hosts
+          const totalStorage = data.totalstorage
+          const usedStorage = siastats.data.used.toFixed(0)
+          const storageCapacity = (data.totalstorage / 1e15).toFixed(1)
 
-        const mapData = hosts.data
-        const geoJsonFormatter = hostdata => {
-          const geoJson = {
-            type: 'FeatureCollection',
-            features: [] as any[]
-          }
-          hostdata.forEach(h => {
-            geoJson.features.push({
-              type: 'Feature',
-              geometry: {
-                type: 'Point',
-                coordinates: [h.lon, h.lat]
-              }
+          const mapData = hosts.data
+          const geoJsonFormatter = hostdata => {
+            const geoJson = {
+              type: 'FeatureCollection',
+              features: [] as any[]
+            }
+            hostdata.forEach(h => {
+              geoJson.features.push({
+                type: 'Feature',
+                geometry: {
+                  type: 'Point',
+                  coordinates: [h.lon, h.lat]
+                }
+              })
             })
-          })
-          return geoJson
-        }
-        const geoData = geoJsonFormatter(mapData)
-
-        this.setState({
-          marketCap: inBillions,
-          usedStorage,
-          activeHosts,
-          storageCapacity,
-          mapData: geoData,
-          github: {
-            commits: github.data.total_commits,
-            contributors: github.data.total_contributors,
-            forks: github.data.total_forks,
-            releases: github.data.total_releases
+            return geoJson
           }
+          const geoData = geoJsonFormatter(mapData)
+
+          this.setState({
+            marketCap: inBillions,
+            usedStorage,
+            activeHosts,
+            storageCapacity,
+            mapData: geoData,
+            github: {
+              commits: github.data.total_commits,
+              contributors: github.data.total_contributors,
+              forks: github.data.total_forks,
+              releases: github.data.total_releases
+            }
+          })
         })
-      })
-    )
+      )
   }
 
   public handleCTA = (e): void => {
