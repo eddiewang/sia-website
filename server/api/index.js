@@ -145,6 +145,17 @@ function getUIReleases() {
   return axios.get('https://api.github.com/repos/NebulousLabs/Sia-UI/releases?per_page=100')
 }
 
+router.get('/siastats', (req, res) => {
+  axios
+    .get('https://siastats.info/dbs/storage.json')
+    .then(({ data }) => {
+      res.send(data[data.length - 1])
+    })
+    .catch(err => {
+      res.status(400).send(err)
+    })
+})
+
 router.get('/github', (req, res) => {
   cache.get(GITHUB, (err, val) => {
     if (!err) {
@@ -218,7 +229,7 @@ router.get('/downloadstats', (req, res) => {
           )
           .catch(err => {
             res.send({
-              sia: 111332 ,
+              sia: 111332,
               siaui: 725844
             })
           })
