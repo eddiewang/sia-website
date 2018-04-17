@@ -272,7 +272,7 @@ class Home extends React.Component<{ intl: any }, State> {
                 <TypeHeading level={4} type="stat">
                   {this.state.activeHosts}
                 </TypeHeading>
-                <Text type="stat">Active Hosts</Text>
+                <Text type="stat">Storage Providers</Text>
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
@@ -313,7 +313,7 @@ class Home extends React.Component<{ intl: any }, State> {
             />
             <PitchRow
               title="Marketplace On Blockchain"
-              content="Using the Sia blockchain, Sia creates a decentralized storage marketplace in which hosts compete for your business, which leads to the lowest possible prices. Renters pay using Siacoin, which can also be mined and traded."
+              content="Using the Sia blockchain, Sia creates a decentralized storage marketplace in which storage providers compete for your business, which leads to the lowest possible prices. Renters pay using Siacoin, which can also be mined and traded."
               src={PitchMarketplace}
             />
           </LayoutContainer>

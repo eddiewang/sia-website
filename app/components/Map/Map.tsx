@@ -30,7 +30,7 @@ export default class Map extends React.Component<Props, {}> {
         <Layer
           type="symbol"
           layout={{
-            'text-field': 'Active Sia Hosts',
+            'text-field': 'Sia Storage Providers',
             'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
             'text-size': 18,
             'text-transform': 'uppercase',
