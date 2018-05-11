@@ -111,11 +111,11 @@ class Download extends React.Component<{}, State> {
                 title="Luxor"
                 content="Mining pool for Siacoin that donates a portion of profits to the Sia Core team"
                 linkTitle="Setup Guide"
-                linkTo="https://sia.luxor.tech/setup#7"
+                linkTo="https://mining.luxor.tech/sia"
                 links={[
                   {
-                    title: 'sia.luxor.tech',
-                    to: 'https://sia.luxor.tech/'
+                    title: 'mining.luxor.tech',
+                    to: 'https://mining.luxor.tech/sia'
                   }
                 ]}
               />
