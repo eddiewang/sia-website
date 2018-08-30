@@ -78,7 +78,7 @@ class Download extends React.Component<{}, State> {
                 title="Sia Daemon"
                 content="Download version 1.3.2 of Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
                 linkTitle="Documentation for Developers"
-                linkTo="https://github.com/NebulousLabs/Sia/tree/master/doc"
+                linkTo="https://gitlab.com/NebulousLabs/Sia/tree/master/doc"
                 tag={sia}
                 links={[
                   {
