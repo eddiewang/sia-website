@@ -10,7 +10,6 @@ persist
 npm-debug.log
 .idea
 yarn-error.log
-yarn.lock
 package-lock.json
 
 # Large Static Files
