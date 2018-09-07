@@ -51,7 +51,7 @@ class Download extends React.Component<{}, State> {
               <LinkCard
                 icon="sia"
                 title="Sia UI"
-                content="Download version 1.3.3 of Sia-UI with a Graphical User Interface. Built for users who prefer to use a GUI over command line."
+                content="Download version 1.3.4 of Sia-UI with a Graphical User Interface. Built for users who prefer to use a GUI over command line."
                 linkTitle="Guide to Getting Started with Sia"
                 tag={siaui}
                 linkTo="http://siasetup.info/"
@@ -59,24 +59,24 @@ class Download extends React.Component<{}, State> {
                   {
                     title: 'Windows',
                     to:
-                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.3/Sia-UI-v1.3.3-win32-x64.zip'
+                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.4/Sia-UI-v1.3.4-win32-x64.zip'
                   },
                   {
                     title: 'macOS',
                     to:
-                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.3/Sia-UI-v1.3.3-osx-x64.zip'
+                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.4/Sia-UI-v1.3.4-osx-x64.zip'
                   },
                   {
                     title: 'Linux',
                     to:
-                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.3/Sia-UI-v1.3.3-linux-x64.zip'
+                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.4/Sia-UI-v1.3.4-linux-x64.zip'
                   }
                 ]}
               />
               <LinkCard
                 icon="sia"
                 title="Sia Daemon"
-                content="Download version 1.3.3 of Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
+                content="Download version 1.3.4 of Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
                 linkTitle="Documentation for Developers"
                 linkTo="https://gitlab.com/NebulousLabs/Sia/tree/master/doc"
                 tag={sia}
@@ -84,17 +84,17 @@ class Download extends React.Component<{}, State> {
                   {
                     title: 'Windows',
                     to:
-                      'https://github.com/NebulousLabs/Sia/releases/download/v1.3.3/Sia-v1.3.3-windows-amd64.zip'
+                      'https://gitlab.com/NebulousLabs/Sia/uploads/c384045aa863e36805740032b1bc3ea2/Sia-v1.3.4-windows-amd64.zip'
                   },
                   {
                     title: 'macOS',
                     to:
-                      'https://github.com/NebulousLabs/Sia/releases/download/v1.3.3/Sia-v1.3.3-darwin-amd64.zip'
+                      'https://gitlab.com/NebulousLabs/Sia/uploads/dd66089d95633500d7dcaa2676554dba/Sia-v1.3.4-darwin-amd64.zip'
                   },
                   {
                     title: 'Linux',
                     to:
-                      'https://github.com/NebulousLabs/Sia/releases/download/v1.3.3/Sia-v1.3.3-linux-amd64.zip'
+                      'https://gitlab.com/NebulousLabs/Sia/uploads/8b940c81f06a62933ba00dd58ebd741b/Sia-v1.3.4-linux-amd64.zip'
                   }
                 ]}
               />
