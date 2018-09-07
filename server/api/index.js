@@ -5,9 +5,8 @@ const fs = require('fs')
 const CoinMarketCap = require('coinmarketcap-api')
 const NodeCache = require('node-cache')
 const cache = new NodeCache({ stdTTL: 900, checkperiod: 600 })
-
 const cmc = new CoinMarketCap()
-
+const storage = require('../storage')
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -194,45 +193,49 @@ router.get('/github', (req, res) => {
 })
 
 router.get('/downloadstats', (req, res) => {
-  cache.get(DOWNLOADS, (err, val) => {
+  cache.get(DOWNLOADS, async (err, val) => {
     if (!err) {
       if (val === undefined) {
-        let totalSiaCount = 0
-        let totalSiaUICount = 0
-        axios
-          .all([getReleases(), getUIReleases()])
-          .then(
-            axios.spread((sia, siaui) => {
-              sia.data.forEach(d => {
-                let currCount = 0
-                d.assets.forEach(a => {
-                  currCount += a.download_count
-                })
-                totalSiaCount += currCount
-              })
+        let totalSiaCount = await storage.getItem('daemon_counter')
+        let totalSiaUICount = await storage.getItem('ui_counter')
+        res.send({
+          sia: totalSiaCount,
+          siaui: totalSiaUICount
+        })
+        // axios
+        //   .all([getReleases(), getUIReleases()])
+        //   .then(
+        //     axios.spread((sia, siaui) => {
+        //       sia.data.forEach(d => {
+        //         let currCount = 0
+        //         d.assets.forEach(a => {
+        //           currCount += a.download_count
+        //         })
+        //         totalSiaCount += currCount
+        //       })
 
-              siaui.data.forEach(d => {
-                let currCount = 0
-                d.assets.forEach(a => {
-                  currCount += a.download_count
-                })
-                totalSiaUICount += currCount
-              })
-              const downloadStat = {
-                sia: totalSiaCount,
-                siaui: totalSiaUICount
-              }
-              cache.set(DOWNLOADS, downloadStat)
+        //       siaui.data.forEach(d => {
+        //         let currCount = 0
+        //         d.assets.forEach(a => {
+        //           currCount += a.download_count
+        //         })
+        //         totalSiaUICount += currCount
+        //       })
+        //       const downloadStat = {
+        //         sia: totalSiaCount,
+        //         siaui: totalSiaUICount
+        //       }
+        //       cache.set(DOWNLOADS, downloadStat)
 
-              res.send(downloadStat)
-            })
-          )
-          .catch(err => {
-            res.send({
-              sia: 111332,
-              siaui: 725844
-            })
-          })
+        //       res.send(downloadStat)
+        //     })
+        //   )
+        //   .catch(err => {
+        //     res.send({
+        //       sia: 111332,
+        //       siaui: 725844
+        //     })
+        //   })
       } else {
         res.send(val)
       }

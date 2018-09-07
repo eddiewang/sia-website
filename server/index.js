@@ -13,6 +13,32 @@ const prompt = require('./react-dev-utils/prompt')
 const openBrowser = require('./react-dev-utils/openBrowser')
 const chalk = require('chalk')
 
+const storage = require('./storage')
+
+const addCount = async (req, res, next) => {
+  if (req.url.includes('releases')) {
+    if (req.url.includes('UI')) {
+      console.log('incrementing UI counter')
+      let UICount = await storage.getItem('ui_counter')
+      if (!UICount) {
+        storage.setItem('ui_counter', 925283)
+        UICount = await storage.getItem('ui_counter')
+      }
+      storage.setItem('ui_counter', UICount + 1)
+    } else if (req.url.includes('Sia')) {
+      console.log('incrementing Daemon counter')
+      let DaemonCount = await storage.getItem('daemon_counter')
+      if (!DaemonCount) {
+        storage.setItem('daemon_counter', 134294)
+        DaemonCount = await storage.getItem('daemon_counter')
+      }
+      await storage.setItem('daemon_counter', DaemonCount + 1)
+    }
+  }
+  next()
+}
+app.use('/static', addCount, express.static('public'))
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here

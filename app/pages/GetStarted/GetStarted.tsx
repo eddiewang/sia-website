@@ -58,18 +58,15 @@ class Download extends React.Component<{}, State> {
                 links={[
                   {
                     title: 'Windows',
-                    to:
-                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.4/Sia-UI-v1.3.4-win32-x64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.4-win32-x64.zip'
                   },
                   {
                     title: 'macOS',
-                    to:
-                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.4/Sia-UI-v1.3.4-osx-x64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.4-osx-x64.zip'
                   },
                   {
                     title: 'Linux',
-                    to:
-                      'https://github.com/NebulousLabs/Sia-UI/releases/download/v1.3.4/Sia-UI-v1.3.4-linux-x64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.4-linux-x64.zip'
                   }
                 ]}
               />
@@ -83,18 +80,15 @@ class Download extends React.Component<{}, State> {
                 links={[
                   {
                     title: 'Windows',
-                    to:
-                      'https://gitlab.com/NebulousLabs/Sia/uploads/c384045aa863e36805740032b1bc3ea2/Sia-v1.3.4-windows-amd64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-v1.3.4-windows-amd64.zip'
                   },
                   {
                     title: 'macOS',
-                    to:
-                      'https://gitlab.com/NebulousLabs/Sia/uploads/dd66089d95633500d7dcaa2676554dba/Sia-v1.3.4-darwin-amd64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-v1.3.4-darwin-amd64.zip'
                   },
                   {
                     title: 'Linux',
-                    to:
-                      'https://gitlab.com/NebulousLabs/Sia/uploads/8b940c81f06a62933ba00dd58ebd741b/Sia-v1.3.4-linux-amd64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-v1.3.4-linux-amd64.zip'
                   }
                 ]}
               />

@@ -3,6 +3,7 @@ coverage
 build
 node_modules
 .cache-loader
+persist
 
 # Cruft
 .DS_Store
