@@ -132,8 +132,8 @@ export default class PageFooter extends React.Component {
             url: 'https://forum.sia.tech/'
           },
           {
-            name: 'Github',
-            url: 'https://github.com/nebulouslabs'
+            name: 'Gitlab',
+            url: 'https://gitlab.com/NebulousLabs'
           },
           {
             name: 'Twitter',
