@@ -48,7 +48,7 @@ export default [
     content: 'In a world of distributed storage there will be no downtime, no companies spying on your data, and no massive cloud leaks. Storage will be faster, safer, and cheaper.'
   },
   {
-    name: 'Steve Funk',
+    name: 'Steve F.',
     svg: Steve,
     role: 'Head of Support',
     social: {
