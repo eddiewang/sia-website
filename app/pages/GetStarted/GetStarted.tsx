@@ -95,7 +95,7 @@ class Download extends React.Component<{}, State> {
             </div>
             <div className={styles.PubKeyWrap}>
               <div className={styles.PubKey}>
-                As a reminder, all release binaries are now signed. You can manually verify the
+                As a reminder, all release binaries are signed. You can manually verify the
                 signatures with the command:
                 <br />
                 <br />
