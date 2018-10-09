@@ -93,6 +93,20 @@ class Download extends React.Component<{}, State> {
                 ]}
               />
             </div>
+            <div className={styles.PubKeyWrap}>
+              <div className={styles.PubKey}>
+                As a reminder, all release binaries are now signed. You can manually verify the
+                signatures with the command:
+                <br />
+                <br />
+                <pre>openssl dgst -sha256 -verify sia.pem -signature siad.sig siad</pre>
+                <br />
+                You can download the key{' '}
+                <strong>
+                  <a href="/static/releases/sia.pem">here</a>
+                </strong>.
+              </div>
+            </div>
           </LayoutContainer>
         </Section>
         <Section>
