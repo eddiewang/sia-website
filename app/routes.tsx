@@ -5,6 +5,7 @@ import Spinner from 'components/Spinner'
 // import PageShell from './PageShell'
 // import AnimatedSwitch from './AnimatedSwitch'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
+import Roadmap from 'pages/Roadmap'
 
 import Layout from './Layout'
 import Home from 'pages/Home'
@@ -22,7 +23,7 @@ const pageRoutes = ({ location }) => {
       <Route exact path="/about" component={getComponent('About')} />
       <Route exact path="/technology" component={getComponent('Technology')} />
       <Route exact path="/learn" component={getComponent('Learn')} />
-      <Route exact path="/roadmap" component={getComponent('Roadmap')} />
+      <Route exact path="/roadmap" component={Roadmap} />
       <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />
     </Switch>
   )
