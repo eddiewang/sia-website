@@ -30,6 +30,15 @@
   &Desc {
     margin-top: rem(30px);
   }
+  &Icon {
+    margin-top: rem(10px);
+    width: rem(30px);
+    &Wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }
 
 .Large {

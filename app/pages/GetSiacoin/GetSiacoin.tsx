@@ -26,8 +26,19 @@ class GetSiacoin extends React.Component {
             <div className={styles.Exchanges}>
               <LinkCard
                 darkTitle
+                title="Binance"
+                content="Based in Malta, Binance is a popular crypto-to-crypto exchange."
+                links={[
+                  {
+                    title: 'binance.com >',
+                    to: 'https://www.binance.com/en/trade/SC_BTC'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
                 title="Bittrex"
-                content="Based and fully regulated in the USA, Bittrex is the go-to spot for traders who demand lightning fast trade execution, stable wallets, and industry-best security practices."
+                content="Based in the USA, Bittrex is a popular crypto-to-crypto exchange that is currently rolling out USD deposits."
                 links={[
                   {
                     title: 'bittrex.com >',
@@ -38,11 +49,33 @@ class GetSiacoin extends React.Component {
               <LinkCard
                 darkTitle
                 title="Shapeshift"
-                content="Shapeshift is an innovative new low-friction cryptocurrency exchange that doesn't have a lengthy signup process. Simply set your input to a currency that you have, set the output to Siacoin, put your Siacoin address in the box, and click start."
+                content="Shapeshift enables users to quickly exchange small amounts of cryptocurrency. Most user-friendly."
                 links={[
                   {
                     title: 'shapeshift.io >',
                     to: 'https://shapeshift.io/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                title="Poloniex"
+                content="Based in the USA and recently acquired by Circle, Poloniex is a popular crypto-to-crypto exchange."
+                links={[
+                  {
+                    title: 'poloniex.com >',
+                    to: 'https://poloniex.com/exchange#btc_sc'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                title="Upbit"
+                content="Based in South Korea and partnered with Bittrex, Upbit is a popular crypto-to-crypto exchange."
+                links={[
+                  {
+                    title: 'upbit.com >',
+                    to: 'https://upbit.com/'
                   }
                 ]}
               />

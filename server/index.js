@@ -14,6 +14,10 @@ const openBrowser = require('./react-dev-utils/openBrowser')
 const chalk = require('chalk')
 
 const storage = require('./storage')
+const secure = require('express-force-https')
+
+app.use(secure)
+
 
 const addCount = async (req, res, next) => {
   if (req.url.includes('releases')) {

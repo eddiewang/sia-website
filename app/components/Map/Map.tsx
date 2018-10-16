@@ -49,7 +49,7 @@ export default class Map extends React.Component<Props, {}> {
             // make circles larger as the user zooms from z12 to z22
             'circle-radius': 5,
             // color circles by ethnicity, using data-driven styles
-            'circle-color': '#20EE82',
+            'circle-color': '#1ED660',
             'circle-opacity': 0.55
           }}
         />

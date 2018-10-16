@@ -7,10 +7,10 @@
     <g id="Talks-Card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-161.000000, -56.000000)" stroke-linejoin="round">
         <g id="Talks-Icon" transform="translate(162.500000, 57.500000)" stroke-width="3">
             <path d="M40.6875,18.9375 C40.6875,28.94975 32.57475,37.0625 22.5625,37.0625 C12.55025,37.0625 4.4375,28.94975 4.4375,18.9375 C4.4375,8.928875 12.55025,0.8125 22.5625,0.8125 C32.57475,0.8125 40.6875,8.928875 40.6875,18.9375 L40.6875,18.9375 Z" id="Stroke-1683" stroke="#7F8C8D"></path>
-            <path d="M0.8125,18.9375 L44.3125,18.9375" id="Stroke-1684" stroke="#20EE82" stroke-linecap="round"></path>
+            <path d="M0.8125,18.9375 L44.3125,18.9375" id="Stroke-1684" stroke="#1ED660" stroke-linecap="round"></path>
             <path d="M31.625,34.6341125 L28.467625,71.5656125 C28.203,74.6033625 25.65825,76.9378625 22.609625,76.9378625 C19.503,76.9378625 16.918375,74.5671125 16.650125,71.4749875 L13.5,34.6341125" id="Stroke-1685" stroke="#7F8C8D"></path>
             <path d="M22.5625,76.9375 L22.5625,84.1875" id="Stroke-1686" stroke="#7F8C8D" stroke-linecap="round"></path>
-            <path d="M22.5625,47.9375 L22.5625,55.1875" id="Stroke-1687" stroke="#20EE82" stroke-linecap="round"></path>
+            <path d="M22.5625,47.9375 L22.5625,55.1875" id="Stroke-1687" stroke="#1ED660" stroke-linecap="round"></path>
         </g>
     </g>
 </svg>

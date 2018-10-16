@@ -107,6 +107,7 @@
     .RoadmapCircle {
       background: url('assets/img/timeline-logo.png') no-repeat center;
       background-color: sg-color(white);
+      background-position: 40% 50%;
       border: 3px solid sg-color(sia-green);
       &::after {
         background: sg-color(sky);

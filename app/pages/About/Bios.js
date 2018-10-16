@@ -3,6 +3,8 @@ import Luke from 'svg/avatar-luke.svg'
 import Chris from 'svg/avatar-chris.svg'
 import Zach from 'svg/avatar-zach.svg'
 import Steve from 'svg/avatar-steve.svg'
+import Eddie from 'svg/avatar-eddie.svg'
+import Matt from 'svg/avatar-matt.svg'
 
 export default [
   {
@@ -48,7 +50,7 @@ export default [
     content: 'In a world of distributed storage there will be no downtime, no companies spying on your data, and no massive cloud leaks. Storage will be faster, safer, and cheaper.'
   },
   {
-    name: 'Steve F.',
+    name: 'Steve Funk',
     svg: Steve,
     role: 'Head of Support',
     social: {
@@ -56,5 +58,25 @@ export default [
       url: 'https://www.linkedin.com/in/stevengfunk/'
     },
     content: 'Sia has a team that truly cares about the experience, and a passionate community that inspires us to do our best.'
+  },
+  {
+    name: 'Eddie Wang',
+    svg: Eddie,
+    role: 'Frontend Developer',
+    social: {
+      title: 'Github',
+      url: 'https://github.com/eddiewang'
+    },
+    content: `Distributed storage will be a key component to a fault-tolerant blockchain ecosystem. Sia is only fully-decentralized product in this space with a thoughtful design and clear product path.`
+  },
+  {
+    name: 'Matt Sevey',
+    svg: Matt,
+    role: 'Core Developer',
+    social: {
+      title: 'Linkedin',
+      url: 'https://www.linkedin.com/in/sevey'
+    },
+    content: 'Sia is leading the way and defining what decentralized data storage can be. It enables users to take control over how their data is stored and have the confidence it is safe and secure.'
   }
 ]

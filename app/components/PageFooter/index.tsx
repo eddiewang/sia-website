@@ -128,10 +128,6 @@ export default class PageFooter extends React.Component {
             url: 'https://discordapp.com/invite/sia'
           },
           {
-            name: 'Forum',
-            url: 'https://forum.sia.tech/'
-          },
-          {
             name: 'Gitlab',
             url: 'https://gitlab.com/NebulousLabs'
           },

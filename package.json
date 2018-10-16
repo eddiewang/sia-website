@@ -94,6 +94,7 @@
     "compression": "^1.7.0",
     "detect-port": "^1.2.1",
     "express": "^4.15.4",
+    "express-force-https": "1.0.0",
     "hoist-non-react-statics": "2.3.1",
     "ip": "^1.1.4",
     "jsonp": "0.2.1",

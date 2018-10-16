@@ -27,6 +27,7 @@ import medium from 'svg/social-medium.svg'
 import twitter from 'svg/social-twitter.svg'
 import linkedin from 'svg/social-linkedin.svg'
 import github from 'svg/social-github.svg'
+import gitlab from 'svg/social-gitlab.svg'
 
 @inject('main')
 @observer
@@ -81,7 +82,19 @@ class About extends React.Component {
             <TypeHeading level={3} inline underlined>
               Team
             </TypeHeading>
-            <div className={styles.TeamCofounders}>{mappedBios}</div>
+            <div className={styles.TeamCofounders}>
+              {mappedBios}
+              <div className={styles.JobCard}>
+                <TypeHeading type="bioHeading" level={6}>
+                  Join us.
+                </TypeHeading>
+                <Text type="bioText">
+                  We're looking for talented & passionate individuals to join our team. Check out
+                  our job postings{' '}
+                  <Text.Link href="https://angel.co/siatechhq/jobs">here.</Text.Link>
+                </Text>
+              </div>
+            </div>
           </LayoutContainer>
         </Section>
         <Section>
@@ -124,8 +137,8 @@ class About extends React.Component {
                   aspectRatio="xMinYMin"
                 />
                 <Icon
-                  href="https://github.com/NebulousLabs"
-                  src={github.id}
+                  href="https://gitlab.com/NebulousLabs"
+                  src={gitlab.id}
                   aspectRatio="xMinYMin"
                 />
                 <Icon

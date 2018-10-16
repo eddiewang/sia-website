@@ -20,4 +20,6 @@ export const ContactSocial: string
 export const contactSocial: string
 export const ContactSocialIcons: string
 export const contactSocialIcons: string
+export const JobCard: string
+export const jobCard: string
 export const skeletonShimmerAnimation: string

@@ -8,8 +8,8 @@
         <g id="Documentation-Icon" transform="translate(153.375000, 57.500000)" stroke-width="3">
             <polygon id="Stroke-357" stroke="#7F8C8D" points="62.4375 84.1875 0.8125 84.1875 0.8125 0.8125 40.6875 0.8125 62.4375 22.5625"></polygon>
             <polyline id="Stroke-358" stroke="#7F8C8D" points="40.6875 0.8125 40.6875 22.5625 62.4375 22.5625"></polyline>
-            <polyline id="Stroke-359" stroke="#20EE82" points="40.6875 37.0625 55.1875 51.5625 40.6875 66.0625"></polyline>
-            <polyline id="Stroke-360" stroke="#20EE82" points="22.5625 37.0625 8.0625 51.5625 22.5625 66.0625"></polyline>
+            <polyline id="Stroke-359" stroke="#1ED660" points="40.6875 37.0625 55.1875 51.5625 40.6875 66.0625"></polyline>
+            <polyline id="Stroke-360" stroke="#1ED660" points="22.5625 37.0625 8.0625 51.5625 22.5625 66.0625"></polyline>
         </g>
     </g>
 </svg>
