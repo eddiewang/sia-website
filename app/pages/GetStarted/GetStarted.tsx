@@ -51,22 +51,22 @@ class Download extends React.Component<{}, State> {
               <LinkCard
                 icon="sia"
                 title="Sia UI"
-                content="Download version 1.3.4 of Sia-UI with a Graphical User Interface. Built for users who prefer to use a GUI over command line."
+                content="Download version 1.3.6 of Sia-UI with a Graphical User Interface. Built for users who prefer to use a GUI over command line."
                 linkTitle="Guide to Getting Started with Sia"
                 tag={siaui}
                 linkTo="http://siasetup.info/"
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.4-win32-x64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.6-win32-x64.zip'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.4-osx-x64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.6-osx-x64.zip'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.4-linux-x64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-UI-v1.3.6-linux-x64.zip'
                   }
                 ]}
               />
@@ -80,15 +80,15 @@ class Download extends React.Component<{}, State> {
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://sia.tech/static/releases/Sia-v1.3.4-windows-amd64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-v1.3.6-windows-amd64.zip'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://sia.tech/static/releases/Sia-v1.3.4-darwin-amd64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-v1.3.6-darwin-amd64.zip'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://sia.tech/static/releases/Sia-v1.3.4-linux-amd64.zip'
+                    to: 'https://sia.tech/static/releases/Sia-v1.3.6-linux-amd64.zip'
                   }
                 ]}
               />

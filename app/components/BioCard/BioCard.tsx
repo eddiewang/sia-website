@@ -7,13 +7,14 @@ import TypeHeading from 'components/TypeHeading'
 import Text from 'components/Text'
 import iconMap from './iconMap'
 
+export interface UserSocial {
+  title: string
+  url: string
+}
 export interface UserDetails {
   name: string
   svg: any
-  social: {
-    title: string
-    url: string
-  }
+  social: UserSocial[]
   role: string
   content?: string
 }
@@ -22,7 +23,19 @@ class BioCard extends React.Component<UserDetails, {}> {
   public render() {
     const { name, svg, social, content, role } = this.props
     const CardClass = classNames(styles.Card, content && styles.Large)
-    const socialType = social.title.toLowerCase()
+
+    const mappedSocial = social.map((s, i) => {
+      const socialType = s.title.toLowerCase()
+      return (
+        <Icon
+          key={i}
+          classes={styles.CardIcon}
+          href={s.url}
+          src={iconMap[socialType].id}
+          aspectRatio="xMinYMin"
+        />
+      )
+    })
     return (
       <div className={CardClass}>
         <div className={styles.CardTop}>
@@ -41,14 +54,7 @@ class BioCard extends React.Component<UserDetails, {}> {
             {name}
           </TypeHeading>
           <Text type="bioText">{role}</Text>
-          <div className={styles.CardIconWrap}>
-            <Icon
-              classes={styles.CardIcon}
-              href={social.url}
-              src={iconMap[socialType].id}
-              aspectRatio="xMinYMin"
-            />
-          </div>
+          <div className={styles.CardIconWrap}>{mappedSocial}</div>
           <div className={styles.CardDesc}>
             <Text>{content}</Text>
           </div>

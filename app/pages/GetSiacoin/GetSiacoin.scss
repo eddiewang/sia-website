@@ -4,5 +4,8 @@
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: rem(30px);
     grid-row-gap: rem(30px);
+    & > div {
+      height: rem(230px);
+    }
   }
 }

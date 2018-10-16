@@ -56,7 +56,6 @@ class LinkCard extends React.Component<Props, {}> {
             <Text ink={darkTitle} type="linkCardHeader">
               {title}
             </Text>
-
             <div className={renderClass}>
               {renderIcon && (
                 <Icon
