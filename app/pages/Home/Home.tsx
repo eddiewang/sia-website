@@ -91,7 +91,7 @@ const messages = defineMessages({
   greeting: {
     id: 'app.home.greeting',
     description: 'Welcome hero text',
-    defaultMessage: 'Cloud storage is about to change. Are you ready?'
+    defaultMessage: 'Fully decentralized cloud storage is finally here.'
   }
 })
 
@@ -254,10 +254,10 @@ class Home extends React.Component<{ intl: any }, State> {
             <div className={styles.HeroContent}>
               <TypeHeading level={2}>{intl.formatMessage(messages.greeting)}</TypeHeading>
               <Text.Paragraph>
-                Sia is a decentralized storage platform secured by blockchain technology. The Sia
-                Storage Platform leverages underutilized hard drive capacity around the world to
-                create a data storage marketplace that is more reliable and lower cost than
-                traditional cloud storage providers.
+                Sia is the leading decentralized cloud storage platform. No signups, no servers, no
+                trusted third parties. Sia leverages blockchain technology to create a data storage
+                marketplace that is more robust and more affordable than traditional cloud storage
+                providers. Download today!
               </Text.Paragraph>
               <Button.Link to="/get-started" type="largeCTA">
                 Get Started
