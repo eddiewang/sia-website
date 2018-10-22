@@ -18,15 +18,6 @@ const secure = require('express-force-https')
 
 app.use(secure)
 
-function ensureSecure(req, res, next) {
-  if (req.secure || (isDev)) {
-    return next()
-  }
-  res.redirect('https://' + req.hostname + req.url)
-}
-
-app.all('*', ensureSecure)
-
 const addCount = async (req, res, next) => {
   if (req.url.includes('releases')) {
     if (req.url.includes('UI')) {
