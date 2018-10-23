@@ -242,18 +242,6 @@ class Download extends React.Component<{}, State> {
               <LinkCard
                 darkTitle
                 icon="third"
-                title="SiaBerry"
-                content="OS for using Sia on Raspberry Pi"
-                links={[
-                  {
-                    title: 'siaberry.com >',
-                    to: 'http://www.siaberry.com/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
                 title="SiaDrive"
                 content="Mount Sia as a drive on your desktop"
                 links={[
