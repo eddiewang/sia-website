@@ -1,0 +1,171 @@
+.Timeline {
+  height: 100%;
+  text-align: center;
+  &Ending {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: rem(570px);
+    padding-bottom: rem(100px);
+    h6 {
+      @media screen and (max-width: sg-breakpoint()) {
+        font-size: rem(22px);
+      }
+    }
+    @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint() - 1px) {
+      left: 0;
+      transform: translateX(0) translateY(-35%);
+      text-align: left;
+    }
+  }
+}
+.Roadmap {
+  li {
+    display: block;
+    position: relative;
+    color: sg-color(ink, lightest);
+    text-align: left;
+    padding-bottom: 150px;
+
+    h6 {
+      margin-bottom: rem(10px);
+      color: sg-color(ink, lightest);
+    }
+
+    @media screen and (min-width: sg-breakpoint()) {
+      min-height: rem(260px);
+      &:nth-child(even) {
+        text-align: right;
+        left: 100%;
+        transform: translateX(-100%);
+      }
+    }
+    &:last-child {
+      padding-bottom: 0;
+      min-height: rem(80px);
+    }
+  }
+  &Content {
+    display: inline-block;
+    max-width: rem(370px);
+    &::after {
+      @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
+        display: block;
+        content: '';
+        position: absolute;
+        height: rem(130px);
+        width: rem(3px);
+        background: sg-color(sia-green);
+        bottom: rem(10px);
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+  }
+  &Circle {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    background: black;
+    height: rem(70px);
+    width: rem(70px);
+    border-radius: 50%;
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      min-height: rem(220px);
+      width: rem(3px);
+      background: sg-color(sky);
+      right: 50%;
+      top: rem(70px);
+      transform: translateX(50%);
+    }
+    @media screen and (min-width: sg-breakpoint()) {
+      right: 50%;
+      transform: translateX(50%);
+    }
+    @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
+      display: none;
+    }
+  }
+  .Before {
+    .RoadmapCircle {
+      background: sg-color(sia-green);
+      &::after {
+        background: sg-color(sia-green);
+      }
+    }
+  }
+  .During {
+    .RoadmapContent {
+      color: sg-color(ink);
+      h6 {
+        color: sg-color(sia-green);
+      }
+    }
+    .RoadmapCircle {
+      background: url('assets/img/timeline-logo.png') no-repeat center;
+      background-color: sg-color(white);
+      background-position: 20% 42%;
+      // background-position: 50% 50%;
+      border: 3px solid sg-color(sia-green);
+      &::after {
+        background: sg-color(sky);
+      }
+      @for $i from 1 through 10 {
+        &[data-length='#{$i}']::before {
+          display: block;
+          content: '';
+          z-index: 3;
+          position: absolute;
+          width: rem(3px);
+          min-height: rem(20px * $i);
+          background: sg-color(sia-green);
+          right: 50%;
+          top: rem(67px);
+          transform: translateX(50%);
+        }
+      }
+    }
+  }
+  .Future {
+    .RoadmapContent {
+      color: sg-color(ink);
+      h6 {
+        color: sg-color(ink);
+      }
+      &::after {
+        background: sg-color(sky) !important;
+        @media screen and (max-width: sg-breakpoint(landscape, mobile)) {
+          background: sg-color(sky) !important;
+        }
+      }
+    }
+    .RoadmapCircle {
+      background: sg-color(white);
+      border: 3px solid sg-color(sky);
+    }
+  }
+
+}
+
+.Last {
+  display: block;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%);
+  width: rem(50px);
+  height: rem(50px);
+  background: url('assets/img/timeline-logo-sky.png') no-repeat center;
+  // border: 3px solid sg-color(sia-green);
+  border-radius: 50%;
+  @media screen and (min-width: sg-breakpoint(landscape, mobile)) and (max-width: sg-breakpoint() - 1px) {
+    transform: translateX(-50%) translateY(-50%);
+    right: -15px;
+    bottom: rem(5px);
+  }
+  @media screen and (min-width: sg-breakpoint()) {
+    margin-top: rem(10px);
+  }
+}

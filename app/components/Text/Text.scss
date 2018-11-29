@@ -1,0 +1,192 @@
+.Text {
+  font-size: sg-font-size();
+  padding-bottom: (sg-font-size() * 1.4);
+  line-height: 1.6;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.Link {
+  color: sg-color(ink, light);
+  cursor: pointer;
+  &:hover, &:active {
+    color: sg-color(sia-green);
+  }
+}
+
+.Tag {
+  padding: sg-spacing(tightest) sg-spacing(tighter);
+  padding-bottom: sg-spacing(tightest) !important;
+  background: sg-color(sky);
+  border-radius: rem(6px);
+  font-size: rem(12px);
+  height: 100%;
+}
+
+.typeTechLink {
+  color: sg-color(sia-green);
+}
+
+.isLight {
+  color: sg-color(ink, light);
+}
+
+.isMedium {
+  font-weight: 600;
+}
+
+.isBold {
+  font-weight: 800;
+}
+
+.typeFooterTitle {
+  display: block;
+  color: sg-color(white);
+}
+
+.typeFooterText {
+  color: sg-color(ink, lightest);
+}
+
+.typeFooterContact {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-bottom: rem(20px);
+  color: sg-color(ink, lightest);
+  height: rem(42px);
+}
+
+.typeFooterMessage {
+  display: inline-block;
+  font-size: rem(12px);
+  margin-top: rem(10px);
+}
+
+.typeMediaCardTitle {
+  display: inline-block;
+  color: sg-color(ink, lightest);
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: sg-spacing(tighter);
+}
+
+.typeMediaCardText {
+  font-size: rem(20px);
+  @media screen and (max-width: sg-breakpoint()) {
+    font-size: rem(18px);
+  }
+}
+
+.typeMediaCardTextLink {
+  &:hover, &:active {
+    color: sg-color(sia-green);
+  }
+}
+
+.typeLinkCardHeader {
+  display: inline-block;
+  font-size: rem(24px);
+  color: sg-color(sia-green);
+  padding-bottom: 0;
+}
+
+.typeLinkCardText {
+  font-size: rem(16px);
+}
+
+.typeLinkCardFooter {
+  font-weight: 600;
+  padding-bottom: 0;
+}
+
+.typeLinkCardLink {
+  color: sg-color(sia-green);
+  font-weight: 600;
+  padding-bottom: 0;
+}
+
+.typeVisionHeading {
+  font-weight: 600;
+  @media screen and (min-width: sg-breakpoint()) {
+    font-size: rem(28px);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}
+
+.typeQuoteText {
+  display: inline-block;
+  position: relative;
+  font-size: initial;
+  font-weight: 600;
+  max-width: rem(850px);
+  @media screen and (min-width: sg-breakpoint()) {
+    font-size: sg-font-size(h6);
+    font-weight: 400;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: rem(-40px);
+    transform: translateX(-50%);
+    width: rem(70px);
+    height: 2px;
+    background: sg-color(ink, lightest);
+  }
+}
+
+.typeQuoteAuthor {
+  display: block;
+  margin-top: rem(100px);
+  font-size: rem(24px);
+  padding-bottom: 0;
+}
+
+.typeQuoteRole {
+  display: block;
+}
+
+.typeContactHeader {
+  display: block;
+  padding-bottom: 0;
+}
+
+.typeStat {
+  font-weight: 600;
+  font-size: rem(14px);
+  @media screen and (min-width: sg-breakpoint(portrait, tablet)) {
+   font-size: rem(18px);
+  }
+}
+
+.typeBioText {
+  display: block;
+  padding-bottom: 0;
+}
+
+.typeBioLink {
+  display: block;
+  padding-bottom: 0;
+  font-size: rem(16px);
+  margin-bottom: rem(5px);
+}
+
+.isInverse {
+  color: sg-color(white);
+}
+
+.isInk {
+  color: sg-color(ink);
+}
+
+.typeTopbarLink {
+  color: sg-color(white);
+  font-size: rem(16px);
+  &:hover {
+    color: sg-color(sky, light);
+  }
+}

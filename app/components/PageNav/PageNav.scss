@@ -1,0 +1,221 @@
+////
+/// PageNav
+/// @group components/PageNav/PageNav
+////
+
+@import '../TypeContainer/TypeMixins';
+@import '../TypeHeading/TypeHeading';
+
+// Mobile nav currently uses a hard coded width / height in order to animate properly...
+// This limits us in adding / removing nav items, or changing the navigation titles.
+// We may need to remove these transition styles.
+
+@mixin _sg-PageNavClosed {
+  width: sg-layout-width(page-nav);
+  height: sg-layout-height(page-nav);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@mixin _sg-PageNavOpened {
+  width: sg-layout-width(page-nav, expanded);
+  height: 100%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+///
+/// Page Nav
+
+.PageNav {
+  @media only screen and (max-width: sg-breakpoint() - 1px) {
+    position: absolute;
+    z-index: sg-z-index(page-nav);
+    top: sg-offset-y(page-nav);
+    right: 0;
+    left: -#{sg-offset-x(page-nav)};
+  }
+
+  @media only screen and (max-width: sg-breakpoint() - 1px) {
+    z-index: sg-z-index(surface);
+  }
+}
+
+.Interior {
+  float: right;
+
+  @media only screen and (max-width: sg-breakpoint() - 1px) {
+    @include _sg-PageNavClosed;
+    position: relative;
+    z-index: sg-z-index(page-nav-interior);
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: sg-radius(base);
+    box-shadow: sg-shadow();
+    background-color: sg-color(white);
+    transition: width sg-duration() sg-easing(), height sg-duration() sg-easing(),
+      opacity sg-duration(fast) sg-easing(), visibility sg-duration(fast) sg-easing();
+
+    &.isOpened {
+      @include _sg-PageNavOpened;
+    }
+  }
+}
+
+.List {
+  @media only screen and (max-width: sg-breakpoint() - 1px) {
+    padding-top: rem(60px);
+    padding-bottom: sg-spacing(tightest);
+    text-align: center;
+  }
+
+  @media only screen and (min-width: sg-breakpoint()) {
+    display: flex;
+    width: 100%;
+  }
+}
+
+.Item {
+  text-align: center;
+  @media only screen and (min-width: sg-breakpoint()) {
+    flex: 0 0 auto;
+  }
+}
+
+.Link {
+  font-size: sg-font-size(nav);
+  @include sg-type-reset-margin-bottom-and-line-height;
+  font-weight: 600;
+  display: block;
+  color: sg-color(ink);
+
+  @media only screen and (max-width: sg-breakpoint() - 1px) {
+    display: inline-flex;
+    align-items: center;
+    height: sg-layout-height(page-nav-link);
+    padding-right: sg-spacing(tighter);
+    padding-left: sg-spacing(tighter);
+    font-weight: 400; // reset "non-current" links back to 400 for mobile
+  }
+
+  @media only screen and (min-width: sg-breakpoint()) {
+    position: relative;
+    padding: sg-spacing(tight);
+    color: sg-color(ink);
+    transition: color sg-duration() sg-easing();
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: auto;
+      left: auto;
+      display: block;
+      width: calc(100% - #{sg-spacing(tighter) * 2});
+      border-top: sg-layout-height(page-nav-indicator) solid transparent;
+      transform: translateY(-#{sg-layout-height(page-nav-indicator)});
+      transition-property: background-color, transform;
+      transition-duration: sg-duration();
+      transition-timing-function: sg-easing();
+    }
+
+    &:hover {
+      color: sg-color(ink);
+    }
+
+    &:active,
+    &:focus {
+      color: sg-color(ink);
+    }
+  }
+}
+
+.SearchActivator {
+  float: right;
+  width: 2.9rem;
+  height: 2.9rem;
+  margin-top: 1.6em;
+
+  div {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media only screen and (min-width: sg-breakpoint()) {
+    display: none;
+  }
+}
+
+.Dropdown {
+  position: relative;
+  cursor: pointer;
+  z-index: 500;
+  .Sublist {
+    display: block;
+    border-radius: rem(6px);
+    box-shadow: sg-shadow();
+    background-color: sg-color(white);
+    width: rem(200px);
+    padding: sg-spacing(tighter);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all sg-duration() sg-easing();
+  }
+  &:hover {
+    ul {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media screen and (max-width: sg-breakpoint() - 1px) {
+    .Link {
+      &:focus,
+      &:hover {
+        color: sg-color(sia-green);
+      }
+    }
+    .Sublist {
+      position: relative;
+      padding: 0;
+      right: 0;
+      display: none;
+      width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      border-top: 1px solid sg-color(sky);
+      border-bottom: 1px solid sg-color(sky);
+      visibility: visible;
+      opacity: 1;
+      z-index: 5000;
+    }
+    .SublistVisible {
+      opacity: 1;
+      display: block;
+      visibility: visible;
+    }
+  }
+}
+
+///
+/// Active (current) state
+
+.isCurrent {
+  .Link {
+    font-weight: 500;
+
+    @media only screen and (min-width: sg-breakpoint()) {
+      color: sg-color(ink);
+
+      &::before {
+        transform: translateY(0);
+      }
+    }
+  }
+}

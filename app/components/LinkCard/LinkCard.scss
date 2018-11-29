@@ -1,0 +1,60 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 3px solid sg-color(sky);
+  padding: rem(30px);
+  height: 100%;
+  width: 100%;
+  border-radius: rem(6px);
+  margin-top: rem(30px);
+  p {
+    padding-bottom: 0;
+  }
+  @media screen and (min-width: sg-breakpoint()) {
+    height: rem(270px);
+    margin-top: 0;
+  }
+  &Header {
+    display: flex;
+    align-items: center;
+    padding-bottom: rem(16px);
+  }
+  &Links {
+    a {
+      padding-right: rem(10px);
+      padding-left: rem(10px);
+      border-right: 1px solid sg-color(sky);
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+  &Icon {
+    width: rem(30px);
+    height: rem(30px);
+    margin-left: auto;
+    &Third {
+      width: rem(40px);
+    }
+  }
+  &Bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @media screen and (min-width: sg-breakpoint()) {
+      flex-direction: row;
+    }
+  }
+  &Tag {
+    margin-left: auto;
+    margin-top: rem(30px);
+  }
+}
+
+.isActive {
+  border-color: sg-color(sia-green);
+}

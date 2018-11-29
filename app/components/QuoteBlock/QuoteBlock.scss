@@ -1,0 +1,30 @@
+.QuoteBlock {
+  display: block;
+  height: 350px;
+  // width: rem(850px);
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  margin-top: rem(50px);
+  transition: all sg-duration() sg-easing();
+  @media screen and (min-width: sg-breakpoint()) {
+    margin-top: rem(100px);
+  }
+}
+
+.Selector {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  &Dot {
+    width: rem(10px);
+    height: rem(10px);
+    background: sg-color(sky);
+    border-radius: 50%;
+    margin: rem(10px);
+    cursor: pointer;
+  }
+  &DotActive {
+    background: sg-color(sia-green);
+  }
+}

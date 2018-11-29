@@ -1,0 +1,15 @@
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+.cache-loader
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+yarn-error.log
+package-lock.json
+
+# Large Static Files
+public/releases

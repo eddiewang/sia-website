@@ -1,0 +1,58 @@
+@import '../LayoutContainer/variables';
+
+.PageHeader {
+  @include layout-padding;
+  height: sg-layout-height(page-header, tablet);
+  background-color: sg-color(white);
+
+  @media only screen and (min-width: sg-breakpoint()) {
+    height: sg-layout-height(page-header);
+  }
+}
+
+.LogoFull {
+  width: sg-layout-width(logo-header);
+  height: sg-layout-height(logo-header);
+  color: sg-color(ink);
+  transition: opacity, color;
+  transition-duration: sg-duration();
+  transition-timing-function: sg-easing();
+
+  &:focus {
+    opacity: 0.8;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: sg-breakpoint() - 1px) {
+    margin-right: auto;
+    // margin-left: auto;
+  }
+}
+
+.Announcement {
+  display: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: sg-color(sia-green);
+  &Layout {
+    text-align: center;
+    min-height: rem(40px);
+    display: flex;
+    top: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: sg-color(white);
+    font-weight: 600;
+  }
+}

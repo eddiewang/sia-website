@@ -1,0 +1,54 @@
+.Button {
+  height: rem(50px);
+  background: sg-color(sia-green);
+  color: sg-color(white);
+  padding-left: sg-spacing(tight);
+  padding-right: sg-spacing(tight);
+  border-radius: sg-radius();
+  font-weight: 800;
+  font-size: rem(16px);
+  text-align: center;
+  transition: all sg-duration(fast) sg-easing();
+  &:hover, &:active {
+    background: #00C760;
+  }
+}
+
+a.Button {
+  line-height: rem(50px);
+}
+
+.typeNav {
+  background: sg-color(sia-green);
+  margin-top: rem(20px);
+  @media screen and (min-width: sg-breakpoint()) {
+    margin-left: rem(30px);
+    margin-top: rem(7px);
+  }
+}
+
+.Link {
+  display: inline-block;
+  line-height: rem(50px);
+  color: sg-color(white) !important;
+}
+
+.typeLargeCTA {
+  height: rem(69px);
+  line-height: rem(69px) !important;
+  font-weight: 400;
+  font-size: sg-font-size(large-button);
+  padding-left: sg-spacing(loose);
+  padding-right: sg-spacing(loose);
+}
+
+.typeFooter {
+  width: 100%;
+  background: transparent;
+  border: 2px solid sg-color(white);
+  &:hover, &:active {
+    border: 2px solid sg-color(sia-green) !important;
+    background: sg-color(sia-green);
+    border: none;
+  }
+}

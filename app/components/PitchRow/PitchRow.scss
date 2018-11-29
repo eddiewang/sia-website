@@ -1,0 +1,45 @@
+.PitchRow {
+  opacity: 1;
+  transition: all sg-duration() sg-easing();
+  margin: rem(40px) 0;
+  svg {
+    display: block;
+    border-radius: 50% !important;
+  }
+  @media screen and (max-width: sg-breakpoint() - 1px) {
+    &Image {
+      display: block;
+      position: relative;
+      float: right;
+      height: rem(50px);
+      width: rem(50px);
+      transform: translateY(-7px);
+      svg {
+        max-height: rem(50px);
+      }
+    }
+  }
+  @media screen and (min-width: sg-breakpoint()) {
+    display: grid;
+    align-items: center;
+    max-width: rem(900px);
+    grid-template-columns: 300px 1fr;
+    grid-column-gap: rem(130px);
+    padding: 80px 0;
+    &:nth-child(even) {
+      margin-left: auto;
+    }
+    &Image {
+      text-align: right;
+      svg {
+        display: inline-block;
+        max-height: rem(270px);
+        width: rem(270px);
+      }
+    }
+  }
+}
+
+.isVisible {
+  opacity: 0;
+}

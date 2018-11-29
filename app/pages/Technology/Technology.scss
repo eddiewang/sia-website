@@ -1,0 +1,53 @@
+.Intro {
+  padding: 0;
+  @media screen and (min-width: sg-breakpoint()) {
+    padding: rem(100px) 0;
+  }
+  &Heading {
+    max-width: rem(770px);
+    line-height: 1.4;
+  }
+}
+
+.Tutorial {
+  background: sg-color(sky, light);
+  &Layout {
+    h6 {
+      text-align: center;
+    }
+    padding-bottom: rem(80px);
+    @media screen and (min-width: sg-breakpoint()) {
+      h6 {
+        text-align: initial;
+      }
+      text-align: initial;
+      padding: rem(135px) 0;
+      display: grid;
+      grid-template-columns: repeat(12, [col] 1fr);
+      align-items: center;
+    }
+  }
+  &Image {
+    @media screen and (min-width: sg-breakpoint()) {
+      grid-column: col 1/ span 5;
+      width: 100%;
+      svg {
+        width: rem(470px);
+        max-height: rem(470px);
+      }
+    }
+  }
+  &Content {
+    grid-column: col 7 / span 6;
+  }
+  &:nth-child(odd) {
+    background: sg-color(sky);
+    .TutorialImage {
+      grid-column: col 8 / span 5;
+      grid-row: 1;
+    }
+    .TutorialContent {
+      grid-column: col 1 / span 6;
+    }
+  }
+}

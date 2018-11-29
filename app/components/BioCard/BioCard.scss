@@ -1,0 +1,50 @@
+.Card {
+  text-align: center;
+  border-radius: 6px;
+  border: 3px solid sg-color(sky);
+  min-height: rem(500px);
+  &AvatarWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 6px solid sg-color(sia-green);
+    height: rem(200px);
+    width: rem(200px);
+    border-radius: 50%;
+  }
+  &Avatar {
+    display: inline-block;
+    height: rem(130px);
+  }
+  &Top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: rem(270px);
+    background: sg-color(sky, light);
+    border-bottom: 3px solid sg-color(sky);
+  }
+  &Bottom {
+    padding: rem(30px);
+  }
+  &Desc {
+    margin-top: rem(30px);
+  }
+  &Icon {
+    margin-top: rem(10px);
+    width: rem(30px);
+    &Wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & > .CardIcon:not(:first-child) {
+        margin-left: sg-spacing(tightest);
+      }
+    }
+  }
+}
+
+.Large {
+  width: 100%;
+  min-height: rem(600px);
+}

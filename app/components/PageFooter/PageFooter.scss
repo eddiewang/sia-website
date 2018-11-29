@@ -1,0 +1,30 @@
+.PageFooter {
+  min-height: sg-layout-height(page-footer);
+  background: sg-color(ink);
+  padding: rem(50px) rem(20px);
+  @media screen and (min-width: sg-breakpoint()) {
+    padding: rem(100px) rem(20px);
+  }
+  &Layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: rem(30px);
+    width: 100%;
+    @media screen and (min-width: sg-breakpoint()) {
+      grid-template-columns: repeat(6, minmax(100px,200px));
+    }
+  }
+  &CTA {
+    grid-row: 3;
+    grid-column: span 2;
+    display: grid;
+    grid-row-gap: rem(30px);
+    @media screen and (min-width: sg-breakpoint()) {
+      grid-row: 1;
+      grid-column: span 1;
+      grid-template-columns: repeat(2,minmax(100px, 200px));
+      grid-column: 5/7;
+      grid-column-gap: rem(30px);
+    }
+  }
+}

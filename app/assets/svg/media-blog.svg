@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Blog Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Blog-Card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-141.000000, -56.000000)" stroke-linejoin="round">
+        <g id="Blog-Icon" transform="translate(142.500000, 57.500000)" stroke-width="3">
+            <path d="M67.88225,51.5538 L76.94475,60.6163" id="Stroke-578" stroke="#1ED660"></path>
+            <path d="M47.9375,71.5 L57,80.5625" id="Stroke-579" stroke="#1ED660" stroke-linecap="round"></path>
+            <polygon id="Stroke-577" stroke="#7F8C8D" stroke-linecap="round" points="57 80.5625 44.3125 84.1875 47.9375 71.5 75.13225 44.30525 84.19475 53.36775"></polygon>
+            <polyline id="Stroke-581" stroke="#1ED660" stroke-linecap="round" points="40.6875 0.8125 40.6875 18.9375 58.8125 18.9375"></polyline>
+            <polyline id="Stroke-580" stroke="#7F8C8D" stroke-linecap="round" points="33.4375 76.9375 0.8125 76.9375 0.8125 0.8125 40.6875 0.8125 58.8125 18.9375 58.8125 46.125"></polyline>
+        </g>
+    </g>
+</svg>

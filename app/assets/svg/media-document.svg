@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="66px" height="88px" viewBox="0 0 66 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Documentation Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Documentation-Card" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-152.000000, -56.000000)" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Documentation-Icon" transform="translate(153.375000, 57.500000)" stroke-width="3">
+            <polygon id="Stroke-357" stroke="#7F8C8D" points="62.4375 84.1875 0.8125 84.1875 0.8125 0.8125 40.6875 0.8125 62.4375 22.5625"></polygon>
+            <polyline id="Stroke-358" stroke="#7F8C8D" points="40.6875 0.8125 40.6875 22.5625 62.4375 22.5625"></polyline>
+            <polyline id="Stroke-359" stroke="#1ED660" points="40.6875 37.0625 55.1875 51.5625 40.6875 66.0625"></polyline>
+            <polyline id="Stroke-360" stroke="#1ED660" points="22.5625 37.0625 8.0625 51.5625 22.5625 66.0625"></polyline>
+        </g>
+    </g>
+</svg>

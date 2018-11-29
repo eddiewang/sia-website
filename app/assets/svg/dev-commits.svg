@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="72px" viewBox="0 0 95 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Commits Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-223.000000, -4442.000000)" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Github-Stats" transform="translate(135.500000, 4442.000000)" stroke-width="3">
+            <g id="Commits-Icon" transform="translate(89.705882, 1.067063)">
+                <polyline id="Stroke-2822" stroke="#7F8C8D" points="0.104828431 28.0498693 11.2619363 44.6634314 24.0924101 29.2988889"></polyline>
+                <path d="M11.2195016,44.4616667 C6.54768791,24.9137092 19.1659886,5.83813725 37.4569199,1.51861111 C50.0912337,-1.47183007 62.7455637,3.0078268 70.7841258,12.0912418" id="Stroke-2823" stroke="#7F8C8D"></path>
+                <polyline id="Stroke-2824" stroke="#7F8C8D" points="90.4677941 41.2714624 79.3106863 24.6498938 66.4802124 40.0144363"></polyline>
+                <path d="M79.3531209,24.859665 C84.0249346,44.4076225 71.406634,63.4751879 53.1157026,67.8027206 C40.4813889,70.7931618 27.8270588,66.3095016 19.7884967,57.2300899" id="Stroke-2825" stroke="#7F8C8D"></path>
+                <path d="M45.2861111,42.6633987 C40.8665033,42.6633987 37.2835784,39.0804739 37.2835784,34.6648693 C37.2835784,30.2372549 40.8665033,26.6583333 45.2941176,26.6503268 C49.705719,26.6583333 53.2926471,30.2372549 53.2926471,34.6568627 C53.2926471,39.0804739 49.705719,42.6633987 45.2861111,42.6633987 L45.2861111,42.6633987 Z" id="Stroke-2826" stroke="#1ED660"></path>
+            </g>
+        </g>
+    </g>
+</svg>

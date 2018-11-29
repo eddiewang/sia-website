@@ -1,0 +1,198 @@
+.Hero {
+  display: block;
+  &Image {
+    display: none;
+    svg {
+      display: block;
+      margin-left: auto;
+      max-width: rem(370px);
+    }
+  }
+  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+    display: grid;
+    grid-template-columns: 650px 1fr;
+    align-items: center;
+    &Image {
+      display: block;
+      margin-top: rem(-20px);
+    }
+  }
+}
+
+.HeroContent {
+  grid-column: 1;
+  grid-row: 1;
+  // text-align: center;
+  h2 {
+    margin-bottom: 30px;
+  }
+  button {
+    margin-top: sg-spacing();
+  }
+}
+
+.TwoColumnDescription {
+  display: block;
+  @media only screen and (min-width: sg-breakpoint(portrait, tablet)) {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+  }
+  h2 {
+    padding-bottom: rem(18px);
+  }
+  h3 {
+    padding-bottom: rem(30px);
+  }
+}
+
+.Timeline {
+  text-align: center;
+}
+
+.SingleTimeline {
+  position: relative;
+  display: inline-block;
+  max-width: rem(370px);
+}
+
+.TimelineVisualWrap {
+  position: relative;
+}
+
+.TimelineLine {
+  content: '';
+  z-index: 0;
+  position: absolute;
+  height: rem(3px);
+  width: 100%;
+  top: 50%;
+  background-color: sg-color(circle);
+}
+
+.TimelineCircle {
+  position: relative;
+  border-radius: sg-radius(circle);
+  height: rem(70px);
+  width: rem(70px);
+  margin: rem(60px) 0;
+  background-color: sg-color(circle);
+  z-index: sg-index(surface);
+}
+
+.TimelineWrap {
+  text-align: initial;
+  & > .SingleTimeline {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    &:nth-child(even) {
+      flex-direction: column;
+    }
+    &:nth-child(odd) {
+      & .TimelineContent {
+        flex-direction: column;
+      }
+    }
+    &:last-child {
+      .TimelineCircle {
+        background-color: sg-color(circle, active);
+      }
+      .TimelineLine {
+        display: none;
+      }
+    }
+  }
+}
+
+.TimelineContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.Globe {
+  height: 100%;
+  padding-bottom: rem(60px);
+}
+
+.Stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: rem(40px);
+  text-align: center;
+  > div {
+    padding: rem(10px);
+  }
+  @media screen and (min-width: sg-breakpoint()) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: rem(60px) 0;
+  text-align: center;
+  &CTA {
+    max-width: rem(570px);
+    @media screen and (min-width: sg-breakpoint()) {
+      display: grid;
+      grid-template-columns: 370px 1fr;
+      grid-column-gap: rem(30px);
+    }
+  }
+  &Button {
+    margin-top: rem(20px);
+    @media screen and (min-width: sg-breakpoint()) {
+      margin-top: 0;
+    }
+  }
+  &Status {
+    margin-top: rem(10px);
+  }
+}
+
+.Developer {
+  padding: rem(60px) 0;
+  &Icon {
+    display: inline-block;
+    height: rem(69px);
+    margin-bottom: sg-spacing(tighter);
+  }
+  &StatBlock {
+    text-align: center;
+    @media screen and (min-width: sg-breakpoint()) {
+      padding: sg-spacing(tight) 0;
+    }
+  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: rem(24px);
+  grid-column-gap: rem(24px);
+  @media screen and (min-width: sg-breakpoint()) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+  }
+}
+
+.Learn {
+  text-align: center;
+  @media screen and (min-width: sg-breakpoint()) {
+    text-align: initial;
+  }
+  &Boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: sg-breakpoint()) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: rem(30px);
+    }
+  }
+  &More {
+    margin-top: rem(100px);
+    margin-bottom: rem(100px);
+    text-align: center;
+  }
+}

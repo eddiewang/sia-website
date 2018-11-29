@@ -1,0 +1,20 @@
+@import '../LayoutContainer/variables';
+
+.Section {
+  background-color: sg-color(white);
+  padding: sg-spacing(loose) 0;
+  @include layout-padding();
+}
+
+.isBordered {
+  border-top: rem(3px) solid sg-color(ink, lightest);
+  border-bottom: rem(3px) solid sg-color(ink, lightest);
+}
+
+.typeSkyLight {
+  background-color: sg-color(sky, light)
+}
+
+.typeSky {
+  background-color: sg-color(sky)
+}
