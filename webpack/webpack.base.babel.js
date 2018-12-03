@@ -102,7 +102,7 @@ module.exports = options => ({
       fetch: 'exports-loader?self.fetch!whatwg-fetch'
     }),
 
-    new CopyWebpackPlugin([{ from: 'public' }]),
+    new CopyWebpackPlugin([{ from: 'public' }, {from: 'apiDocs', to: 'apiDocs' }]),
     new CheckerPlugin(),
     new TsConfigPathsPlugin({
       tsconfig: `${__dirname}/tsconfig.json`,
