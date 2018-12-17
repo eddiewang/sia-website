@@ -38,8 +38,8 @@ class Layout extends React.Component<Props, any> {
         path: 'learn'
       },
       {
-        name: 'Roadmap',
-        path: 'roadmap'
+        name: 'Documentation',
+        link: 'docs'
       }
     ]
 

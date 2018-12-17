@@ -8,16 +8,23 @@ export interface Props {
   href: string
   title: string
   current?: boolean
+  link?: string
 }
 
-export default function Item({ href, title, current }: Props) {
+export default function Item({ href, title, current, link }: Props) {
   const className = classNames(styles.Item, current && styles.isCurrent)
 
   return (
     <li className={className}>
-      <Link to={href} className={styles.Link} aria-current={current ? 'page' : null}>
-        {title}
-      </Link>
+      {link ? (
+        <a href={link} className={styles.Link} aria-current={current ? 'page' : null}>
+          {title}
+        </a>
+      ) : (
+        <Link to={href} className={styles.Link} aria-current={current ? 'page' : null}>
+          {title}
+        </Link>
+      )}
     </li>
   )
 }

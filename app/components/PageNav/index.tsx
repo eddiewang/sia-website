@@ -85,9 +85,11 @@ class PageNav extends React.Component<Props & BreakpointContext, State> {
 
     const menuAriaHidden = !(opened || currentBreakpoint === Breakpoint.Desktop)
 
-    const pageNavListItems = items.map(({ path, name, subitems }: NavItem, index: number) => {
+    const pageNavListItems = items.map(({ path, name, subitems, link }: NavItem, index: number) => {
       if (subitems) {
         return <Dropdown key={index} title={name} subitems={subitems} />
+      } else if (link) {
+        return <Item key={index} link={link} href="" title={name} current={false} />
       } else {
         const fullPath = `${basePath}/${path}`
         const isActiveRoute = activePath.indexOf(fullPath.replace(/([^/])\/.+$/, '$1')) === 0
