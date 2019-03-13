@@ -264,9 +264,6 @@
             <a href="#daemon" class="toc-h1 toc-link" data-title="daemon">Daemon</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#daemon-constants-get" class="toc-h2 toc-link" data-title="daemon-constants-get">/daemon/constants [GET]</a>
-                  </li>
-                  <li>
                     <a href="#daemon-stop-get" class="toc-h2 toc-link" data-title="daemon-stop-get">/daemon/stop [GET]</a>
                   </li>
                   <li>
@@ -379,7 +376,22 @@
                     <a href="#renter-contract-cancel-post" class="toc-h2 toc-link" data-title="renter-contract-cancel-post">/renter/contract/cancel [POST]</a>
                   </li>
                   <li>
+                    <a href="#renter-backup-post" class="toc-h2 toc-link" data-title="renter-backup-post">/renter/backup [POST]</a>
+                  </li>
+                  <li>
+                    <a href="#renter-recoverbackup-post" class="toc-h2 toc-link" data-title="renter-recoverbackup-post">/renter/recoverbackup [POST]</a>
+                  </li>
+                  <li>
+                    <a href="#renter-contract-cancel-post-2" class="toc-h2 toc-link" data-title="renter-contract-cancel-post">/renter/contract/cancel [POST]</a>
+                  </li>
+                  <li>
                     <a href="#renter-contracts-get" class="toc-h2 toc-link" data-title="renter-contracts-get">/renter/contracts [GET]</a>
+                  </li>
+                  <li>
+                    <a href="#renter-dir-siapath-get" class="toc-h2 toc-link" data-title="renter-dir-siapath-get">/renter/dir/*siapath [GET]</a>
+                  </li>
+                  <li>
+                    <a href="#renter-dir-siapath-post" class="toc-h2 toc-link" data-title="renter-dir-siapath-post">/renter/dir/*siapath [POST]</a>
                   </li>
                   <li>
                     <a href="#renter-downloads-get" class="toc-h2 toc-link" data-title="renter-downloads-get">/renter/downloads [GET]</a>
@@ -407,6 +419,12 @@
                   </li>
                   <li>
                     <a href="#renter-downloadsync-siapath-get" class="toc-h2 toc-link" data-title="renter-downloadsync-em-siapath-em-get">/renter/downloadsync/<em>siapath</em> [GET]</a>
+                  </li>
+                  <li>
+                    <a href="#renter-recoveryscan-post" class="toc-h2 toc-link" data-title="renter-recoveryscan-post">/renter/recoveryscan [POST]</a>
+                  </li>
+                  <li>
+                    <a href="#renter-recoveryscan-get" class="toc-h2 toc-link" data-title="renter-recoveryscan-get">/renter/recoveryscan [GET]</a>
                   </li>
                   <li>
                     <a href="#renter-rename-siapath-post" class="toc-h2 toc-link" data-title="renter-rename-em-siapath-em-post">/renter/rename/<em>siapath</em> [POST]</a>
@@ -450,6 +468,9 @@
                   </li>
                   <li>
                     <a href="#wallet-addresses-get" class="toc-h2 toc-link" data-title="wallet-addresses-get">/wallet/addresses [GET]</a>
+                  </li>
+                  <li>
+                    <a href="#wallet-seedaddrs-get" class="toc-h2 toc-link" data-title="wallet-seedaddrs-get">/wallet/seedaddrs [GET]</a>
                   </li>
                   <li>
                     <a href="#wallet-backup-get" class="toc-h2 toc-link" data-title="wallet-backup-get">/wallet/backup [GET]</a>
@@ -573,6 +594,11 @@
 </span></code></pre>
 <p>The standard error response indicating the request failed for any reason, is a 4xx or 5xx HTTP status code with an error JSON object describing the error.</p>
 <h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>Example POST curl call with Authentication</p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">user</span><span class="x"> </span><span class="s">""</span><span class="o">:</span><span class="s">"foobar"</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"amount=123&amp;destination=abcd"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siacoins"</span><span class="x">
+</span></code></pre>
 <p>API authentication is enabled by default, using a password stored in a flat file. The location of this file is:</p>
 
 <ul>
@@ -590,6 +616,10 @@ use.</p>
 
 <p><code>Authorization: Basic OmZvb2Jhcg==</code></p>
 
+<p>And for a curl call the following would be included</p>
+
+<p><code>--user &quot;&quot;:&quot;foobar&quot;</code></p>
+
 <p>Authentication can be disabled by passing the <code>--authenticate-api=false</code> flag to siad. You can change the password by modifying the password file, setting the <code>SIA_API_PASSWORD</code> environment variable, or passing the <code>--temp-password</code> flag to siad.</p>
 <h1 id='units'>Units</h1>
 <p>Unless otherwise noted, all parameters should be identified in their smallest possible unit. For example, size should always be specified in bytes and Siacoins should always be specified in hastings. JSON values returned by the API will also use the smallest possible unit, unless otherwise noted.</p>
@@ -598,7 +628,8 @@ use.</p>
 <h1 id='consensus'>Consensus</h1>
 <p>The consensus set manages everything related to consensus and keeps the blockchain in sync with the rest of the network. The consensus set&#39;s API endpoint returns information about the state of the blockchain.</p>
 <h2 id='consensus-get'>/consensus [GET]</h2>
-<p>Returns information about the consensus set, such as the current block height.</p>
+<p>Returns information about the consensus set, such as the current block height.
+Also returns the set of constants in use in the consensus code.</p>
 <h3 id='json-response'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
@@ -609,6 +640,24 @@ use.</p>
   </span><span class="s">"currentblock"</span><span class="o">:</span><span class="x"> </span><span class="s">"00000000000008a84884ba827bdc868a17ba9c14011de33ff763bd95779a9cf1"</span><span class="p">,</span><span class="x"> </span><span class="c">// hash</span><span class="x">
   </span><span class="s">"target"</span><span class="o">:</span><span class="x">       </span><span class="p">[</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">11</span><span class="p">,</span><span class="m">48</span><span class="p">,</span><span class="m">125</span><span class="p">,</span><span class="m">79</span><span class="p">,</span><span class="m">116</span><span class="p">,</span><span class="m">89</span><span class="p">,</span><span class="m">136</span><span class="p">,</span><span class="m">74</span><span class="p">,</span><span class="m">42</span><span class="p">,</span><span class="m">27</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">14</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">31</span><span class="p">,</span><span class="m">23</span><span class="p">,</span><span class="m">53</span><span class="p">,</span><span class="m">226</span><span class="p">,</span><span class="m">238</span><span class="p">,</span><span class="m">202</span><span class="p">,</span><span class="m">219</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">204</span><span class="p">,</span><span class="m">38</span><span class="p">,</span><span class="m">32</span><span class="p">,</span><span class="m">59</span><span class="p">,</span><span class="m">165</span><span class="p">],</span><span class="x"> </span><span class="c">// hash</span><span class="x">
   </span><span class="s">"difficulty"</span><span class="o">:</span><span class="x">   </span><span class="s">"1234"</span><span class="x"> </span><span class="c">// arbitrary-precision integer</span><span class="x">
+
+  </span><span class="s">"blockfrequency"</span><span class="o">:</span><span class="x">         </span><span class="m">600</span><span class="p">,</span><span class="x">        </span><span class="c">// seconds per block</span><span class="x">
+  </span><span class="s">"blocksizelimit"</span><span class="o">:</span><span class="x">         </span><span class="m">2000000</span><span class="p">,</span><span class="x">    </span><span class="c">// bytes</span><span class="x">
+  </span><span class="s">"extremefuturethreshold"</span><span class="o">:</span><span class="x"> </span><span class="m">10800</span><span class="p">,</span><span class="x">      </span><span class="c">// seconds</span><span class="x">
+  </span><span class="s">"futurethreshold"</span><span class="o">:</span><span class="x">        </span><span class="m">10800</span><span class="p">,</span><span class="x">      </span><span class="c">// seconds</span><span class="x">
+  </span><span class="s">"genesistimestamp"</span><span class="o">:</span><span class="x">       </span><span class="m">1257894000</span><span class="p">,</span><span class="x"> </span><span class="c">// Unix time</span><span class="x">
+  </span><span class="s">"maturitydelay"</span><span class="o">:</span><span class="x">          </span><span class="m">144</span><span class="p">,</span><span class="x">        </span><span class="c">// blocks</span><span class="x">
+  </span><span class="s">"mediantimestampwindow"</span><span class="o">:</span><span class="x">  </span><span class="m">11</span><span class="p">,</span><span class="x">         </span><span class="c">// blocks</span><span class="x">
+  </span><span class="s">"siafundcount"</span><span class="o">:</span><span class="x">           </span><span class="s">"10000"</span><span class="p">,</span><span class="x">    </span><span class="c">// siafund</span><span class="x">
+  </span><span class="s">"siafundportion"</span><span class="o">:</span><span class="x">         </span><span class="s">"39/1000"</span><span class="p">,</span><span class="x">  </span><span class="c">// fraction</span><span class="x">
+
+  </span><span class="s">"initialcoinbase"</span><span class="o">:</span><span class="x"> </span><span class="m">300000</span><span class="p">,</span><span class="x"> </span><span class="c">// Siacoins (see note in Daemon.md)</span><span class="x">
+  </span><span class="s">"minimumcoinbase"</span><span class="o">:</span><span class="x"> </span><span class="m">30000</span><span class="p">,</span><span class="x">  </span><span class="c">// Siacoins (see note in Daemon.md)</span><span class="x">
+
+  </span><span class="s">"roottarget"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">32</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">],</span><span class="x"> </span><span class="c">// hash</span><span class="x">
+  </span><span class="s">"rootdepth"</span><span class="o">:</span><span class="x">  </span><span class="p">[</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">],</span><span class="x">  </span><span class="c">// hash</span><span class="x">
+
+  </span><span class="s">"siacoinprecision"</span><span class="o">:</span><span class="x"> </span><span class="s">"1000000000000000000000000"</span><span class="x"> </span><span class="c">// hastings per siacoin</span><span class="x">
 </span><span class="p">}</span><span class="x">
 </span></code></pre>
 <p><strong>synced</strong> | boolean
@@ -625,6 +674,48 @@ An immediate child block of this block must have a hash less than this target fo
 
 <p><strong>difficulty</strong> | arbitrary-precision integer
 The difficulty of the current block target.  </p>
+
+<p><strong>blockfrequency</strong> | blocks / second
+Target for how frequently new blocks should be mined.  </p>
+
+<p><strong>blocksizelimit</strong> | bytes
+Maximum size, in bytes, of a block. Blocks larger than this will be rejected by peers.  </p>
+
+<p><strong>extremefuturethreshold</strong> | seconds
+Farthest a block&#39;s timestamp can be in the future before the block is rejected outright.  </p>
+
+<p><strong>futurethreshold</strong> | seconds
+How far in the future a block can be without being rejected. A block further into the future will not be accepted immediately, but the daemon will attempt to accept the block as soon as it is valid.  </p>
+
+<p><strong>genesistimestamp</strong> | unix timestamp
+Timestamp of the genesis block.  </p>
+
+<p><strong>maturitydelay</strong> | number of blocks
+Number of children a block must have before it is considered &quot;mature.&quot;  </p>
+
+<p><strong>mediantimestampwindow</strong> | number of blocks
+Duration of the window used to adjust the difficulty.  </p>
+
+<p><strong>siafundcount</strong> | siafunds
+Total number of siafunds.  </p>
+
+<p><strong>siafundportion</strong> | fraction
+Fraction of each file contract payout given to siafund holders.  </p>
+
+<p><strong>initialcoinbase</strong> | siacoin
+Number of coins given to the miner of the first block. Note that elsewhere in the API currency is typically returned in hastings and as a bignum. This is not the case here.  </p>
+
+<p><strong>minimumcoinbase</strong> | siacoin
+Minimum number of coins paid out to the miner of a block (the coinbase decreases with each block). Note that elsewhere in the API currency is typically returned in hastings and as a bignum. This is not the case here.  </p>
+
+<p><strong>roottarget</strong> | hash
+Initial target.  </p>
+
+<p><strong>rootdepth</strong> | hash
+Initial depth.  </p>
+
+<p><strong>siacoinprecision</strong> | hastings per siacoin
+Number of Hastings in one Siacoin.  </p>
 <h2 id='consensus-blocks-get'>/consensus/blocks [GET]</h2>
 <p>Returns the block for a given id or height.</p>
 <h3 id='query-string-parameters'>Query String Parameters</h3><h4 id='required'>REQUIRED</h4>
@@ -722,94 +813,14 @@ BlockHeight of the requested block.  </p>
 <h3 id='response'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h1 id='daemon'>Daemon</h1>
-<p>The daemon is responsible for starting and stopping the modules which make up the rest of Sia. It also provides endpoints for viewing build constants.</p>
-<h2 id='daemon-constants-get'>/daemon/constants [GET]</h2>
-<p>Returns the set of constants in use.</p>
-<h3 id='json-response-3'>JSON Response</h3>
-<blockquote>
-<p>JSON Response Example</p>
-</blockquote>
-<pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
-  </span><span class="s">"blockfrequency"</span><span class="o">:</span><span class="x">         </span><span class="m">600</span><span class="p">,</span><span class="x">        </span><span class="c">// seconds per block</span><span class="x">
-  </span><span class="s">"blocksizelimit"</span><span class="o">:</span><span class="x">         </span><span class="m">2000000</span><span class="p">,</span><span class="x">    </span><span class="c">// bytes</span><span class="x">
-  </span><span class="s">"extremefuturethreshold"</span><span class="o">:</span><span class="x"> </span><span class="m">10800</span><span class="p">,</span><span class="x">      </span><span class="c">// seconds</span><span class="x">
-  </span><span class="s">"futurethreshold"</span><span class="o">:</span><span class="x">        </span><span class="m">10800</span><span class="p">,</span><span class="x">      </span><span class="c">// seconds</span><span class="x">
-  </span><span class="s">"genesistimestamp"</span><span class="o">:</span><span class="x">       </span><span class="m">1257894000</span><span class="p">,</span><span class="x"> </span><span class="c">// Unix time</span><span class="x">
-  </span><span class="s">"maturitydelay"</span><span class="o">:</span><span class="x">          </span><span class="m">144</span><span class="p">,</span><span class="x">        </span><span class="c">// blocks</span><span class="x">
-  </span><span class="s">"mediantimestampwindow"</span><span class="o">:</span><span class="x">  </span><span class="m">11</span><span class="p">,</span><span class="x">         </span><span class="c">// blocks</span><span class="x">
-  </span><span class="s">"siafundcount"</span><span class="o">:</span><span class="x">           </span><span class="s">"10000"</span><span class="p">,</span><span class="x">    </span><span class="c">// siafund</span><span class="x">
-  </span><span class="s">"siafundportion"</span><span class="o">:</span><span class="x">         </span><span class="s">"39/1000"</span><span class="p">,</span><span class="x">  </span><span class="c">// fraction</span><span class="x">
-  </span><span class="s">"targetwindow"</span><span class="o">:</span><span class="x">           </span><span class="m">1000</span><span class="p">,</span><span class="x">       </span><span class="c">// blocks</span><span class="x">
-
-  </span><span class="s">"initialcoinbase"</span><span class="o">:</span><span class="x"> </span><span class="m">300000</span><span class="p">,</span><span class="x"> </span><span class="c">// Siacoins (see note in Daemon.md)</span><span class="x">
-  </span><span class="s">"minimumcoinbase"</span><span class="o">:</span><span class="x"> </span><span class="m">30000</span><span class="p">,</span><span class="x">  </span><span class="c">// Siacoins (see note in Daemon.md)</span><span class="x">
-
-  </span><span class="s">"roottarget"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">32</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">],</span><span class="x"> </span><span class="c">// hash</span><span class="x">
-  </span><span class="s">"rootdepth"</span><span class="o">:</span><span class="x">  </span><span class="p">[</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">],</span><span class="x">  </span><span class="c">// hash</span><span class="x">
-
-  </span><span class="s">"maxtargetadjustmentup"</span><span class="o">:</span><span class="x">   </span><span class="s">"5/2"</span><span class="p">,</span><span class="x"> </span><span class="c">// fraction</span><span class="x">
-  </span><span class="s">"maxtargetadjustmentdown"</span><span class="o">:</span><span class="x"> </span><span class="s">"2/5"</span><span class="p">,</span><span class="x"> </span><span class="c">// fraction</span><span class="x">
-
-  </span><span class="s">"siacoinprecision"</span><span class="o">:</span><span class="x"> </span><span class="s">"1000000000000000000000000"</span><span class="x"> </span><span class="c">// hastings per siacoin</span><span class="x">
-</span><span class="p">}</span><span class="x">
-</span></code></pre>
-<p><strong>blockfrequency</strong> | blocks / second
-Target for how frequently new blocks should be mined.  </p>
-
-<p><strong>blocksizelimit</strong> | bytes
-Maximum size, in bytes, of a block. Blocks larger than this will be rejected by peers.  </p>
-
-<p><strong>extremefuturethreshold</strong> | seconds
-Farthest a block&#39;s timestamp can be in the future before the block is rejected outright.  </p>
-
-<p><strong>futurethreshold</strong> | seconds
-How far in the future a block can be without being rejected. A block further into the future will not be accepted immediately, but the daemon will attempt to accept the block as soon as it is valid.  </p>
-
-<p><strong>genesistimestamp</strong> | unix timestamp
-Timestamp of the genesis block.  </p>
-
-<p><strong>maturitydelay</strong> | number of blocks
-Number of children a block must have before it is considered &quot;mature.&quot;  </p>
-
-<p><strong>mediantimestampwindow</strong> | number of blocks
-Duration of the window used to adjust the difficulty.  </p>
-
-<p><strong>siafundcount</strong> | siafunds
-Total number of siafunds.  </p>
-
-<p><strong>siafundportion</strong> | fraction
-Fraction of each file contract payout given to siafund holders.  </p>
-
-<p><strong>targetwindow</strong> | number of blocks
-Height of the window used to adjust the difficulty.  </p>
-
-<p><strong>initialcoinbase</strong> | siacoin
-Number of coins given to the miner of the first block. Note that elsewhere in the API currency is typically returned in hastings and as a bignum. This is not the case here.  </p>
-
-<p><strong>minimumcoinbase</strong> | siacoin
-Minimum number of coins paid out to the miner of a block (the coinbase decreases with each block). Note that elsewhere in the API currency is typically returned in hastings and as a bignum. This is not the case here.  </p>
-
-<p><strong>roottarget</strong> | hash
-Initial target.  </p>
-
-<p><strong>rootdepth</strong> | hash
-Initial depth.  </p>
-
-<p><strong>maxtargetadjustmentup</strong> | fraction
-Largest allowed ratio between the old difficulty and the new difficulty.  </p>
-
-<p><strong>maxtargetadjustmentdown</strong> | fraction
-Smallest allowed ratio between the old difficulty and the new difficulty.  </p>
-
-<p><strong>siacoinprecision</strong> | hastings per siacoin
-Number of Hastings in one Siacoin.  </p>
+<p>The daemon is responsible for starting and stopping the modules which make up the rest of Sia.</p>
 <h2 id='daemon-stop-get'>/daemon/stop [GET]</h2>
 <p>Cleanly shuts down the daemon. This may take a few seconds.</p>
 <h3 id='response-2'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='daemon-version-get'>/daemon/version [GET]</h2>
 <p>Returns the version of the Sia daemon currently running. </p>
-<h3 id='json-response-4'>JSON Response</h3>
+<h3 id='json-response-3'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -823,7 +834,7 @@ This is the version number that is visible to its peers on the network.</p>
 <p>The gateway maintains a peer to peer connection to the network and provides a method for calling RPCs on connected peers. The gateway&#39;s API endpoints expose methods for viewing the connected peers, manually connecting to peers, and manually disconnecting from peers. The gateway may connect or disconnect from peers on its own.</p>
 <h2 id='gateway-get'>/gateway [GET]</h2>
 <p>returns information about the gateway, including the list of connected peers.</p>
-<h3 id='json-response-5'>JSON Response</h3>
+<h3 id='json-response-4'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -898,7 +909,7 @@ Example IPV6 address: [123::456]:789  </p>
 <p>The host provides storage from local disks to the network. The host negotiates file contracts with remote renters to earn money for storing other users&#39; files. The host&#39;s endpoints expose methods for viewing and modifying host settings, announcing to the network, and managing how files are stored on disk.</p>
 <h2 id='host-get'>/host [GET]</h2>
 <p>fetches status information about the host.</p>
-<h3 id='json-response-6'>JSON Response</h3>
+<h3 id='json-response-5'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1202,7 +1213,7 @@ The address to be announced. If no address is provided, the automatically discov
 <p>standard success or error response. See <a href="#Standard-Responses">standard responses</a>.</p>
 <h2 id='host-contracts-get'>/host/contracts [GET]</h2>
 <p>Get contract information from the host database. This call will return all storage obligations on the host. Its up to the caller to filter the contracts based on their needs.</p>
-<h3 id='json-response-7'>JSON Response</h3>
+<h3 id='json-response-6'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1294,7 +1305,7 @@ Revision confirmed indicates whether there was a file contract revision seen on 
 Revision constructed indicates whether there was a file contract revision constructed for this storage obligation.</p>
 <h2 id='host-storage-get'>/host/storage [GET]</h2>
 <p>Gets a list of folders tracked by the host&#39;s storage manager.</p>
-<h3 id='json-response-8'>JSON Response</h3>
+<h3 id='json-response-7'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1381,7 +1392,7 @@ Merkleroot of the sector to delete.  </p>
  - mindownloadbandwidthprice<br>
  - minstorageprice<br>
  - minuploadbandwidthprice    </p>
-<h3 id='json-response-9'>JSON Response</h3>
+<h3 id='json-response-8'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1398,8 +1409,15 @@ conversionrate is the likelihood given the settings passed to estimatescore that
 <h1 id='host-db'>Host DB</h1>
 <p>The hostdb maintains a database of all hosts known to the network. The database identifies hosts by their public key and keeps track of metrics such as price.</p>
 <h2 id='hostdb-get'>/hostdb [GET]</h2>
+<blockquote>
+<p>curl example
+<code>go
+curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb&quot;
+</code></p>
+</blockquote>
+
 <p>Shows some general information about the state of the hostdb.</p>
-<h3 id='json-response-10'>JSON Response</h3>
+<h3 id='json-response-9'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1411,10 +1429,17 @@ conversionrate is the likelihood given the settings passed to estimatescore that
 indicates if all known hosts have been scanned at least once.</p>
 <h2 id='hostdb-active-get'>/hostdb/active [GET]</h2>
 <p>lists all of the active hosts known to the renter, sorted by preference.</p>
-<h3 id='query-string-parameters-9'>Query String Parameters</h3><h4 id='optional-6'>OPTIONAL</h4>
+<h3 id='query-string-parameters-9'>Query String Parameters</h3>
+<blockquote>
+<p>curl example
+<code>go
+curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb/active&quot;
+</code></p>
+<h4 id='optional-6'>OPTIONAL</h4>
 <p><strong>numhosts</strong> | int<br>
 Number of hosts to return. The actual number of hosts returned may be less if there are insufficient active hosts. Optional, the default is all active hosts.  </p>
-<h3 id='json-response-11'>JSON Response</h3>
+</blockquote>
+<h3 id='json-response-10'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1580,17 +1605,31 @@ The string representation of the full public key, used when calling /hostdb/host
 <p><strong>filtered</strong> | boolean
 Indicates if the host is currently being filtered from the HostDB</p>
 <h2 id='hostdb-all-get'>/hostdb/all [GET]</h2>
+<blockquote>
+<p>curl example
+<code>go
+curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb/all&quot;
+</code></p>
+</blockquote>
+
 <p>Lists all of the hosts known to the renter. Hosts are not guaranteed to be in any particular order, and the order may change in subsequent calls.</p>
-<h3 id='json-response-12'>JSON Response</h3>
+<h3 id='json-response-11'>JSON Response</h3>
 <p>Repsonse is the same as <a href="#hosts"><code>/hostdb/active</code></a></p>
 <h2 id='hostdb-hosts-pubkey-get'>/hostdb/hosts/:<em>pubkey</em> [GET]</h2>
 <p>fetches detailed information about a particular host, including metrics regarding the score of the host within the database. It should be noted that each renter uses different metrics for selecting hosts, and that a good score on in one hostdb does not mean that the host will be successful on the network overall.</p>
-<h3 id='path-parameters-4'>Path Parameters</h3><h4 id='required-8'>REQUIRED</h4>
+<h3 id='path-parameters-4'>Path Parameters</h3>
+<blockquote>
+<p>curl example
+<code>go
+curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb/hosts/&lt;pubkey&gt;&quot;
+</code></p>
+<h4 id='required-8'>REQUIRED</h4>
 <p><strong>pubkey</strong><br>
 The public key of the host. Each public key identifies a single host.  </p>
+</blockquote>
 
 <p>Example Pubkey: ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef  </p>
-<h3 id='json-response-13'>JSON Response</h3>
+<h3 id='json-response-12'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1650,7 +1689,16 @@ The multiplier that gets applied to a host based on the version of Sia that they
 <p>Lets you enable and disable a filter mode for the hostdb. Currenlty the two modes supported are <code>blacklist</code> mode and <code>whitelist</code> mode. In <code>blacklist</code> mode, any hosts you identify as being on the <code>blacklist</code> will not be used to form contracts. In <code>whitelist</code> mode, only the hosts identified as being on the <code>whitelist</code> will be used to form contracts. In both modes, hosts that you are blacklisted will be filtered from your hostdb. To enable either mode, set <code>filtermode</code> to the desired mode and submit a list of host pubkeys as the corresponding <code>blacklist</code> or <code>whitelist</code>. To disable either list, the <code>host</code> field can be left blank (e.g. empty slice) and the <code>filtermode</code> should be set to <code>disable</code>.  </p>
 
 <p><strong>NOTE:</strong> Enabling and disabling a filter mode can result in changes with your current contracts with can result in an increase in contract fee spending. For example, if <code>blacklist</code> mode is enabled, any hosts that you currently have contracts with that are also on the provide list of <code>hosts</code> will have their contracts replaced with non-blacklisted hosts. When <code>whitelist</code> mode is enabled, contracts will be replaced until there are only contracts with whitelisted hosts. Even disabling a filter mode can result in a change in contracts if there are better scoring hosts in your hostdb that were previously being filtered out.  </p>
-<h3 id='query-string-parameters-10'>Query String Parameters</h3><h4 id='required-9'>REQUIRED</h4>
+<h3 id='query-string-parameters-10'>Query String Parameters</h3>
+<blockquote>
+<p>curl example
+```go
+curl -A &quot;Sia-Agent&quot; --user &quot;&quot;:&quot;foobar&quot; --data &#39;{&quot;filtermode&quot; : &quot;whitelist&quot;,&quot;hosts&quot; : [&quot;ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;,&quot;ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;,&quot;ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;]}&#39; &quot;localhost:9980/hostdb/filtermode&quot;</p>
+</blockquote>
+
+<p>curl -A &quot;Sia-Agent&quot; --user &quot;&quot;:&quot;foobar&quot; --data &#39;{&quot;filtermode&quot; : &quot;disable&quot;}&#39; &quot;localhost:9980/hostdb/filtermode&quot;
+```</p>
+<h4 id='required-9'>REQUIRED</h4>
 <p><strong>filtermode</strong> | string<br>
 Can be either whitelist, blacklist, or disable.  </p>
 
@@ -1662,7 +1710,7 @@ Comma separated pubkeys.  </p>
 <p>The miner provides endpoints for getting headers for work and submitting solved headers to the network. The miner also provides endpoints for controlling a basic CPU mining implementation.</p>
 <h2 id='miner-get'>/miner [GET]</h2>
 <p>returns the status of the miner.</p>
-<h3 id='json-response-14'>JSON Response</h3>
+<h3 id='json-response-13'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1790,7 +1838,7 @@ Number of mined blocks that are stale, indicating that they are not included in 
 <p>The renter manages the user&#39;s files on the network. The renter&#39;s API endpoints expose methods for managing files on the network and managing the renter&#39;s allocated funds.</p>
 <h2 id='renter-get'>/renter [GET]</h2>
 <p>Returns the current settings along with metrics on the renter&#39;s spending.</p>
-<h3 id='json-response-15'>JSON Response</h3>
+<h3 id='json-response-14'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1884,15 +1932,43 @@ Enables or disables the check for hosts using the same ip subnets within the hos
 ID of the file contract</p>
 <h3 id='response-16'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
+<h2 id='renter-backup-post'>/renter/backup [POST]</h2>
+<p>Creates a backup of all siafiles in the renter at the specified path.</p>
+<h3 id='query-response-parameters-2'>Query Response Parameters</h3><h4 id='required-11'>REQUIRED</h4>
+<p><strong>destination</strong> | string
+The path on disk where the backup will be created. Needs to be an absolute
+path.</p>
+<h3 id='response-17'>Response</h3>
+<p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
+<h2 id='renter-recoverbackup-post'>/renter/recoverbackup [POST]</h2>
+<p>Recovers an existing backup from the specified path by adding all the siafiles
+contained within it to the renter. Should a siafile for a certain path already
+exist, a number will be added as a suffix. e.g. &#39;myfile_1.sia&#39;</p>
+<h3 id='query-response-parameters-3'>Query Response Parameters</h3><h4 id='required-12'>REQUIRED</h4>
+<p><strong>source</strong> | string
+The path on disk where the backup will be recovered from. Needs to be an
+absolute path.</p>
+<h3 id='response-18'>Response</h3>
+<p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
+<h2 id='renter-contract-cancel-post-2'>/renter/contract/cancel [POST]</h2>
+<p>cancels a specific contract of the Renter.</p>
+<h3 id='query-string-parameters-12'>Query String Parameters</h3><h4 id='required-13'>REQUIRED</h4>
+<p><strong>id</strong> | hash
+ID of the file contract</p>
+<h3 id='response-19'>Response</h3>
+<p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-contracts-get'>/renter/contracts [GET]</h2>
-<p>Returns the renter&#39;s contracts.  Active contracts are contracts that the Renter is currently using to store, upload, and download data, and are returned by default. Inactive contracts are contracts that are in the current period but are marked as not good for renew, these contracts have the potential to become active again but currently are not storing data.  Expired contracts are contracts not in the current period, where not more data is being stored and excess funds have been released to the renter.  </p>
-<h3 id='query-string-parameters-12'>Query String Parameters</h3><h4 id='optional-8'>OPTIONAL</h4>
+<p>Returns the renter&#39;s contracts.  Active contracts are contracts that the Renter is currently using to store, upload, and download data, and are returned by default. Inactive contracts are contracts that are in the current period but are marked as not good for renew, these contracts have the potential to become active again but currently are not storing data.  Expired contracts are contracts not in the current period, where not more data is being stored and excess funds have been released to the renter. Recoverable contracts are contracts which the contractor is currently trying to recover and which haven&#39;t expired yet. </p>
+<h3 id='query-string-parameters-13'>Query String Parameters</h3><h4 id='optional-8'>OPTIONAL</h4>
 <p><strong>inactive</strong> | boolean
 flag indicating if inactive contracts should be returned.</p>
 
 <p><strong>expired</strong> | boolean
 flag indicating if expired contracts should be returned.</p>
-<h3 id='json-response-16'>JSON Response</h3>
+
+<p><strong>recoverable</strong> | boolean
+flag indicating if recoverable contracts should be returned.</p>
+<h3 id='json-response-15'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -1906,13 +1982,13 @@ flag indicating if expired contracts should be returned.</p>
         </span><span class="s">"algorithm"</span><span class="o">:</span><span class="x"> </span><span class="s">"ed25519"</span><span class="p">,</span><span class="x">   </span><span class="c">// string</span><span class="x">
         </span><span class="s">"key"</span><span class="o">:</span><span class="x"> </span><span class="s">"RW50cm9weSBpc24ndCB3aGF0IGl0IHVzZWQgdG8gYmU="</span><span class="x"> </span><span class="c">// hash</span><span class="x">
       </span><span class="p">},</span><span class="x">
+      </span><span class="s">"hostversion"</span><span class="o">:</span><span class="x">      </span><span class="s">"1.4.0"</span><span class="p">,</span><span class="x">  </span><span class="c">// string</span><span class="x">
       </span><span class="s">"id"</span><span class="o">:</span><span class="x"> </span><span class="s">"1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef"</span><span class="p">,</span><span class="x"> </span><span class="c">// hash</span><span class="x">
       </span><span class="s">"lasttransaction"</span><span class="o">:</span><span class="x"> </span><span class="p">{},</span><span class="x">                </span><span class="c">// transaction</span><span class="x">
       </span><span class="s">"netaddress"</span><span class="o">:</span><span class="x">       </span><span class="s">"12.34.56.78:9"</span><span class="p">,</span><span class="x">  </span><span class="c">// string</span><span class="x">
       </span><span class="s">"renterfunds"</span><span class="o">:</span><span class="x">      </span><span class="s">"1234"</span><span class="p">,</span><span class="x">           </span><span class="c">// hastings</span><span class="x">
       </span><span class="s">"size"</span><span class="o">:</span><span class="x">             </span><span class="m">8192</span><span class="p">,</span><span class="x">             </span><span class="c">// bytes</span><span class="x">
       </span><span class="s">"startheight"</span><span class="o">:</span><span class="x">      </span><span class="m">50000</span><span class="p">,</span><span class="x">            </span><span class="c">// block height</span><span class="x">
-      </span><span class="s">"StorageSpending"</span><span class="o">:</span><span class="x">  </span><span class="s">"1234"</span><span class="p">,</span><span class="x">           </span><span class="c">// hastings</span><span class="x">
       </span><span class="s">"storagespending"</span><span class="o">:</span><span class="x">  </span><span class="s">"1234"</span><span class="p">,</span><span class="x">           </span><span class="c">// hastings</span><span class="x">
       </span><span class="s">"totalcost"</span><span class="o">:</span><span class="x">        </span><span class="s">"1234"</span><span class="p">,</span><span class="x">           </span><span class="c">// hastings</span><span class="x">
       </span><span class="s">"uploadspending"</span><span class="o">:</span><span class="x">   </span><span class="s">"1234"</span><span class="x">            </span><span class="c">// hastings</span><span class="x">
@@ -1922,6 +1998,7 @@ flag indicating if expired contracts should be returned.</p>
   </span><span class="p">],</span><span class="x">
   </span><span class="s">"inactivecontracts"</span><span class="o">:</span><span class="x"> </span><span class="p">[],</span><span class="x">
   </span><span class="s">"expiredcontracts"</span><span class="o">:</span><span class="x"> </span><span class="p">[],</span><span class="x">
+  </span><span class="s">"recoverablecontracts"</span><span class="o">:</span><span class="x"> </span><span class="p">[],</span><span class="x">
 </span><span class="p">}</span><span class="x">
 </span></code></pre>
 <p><strong>downloadspending</strong> | hastings<br>
@@ -1935,6 +2012,9 @@ Fees paid in order to form the file contract.  </p>
 
 <p><strong>hostpublickey</strong> 
 Public key of the host that the file contract is formed with.  </p>
+
+<p><strong>hostversion</strong> | string
+The version of the host. </p>
 
 <p><strong>algorithm</strong> | string
 Algorithm used for signing and verification. Typically &quot;ed25519&quot;.  </p>
@@ -1960,9 +2040,6 @@ Size of the file contract, which is typically equal to the number of bytes that 
 <p><strong>startheight</strong> | block height<br>
 Block height that the file contract began on.  </p>
 
-<p><strong>StorageSpending</strong> | hastings
-DEPRECATED: This is the exact same value as StorageSpending, but it has incorrect capitalization. This was fixed in 1.3.2, but this field is kept to preserve backwards compatibility on clients who depend on the incorrect capitalization. This field will be removed in the future, so clients should switch to the StorageSpending field (above) with the correct lowercase name.  </p>
-
 <p><strong>storagespending</strong> | hastings<br>
 Amount of contract funds that have been spent on storage.  </p>
 
@@ -1977,6 +2054,88 @@ Signals if contract is good for uploading data.  </p>
 
 <p><strong>goodforrenew</strong> | boolean<br>
 Signals if contract is good for a renewal.  </p>
+<h2 id='renter-dir-siapath-get'>/renter/dir/*siapath [GET]</h2>
+<p>retrieves the contents of a directory on the sia network</p>
+<h3 id='path-parameters-5'>Path Parameters</h3><h4 id='required-14'>REQUIRED</h4>
+<p><strong>siapath</strong> | string
+Path to the directory on the sia netork  </p>
+<h3 id='json-response-16'>JSON Response</h3>
+<blockquote>
+<p>JSON Response Example</p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
+  </span><span class="s">"directories"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="x">
+    </span><span class="p">{</span><span class="x">
+      </span><span class="s">"aggregatenumfiles"</span><span class="o">:</span><span class="x">        </span><span class="m">2</span><span class="p">,</span><span class="x">    </span><span class="c">// uint64</span><span class="x">
+      </span><span class="s">"aggregatenumstuckchunks"</span><span class="o">:</span><span class="x">  </span><span class="m">4</span><span class="p">,</span><span class="x">    </span><span class="c">// uint64</span><span class="x">
+      </span><span class="s">"aggregatesize"</span><span class="o">:</span><span class="x">            </span><span class="m">4096</span><span class="p">,</span><span class="x"> </span><span class="c">// uint64</span><span class="x">
+      </span><span class="s">"heatlh"</span><span class="o">:</span><span class="x">                   </span><span class="m">1.0</span><span class="p">,</span><span class="x">  </span><span class="c">// float64</span><span class="x">
+      </span><span class="s">"lasthealtchecktime"</span><span class="o">:</span><span class="x"> </span><span class="s">"2018-09-23T08:00:00.000000000+04:00"</span><span class="x"> </span><span class="c">// timestamp</span><span class="x">
+      </span><span class="s">"maxhealth"</span><span class="o">:</span><span class="x">                </span><span class="m">0.5</span><span class="p">,</span><span class="x">  </span><span class="c">// float64</span><span class="x">
+      </span><span class="s">"minredundancy"</span><span class="o">:</span><span class="x">            </span><span class="m">2.6</span><span class="p">,</span><span class="x">  </span><span class="c">// float64</span><span class="x">
+      </span><span class="s">"mostrecentmodtime"</span><span class="o">:</span><span class="x">  </span><span class="s">"2018-09-23T08:00:00.000000000+04:00"</span><span class="x"> </span><span class="c">// timestamp</span><span class="x">
+      </span><span class="s">"stuckhealth"</span><span class="o">:</span><span class="x">              </span><span class="m">1.0</span><span class="p">,</span><span class="x">  </span><span class="c">// float64</span><span class="x">
+
+      </span><span class="s">"numfiles"</span><span class="o">:</span><span class="x">   </span><span class="m">3</span><span class="p">,</span><span class="x">        </span><span class="c">// uint64</span><span class="x">
+      </span><span class="s">"numsubdirs"</span><span class="o">:</span><span class="x"> </span><span class="m">2</span><span class="p">,</span><span class="x">        </span><span class="c">// uint64</span><span class="x">
+      </span><span class="s">"siapath"</span><span class="o">:</span><span class="x">    </span><span class="s">"foo/bar"</span><span class="x"> </span><span class="c">// string</span><span class="x">
+    </span><span class="p">}</span><span class="x">
+  </span><span class="p">],</span><span class="x">
+  </span><span class="s">"files"</span><span class="o">:</span><span class="x"> </span><span class="p">[]</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<p><strong>directories</strong>
+An array of sia directories</p>
+
+<p><strong>aggregatenumfiles</strong> | uint64
+the total number of files in the sub directory tree</p>
+
+<p><strong>aggregatenumstuckchunks</strong> | uint64
+the total number of stuck chunks in the sub directory tree</p>
+
+<p><strong>aggregatenumsize</strong> | uint64</p>
+
+<p><strong>health</strong> | float64
+This is the worst health of any of the files or subdirectories. Health is the percent of parity pieces missing.
+ - health = 0 is full redundancy
+ - health &lt;= 1 is recoverable
+ - health &gt; 1 needs to be repaired from disk</p>
+
+<p><strong>lasthealthchecktime</strong> | timestamp
+The oldest time that the health of the directory or any of its files or sub directories&#39; health was checked.</p>
+
+<p><strong>maxhealth</strong> | float64
+This is the worst health when comparing stuck health vs health</p>
+
+<p><strong>minredundancy</strong> | float64
+the lowest redundancy of any file or directory in the sub directory tree</p>
+
+<p><strong>mostrecentmodtime</strong> | timestamp
+the most recent mod time of any file or directory in the sub directory tree</p>
+
+<p><strong>numfiles</strong> | uint64
+the number of files in the directory</p>
+
+<p><strong>numsubdirs</strong> | uint64
+the number of directories in the directory</p>
+
+<p><strong>siapath</strong> | string
+The path to the directory on the sia network</p>
+
+<p><strong>files</strong>
+Same response as <a href="#files">files</a></p>
+<h2 id='renter-dir-siapath-post'>/renter/dir/*siapath [POST]</h2>
+<p>performs various functions on the renter&#39;s directories</p>
+<h3 id='path-parameters-6'>Path Parameters</h3><h4 id='required-15'>REQUIRED</h4>
+<p><strong>siapath</strong> | string
+Location where the directory will reside in the renter on the network. The path must be non-empty, may not include any path traversal strings (&quot;./&quot;, &quot;../&quot;), and may not begin with a forward-slash character.  </p>
+<h3 id='query-string-parameters-14'>Query String Parameters</h3><h4 id='required-16'>REQUIRED</h4>
+<p><strong>action</strong> | string
+Action can be either <code>create</code> or <code>delete</code>.
+ - <code>create</code> will create an empty directory on the sia network
+ - <code>delete</code> will remove a directory and its contents from the sia network</p>
+<h3 id='response-20'>Response</h3>
+<p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-downloads-get'>/renter/downloads [GET]</h2>
 <p>Lists all files in the download queue.</p>
 <h3 id='json-response-17'>JSON Response</h3>
@@ -2036,17 +2195,17 @@ Time at which the download was initiated.</p>
 The total amount of data transfered when downloading the file. This will eventually include data transferred during contract + payment negotiation, as well as data from failed piece downloads.  </p>
 <h2 id='renter-downloads-clear-post'>/renter/downloads/clear [POST]</h2>
 <p>Clears the download history of the renter for a range of unix time stamps.  Both parameters are optional, if no parameters are provided, the entire download history will be cleared.  To clear a single download, provide the timestamp for the download as both parameters.  Providing only the before parameter will clear all downloads older than the timestamp. Conversely, providing only the after parameter will clear all downloads newer than the timestamp.</p>
-<h3 id='query-string-parameters-13'>Query String Parameters</h3><h4 id='optional-9'>OPTIONAL</h4>
+<h3 id='query-string-parameters-15'>Query String Parameters</h3><h4 id='optional-9'>OPTIONAL</h4>
 <p><strong>before</strong> | unix timestamp<br>
 unix timestamp found in the download history</p>
 
 <p><strong>after</strong> | unix timestamp<br>
 unix timestamp found in the download history</p>
-<h3 id='response-17'>Response</h3>
+<h3 id='response-21'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-prices-get'>/renter/prices [GET]</h2>
 <p>Lists the estimated prices of performing various storage and data operations. An allowance can be submitted to provide a more personalized estimate. If no allowance is submitted then the current set allowance will be used, if there is no allowance set then sane defaults will be used. Submitting an allowance is optional, but when submitting an allowance all the components of the allowance are required. The allowance used to create the estimate is returned with the estimate.</p>
-<h3 id='query-string-parameters-14'>Query String Parameters</h3><h5 id='required-or-optional'>REQUIRED or OPTIONAL</h5>
+<h3 id='query-string-parameters-16'>Query String Parameters</h3><h5 id='required-or-optional'>REQUIRED or OPTIONAL</h5>
 <p>Allowance settings, see the fields <a href="#allowance">here</a></p>
 <h3 id='json-response-18'>JSON Response</h3>
 <blockquote>
@@ -2085,83 +2244,127 @@ The estimated cost of uploading one terabyte of data to the network, including a
 <pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
   </span><span class="s">"files"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="x">
     </span><span class="p">{</span><span class="x">
-      </span><span class="s">"siapath"</span><span class="o">:</span><span class="x">        </span><span class="s">"foo/bar.txt"</span><span class="p">,</span><span class="x">        </span><span class="c">// string</span><span class="x">
-      </span><span class="s">"localpath"</span><span class="o">:</span><span class="x">      </span><span class="s">"/home/foo/bar.txt"</span><span class="p">,</span><span class="x">  </span><span class="c">// string</span><span class="x">
-      </span><span class="s">"filesize"</span><span class="o">:</span><span class="x">       </span><span class="m">8192</span><span class="p">,</span><span class="x">                 </span><span class="c">// bytes</span><span class="x">
-      </span><span class="s">"available"</span><span class="o">:</span><span class="x">      </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
-      </span><span class="s">"renewing"</span><span class="o">:</span><span class="x">       </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
-      </span><span class="s">"redundancy"</span><span class="o">:</span><span class="x">     </span><span class="m">5</span><span class="p">,</span><span class="x">                    </span><span class="c">// float64</span><span class="x">
-      </span><span class="s">"bytesuploaded"</span><span class="o">:</span><span class="x">  </span><span class="m">209715200</span><span class="p">,</span><span class="x">            </span><span class="c">// total bytes uploaded</span><span class="x">
-      </span><span class="s">"uploadprogress"</span><span class="o">:</span><span class="x"> </span><span class="m">100</span><span class="p">,</span><span class="x">                  </span><span class="c">// percent</span><span class="x">
-      </span><span class="s">"expiration"</span><span class="o">:</span><span class="x">     </span><span class="m">60000</span><span class="p">,</span><span class="x">                </span><span class="c">// block height</span><span class="x">
-      </span><span class="s">"ondisk"</span><span class="o">:</span><span class="x">         </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
-      </span><span class="s">"recoverable"</span><span class="o">:</span><span class="x">    </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
+      </span><span class="s">"accesstime"</span><span class="o">:</span><span class="x">       </span><span class="m">12578940002019</span><span class="o">-</span><span class="m">02</span><span class="o">-</span><span class="m">20</span><span class="n">T17</span><span class="o">:</span><span class="m">46</span><span class="o">:</span><span class="m">20.34810935</span><span class="o">+</span><span class="m">01</span><span class="o">:</span><span class="m">00</span><span class="p">,</span><span class="x">  </span><span class="c">// timestamp</span><span class="x">
+      </span><span class="s">"available"</span><span class="o">:</span><span class="x">        </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
+      </span><span class="s">"changetime"</span><span class="o">:</span><span class="x">       </span><span class="m">12578940002019</span><span class="o">-</span><span class="m">02</span><span class="o">-</span><span class="m">20</span><span class="n">T17</span><span class="o">:</span><span class="m">46</span><span class="o">:</span><span class="m">20.34810935</span><span class="o">+</span><span class="m">01</span><span class="o">:</span><span class="m">00</span><span class="p">,</span><span class="x">  </span><span class="c">// timestamp</span><span class="x">
+      </span><span class="s">"ciphertype"</span><span class="o">:</span><span class="x">       </span><span class="s">"threefish"</span><span class="p">,</span><span class="x">          </span><span class="c">// string   </span><span class="x">
+      </span><span class="s">"createtime"</span><span class="o">:</span><span class="x">       </span><span class="m">12578940002019</span><span class="o">-</span><span class="m">02</span><span class="o">-</span><span class="m">20</span><span class="n">T17</span><span class="o">:</span><span class="m">46</span><span class="o">:</span><span class="m">20.34810935</span><span class="o">+</span><span class="m">01</span><span class="o">:</span><span class="m">00</span><span class="p">,</span><span class="x">  </span><span class="c">// timestamp</span><span class="x">
+      </span><span class="s">"expiration"</span><span class="o">:</span><span class="x">       </span><span class="m">60000</span><span class="p">,</span><span class="x">                </span><span class="c">// block height</span><span class="x">
+      </span><span class="s">"filesize"</span><span class="o">:</span><span class="x">         </span><span class="m">8192</span><span class="p">,</span><span class="x">                 </span><span class="c">// bytes</span><span class="x">
+      </span><span class="s">"health"</span><span class="o">:</span><span class="x">           </span><span class="m">0.5</span><span class="p">,</span><span class="x">                  </span><span class="c">// float64</span><span class="x">
+      </span><span class="s">"localpath"</span><span class="o">:</span><span class="x">        </span><span class="s">"/home/foo/bar.txt"</span><span class="p">,</span><span class="x">  </span><span class="c">// string</span><span class="x">
+      </span><span class="s">"maxhealth"</span><span class="o">:</span><span class="x">        </span><span class="m">0.0</span><span class="p">,</span><span class="x">                  </span><span class="c">// float64  </span><span class="x">
+      </span><span class="s">"maxhealthpercent"</span><span class="o">:</span><span class="x"> </span><span class="m">100</span><span class="o">%</span><span class="p">,</span><span class="x">                 </span><span class="c">// float64</span><span class="x">
+      </span><span class="s">"modtime"</span><span class="o">:</span><span class="x">          </span><span class="m">12578940002019</span><span class="o">-</span><span class="m">02</span><span class="o">-</span><span class="m">20</span><span class="n">T17</span><span class="o">:</span><span class="m">46</span><span class="o">:</span><span class="m">20.34810935</span><span class="o">+</span><span class="m">01</span><span class="o">:</span><span class="m">00</span><span class="p">,</span><span class="x">  </span><span class="c">// timestamp</span><span class="x">
+      </span><span class="s">"numstuckchunks"</span><span class="o">:</span><span class="x">   </span><span class="m">0</span><span class="p">,</span><span class="x">                    </span><span class="c">// uint64</span><span class="x">
+      </span><span class="s">"ondisk"</span><span class="o">:</span><span class="x">           </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
+      </span><span class="s">"recoverable"</span><span class="o">:</span><span class="x">      </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
+      </span><span class="s">"redundancy"</span><span class="o">:</span><span class="x">       </span><span class="m">5</span><span class="p">,</span><span class="x">                    </span><span class="c">// float64</span><span class="x">
+      </span><span class="s">"renewing"</span><span class="o">:</span><span class="x">         </span><span class="no">true</span><span class="p">,</span><span class="x">                 </span><span class="c">// boolean</span><span class="x">
+      </span><span class="s">"siapath"</span><span class="o">:</span><span class="x">          </span><span class="s">"foo/bar.txt"</span><span class="p">,</span><span class="x">        </span><span class="c">// string</span><span class="x">
+      </span><span class="s">"stuck"</span><span class="o">:</span><span class="x">            </span><span class="no">false</span><span class="p">,</span><span class="x">                </span><span class="c">// bool</span><span class="x">
+      </span><span class="s">"stuckhealth"</span><span class="o">:</span><span class="x">      </span><span class="m">0.0</span><span class="p">,</span><span class="x">                  </span><span class="c">// float64</span><span class="x">
+      </span><span class="s">"uploadedbytes"</span><span class="o">:</span><span class="x">    </span><span class="m">209715200</span><span class="p">,</span><span class="x">            </span><span class="c">// total bytes uploaded</span><span class="x">
+      </span><span class="s">"uploadprogress"</span><span class="o">:</span><span class="x">   </span><span class="m">100</span><span class="p">,</span><span class="x">                  </span><span class="c">// percent</span><span class="x">
     </span><span class="p">}</span><span class="x">
   </span><span class="p">]</span><span class="x">
 </span><span class="p">}</span><span class="x">
 </span></code></pre><h4 id='files'>files</h4>
-<p><strong>siapath</strong> | string
-Path to the file in the renter on the network.  </p>
-
-<p><strong>localpath</strong> | string
-Path to the local file on disk.  </p>
-
-<p><strong>filesize</strong> | bytes<br>
-Size of the file in bytes.  </p>
+<p><strong>accesstime</strong> | timestamp
+indicates the last time the siafile was accessed</p>
 
 <p><strong>available</strong> | boolean<br>
 true if the file is available for download. Files may be available before they are completely uploaded.  </p>
 
-<p><strong>renewing</strong> | boolean<br>
-true if the file&#39;s contracts will be automatically renewed by the renter.  </p>
+<p><strong>changetime</strong> | timestamp
+indicates the last time the siafile metadata was updated</p>
 
-<p><strong>redundancy</strong> | float64
-Average redundancy of the file on the network. Redundancy is calculated by dividing the amount of data uploaded in the file&#39;s open contracts by the size of the file. Redundancy does not necessarily correspond to availability. Specifically, a redundancy &gt;= 1 does not indicate the file is available as there could be a chunk of the file with 0 redundancy.  </p>
+<p><strong>ciphertype</strong> | string
+indicates the encryption used for the siafile</p>
 
-<p><strong>uploadedbytes</strong> | bytes<br>
-Total number of bytes successfully uploaded via current file contracts. This number includes padding and rendundancy, so a file with a size of 8192 bytes might be padded to 40 MiB and, with a redundancy of 5, encoded to 200 MiB for upload.  </p>
-
-<p><strong>uploadprogress</strong> | percent<br>
-Percentage of the file uploaded, including redundancy. Uploading has completed when uploadprogress is 100. Files may be available for download before upload progress is 100.  </p>
+<p><strong>createtime</strong> | timestamp
+indicates when the siafile was created</p>
 
 <p><strong>expiration</strong> | block height
 Block height at which the file ceases availability.  </p>
+
+<p><strong>filesize</strong> | bytes<br>
+Size of the file in bytes.  </p>
+
+<p><strong>health</strong> | float64 
+health is an indication of the amount of redundancy missing where 0 is full redundancy and &gt;1 means the file is not available. The health of the siafile is the health of the worst unstuck chunk.</p>
+
+<p><strong>localpath</strong> | string
+Path to the local file on disk.  </p>
+
+<p><strong>maxhealth</strong> | float64
+the maxhealth is either the health or the stuckhealth of the siafile, whichever is worst</p>
+
+<p><strong>maxhealthpercent</strong> | float64
+maxhealthpercent is the maxhealth converted to be out of 100% to be more easily understood</p>
+
+<p><strong>modtime</strong> | timestamp
+indicates the last time the siafile contents where modified</p>
+
+<p><strong>numstuckchunks</strong> | uint64
+indicates the number of stuck chunks in a file. A chunk is stuck if it cannot reach full redundancy</p>
 
 <p><strong>ondisk</strong> | boolean
 indicates if the source file is found on disk</p>
 
 <p><strong>recoverable</strong> | boolean
 indicates if the siafile is recoverable</p>
+
+<p><strong>redundancy</strong> | float64
+Average redundancy of the file on the network. Redundancy is calculated by dividing the amount of data uploaded in the file&#39;s open contracts by the size of the file. Redundancy does not necessarily correspond to availability. Specifically, a redundancy &gt;= 1 does not indicate the file is available as there could be a chunk of the file with 0 redundancy.  </p>
+
+<p><strong>renewing</strong> | boolean<br>
+true if the file&#39;s contracts will be automatically renewed by the renter.  </p>
+
+<p><strong>siapath</strong> | string
+Path to the file in the renter on the network.  </p>
+
+<p><strong>stuck</strong> | bool
+a file is stuck if there are any stuck chunks in the file, which means the file cannot reach full redundancy</p>
+
+<p><strong>stuckhealth</strong> | float64
+stuckhealth is the worst health of any of the stuck chunks.</p>
+
+<p><strong>uploadedbytes</strong> | bytes<br>
+Total number of bytes successfully uploaded via current file contracts. This number includes padding and rendundancy, so a file with a size of 8192 bytes might be padded to 40 MiB and, with a redundancy of 5, encoded to 200 MiB for upload.  </p>
+
+<p><strong>uploadprogress</strong> | percent<br>
+Percentage of the file uploaded, including redundancy. Uploading has completed when uploadprogress is 100. Files may be available for download before upload progress is 100.  </p>
 <h2 id='renter-file-siapath-get'>/renter/file/<em>siapath</em> [GET]</h2>
 <p>Lists the status of specified file.</p>
-<h3 id='path-parameters-5'>Path Parameters</h3><h4 id='required-11'>REQUIRED</h4>
+<h3 id='path-parameters-7'>Path Parameters</h3><h4 id='required-17'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
 <h3 id='json-response-20'>JSON Response</h3>
 <p>Same response as <a href="#files">files</a></p>
 <h2 id='renter-file-siapath-post'>/renter/file/<em>siapath</em> [POST]</h2>
 <p>endpoint for changing file metadata.</p>
-<h3 id='path-parameters-6'>Path Parameters</h3><h4 id='required-12'>REQUIRED</h4>
+<h3 id='path-parameters-8'>Path Parameters</h3><h4 id='required-18'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 SiaPath of the file on the network. The path must be non-empty, may not include any path traversal strings (&quot;./&quot;, &quot;../&quot;), and may not begin with a forward-slash character.</p>
-<h3 id='query-string-parameters-15'>Query String Parameters</h3><h4 id='optional-10'>OPTIONAL</h4>
+<h3 id='query-string-parameters-17'>Query String Parameters</h3><h4 id='optional-10'>OPTIONAL</h4>
 <p><strong>trackingpath</strong> | string
 If provided, this parameter changes the tracking path of a file to the  specified path. Useful if moving the file to a different location on disk.</p>
-<h3 id='response-18'>Response</h3>
+<h3 id='response-22'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-delete-siapath-post'>/renter/delete/<em>siapath</em> [POST]</h2>
 <p>deletes a renter file entry. Does not delete any downloads or original files, only the entry in the renter.</p>
-<h3 id='path-parameters-7'>Path Parameters</h3><h4 id='required-13'>REQUIRED</h4>
+<h3 id='path-parameters-9'>Path Parameters</h3><h4 id='required-19'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='response-19'>Response</h3>
+<h3 id='response-23'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-download-siapath-get'>/renter/download/<em>siapath</em> [GET]</h2>
 <p>downloads a file to the local filesystem. The call will block until the file has been downloaded.</p>
-<h3 id='path-parameters-8'>Path Parameters</h3><h4 id='required-14'>REQUIRED</h4>
+<h3 id='path-parameters-10'>Path Parameters</h3><h4 id='required-20'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='query-string-parameters-16'>Query String Parameters</h3><h4 id='required-15'>REQUIRED</h4>
+<h3 id='query-string-parameters-18'>Query String Parameters</h3><h4 id='required-21'>REQUIRED</h4>
 <p><strong>destination</strong> | string
 Location on disk that the file will be downloaded to.  </p>
 <h4 id='optional-11'>OPTIONAL</h4>
@@ -2176,39 +2379,62 @@ Length of the requested data. Has to be &lt;= filesize-offset.  </p>
 
 <p><strong>offset</strong> | bytes
 Offset relative to the file start from where the download starts.  </p>
-<h3 id='response-20'>Response</h3>
+<h3 id='response-24'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-downloadsync-siapath-get'>/renter/downloadsync/<em>siapath</em> [GET]</h2>
 <p>downloads a file to the local filesystem. The call will return immediately.</p>
-<h3 id='path-parameters-9'>Path Parameters</h3><h4 id='required-16'>REQUIRED</h4>
+<h3 id='path-parameters-11'>Path Parameters</h3><h4 id='required-22'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='query-string-parameters-17'>Query String Parameters</h3><h4 id='required-17'>REQUIRED</h4>
+<h3 id='query-string-parameters-19'>Query String Parameters</h3><h4 id='required-23'>REQUIRED</h4>
 <p><strong>destination</strong> | string
 Location on disk that the file will be downloaded to.  </p>
-<h3 id='response-21'>Response</h3>
+<h3 id='response-25'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
-<h2 id='renter-rename-siapath-post'>/renter/rename/<em>siapath</em> [POST]</h2><h3 id='path-parameters-10'>Path Parameters</h3><h4 id='required-18'>REQUIRED</h4>
+<h2 id='renter-recoveryscan-post'>/renter/recoveryscan [POST]</h2>
+<p>starts a rescan of the whole blockchain to find recoverable contracts. The
+contractor will periodically try to recover found contracts every 10 minutes
+until they are recovered or expired.</p>
+<h3 id='response-26'>Response</h3>
+<p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
+<h2 id='renter-recoveryscan-get'>/renter/recoveryscan [GET]</h2>
+<p>Returns some information about a potentially ongoing recovery scan.</p>
+<h3 id='json-response-21'>JSON Response</h3>
+<blockquote>
+<p>JSON Response Example</p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
+  </span><span class="s">"scaninprogress"</span><span class="o">:</span><span class="x"> </span><span class="no">true</span><span class="x"> </span><span class="c">// boolean</span><span class="x">
+  </span><span class="s">"scannedheight"</span><span class="x"> </span><span class="o">:</span><span class="x"> </span><span class="m">1000</span><span class="x"> </span><span class="c">// uint64</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<p><strong>scaninprogress</strong> | boolean
+indicates if a scan for recoverable contracts is currently in progress.</p>
+
+<p><strong>scannedheight</strong> | uint64
+indicates the progress of a currently ongoing scan in terms of number of blocks
+that have already been scanned.</p>
+<h2 id='renter-rename-siapath-post'>/renter/rename/<em>siapath</em> [POST]</h2><h3 id='path-parameters-12'>Path Parameters</h3><h4 id='required-24'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='query-string-parameters-18'>Query String Parameters</h3><h4 id='required-19'>REQUIRED</h4>
+<h3 id='query-string-parameters-20'>Query String Parameters</h3><h4 id='required-25'>REQUIRED</h4>
 <p><strong>newsiapath</strong> | string 
 New location of the file in the renter on the network.  </p>
-<h3 id='response-22'>Response</h3>
+<h3 id='response-27'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-stream-siapath-get'>/renter/stream/<em>siapath</em> [GET]</h2>
 <p>downloads a file using http streaming. This call blocks until the data is received. The streaming endpoint also uses caching internally to prevent siad from re-downloading the same chunk multiple times when only parts of a file are requested at once. This might lead to a substantial increase in ram usage and therefore it is not recommended to stream multiple files in parallel at the moment. This restriction will be removed together with the caching once partial downloads are supported in the future. If you want to stream multiple files you should increase the size of the Renter&#39;s <code>streamcachesize</code> to at least 2x the number of files you are steaming.</p>
-<h3 id='path-parameters-11'>Path Parameters</h3><h4 id='required-20'>REQUIRED</h4>
+<h3 id='path-parameters-13'>Path Parameters</h3><h4 id='required-26'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='response-23'>Response</h3>
+<h3 id='response-28'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-upload-siapath-post'>/renter/upload/<em>siapath</em> [POST]</h2>
 <p>uploads a file to the network from the local filesystem.</p>
-<h3 id='path-parameters-12'>Path Parameters</h3><h4 id='required-21'>REQUIRED</h4>
+<h3 id='path-parameters-14'>Path Parameters</h3><h4 id='required-27'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Location where the file will reside in the renter on the network. The path must be non-empty, may not include any path traversal strings (&quot;./&quot;, &quot;../&quot;), and may not begin with a forward-slash character.  </p>
-<h3 id='query-string-parameters-19'>Query String Parameters</h3><h4 id='required-22'>REQUIRED</h4>
+<h3 id='query-string-parameters-21'>Query String Parameters</h3><h4 id='required-28'>REQUIRED</h4>
 <p><strong>source</strong> | string
 Location on disk of the file being uploaded.  </p>
 <h4 id='optional-12'>OPTIONAL</h4>
@@ -2217,14 +2443,14 @@ The number of data pieces to use when erasure coding the file.  </p>
 
 <p><strong>paritypieces</strong> | int<br>
 The number of parity pieces to use when erasure coding the file. Total redundancy of the file is (datapieces+paritypieces)/datapieces.  </p>
-<h3 id='response-24'>Response</h3>
+<h3 id='response-29'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h1 id='transaction-pool'>Transaction Pool</h1><h2 id='tpool-confirmed-id-get'>/tpool/confirmed/:id [GET]</h2>
 <p>returns whether the requested transaction has been seen on the blockchain. Note, however, that the block containing the transaction may later be invalidated by a reorg.</p>
-<h3 id='path-parameters-13'>Path Parameters</h3><h4 id='required-23'>REQUIRED</h4>
+<h3 id='path-parameters-15'>Path Parameters</h3><h4 id='required-29'>REQUIRED</h4>
 <p><strong>id</strong> | hash
 id of the transaction being queried</p>
-<h3 id='json-response-21'>JSON Response</h3>
+<h3 id='json-response-22'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2236,7 +2462,7 @@ id of the transaction being queried</p>
 indicates if a transaction is confirmed on the blockchain</p>
 <h2 id='tpool-fee-get'>/tpool/fee [GET]</h2>
 <p>returns the minimum and maximum estimated fees expected by the transaction pool.</p>
-<h3 id='json-response-22'>JSON Response</h3>
+<h3 id='json-response-23'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2252,10 +2478,10 @@ the minimum estimated fee</p>
 the maximum estimated fee</p>
 <h2 id='tpool-raw-id-get'>/tpool/raw/:id [GET]</h2>
 <p>returns the ID for the requested transaction and its raw encoded parents and transaction data.</p>
-<h3 id='path-parameters-14'>Path Parameters</h3><h4 id='required-24'>REQUIRED</h4>
+<h3 id='path-parameters-16'>Path Parameters</h3><h4 id='required-30'>REQUIRED</h4>
 <p><strong>id</strong> | hash 
 id of the transaction being queried</p>
-<h3 id='json-response-23'>JSON Response</h3>
+<h3 id='json-response-24'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2275,17 +2501,17 @@ id of the transaction.  </p>
 raw, base64 encoded transaction data  </p>
 <h2 id='tpool-raw-post'>/tpool/raw [POST]</h2>
 <p>submits a raw transaction to the transaction pool, broadcasting it to the transaction pool&#39;s peers.  </p>
-<h3 id='query-string-parameters-20'>Query String Parameters</h3><h4 id='required-25'>REQUIRED</h4>
+<h3 id='query-string-parameters-22'>Query String Parameters</h3><h4 id='required-31'>REQUIRED</h4>
 <p><strong>parents</strong> | string 
 JSON- or base64-encoded transaction parents</p>
 
 <p><strong>transaction</strong> | string
 JSON- or base64-encoded transaction</p>
-<h3 id='response-25'>Response</h3>
+<h3 id='response-30'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h1 id='wallet'>Wallet</h1><h2 id='wallet-get'>/wallet [GET]</h2>
 <p>Returns basic information about the wallet, such as whether the wallet is locked or unlocked.</p>
-<h3 id='json-response-24'>JSON Response</h3>
+<h3 id='json-response-25'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2332,17 +2558,17 @@ Number of siacoins, in hastings, that can be claimed from the siafunds as of the
 Number of siacoins, in hastings per byte, below which a transaction output cannot be used because the wallet considers it a dust output.  </p>
 <h2 id='wallet-033x-post'>/wallet/033x [POST]</h2>
 <p>Loads a v0.3.3.x wallet into the current wallet, harvesting all of the secret keys. All spendable addresses in the loaded wallet will become spendable from the current wallet.</p>
-<h3 id='query-string-parameters-21'>Query String Parameters</h3><h4 id='required-26'>REQUIRED</h4>
+<h3 id='query-string-parameters-23'>Query String Parameters</h3><h4 id='required-32'>REQUIRED</h4>
 <p><strong>source</strong><br>
 Path on disk to the v0.3.3.x wallet to be loaded.  </p>
 
 <p><strong>encryptionpassword</strong><br>
 Encryption key of the wallet.  </p>
-<h3 id='response-26'>Response</h3>
+<h3 id='response-31'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-address-get'>/wallet/address [GET]</h2>
 <p>Gets a new address from the wallet generated by the primary seed. An error will be returned if the wallet is locked.</p>
-<h3 id='json-response-25'>JSON Response</h3>
+<h3 id='json-response-26'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2354,7 +2580,7 @@ Encryption key of the wallet.  </p>
 Wallet address that can receive siacoins or siafunds. Addresses are 76 character long hex strings.  </p>
 <h2 id='wallet-addresses-get'>/wallet/addresses [GET]</h2>
 <p>Fetches the list of addresses from the wallet. If the wallet has not been created or unlocked, no addresses will be returned. After the wallet is unlocked, this call will continue to return its addresses even after the wallet is locked again.</p>
-<h3 id='json-response-26'>JSON Response</h3>
+<h3 id='json-response-27'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2368,26 +2594,50 @@ Wallet address that can receive siacoins or siafunds. Addresses are 76 character
 </span></code></pre>
 <p><strong>addresses</strong><br>
 Array of wallet addresses owned by the wallet.  </p>
+<h2 id='wallet-seedaddrs-get'>/wallet/seedaddrs [GET]</h2>
+<p>Fetches addresses generated by the wallet in reverse order. The last address
+generated by the wallet will be the first returned. This also means that
+addresses which weren&#39;t generated using the wallet&#39;s seed can&#39;t be retrieved
+with this endpoint.</p>
+<h3 id='query-string-parameters-24'>Query String Parameters</h3><h4 id='optional-13'>OPTIONAL</h4>
+<p><strong>count</strong><br>
+Number of addresses that should be returned. If count is not specified or if
+count is bigger than the number of addresses generated by the wallet, all
+addresses will be returned.</p>
+<h3 id='json-response-28'>JSON Response</h3>
+<blockquote>
+<p>JSON Response Example</p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
+  </span><span class="s">"addresses"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="x">
+    </span><span class="s">"1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789ab"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"</span><span class="x">
+  </span><span class="p">]</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<p><strong>addresses</strong><br>
+Array of wallet addresses previously generated by the wallet.</p>
 <h2 id='wallet-backup-get'>/wallet/backup [GET]</h2>
 <p>Creates a backup of the wallet settings file. Though this can easily be done manually, the settings file is often in an unknown or difficult to find location. The /wallet/backup call can spare users the trouble of needing to find their wallet file.</p>
-<h3 id='query-string-parameters-22'>Query String Parameters</h3><h4 id='required-27'>REQUIRED</h4>
+<h3 id='query-string-parameters-25'>Query String Parameters</h3><h4 id='required-33'>REQUIRED</h4>
 <p><strong>destination</strong><br>
 Path to the location on disk where the backup file will be saved.  </p>
-<h3 id='response-27'>Response</h3>
+<h3 id='response-32'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-changepassword-post'>/wallet/changepassword [POST]</h2>
 <p>Changes the wallet&#39;s encryption key.  </p>
-<h3 id='query-string-parameters-23'>Query String Parameters</h3><h4 id='required-28'>REQUIRED</h4>
+<h3 id='query-string-parameters-26'>Query String Parameters</h3><h4 id='required-34'>REQUIRED</h4>
 <p><strong>encryptionpassword</strong> | string
 encryptionpassword is the wallet&#39;s current encryption password.  </p>
 
 <p><strong>newpassword</strong> | string
 newpassword is the new password for the wallet.  </p>
-<h3 id='response-28'>Response</h3>
+<h3 id='response-33'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-init-post'>/wallet/init [POST]</h2>
 <p>Initializes the wallet. After the wallet has been initialized once, it does not need to be initialized again, and future calls to /wallet/init will return an error. The encryption password is provided by the api call. If the password is blank, then the password will be set to the same as the seed.</p>
-<h3 id='query-string-parameters-24'>Query String Parameters</h3><h4 id='optional-wallet-parameters'>OPTIONAL WALLET PARAMETERS</h4>
+<h3 id='query-string-parameters-27'>Query String Parameters</h3><h4 id='optional-wallet-parameters'>OPTIONAL WALLET PARAMETERS</h4>
 <p><strong>encryptionpassword</strong> | string
 Password that will be used to encrypt the wallet. All subsequent calls should use this password. If left blank, the seed that gets returned will also be the encryption password.  </p>
 
@@ -2396,7 +2646,7 @@ Name of the dictionary that should be used when encoding the seed. &#39;english&
 
 <p><strong>force</strong> | boolean<br>
 When set to true /wallet/init will Reset the wallet if one exists instead of returning an error. This allows API callers to reinitialize a new wallet.</p>
-<h3 id='json-response-27'>JSON Response</h3>
+<h3 id='json-response-29'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2408,27 +2658,27 @@ When set to true /wallet/init will Reset the wallet if one exists instead of ret
 Wallet seed used to generate addresses that the wallet is able to spend.  </p>
 <h2 id='wallet-init-seed-post'>/wallet/init/seed [POST]</h2>
 <p>Initializes the wallet using a preexisting seed. After the wallet has been initialized once, it does not need to be initialized again, and future calls to /wallet/init/seed will return an error. The encryption password is provided by the api call. If the password is blank, then the password will be set to the same as the seed. Note that loading a preexisting seed requires scanning the blockchain to determine how many keys have been generated from the seed. For this reason, /wallet/init/seed can only be called if the blockchain is synced.</p>
-<h3 id='query-string-parameters-25'>Query String Parameters</h3><h4 id='required-wallet-parameters'>REQUIRED WALLET PARAMETERS</h4>
+<h3 id='query-string-parameters-28'>Query String Parameters</h3><h4 id='required-wallet-parameters'>REQUIRED WALLET PARAMETERS</h4>
 <p><strong>seed</strong> | string
 Dictionary-encoded phrase that corresponds to the seed being used to initialize the wallet.  </p>
-<h4 id='optional-13'>OPTIONAL</h4>
+<h4 id='optional-14'>OPTIONAL</h4>
 <p><a href="#optional-wallet-parameters">Optional Wallet Parameters</a></p>
-<h3 id='response-29'>Response</h3>
+<h3 id='response-34'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-seed-post'>/wallet/seed [POST]</h2>
 <p>Gives the wallet a seed to track when looking for incoming transactions. The wallet will be able to spend outputs related to addresses created by the seed. The seed is added as an auxiliary seed, and does not replace the primary seed. Only the primary seed will be used for generating new addresses.</p>
-<h3 id='query-string-parameters-26'>Query String Parameters</h3><h4 id='required-29'>REQUIRED</h4>
+<h3 id='query-string-parameters-29'>Query String Parameters</h3><h4 id='required-35'>REQUIRED</h4>
 <p><a href="#required-wallet-parameters">Required Wallet Parameters</a></p>
 <h4 id='optional-string'>OPTIONAL | string</h4>
 <p><a href="#optional-wallet-parameters">Optional Wallet Parameters</a></p>
-<h3 id='response-30'>Response</h3>
+<h3 id='response-35'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-seeds-get'>/wallet/seeds [GET]</h2>
 <p>Returns the list of seeds in use by the wallet. The primary seed is the only seed that gets used to generate new addresses. This call is unavailable when the wallet is locked.</p>
-<h3 id='query-string-parameters-27'>Query String Parameters</h3><h4 id='required-30'>REQUIRED</h4>
+<h3 id='query-string-parameters-30'>Query String Parameters</h3><h4 id='required-36'>REQUIRED</h4>
 <p><strong>dictionary</strong> | string 
 Name of the dictionary that should be used when encoding the seed. &#39;english&#39; is the most common choice when picking a dictionary.  </p>
-<h3 id='json-response-28'>JSON Response</h3>
+<h3 id='json-response-30'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2451,7 +2701,7 @@ Number of addresses that remain in the primary seed until exhaustion has been re
 Array of all seeds that the wallet references when scanning the blockchain for outputs. The wallet is able to spend any output generated by any of the seeds, however only the primary seed is being used to generate new addresses.  </p>
 <h2 id='wallet-siacoins-post'>/wallet/siacoins [POST]</h2>
 <p>Sends siacoins to an address or set of addresses. The outputs are arbitrarily selected from addresses in the wallet. If &#39;outputs&#39; is supplied, &#39;amount&#39; and &#39;destination&#39; must be empty.  </p>
-<h3 id='query-string-parameters-28'>Query String Parameters</h3><h4 id='required-31'>REQUIRED</h4>
+<h3 id='query-string-parameters-31'>Query String Parameters</h3><h4 id='required-37'>REQUIRED</h4>
 <p>Amount and Destination or Outputs are required</p>
 
 <p><strong>amount</strong> | hastings<br>
@@ -2464,7 +2714,7 @@ Address that is receiving the coins.  </p>
 
 <p><strong>outputs</strong><br>
 JSON array of outputs. The structure of each output is: {&quot;unlockhash&quot;: &quot;<destination>&quot;, &quot;value&quot;: &quot;<amount>&quot;}  </p>
-<h3 id='json-response-29'>JSON Response</h3>
+<h3 id='json-response-31'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2480,13 +2730,13 @@ JSON array of outputs. The structure of each output is: {&quot;unlockhash&quot;:
 Array of IDs of the transactions that were created when sending the coins. The last transaction contains the output headed to the &#39;destination&#39;. Transaction IDs are 64 character long hex strings.  </p>
 <h2 id='wallet-siafunds-post'>/wallet/siafunds [POST]</h2>
 <p>Sends siafunds to an address. The outputs are arbitrarily selected from addresses in the wallet. Any siacoins available in the siafunds being sent (as well as the siacoins available in any siafunds that end up in a refund address) will become available to the wallet as siacoins after 144 confirmations. To access all of the siacoins in the siacoin claim balance, send all of the siafunds to an address in your control (this will give you all the siacoins, while still letting you control the siafunds).</p>
-<h3 id='query-string-parameters-29'>Query String Parameters</h3><h4 id='required-32'>REQUIRED</h4>
+<h3 id='query-string-parameters-32'>Query String Parameters</h3><h4 id='required-38'>REQUIRED</h4>
 <p><strong>amount</strong> | siafunds<br>
 Number of siafunds being sent.  </p>
 
 <p><strong>destination</strong> | address<br>
 Address that is receiving the funds.  </p>
-<h3 id='json-response-30'>JSON Response</h3>
+<h3 id='json-response-32'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2502,13 +2752,13 @@ Address that is receiving the funds.  </p>
 Array of IDs of the transactions that were created when sending the coins. The last transaction contains the output headed to the &#39;destination&#39;. Transaction IDs are 64 character long hex strings.  </p>
 <h2 id='wallet-siagkey-post'>/wallet/siagkey [POST]</h2>
 <p>Loads a key into the wallet that was generated by siag. Most siafunds are currently in addresses created by siag.</p>
-<h3 id='query-string-parameters-30'>Query String Parameters</h3><h4 id='required-33'>REQUIRED</h4>
+<h3 id='query-string-parameters-33'>Query String Parameters</h3><h4 id='required-39'>REQUIRED</h4>
 <p><strong>encryptionpassword</strong><br>
 Key that is used to encrypt the siag key when it is imported to the wallet.  </p>
 
 <p><strong>keyfiles</strong><br>
 List of filepaths that point to the keyfiles that make up the siag key. There should be at least one keyfile per required signature. The filenames need to be commna separated (no spaces), which means filepaths that contain a comma are not allowed.  </p>
-<h3 id='response-31'>Response</h3>
+<h3 id='response-36'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-sign-post'>/wallet/sign [POST]</h2>
 <p>Signs a transaction. The wallet will attempt to sign each input specified. The transaction&#39;s TransactionSignatures should be complete except for the Signature field. If <code>tosign</code> is provided, the wallet will attempt to fill in signatures for each TransactionSignature specified. If <code>tosign</code> is not provided, the wallet will add signatures for every TransactionSignature that it has keys for.</p>
@@ -2554,7 +2804,7 @@ List of filepaths that point to the keyfiles that make up the siag key. There sh
     </span><span class="s">"af1a88781c362573943cda006690576b150537c1ae142a364dbfc7f04ab99584"</span><span class="x">
   </span><span class="p">]</span><span class="x">
 </span><span class="p">}</span><span class="x">
-</span></code></pre><h3 id='json-response-31'>JSON Response</h3>
+</span></code></pre><h3 id='json-response-33'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2594,13 +2844,13 @@ List of filepaths that point to the keyfiles that make up the siag key. There sh
 </span><span class="p">}</span><span class="x">
 </span></code></pre><h2 id='wallet-sweep-seed-post'>/wallet/sweep/seed [POST]</h2>
 <p>Scans the blockchain for outputs belonging to a seed and send them to an address owned by the wallet.</p>
-<h3 id='query-string-parameters-31'>Query String Parameters</h3><h4 id='required-34'>REQUIRED</h4>
+<h3 id='query-string-parameters-34'>Query String Parameters</h3><h4 id='required-40'>REQUIRED</h4>
 <p><strong>seed</strong> | string
 Dictionary-encoded phrase that corresponds to the seed being added to the wallet.  </p>
-<h4 id='optional-14'>OPTIONAL</h4>
+<h4 id='optional-15'>OPTIONAL</h4>
 <p><strong>dictionary</strong> | string<br>
 Name of the dictionary that should be used when decoding the seed. &#39;english&#39; is the most common choice when picking a dictionary.  </p>
-<h3 id='json-response-32'>JSON Response</h3>
+<h3 id='json-response-34'>JSON Response</h3>
 <blockquote>
 <p>JSON  Response Example
 <code>go
@@ -2617,14 +2867,14 @@ Number of siacoins, in hastings, transferred to the wallet as a result of the sw
 Number of siafunds transferred to the wallet as a result of the sweep.  </p>
 <h2 id='wallet-lock-post'>/wallet/lock [POST]</h2>
 <p>Locks the wallet, wiping all secret keys. After being locked, the keys are encrypted. Queries for the seed, to send siafunds, and related queries become unavailable. Queries concerning transaction history and balance are still available.</p>
-<h3 id='response-32'>Response</h3>
+<h3 id='response-37'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-transaction-id-get'>/wallet/transaction/:<em>id</em> [GET]</h2>
 <p>Gets the transaction associated with a specific transaction id.</p>
-<h3 id='path-parameters-15'>Path Parameters</h3><h4 id='required-35'>REQUIRED</h4>
+<h3 id='path-parameters-17'>Path Parameters</h3><h4 id='required-41'>REQUIRED</h4>
 <p><strong>id</strong> | hash
 ID of the transaction being requested.  </p>
-<h3 id='json-response-33'>JSON Response</h3>
+<h3 id='json-response-35'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2716,13 +2966,13 @@ Address that is affected. For outputs (incoming money), the related address fiel
 Amount of funds that have been moved in the output.  </p>
 <h2 id='wallet-transactions-get'>/wallet/transactions [GET]</h2>
 <p>Returns a list of transactions related to the wallet in chronological order.</p>
-<h3 id='query-string-parameters-32'>Query String Parameters</h3><h4 id='required-36'>REQUIRED</h4>
+<h3 id='query-string-parameters-35'>Query String Parameters</h3><h4 id='required-42'>REQUIRED</h4>
 <p><strong>startheight</strong> | block height<br>
 // Height of the block where transaction history should begin.</p>
 
 <p><strong>endheight</strong> | block height<br>
 Height of of the block where the transaction history should end. If &#39;endheight&#39; is greater than the current height, or if it is &#39;-1&#39;, all transactions up to and including the most recent block will be provided.</p>
-<h3 id='json-response-34'>JSON Response</h3>
+<h3 id='json-response-36'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2750,10 +3000,10 @@ All of the unconfirmed transactions.  </p>
 <p>See the documentation for &#39;/wallet/transaction/:id&#39; for more information.  </p>
 <h2 id='wallet-transactions-addr-get'>/wallet/transactions/:addr [GET]</h2>
 <p>Returns all of the transactions related to a specific address.</p>
-<h3 id='path-parameters-16'>Path Parameters</h3><h4 id='required-37'>REQUIRED</h4>
+<h3 id='path-parameters-18'>Path Parameters</h3><h4 id='required-43'>REQUIRED</h4>
 <p><strong>addr</strong> | hash
 Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
-<h3 id='json-response-35'>JSON Response</h3>
+<h3 id='json-response-37'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2771,17 +3021,17 @@ Array of processed transactions that relate to the supplied address.  </p>
 <p>See the documentation for &#39;/wallet/transaction/:id&#39; for more information.  </p>
 <h2 id='wallet-unlock-post'>/wallet/unlock [POST]</h2>
 <p>Unlocks the wallet. The wallet is capable of knowing whether the correct password was provided.</p>
-<h3 id='query-string-parameters-33'>Query String Parameters</h3><h4 id='required-38'>REQUIRED</h4>
+<h3 id='query-string-parameters-36'>Query String Parameters</h3><h4 id='required-44'>REQUIRED</h4>
 <p><strong>encryptionpassword</strong> | string<br>
 Password that gets used to decrypt the file. Most frequently, the encryption password is the same as the primary wallet seed.  </p>
-<h3 id='response-33'>Response</h3>
+<h3 id='response-38'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-unlockconditions-addr-get'>/wallet/unlockconditions/:addr [GET]</h2>
 <p>Returns the unlock conditions of :addr, if they are known to the wallet.</p>
-<h3 id='path-parameters-17'>Path Parameters</h3><h4 id='required-39'>REQUIRED</h4>
+<h3 id='path-parameters-19'>Path Parameters</h3><h4 id='required-45'>REQUIRED</h4>
 <p><strong>addr</strong> | hash
 Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
-<h3 id='json-response-36'>JSON Response</h3>
+<h3 id='json-response-38'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2806,7 +3056,7 @@ The number of signatures required.  </p>
 The set of keys whose signatures count towards signaturesrequired.  </p>
 <h2 id='wallet-unspent-get'>/wallet/unspent [GET]</h2>
 <p>Returns a list of outputs that the wallet can spend.</p>
-<h3 id='json-response-37'>JSON Response</h3>
+<h3 id='json-response-39'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2845,10 +3095,10 @@ Amount of funds in the output; hastings for siacoin outputs, and siafunds for si
 Whether the output comes from a watched address or from the wallet&#39;s seed.  </p>
 <h2 id='wallet-verify-address-addr-get'>/wallet/verify/address/:addr [GET]</h2>
 <p>Takes the address specified by :addr and returns a JSON response indicating if the address is valid.</p>
-<h3 id='path-parameters-18'>Path Parameters</h3><h4 id='required-40'>REQUIRED</h4>
+<h3 id='path-parameters-20'>Path Parameters</h3><h4 id='required-46'>REQUIRED</h4>
 <p><strong>addr</strong> | hash
 Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
-<h3 id='json-response-38'>JSON Response</h3>
+<h3 id='json-response-40'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2860,7 +3110,7 @@ Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
 valid indicates if the address supplied to :addr is a valid UnlockHash.  </p>
 <h2 id='wallet-watch-get'>/wallet/watch [GET]</h2>
 <p>Returns the set of addresses that the wallet is watching. This set only includes addresses that were explicitly requested to be watched; addresses that were generated automatically by the wallet, or by /wallet/address, are not included.</p>
-<h3 id='json-response-39'>JSON Response</h3>
+<h3 id='json-response-41'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2890,7 +3140,7 @@ The addresses currently watched by the wallet.  </p>
   </span><span class="c">// If true, the wallet will not rescan the blockchain. Only set this flag if</span><span class="x">
   </span><span class="c">// the addresses have never appeared in the blockchain.</span><span class="x">
   </span><span class="s">"unused"</span><span class="o">:</span><span class="x"> </span><span class="no">true</span><span class="p">,</span><span class="x">
-</span></code></pre><h3 id='response-34'>Response</h3>
+</span></code></pre><h3 id='response-39'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 
       </div>
