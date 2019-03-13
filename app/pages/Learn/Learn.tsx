@@ -23,14 +23,11 @@ class Learn extends React.Component {
           <LayoutContainer>
             <TypeHeading level={6}>Learn about Sia</TypeHeading>
             <div className={styles.MediaGrid}>
-              <MediaCard
-                type="blog"
-                href="https://blog.sia.tech/sia-triannual-update-september-december-2017-8afdf9c10325"
-              >
-                Read our latest Sia triannual update for September - December 2017.
+              <MediaCard type="blog" href="https://blog.sia.tech">
+                Read our updates on product, engineering, blockchain philosophy and more.
               </MediaCard>
-              <MediaCard type="video" href="https://youtu.be/9cEEG3WOemI">
-                Watch a fun video from a community member explaining how Sia works.
+              <MediaCard href="http://youtube.com/c/siatvofficial" type="video">
+                Go to our official Youtube Channel and keep up to date with all things Sia.
               </MediaCard>
               <MediaCard
                 type="documentation"
