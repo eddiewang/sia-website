@@ -272,6 +272,12 @@ class Home extends React.Component<{ intl: any }, State> {
           <LayoutContainer>
             <div className={styles.Globe}>
               <Map data={this.state.mapData} />
+              <p>
+                Map provided by{' '}
+                <a href="https://www.openstreetmap.org/copyright" target="_blank">
+                  OpenStreetMap
+                </a>
+              </p>
             </div>
             <div className={styles.Stats}>
               <div>
@@ -430,14 +436,11 @@ class Home extends React.Component<{ intl: any }, State> {
               Learn
             </TypeHeading>
             <div className={styles.LearnBoxes}>
-              <MediaCard
-                type="blog"
-                href="https://blog.sia.tech/sia-triannual-update-september-december-2017-8afdf9c10325"
-              >
-                Read our latest Sia triannual update for September - December 2017.
+              <MediaCard type="blog" href="https://blog.sia.tech">
+                Read our updates on product, engineering, blockchain philosophy and more.
               </MediaCard>
-              <MediaCard href="https://youtu.be/9cEEG3WOemI" type="video">
-                Watch a fun video from a community member explaining how Sia works.
+              <MediaCard href="http://youtube.com/c/siatvofficial" type="video">
+                Go to our official Youtube Channel and keep up to date with all things Sia.
               </MediaCard>
               <MediaCard
                 href="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
