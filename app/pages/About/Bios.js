@@ -119,7 +119,7 @@ export default [
         url: 'https://twitter.com/eddiepluswang'
       }
     ],
-    content: `Distributed storage will be a key component to a fault-tolerant blockchain ecosystem. Sia is only fully-decentralized product in this space with a thoughtful design and clear product path.`
+    content: `Distributed storage will be a key component to a fault-tolerant blockchain ecosystem. Sia is the only fully-decentralized product in this space with a thoughtful design and clear product path.`
   },
   {
     name: 'Matt Sevey',
