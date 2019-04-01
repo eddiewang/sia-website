@@ -382,9 +382,6 @@
                     <a href="#renter-recoverbackup-post" class="toc-h2 toc-link" data-title="renter-recoverbackup-post">/renter/recoverbackup [POST]</a>
                   </li>
                   <li>
-                    <a href="#renter-contract-cancel-post-2" class="toc-h2 toc-link" data-title="renter-contract-cancel-post">/renter/contract/cancel [POST]</a>
-                  </li>
-                  <li>
                     <a href="#renter-contracts-get" class="toc-h2 toc-link" data-title="renter-contracts-get">/renter/contracts [GET]</a>
                   </li>
                   <li>
@@ -451,6 +448,9 @@
                   </li>
                   <li>
                     <a href="#tpool-raw-post" class="toc-h2 toc-link" data-title="tpool-raw-post">/tpool/raw [POST]</a>
+                  </li>
+                  <li>
+                    <a href="#tpool-confirmed-id-get-2" class="toc-h2 toc-link" data-title="tpool-confirmed-id-get">/tpool/confirmed/:id [GET]</a>
                   </li>
               </ul>
           </li>
@@ -537,6 +537,9 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#version" class="toc-h1 toc-link" data-title="version">Version</a>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='https://sia.tech'>The Official Sia Website</li>
@@ -550,12 +553,17 @@
 <blockquote>
 <p>Example GET curl call </p>
 </blockquote>
-<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/transactions?startheight=1&amp;endheight=250"</span><span class="x">
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/wallet/transactions?startheight=1&amp;endheight=250"</span><span class="x">
 </span></code></pre>
 <blockquote>
-<p>Example POST curl call</p>
+<p>Example POST curl call with data</p>
 </blockquote>
-<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"amount=123&amp;destination=abcd"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siacoins"</span><span class="x">
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"amount=123&amp;destination=abcd"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siacoins"</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>Example POST curl call without data or authentication</p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/gateway/connect/123.456.789.0:9981"</span><span class="x">
 </span></code></pre>
 <p>Sia uses semantic versioning and is backwards compatible to version v1.0.0.</p>
 
@@ -597,7 +605,7 @@
 <blockquote>
 <p>Example POST curl call with Authentication</p>
 </blockquote>
-<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">user</span><span class="x"> </span><span class="s">""</span><span class="o">:</span><span class="s">"foobar"</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"amount=123&amp;destination=abcd"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siacoins"</span><span class="x">
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">user</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"amount=123&amp;destination=abcd"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siacoins"</span><span class="x">
 </span></code></pre>
 <p>API authentication is enabled by default, using a password stored in a flat file. The location of this file is:</p>
 
@@ -618,7 +626,7 @@ use.</p>
 
 <p>And for a curl call the following would be included</p>
 
-<p><code>--user &quot;&quot;:&quot;foobar&quot;</code></p>
+<p><code>--user &quot;&quot;:&lt;apipassword&gt;</code></p>
 
 <p>Authentication can be disabled by passing the <code>--authenticate-api=false</code> flag to siad. You can change the password by modifying the password file, setting the <code>SIA_API_PASSWORD</code> environment variable, or passing the <code>--temp-password</code> flag to siad.</p>
 <h1 id='units'>Units</h1>
@@ -628,6 +636,11 @@ use.</p>
 <h1 id='consensus'>Consensus</h1>
 <p>The consensus set manages everything related to consensus and keeps the blockchain in sync with the rest of the network. The consensus set&#39;s API endpoint returns information about the state of the blockchain.</p>
 <h2 id='consensus-get'>/consensus [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/consensus"</span><span class="x">
+</span></code></pre>
 <p>Returns information about the consensus set, such as the current block height.
 Also returns the set of constants in use in the consensus code.</p>
 <h3 id='json-response'>JSON Response</h3>
@@ -717,6 +730,12 @@ Initial depth.  </p>
 <p><strong>siacoinprecision</strong> | hastings per siacoin
 Number of Hastings in one Siacoin.  </p>
 <h2 id='consensus-blocks-get'>/consensus/blocks [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/consensus/blocks?height=20032"</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/consensus/blocks?id=00000000000033b9eb57fa63a51adeea857e70f6415ebbfe5df2a01f0d0477f4"</span><span class="x">
+</span></code></pre>
 <p>Returns the block for a given id or height.</p>
 <h3 id='query-string-parameters'>Query String Parameters</h3><h4 id='required'>REQUIRED</h4>
 <p>One of the following parameters must be specified.</p>
@@ -807,6 +826,11 @@ BlockHeight of the requested block.  </p>
     </span><span class="p">]</span><span class="x">
 </span><span class="p">}</span><span class="x">
 </span></code></pre><h2 id='consensus-validate-transactionset-post'>/consensus/validate/transactionset [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"[JSON-encoded-txnset]"</span><span class="x"> </span><span class="s">"localhost:9980/validate/transactionset"</span><span class="x">
+</span></code></pre>
 <p>validates a set of transactions using the current utxo set.</p>
 <h3 id='request-body-bytes'>Request Body Bytes</h3>
 <p>Since transactions may be large, the transaction set is supplied in the POST body, encoded in JSON format.</p>
@@ -815,10 +839,20 @@ BlockHeight of the requested block.  </p>
 <h1 id='daemon'>Daemon</h1>
 <p>The daemon is responsible for starting and stopping the modules which make up the rest of Sia.</p>
 <h2 id='daemon-stop-get'>/daemon/stop [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/daemon/stop"</span><span class="x">
+</span></code></pre>
 <p>Cleanly shuts down the daemon. This may take a few seconds.</p>
 <h3 id='response-2'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='daemon-version-get'>/daemon/version [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/daemon/version"</span><span class="x">
+</span></code></pre>
 <p>Returns the version of the Sia daemon currently running. </p>
 <h3 id='json-response-3'>JSON Response</h3>
 <blockquote>
@@ -833,6 +867,11 @@ This is the version number that is visible to its peers on the network.</p>
 <h1 id='gateway'>Gateway</h1>
 <p>The gateway maintains a peer to peer connection to the network and provides a method for calling RPCs on connected peers. The gateway&#39;s API endpoints expose methods for viewing the connected peers, manually connecting to peers, and manually disconnecting from peers. The gateway may connect or disconnect from peers on its own.</p>
 <h2 id='gateway-get'>/gateway [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/gateway"</span><span class="x">
+</span></code></pre>
 <p>returns information about the gateway, including the list of connected peers.</p>
 <h3 id='json-response-4'>JSON Response</h3>
 <blockquote>
@@ -876,16 +915,26 @@ Max download speed permitted in bytes per second</p>
 <p><strong>maxuploadspeed</strong> | bytes per second
 Max upload speed permitted in bytes per second</p>
 <h2 id='gateway-post'>/gateway [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"maxdownloadspeed=1000000&amp;maxuploadspeed=20000"</span><span class="x"> </span><span class="s">"localhost:9980/gateway"</span><span class="x">
+</span></code></pre>
 <p>Modify settings that control the gateway&#39;s behavior.</p>
 <h3 id='query-string-parameters-2'>Query String Parameters</h3><h4 id='optional'>OPTIONAL</h4>
-<p><strong>maxdownloadspeed</strong> | bytes per second
-Max download speed permitted, speed provide in bytes per second.  </p>
+<p><strong>maxdownloadspeed</strong> | bytes per second<br>
+Max download speed permitted in bytes per second  </p>
 
-<p><strong>maxuploadspeed</strong> | bytes per second
-Max upload speed permitted, speed provide in bytes per second.  </p>
+<p><strong>maxuploadspeed</strong> | bytes per second<br>
+Max upload speed permitted in bytes per second  </p>
 <h3 id='response-3'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='gateway-connect-netaddress-post'>/gateway/connect/:<em>netaddress</em> [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/gateway/connect/123.456.789.0:9981"</span><span class="x">
+</span></code></pre>
 <p>connects the gateway to a peer. The peer is added to the node list if it is not already present. The node list is the list of all nodes the gateway knows about, but is not necessarily connected to.  </p>
 <h3 id='path-parameters'>Path Parameters</h3><h4 id='required-2'>REQUIRED</h4>
 <p>netaddress is the address of the peer to connect to. It should be a reachable ip address and port number, of the form <code>IP:port</code>. IPV6 addresses must be enclosed in square brackets.  </p>
@@ -896,6 +945,11 @@ Example IPV6 address: [123::456]:789  </p>
 <h3 id='response-4'>Response</h3>
 <p>standard success or error response. See <a href="#Standard-Responses">standard responses</a>.</p>
 <h2 id='gateway-disconnect-netaddress-post'>/gateway/disconnect/:<em>netaddress</em> [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/gateway/disconnect/123.456.789.0:9981"</span><span class="x">
+</span></code></pre>
 <p>disconnects the gateway from a peer. The peer remains in the node list. Disconnecting from a peer does not prevent the gateway from automatically connecting to the peer in the future.</p>
 <h3 id='path-parameters-2'>Path Parameters</h3><h4 id='required-3'>REQUIRED</h4>
 <p>netaddress is the address of the peer to connect to. It should be a reachable ip address and port number, of the form <code>IP:port</code>. IPV6 addresses must be enclosed in square brackets.  </p>
@@ -908,6 +962,11 @@ Example IPV6 address: [123::456]:789  </p>
 <h1 id='host'>Host</h1>
 <p>The host provides storage from local disks to the network. The host negotiates file contracts with remote renters to earn money for storing other users&#39; files. The host&#39;s endpoints expose methods for viewing and modifying host settings, announcing to the network, and managing how files are stored on disk.</p>
 <h2 id='host-get'>/host [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/host"</span><span class="x">
+</span></code></pre>
 <p>fetches status information about the host.</p>
 <h3 id='json-response-5'>JSON Response</h3>
 <blockquote>
@@ -1160,6 +1219,11 @@ connectabilitystatus is one of &quot;checking&quot;, &quot;connectable&quot;, or
 <p><strong>workingstatus</strong> | string
 workingstatus is one of &quot;checking&quot;, &quot;working&quot;, or &quot;not working&quot; and indicates if the host is being actively used by renters.  </p>
 <h2 id='host-post'>/host [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/host?acceptingcontracts=true&amp;maxduration=12096&amp;windowsize=1008"</span><span class="x">
+</span></code></pre>
 <p>Configures hosting parameters. All parameters are optional; unspecified parameters will be left unchanged.</p>
 <h3 id='query-string-parameters-3'>Query String Parameters</h3><h4 id='optional-2'>OPTIONAL</h4>
 <p><strong>acceptingcontracts</strong> | boolean
@@ -1203,6 +1267,11 @@ The minimum price that the host will demand from a renter when the renter is upl
 <h3 id='response-6'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='host-announce-post'>/host/announce [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/host/announce"</span><span class="x">
+</span></code></pre>
 <p>Announce the host to the network as a source of storage. Generally only needs to be called once.</p>
 
 <p>Note that even after the host has been announced, it will not accept new contracts unless configured to do so. To configure the host to accept contracts, see <a href="##%20/host%20[POST]">/host</a>.</p>
@@ -1212,6 +1281,11 @@ The address to be announced. If no address is provided, the automatically discov
 <h3 id='response-7'>Response</h3>
 <p>standard success or error response. See <a href="#Standard-Responses">standard responses</a>.</p>
 <h2 id='host-contracts-get'>/host/contracts [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/host/contracts"</span><span class="x">
+</span></code></pre>
 <p>Get contract information from the host database. This call will return all storage obligations on the host. Its up to the caller to filter the contracts based on their needs.</p>
 <h3 id='json-response-6'>JSON Response</h3>
 <blockquote>
@@ -1304,6 +1378,11 @@ Revision confirmed indicates whether there was a file contract revision seen on 
 <p><strong>revisionconstructed</strong> | boolean
 Revision constructed indicates whether there was a file contract revision constructed for this storage obligation.</p>
 <h2 id='host-storage-get'>/host/storage [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/host/storage"</span><span class="x">
+</span></code></pre>
 <p>Gets a list of folders tracked by the host&#39;s storage manager.</p>
 <h3 id='json-response-7'>JSON Response</h3>
 <blockquote>
@@ -1339,6 +1418,11 @@ Number of failed disk read &amp; write operations. A large number of failed read
 <p><strong>successfulreads, successfulwrites</strong> | int<br>
 Number of successful read &amp; write operations.  </p>
 <h2 id='host-storage-folders-add-post'>/host/storage/folders/add [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"path=foo/bar&amp;size=1000000000000"</span><span class="x"> </span><span class="s">"localhost:9980/host/storage/add"</span><span class="x">
+</span></code></pre>
 <p>adds a storage folder to the manager. The manager may not check that there is enough space available on-disk to support as much storage as requested</p>
 <h3 id='query-string-parameters-5'>Query String Parameters</h3><h4 id='required-4'>REQUIRED</h4>
 <p><strong>path</strong> | string<br>
@@ -1349,6 +1433,11 @@ Initial capacity of the storage folder. This value isn&#39;t validated so it is 
 <h3 id='response-8'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='host-storage-folders-remove-post'>/host/storage/folders/remove [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"path=foo/bar&amp;force=false"</span><span class="x"> </span><span class="s">"localhost:9980/host/storage/remove"</span><span class="x">
+</span></code></pre>
 <p>Remove a storage folder from the manager. All sotrage on the folder will be moved to other stoarge folders, meaning that no data will be lost. If the manager is unable to save data, an error will be returned and the operation will be stopped.</p>
 <h3 id='query-string-parameters-6'>Query String Parameters</h3><h4 id='required-5'>REQUIRED</h4>
 <p><strong>path</strong> | string<br>
@@ -1359,6 +1448,11 @@ If <code>force</code> is true, the storage folder will be removed even if the da
 <h3 id='response-9'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='host-storage-folders-resize-post'>/host/storage/folders/resize [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"path=foo/bar&amp;newsize=1000000000000"</span><span class="x"> </span><span class="s">"localhost:9980/host/storage/resize"</span><span class="x">
+</span></code></pre>
 <p>Grows or shrinks a storage file in the manager. The manager may not check that there is enough space on-disk to support growing the storasge folder, but should gracefully handle running out of space unexpectedly. When shrinking a storage folder, any data in the folder that neeeds to be moved will be placed into other storage folders, meaning that no data will be lost. If the manager is unable to migrate the data, an error will be returned and the operation will be stopped.</p>
 <h3 id='query-string-parameters-7'>Query String Parameters</h3><h4 id='required-6'>REQUIRED</h4>
 <p><strong>path</strong> | string<br>
@@ -1369,6 +1463,11 @@ Desired new size of the storage folder. This will be the new capacity of the sto
 <h3 id='response-10'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='host-storage-sectors-delete-merkleroot-post'>/host/storage/sectors/delete/:<em>merkleroot</em> [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/host/storage/sectors/delete/[merkleroot]"</span><span class="x">
+</span></code></pre>
 <p>Deletes a sector, meaning that the manager will be unable to upload that sector and be unable to provide a storage proof on that sector. This endpoint is for removing the data entirely, and will remove instances of the sector appearing at all heights. The primary purpose is to comply with legal requests to remove data.</p>
 <h3 id='path-parameters-3'>Path Parameters</h3><h4 id='required-7'>REQUIRED</h4>
 <p><strong>merkleroot</strong> | merkleroot
@@ -1376,6 +1475,11 @@ Merkleroot of the sector to delete.  </p>
 <h3 id='response-11'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='host-estimatescore-get'>/host/estimatescore [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/host/estimatescore"</span><span class="x">
+</span></code></pre>
 <p>Returns the estimated HostDB score of the host using its current settings, combined with the provided settings.</p>
 <h3 id='query-string-parameters-8'>Query String Parameters</h3><h4 id='optional-5'>OPTIONAL</h4>
 <p>See <a href="#internalsettings">host internal settings</a>
@@ -1410,12 +1514,10 @@ conversionrate is the likelihood given the settings passed to estimatescore that
 <p>The hostdb maintains a database of all hosts known to the network. The database identifies hosts by their public key and keeps track of metrics such as price.</p>
 <h2 id='hostdb-get'>/hostdb [GET]</h2>
 <blockquote>
-<p>curl example
-<code>go
-curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb&quot;
-</code></p>
+<p>curl example  </p>
 </blockquote>
-
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/hostdb"</span><span class="x">
+</span></code></pre>
 <p>Shows some general information about the state of the hostdb.</p>
 <h3 id='json-response-9'>JSON Response</h3>
 <blockquote>
@@ -1428,17 +1530,15 @@ curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb&quot;
 <p><strong>initialscancomplete</strong> | boolean
 indicates if all known hosts have been scanned at least once.</p>
 <h2 id='hostdb-active-get'>/hostdb/active [GET]</h2>
-<p>lists all of the active hosts known to the renter, sorted by preference.</p>
-<h3 id='query-string-parameters-9'>Query String Parameters</h3>
 <blockquote>
-<p>curl example
-<code>go
-curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb/active&quot;
-</code></p>
-<h4 id='optional-6'>OPTIONAL</h4>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/hostdb/active"</span><span class="x">
+</span></code></pre>
+<p>lists all of the active hosts known to the renter, sorted by preference.</p>
+<h3 id='query-string-parameters-9'>Query String Parameters</h3><h4 id='optional-6'>OPTIONAL</h4>
 <p><strong>numhosts</strong> | int<br>
 Number of hosts to return. The actual number of hosts returned may be less if there are insufficient active hosts. Optional, the default is all active hosts.  </p>
-</blockquote>
 <h3 id='json-response-10'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
@@ -1606,27 +1706,28 @@ The string representation of the full public key, used when calling /hostdb/host
 Indicates if the host is currently being filtered from the HostDB</p>
 <h2 id='hostdb-all-get'>/hostdb/all [GET]</h2>
 <blockquote>
-<p>curl example
-<code>go
-curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb/all&quot;
-</code></p>
+<p>curl example  </p>
 </blockquote>
-
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/hostdb/all"</span><span class="x">
+</span></code></pre>
 <p>Lists all of the hosts known to the renter. Hosts are not guaranteed to be in any particular order, and the order may change in subsequent calls.</p>
 <h3 id='json-response-11'>JSON Response</h3>
 <p>Repsonse is the same as <a href="#hosts"><code>/hostdb/active</code></a></p>
 <h2 id='hostdb-hosts-pubkey-get'>/hostdb/hosts/:<em>pubkey</em> [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/hostdb/hosts/ed25519:8a95848bc71e9689e2f753c82c35dc47a1d62867f77c0113ebb6fa5b51723215"</span><span class="x">
+</span></code></pre>
 <p>fetches detailed information about a particular host, including metrics regarding the score of the host within the database. It should be noted that each renter uses different metrics for selecting hosts, and that a good score on in one hostdb does not mean that the host will be successful on the network overall.</p>
 <h3 id='path-parameters-4'>Path Parameters</h3>
 <blockquote>
-<p>curl example
-<code>go
-curl -A &quot;Sia-Agent&quot; &quot;localhost:9980/hostdb/hosts/&lt;pubkey&gt;&quot;
-</code></p>
-<h4 id='required-8'>REQUIRED</h4>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/hostdb/hosts/&lt;pubkey&gt;"</span><span class="x">
+</span></code></pre><h4 id='required-8'>REQUIRED</h4>
 <p><strong>pubkey</strong><br>
 The public key of the host. Each public key identifies a single host.  </p>
-</blockquote>
 
 <p>Example Pubkey: ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef  </p>
 <h3 id='json-response-12'>JSON Response</h3>
@@ -1686,19 +1787,16 @@ The multiplier that gets applied to a host based on the uptime percentage of the
 <p><strong>versionadjustment</strong> | float64 
 The multiplier that gets applied to a host based on the version of Sia that they are running. Versions get penalties if there are known bugs, scaling limitations, performance limitations, etc. Generally, the most recent version is always the one with the highest score.  </p>
 <h2 id='hostdb-filtermode-post'>/hostdb/filtermode [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">user</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="err">'</span><span class="p">{</span><span class="s">"filtermode"</span><span class="x"> </span><span class="o">:</span><span class="x"> </span><span class="s">"whitelist"</span><span class="p">,</span><span class="s">"hosts"</span><span class="x"> </span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="s">"ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"</span><span class="p">,</span><span class="s">"ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"</span><span class="p">,</span><span class="s">"ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"</span><span class="p">]}</span><span class="err">'</span><span class="x"> </span><span class="s">"localhost:9980/hostdb/filtermode"</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">user</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="err">'</span><span class="p">{</span><span class="s">"filtermode"</span><span class="x"> </span><span class="o">:</span><span class="x"> </span><span class="s">"disable"</span><span class="p">}</span><span class="err">'</span><span class="x"> </span><span class="s">"localhost:9980/hostdb/filtermode"</span><span class="x">
+</span></code></pre>
 <p>Lets you enable and disable a filter mode for the hostdb. Currenlty the two modes supported are <code>blacklist</code> mode and <code>whitelist</code> mode. In <code>blacklist</code> mode, any hosts you identify as being on the <code>blacklist</code> will not be used to form contracts. In <code>whitelist</code> mode, only the hosts identified as being on the <code>whitelist</code> will be used to form contracts. In both modes, hosts that you are blacklisted will be filtered from your hostdb. To enable either mode, set <code>filtermode</code> to the desired mode and submit a list of host pubkeys as the corresponding <code>blacklist</code> or <code>whitelist</code>. To disable either list, the <code>host</code> field can be left blank (e.g. empty slice) and the <code>filtermode</code> should be set to <code>disable</code>.  </p>
 
 <p><strong>NOTE:</strong> Enabling and disabling a filter mode can result in changes with your current contracts with can result in an increase in contract fee spending. For example, if <code>blacklist</code> mode is enabled, any hosts that you currently have contracts with that are also on the provide list of <code>hosts</code> will have their contracts replaced with non-blacklisted hosts. When <code>whitelist</code> mode is enabled, contracts will be replaced until there are only contracts with whitelisted hosts. Even disabling a filter mode can result in a change in contracts if there are better scoring hosts in your hostdb that were previously being filtered out.  </p>
-<h3 id='query-string-parameters-10'>Query String Parameters</h3>
-<blockquote>
-<p>curl example
-```go
-curl -A &quot;Sia-Agent&quot; --user &quot;&quot;:&quot;foobar&quot; --data &#39;{&quot;filtermode&quot; : &quot;whitelist&quot;,&quot;hosts&quot; : [&quot;ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;,&quot;ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;,&quot;ed25519:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef&quot;]}&#39; &quot;localhost:9980/hostdb/filtermode&quot;</p>
-</blockquote>
-
-<p>curl -A &quot;Sia-Agent&quot; --user &quot;&quot;:&quot;foobar&quot; --data &#39;{&quot;filtermode&quot; : &quot;disable&quot;}&#39; &quot;localhost:9980/hostdb/filtermode&quot;
-```</p>
-<h4 id='required-9'>REQUIRED</h4>
+<h3 id='query-string-parameters-10'>Query String Parameters</h3><h4 id='required-9'>REQUIRED</h4>
 <p><strong>filtermode</strong> | string<br>
 Can be either whitelist, blacklist, or disable.  </p>
 
@@ -1709,6 +1807,11 @@ Comma separated pubkeys.  </p>
 <h1 id='miner'>Miner</h1>
 <p>The miner provides endpoints for getting headers for work and submitting solved headers to the network. The miner also provides endpoints for controlling a basic CPU mining implementation.</p>
 <h2 id='miner-get'>/miner [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/miner"</span><span class="x">
+</span></code></pre>
 <p>returns the status of the miner.</p>
 <h3 id='json-response-13'>JSON Response</h3>
 <blockquote>
@@ -1733,14 +1836,29 @@ true if the cpu miner is active.  </p>
 <p><strong>staleblocksmined</strong> | int<br>
 Number of mined blocks that are stale, indicating that they are not included in the current longest chain, likely because some other block at the same height had its chain extended first.  </p>
 <h2 id='miner-start-get'>/miner/start [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/miner/start"</span><span class="x">
+</span></code></pre>
 <p>Starts a single threaded CPU miner. Does nothing if the CPU miner is already running.</p>
 <h3 id='response-13'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='miner-stop-get'>/miner/stop [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/miner/stop"</span><span class="x">
+</span></code></pre>
 <p>stops the cpu miner. Does nothing if the cpu miner is not running.</p>
 <h3 id='response-14'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='miner-header-get'>/miner/header [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/miner/header"</span><span class="x">
+</span></code></pre>
 <p>provides a block header that is ready to be grinded on for work.</p>
 <h3 id='byte-response'>Byte Response</h3>
 <p>For efficiency the header for work is returned as a raw byte encoding of the header, rather than encoded to JSON.</p>
@@ -1788,6 +1906,11 @@ Number of mined blocks that are stale, indicating that they are not included in 
 </tr>
 </tbody></table>
 <h2 id='miner-header-post'>/miner/header [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">data</span><span class="x"> </span><span class="s">"&lt;byte-encoded-header&gt;"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/miner"</span><span class="x">
+</span></code></pre>
 <p>submits a header that has passed the POW.</p>
 <h3 id='byte-response-2'>Byte Response</h3>
 <p>For efficiency headers are submitted as raw byte encodings of the header in the body of the request, rather than as a query string parameter or path parameter. The request body should contain only the 80 bytes of the encoded header. The encoding is the same encoding used in <code>/miner/header [GET]</code> endpoint.</p>
@@ -1837,6 +1960,11 @@ Number of mined blocks that are stale, indicating that they are not included in 
 <h1 id='renter'>Renter</h1>
 <p>The renter manages the user&#39;s files on the network. The renter&#39;s API endpoints expose methods for managing files on the network and managing the renter&#39;s allocated funds.</p>
 <h2 id='renter-get'>/renter [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter"</span><span class="x">
+</span></code></pre>
 <p>Returns the current settings along with metrics on the renter&#39;s spending.</p>
 <h3 id='json-response-14'>JSON Response</h3>
 <blockquote>
@@ -1917,6 +2045,11 @@ Amount of money in the allowance that has not been spent.  </p>
 <p><strong>currentperiod</strong> | blockheight
 Height at which the current allowance period began.  </p>
 <h2 id='renter-post'>/renter [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"period=12096&amp;renewwindow=4032&amp;funds=1000&amp;hosts=50"</span><span class="x"> </span><span class="s">"localhost:9980/renter"</span><span class="x">
+</span></code></pre>
 <p>Modify settings that control the renter&#39;s behavior.</p>
 <h3 id='query-response-parameters'>Query Response Parameters</h3><h4 id='optional-7'>OPTIONAL</h4>
 <p>Any of the renter settings can be set, see fields <a href="#settings">here</a></p>
@@ -1926,6 +2059,11 @@ Enables or disables the check for hosts using the same ip subnets within the hos
 <h3 id='response-15'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-contract-cancel-post'>/renter/contract/cancel [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"id=bd7ef21b13fb85eda933a9ff2874ec50a1ffb4299e98210bf0dd343ae1632f80"</span><span class="x"> </span><span class="s">"localhost:9980/renter/contract/cancel"</span><span class="x">
+</span></code></pre>
 <p>cancels a specific contract of the Renter.</p>
 <h3 id='query-string-parameters-11'>Query String Parameters</h3><h4 id='required-10'>REQUIRED</h4>
 <p><strong>id</strong> | hash
@@ -1933,6 +2071,11 @@ ID of the file contract</p>
 <h3 id='response-16'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-backup-post'>/renter/backup [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"destination=/home/backups/01-01-1968.backup"</span><span class="x"> </span><span class="s">"localhost:9980/renter/backup"</span><span class="x">
+</span></code></pre>
 <p>Creates a backup of all siafiles in the renter at the specified path.</p>
 <h3 id='query-response-parameters-2'>Query Response Parameters</h3><h4 id='required-11'>REQUIRED</h4>
 <p><strong>destination</strong> | string
@@ -1941,6 +2084,11 @@ path.</p>
 <h3 id='response-17'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-recoverbackup-post'>/renter/recoverbackup [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"source=/home/backups/01-01-1968.backup"</span><span class="x"> </span><span class="s">"localhost:9980/renter/recoverbackup"</span><span class="x">
+</span></code></pre>
 <p>Recovers an existing backup from the specified path by adding all the siafiles
 contained within it to the renter. Should a siafile for a certain path already
 exist, a number will be added as a suffix. e.g. &#39;myfile_1.sia&#39;</p>
@@ -1950,16 +2098,14 @@ The path on disk where the backup will be recovered from. Needs to be an
 absolute path.</p>
 <h3 id='response-18'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
-<h2 id='renter-contract-cancel-post-2'>/renter/contract/cancel [POST]</h2>
-<p>cancels a specific contract of the Renter.</p>
-<h3 id='query-string-parameters-12'>Query String Parameters</h3><h4 id='required-13'>REQUIRED</h4>
-<p><strong>id</strong> | hash
-ID of the file contract</p>
-<h3 id='response-19'>Response</h3>
-<p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-contracts-get'>/renter/contracts [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/contracts?inactive=true&amp;expired=true&amp;recoverable=false"</span><span class="x">
+</span></code></pre>
 <p>Returns the renter&#39;s contracts.  Active contracts are contracts that the Renter is currently using to store, upload, and download data, and are returned by default. Inactive contracts are contracts that are in the current period but are marked as not good for renew, these contracts have the potential to become active again but currently are not storing data.  Expired contracts are contracts not in the current period, where not more data is being stored and excess funds have been released to the renter. Recoverable contracts are contracts which the contractor is currently trying to recover and which haven&#39;t expired yet. </p>
-<h3 id='query-string-parameters-13'>Query String Parameters</h3><h4 id='optional-8'>OPTIONAL</h4>
+<h3 id='query-string-parameters-12'>Query String Parameters</h3><h4 id='optional-8'>OPTIONAL</h4>
 <p><strong>inactive</strong> | boolean
 flag indicating if inactive contracts should be returned.</p>
 
@@ -2055,8 +2201,17 @@ Signals if contract is good for uploading data.  </p>
 <p><strong>goodforrenew</strong> | boolean<br>
 Signals if contract is good for a renewal.  </p>
 <h2 id='renter-dir-siapath-get'>/renter/dir/*siapath [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+
+<p>The root siadir path is &quot;&quot; so submitting the API call without an empty siapath
+will return the root siadir information.  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/dir/"</span><span class="x">
+</span></code></pre><pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/dir/mydir"</span><span class="x">
+</span></code></pre>
 <p>retrieves the contents of a directory on the sia network</p>
-<h3 id='path-parameters-5'>Path Parameters</h3><h4 id='required-14'>REQUIRED</h4>
+<h3 id='path-parameters-5'>Path Parameters</h3><h4 id='required-13'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the directory on the sia netork  </p>
 <h3 id='json-response-16'>JSON Response</h3>
@@ -2125,18 +2280,28 @@ The path to the directory on the sia network</p>
 <p><strong>files</strong>
 Same response as <a href="#files">files</a></p>
 <h2 id='renter-dir-siapath-post'>/renter/dir/*siapath [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"action=delete"</span><span class="x"> </span><span class="s">"localhost:9980/renter/dir/mydir"</span><span class="x">
+</span></code></pre>
 <p>performs various functions on the renter&#39;s directories</p>
-<h3 id='path-parameters-6'>Path Parameters</h3><h4 id='required-15'>REQUIRED</h4>
+<h3 id='path-parameters-6'>Path Parameters</h3><h4 id='required-14'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Location where the directory will reside in the renter on the network. The path must be non-empty, may not include any path traversal strings (&quot;./&quot;, &quot;../&quot;), and may not begin with a forward-slash character.  </p>
-<h3 id='query-string-parameters-14'>Query String Parameters</h3><h4 id='required-16'>REQUIRED</h4>
+<h3 id='query-string-parameters-13'>Query String Parameters</h3><h4 id='required-15'>REQUIRED</h4>
 <p><strong>action</strong> | string
 Action can be either <code>create</code> or <code>delete</code>.
  - <code>create</code> will create an empty directory on the sia network
  - <code>delete</code> will remove a directory and its contents from the sia network</p>
-<h3 id='response-20'>Response</h3>
+<h3 id='response-19'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-downloads-get'>/renter/downloads [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/downloads"</span><span class="x">
+</span></code></pre>
 <p>Lists all files in the download queue.</p>
 <h3 id='json-response-17'>JSON Response</h3>
 <blockquote>
@@ -2194,18 +2359,28 @@ Time at which the download was initiated.</p>
 <p><strong>totaldatatransfered</strong> | bytes
 The total amount of data transfered when downloading the file. This will eventually include data transferred during contract + payment negotiation, as well as data from failed piece downloads.  </p>
 <h2 id='renter-downloads-clear-post'>/renter/downloads/clear [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/renter/downloads/clear?before=1551398400&amp;after=1552176000"</span><span class="x">
+</span></code></pre>
 <p>Clears the download history of the renter for a range of unix time stamps.  Both parameters are optional, if no parameters are provided, the entire download history will be cleared.  To clear a single download, provide the timestamp for the download as both parameters.  Providing only the before parameter will clear all downloads older than the timestamp. Conversely, providing only the after parameter will clear all downloads newer than the timestamp.</p>
-<h3 id='query-string-parameters-15'>Query String Parameters</h3><h4 id='optional-9'>OPTIONAL</h4>
+<h3 id='query-string-parameters-14'>Query String Parameters</h3><h4 id='optional-9'>OPTIONAL</h4>
 <p><strong>before</strong> | unix timestamp<br>
 unix timestamp found in the download history</p>
 
 <p><strong>after</strong> | unix timestamp<br>
 unix timestamp found in the download history</p>
-<h3 id='response-21'>Response</h3>
+<h3 id='response-20'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-prices-get'>/renter/prices [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/prices"</span><span class="x">
+</span></code></pre>
 <p>Lists the estimated prices of performing various storage and data operations. An allowance can be submitted to provide a more personalized estimate. If no allowance is submitted then the current set allowance will be used, if there is no allowance set then sane defaults will be used. Submitting an allowance is optional, but when submitting an allowance all the components of the allowance are required. The allowance used to create the estimate is returned with the estimate.</p>
-<h3 id='query-string-parameters-16'>Query String Parameters</h3><h5 id='required-or-optional'>REQUIRED or OPTIONAL</h5>
+<h3 id='query-string-parameters-15'>Query String Parameters</h3><h5 id='required-or-optional'>REQUIRED or OPTIONAL</h5>
 <p>Allowance settings, see the fields <a href="#allowance">here</a></p>
 <h3 id='json-response-18'>JSON Response</h3>
 <blockquote>
@@ -2236,6 +2411,11 @@ The estimated cost of uploading one terabyte of data to the network, including a
 
 <p>The allowance settings used for the estimation are also returned, see the fields <a href="#allowance">here</a></p>
 <h2 id='renter-files-get'>/renter/files [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/files"</span><span class="x">
+</span></code></pre>
 <p>lists the status of all files.</p>
 <h3 id='json-response-19'>JSON Response</h3>
 <blockquote>
@@ -2336,68 +2516,103 @@ Total number of bytes successfully uploaded via current file contracts. This num
 <p><strong>uploadprogress</strong> | percent<br>
 Percentage of the file uploaded, including redundancy. Uploading has completed when uploadprogress is 100. Files may be available for download before upload progress is 100.  </p>
 <h2 id='renter-file-siapath-get'>/renter/file/<em>siapath</em> [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/file/myfile"</span><span class="x">
+</span></code></pre>
 <p>Lists the status of specified file.</p>
-<h3 id='path-parameters-7'>Path Parameters</h3><h4 id='required-17'>REQUIRED</h4>
+<h3 id='path-parameters-7'>Path Parameters</h3><h4 id='required-16'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
 <h3 id='json-response-20'>JSON Response</h3>
 <p>Same response as <a href="#files">files</a></p>
 <h2 id='renter-file-siapath-post'>/renter/file/<em>siapath</em> [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"trackingpath=/home/myfile"</span><span class="x"> </span><span class="s">"localhost:9980/renter/file/myfile"</span><span class="x">
+</span></code></pre>
 <p>endpoint for changing file metadata.</p>
-<h3 id='path-parameters-8'>Path Parameters</h3><h4 id='required-18'>REQUIRED</h4>
+<h3 id='path-parameters-8'>Path Parameters</h3><h4 id='required-17'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 SiaPath of the file on the network. The path must be non-empty, may not include any path traversal strings (&quot;./&quot;, &quot;../&quot;), and may not begin with a forward-slash character.</p>
-<h3 id='query-string-parameters-17'>Query String Parameters</h3><h4 id='optional-10'>OPTIONAL</h4>
+<h3 id='query-string-parameters-16'>Query String Parameters</h3><h4 id='optional-10'>OPTIONAL</h4>
 <p><strong>trackingpath</strong> | string
 If provided, this parameter changes the tracking path of a file to the  specified path. Useful if moving the file to a different location on disk.</p>
-<h3 id='response-22'>Response</h3>
+<h3 id='response-21'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-delete-siapath-post'>/renter/delete/<em>siapath</em> [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/renter/delete/myfile"</span><span class="x">
+</span></code></pre>
 <p>deletes a renter file entry. Does not delete any downloads or original files, only the entry in the renter.</p>
-<h3 id='path-parameters-9'>Path Parameters</h3><h4 id='required-19'>REQUIRED</h4>
+<h3 id='path-parameters-9'>Path Parameters</h3><h4 id='required-18'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='response-23'>Response</h3>
+<h3 id='response-22'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-download-siapath-get'>/renter/download/<em>siapath</em> [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/renter/download/myfile?httpresp=true"</span><span class="x">
+</span></code></pre>
 <p>downloads a file to the local filesystem. The call will block until the file has been downloaded.</p>
-<h3 id='path-parameters-10'>Path Parameters</h3><h4 id='required-20'>REQUIRED</h4>
+<h3 id='path-parameters-10'>Path Parameters</h3><h4 id='required-19'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='query-string-parameters-18'>Query String Parameters</h3><h4 id='required-21'>REQUIRED</h4>
+<h3 id='query-string-parameters-17'>Query String Parameters</h3><h4 id='required-either-one-or-the-other'>REQUIRED (Either one or the other)</h4>
 <p><strong>destination</strong> | string
 Location on disk that the file will be downloaded to.  </p>
+
+<p><strong>httpresp</strong> | boolean
+If httresp is true, the data will be written to the http response.</p>
 <h4 id='optional-11'>OPTIONAL</h4>
 <p><strong>async</strong> | boolean
 If async is true, the http request will be non blocking. Can&#39;t be used with:  </p>
-
-<p><strong>httpresp</strong> | boolean
-If httresp is true, the data will be written to the http response.  </p>
 
 <p><strong>length</strong> | bytes
 Length of the requested data. Has to be &lt;= filesize-offset.  </p>
 
 <p><strong>offset</strong> | bytes
 Offset relative to the file start from where the download starts.  </p>
-<h3 id='response-24'>Response</h3>
+<h3 id='response-23'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-downloadsync-siapath-get'>/renter/downloadsync/<em>siapath</em> [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/renter/downloadasync/myfile?destination=/home/myfile"</span><span class="x">
+</span></code></pre>
 <p>downloads a file to the local filesystem. The call will return immediately.</p>
-<h3 id='path-parameters-11'>Path Parameters</h3><h4 id='required-22'>REQUIRED</h4>
+<h3 id='path-parameters-11'>Path Parameters</h3><h4 id='required-20'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='query-string-parameters-19'>Query String Parameters</h3><h4 id='required-23'>REQUIRED</h4>
+<h3 id='query-string-parameters-18'>Query String Parameters</h3><h4 id='required-21'>REQUIRED</h4>
 <p><strong>destination</strong> | string
 Location on disk that the file will be downloaded to.  </p>
-<h3 id='response-25'>Response</h3>
+<h3 id='response-24'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-recoveryscan-post'>/renter/recoveryscan [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/renter/recoveryscan"</span><span class="x">
+</span></code></pre>
 <p>starts a rescan of the whole blockchain to find recoverable contracts. The
 contractor will periodically try to recover found contracts every 10 minutes
 until they are recovered or expired.</p>
-<h3 id='response-26'>Response</h3>
+<h3 id='response-25'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-recoveryscan-get'>/renter/recoveryscan [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/recoveryscan"</span><span class="x">
+</span></code></pre>
 <p>Returns some information about a potentially ongoing recovery scan.</p>
 <h3 id='json-response-21'>JSON Response</h3>
 <blockquote>
@@ -2414,27 +2629,49 @@ indicates if a scan for recoverable contracts is currently in progress.</p>
 <p><strong>scannedheight</strong> | uint64
 indicates the progress of a currently ongoing scan in terms of number of blocks
 that have already been scanned.</p>
-<h2 id='renter-rename-siapath-post'>/renter/rename/<em>siapath</em> [POST]</h2><h3 id='path-parameters-12'>Path Parameters</h3><h4 id='required-24'>REQUIRED</h4>
+<h2 id='renter-rename-siapath-post'>/renter/rename/<em>siapath</em> [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"newsiapath=myfile2"</span><span class="x"> </span><span class="s">"localhost:9980/renter/rename/myfile"</span><span class="x">
+</span></code></pre><h3 id='path-parameters-12'>Path Parameters</h3><h4 id='required-22'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='query-string-parameters-20'>Query String Parameters</h3><h4 id='required-25'>REQUIRED</h4>
+<h3 id='query-string-parameters-19'>Query String Parameters</h3><h4 id='required-23'>REQUIRED</h4>
 <p><strong>newsiapath</strong> | string 
 New location of the file in the renter on the network.  </p>
-<h3 id='response-27'>Response</h3>
+<h3 id='response-26'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-stream-siapath-get'>/renter/stream/<em>siapath</em> [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+
+<p>Stream the whole file.  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/renter/stream/myfile"</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>The file can be streamed partially by using standard partial http requests which means setting the &quot;Range&quot; field in the http header.  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">H</span><span class="x"> </span><span class="s">"Range: bytes=0-1023"</span><span class="x"> </span><span class="s">"localhost:9980/renter/stream/myfile"</span><span class="x">
+</span></code></pre>
 <p>downloads a file using http streaming. This call blocks until the data is received. The streaming endpoint also uses caching internally to prevent siad from re-downloading the same chunk multiple times when only parts of a file are requested at once. This might lead to a substantial increase in ram usage and therefore it is not recommended to stream multiple files in parallel at the moment. This restriction will be removed together with the caching once partial downloads are supported in the future. If you want to stream multiple files you should increase the size of the Renter&#39;s <code>streamcachesize</code> to at least 2x the number of files you are steaming.</p>
-<h3 id='path-parameters-13'>Path Parameters</h3><h4 id='required-26'>REQUIRED</h4>
+<h3 id='path-parameters-13'>Path Parameters</h3><h4 id='required-24'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
-<h3 id='response-28'>Response</h3>
+<h3 id='response-27'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='renter-upload-siapath-post'>/renter/upload/<em>siapath</em> [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"source=/home/myfile"</span><span class="x"> </span><span class="s">"localhost:9980/renter/upload/myfile"</span><span class="x">
+</span></code></pre>
 <p>uploads a file to the network from the local filesystem.</p>
-<h3 id='path-parameters-14'>Path Parameters</h3><h4 id='required-27'>REQUIRED</h4>
+<h3 id='path-parameters-14'>Path Parameters</h3><h4 id='required-25'>REQUIRED</h4>
 <p><strong>siapath</strong> | string
 Location where the file will reside in the renter on the network. The path must be non-empty, may not include any path traversal strings (&quot;./&quot;, &quot;../&quot;), and may not begin with a forward-slash character.  </p>
-<h3 id='query-string-parameters-21'>Query String Parameters</h3><h4 id='required-28'>REQUIRED</h4>
+<h3 id='query-string-parameters-20'>Query String Parameters</h3><h4 id='required-26'>REQUIRED</h4>
 <p><strong>source</strong> | string
 Location on disk of the file being uploaded.  </p>
 <h4 id='optional-12'>OPTIONAL</h4>
@@ -2443,11 +2680,16 @@ The number of data pieces to use when erasure coding the file.  </p>
 
 <p><strong>paritypieces</strong> | int<br>
 The number of parity pieces to use when erasure coding the file. Total redundancy of the file is (datapieces+paritypieces)/datapieces.  </p>
-<h3 id='response-29'>Response</h3>
+<h3 id='response-28'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h1 id='transaction-pool'>Transaction Pool</h1><h2 id='tpool-confirmed-id-get'>/tpool/confirmed/:id [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/tpool/confirmed/22e8d5428abc184302697929f332fa0377ace60d405c39dd23c0327dc694fae7"</span><span class="x">
+</span></code></pre>
 <p>returns whether the requested transaction has been seen on the blockchain. Note, however, that the block containing the transaction may later be invalidated by a reorg.</p>
-<h3 id='path-parameters-15'>Path Parameters</h3><h4 id='required-29'>REQUIRED</h4>
+<h3 id='path-parameters-15'>Path Parameters</h3><h4 id='required-27'>REQUIRED</h4>
 <p><strong>id</strong> | hash
 id of the transaction being queried</p>
 <h3 id='json-response-22'>JSON Response</h3>
@@ -2461,6 +2703,11 @@ id of the transaction being queried</p>
 <p><strong>confirmed</strong> | boolean
 indicates if a transaction is confirmed on the blockchain</p>
 <h2 id='tpool-fee-get'>/tpool/fee [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/tpool/fee"</span><span class="x">
+</span></code></pre>
 <p>returns the minimum and maximum estimated fees expected by the transaction pool.</p>
 <h3 id='json-response-23'>JSON Response</h3>
 <blockquote>
@@ -2477,8 +2724,13 @@ the minimum estimated fee</p>
 <p><strong>maximum</strong> | hastings / byte
 the maximum estimated fee</p>
 <h2 id='tpool-raw-id-get'>/tpool/raw/:id [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/tpool/raw/22e8d5428abc184302697929f332fa0377ace60d405c39dd23c0327dc694fae7"</span><span class="x">
+</span></code></pre>
 <p>returns the ID for the requested transaction and its raw encoded parents and transaction data.</p>
-<h3 id='path-parameters-16'>Path Parameters</h3><h4 id='required-30'>REQUIRED</h4>
+<h3 id='path-parameters-16'>Path Parameters</h3><h4 id='required-28'>REQUIRED</h4>
 <p><strong>id</strong> | hash 
 id of the transaction being queried</p>
 <h3 id='json-response-24'>JSON Response</h3>
@@ -2500,18 +2752,46 @@ id of the transaction.  </p>
 <p><strong>transaction</strong> | string<br>
 raw, base64 encoded transaction data  </p>
 <h2 id='tpool-raw-post'>/tpool/raw [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"&lt;raw-encoded-tset&gt;"</span><span class="x"> </span><span class="s">"localhost:9980/tpool/raw"</span><span class="x">
+</span></code></pre>
 <p>submits a raw transaction to the transaction pool, broadcasting it to the transaction pool&#39;s peers.  </p>
-<h3 id='query-string-parameters-22'>Query String Parameters</h3><h4 id='required-31'>REQUIRED</h4>
+<h3 id='query-string-parameters-21'>Query String Parameters</h3><h4 id='required-29'>REQUIRED</h4>
 <p><strong>parents</strong> | string 
 JSON- or base64-encoded transaction parents</p>
 
 <p><strong>transaction</strong> | string
 JSON- or base64-encoded transaction</p>
-<h3 id='response-30'>Response</h3>
+<h3 id='response-29'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
-<h1 id='wallet'>Wallet</h1><h2 id='wallet-get'>/wallet [GET]</h2>
-<p>Returns basic information about the wallet, such as whether the wallet is locked or unlocked.</p>
+<h2 id='tpool-confirmed-id-get-2'>/tpool/confirmed/:id [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/tpool/confirmed/9028cc285ad755b81c0cfead3710c1344044175e59cdc4ca097374fe188c9acf"</span><span class="x">
+</span></code></pre><h3 id='query-string-parameters-22'>Query String Parameters</h3><h4 id='required-30'>REQUIRED</h4>
+<p><strong>id</strong> | hash
+id of the transaction being queried</p>
 <h3 id='json-response-25'>JSON Response</h3>
+<blockquote>
+<p>JSON Response Example</p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
+  </span><span class="s">"confirmed"</span><span class="o">:</span><span class="x"> </span><span class="no">true</span><span class="p">,</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<p><strong>confirmed</strong> | boolean
+boolean that indicates if transaction was confirmed</p>
+<h1 id='wallet'>Wallet</h1><h2 id='wallet-get'>/wallet [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet"</span><span class="x">
+</span></code></pre>
+<p>Returns basic information about the wallet, such as whether the wallet is locked or unlocked.</p>
+<h3 id='json-response-26'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2557,18 +2837,28 @@ Number of siacoins, in hastings, that can be claimed from the siafunds as of the
 <p><strong>dustthreshold</strong> | hastings / byte, big int<br>
 Number of siacoins, in hastings per byte, below which a transaction output cannot be used because the wallet considers it a dust output.  </p>
 <h2 id='wallet-033x-post'>/wallet/033x [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"source=/home/legacy-wallet&amp;encryptionpassword=mypassword"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/033x"</span><span class="x">
+</span></code></pre>
 <p>Loads a v0.3.3.x wallet into the current wallet, harvesting all of the secret keys. All spendable addresses in the loaded wallet will become spendable from the current wallet.</p>
-<h3 id='query-string-parameters-23'>Query String Parameters</h3><h4 id='required-32'>REQUIRED</h4>
+<h3 id='query-string-parameters-23'>Query String Parameters</h3><h4 id='required-31'>REQUIRED</h4>
 <p><strong>source</strong><br>
 Path on disk to the v0.3.3.x wallet to be loaded.  </p>
 
 <p><strong>encryptionpassword</strong><br>
 Encryption key of the wallet.  </p>
-<h3 id='response-31'>Response</h3>
+<h3 id='response-30'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-address-get'>/wallet/address [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/wallet/address"</span><span class="x">
+</span></code></pre>
 <p>Gets a new address from the wallet generated by the primary seed. An error will be returned if the wallet is locked.</p>
-<h3 id='json-response-26'>JSON Response</h3>
+<h3 id='json-response-27'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2579,8 +2869,13 @@ Encryption key of the wallet.  </p>
 <p><strong>address</strong> | hash
 Wallet address that can receive siacoins or siafunds. Addresses are 76 character long hex strings.  </p>
 <h2 id='wallet-addresses-get'>/wallet/addresses [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/addresses"</span><span class="x">
+</span></code></pre>
 <p>Fetches the list of addresses from the wallet. If the wallet has not been created or unlocked, no addresses will be returned. After the wallet is unlocked, this call will continue to return its addresses even after the wallet is locked again.</p>
-<h3 id='json-response-27'>JSON Response</h3>
+<h3 id='json-response-28'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2595,6 +2890,11 @@ Wallet address that can receive siacoins or siafunds. Addresses are 76 character
 <p><strong>addresses</strong><br>
 Array of wallet addresses owned by the wallet.  </p>
 <h2 id='wallet-seedaddrs-get'>/wallet/seedaddrs [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/seedaddrs"</span><span class="x">
+</span></code></pre>
 <p>Fetches addresses generated by the wallet in reverse order. The last address
 generated by the wallet will be the first returned. This also means that
 addresses which weren&#39;t generated using the wallet&#39;s seed can&#39;t be retrieved
@@ -2604,7 +2904,7 @@ with this endpoint.</p>
 Number of addresses that should be returned. If count is not specified or if
 count is bigger than the number of addresses generated by the wallet, all
 addresses will be returned.</p>
-<h3 id='json-response-28'>JSON Response</h3>
+<h3 id='json-response-29'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2619,23 +2919,38 @@ addresses will be returned.</p>
 <p><strong>addresses</strong><br>
 Array of wallet addresses previously generated by the wallet.</p>
 <h2 id='wallet-backup-get'>/wallet/backup [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/wallet/backup?destination=/home/wallet-settings.backup"</span><span class="x">
+</span></code></pre>
 <p>Creates a backup of the wallet settings file. Though this can easily be done manually, the settings file is often in an unknown or difficult to find location. The /wallet/backup call can spare users the trouble of needing to find their wallet file.</p>
-<h3 id='query-string-parameters-25'>Query String Parameters</h3><h4 id='required-33'>REQUIRED</h4>
+<h3 id='query-string-parameters-25'>Query String Parameters</h3><h4 id='required-32'>REQUIRED</h4>
 <p><strong>destination</strong><br>
 Path to the location on disk where the backup file will be saved.  </p>
-<h3 id='response-32'>Response</h3>
+<h3 id='response-31'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-changepassword-post'>/wallet/changepassword [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/wallet/changepassword?encryptionpassword=&lt;currentpassword&gt;&amp;newpassword=&lt;newpassword&gt;"</span><span class="x">
+</span></code></pre>
 <p>Changes the wallet&#39;s encryption key.  </p>
-<h3 id='query-string-parameters-26'>Query String Parameters</h3><h4 id='required-34'>REQUIRED</h4>
+<h3 id='query-string-parameters-26'>Query String Parameters</h3><h4 id='required-33'>REQUIRED</h4>
 <p><strong>encryptionpassword</strong> | string
 encryptionpassword is the wallet&#39;s current encryption password.  </p>
 
 <p><strong>newpassword</strong> | string
 newpassword is the new password for the wallet.  </p>
-<h3 id='response-33'>Response</h3>
+<h3 id='response-32'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-init-post'>/wallet/init [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"encryptionpassword=&lt;password&gt;&amp;force=false"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/init"</span><span class="x">
+</span></code></pre>
 <p>Initializes the wallet. After the wallet has been initialized once, it does not need to be initialized again, and future calls to /wallet/init will return an error. The encryption password is provided by the api call. If the password is blank, then the password will be set to the same as the seed.</p>
 <h3 id='query-string-parameters-27'>Query String Parameters</h3><h4 id='optional-wallet-parameters'>OPTIONAL WALLET PARAMETERS</h4>
 <p><strong>encryptionpassword</strong> | string
@@ -2646,7 +2961,7 @@ Name of the dictionary that should be used when encoding the seed. &#39;english&
 
 <p><strong>force</strong> | boolean<br>
 When set to true /wallet/init will Reset the wallet if one exists instead of returning an error. This allows API callers to reinitialize a new wallet.</p>
-<h3 id='json-response-29'>JSON Response</h3>
+<h3 id='json-response-30'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2657,28 +2972,43 @@ When set to true /wallet/init will Reset the wallet if one exists instead of ret
 <p><strong>primaryseed</strong><br>
 Wallet seed used to generate addresses that the wallet is able to spend.  </p>
 <h2 id='wallet-init-seed-post'>/wallet/init/seed [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"seed=&lt;seed&gt;&amp;encryptionpassword=&lt;password&gt;&amp;force=false"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/init/seed"</span><span class="x">
+</span></code></pre>
 <p>Initializes the wallet using a preexisting seed. After the wallet has been initialized once, it does not need to be initialized again, and future calls to /wallet/init/seed will return an error. The encryption password is provided by the api call. If the password is blank, then the password will be set to the same as the seed. Note that loading a preexisting seed requires scanning the blockchain to determine how many keys have been generated from the seed. For this reason, /wallet/init/seed can only be called if the blockchain is synced.</p>
 <h3 id='query-string-parameters-28'>Query String Parameters</h3><h4 id='required-wallet-parameters'>REQUIRED WALLET PARAMETERS</h4>
 <p><strong>seed</strong> | string
 Dictionary-encoded phrase that corresponds to the seed being used to initialize the wallet.  </p>
 <h4 id='optional-14'>OPTIONAL</h4>
 <p><a href="#optional-wallet-parameters">Optional Wallet Parameters</a></p>
-<h3 id='response-34'>Response</h3>
+<h3 id='response-33'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-seed-post'>/wallet/seed [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"seed=&lt;seed&gt;"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/seed"</span><span class="x">
+</span></code></pre>
 <p>Gives the wallet a seed to track when looking for incoming transactions. The wallet will be able to spend outputs related to addresses created by the seed. The seed is added as an auxiliary seed, and does not replace the primary seed. Only the primary seed will be used for generating new addresses.</p>
-<h3 id='query-string-parameters-29'>Query String Parameters</h3><h4 id='required-35'>REQUIRED</h4>
+<h3 id='query-string-parameters-29'>Query String Parameters</h3><h4 id='required-34'>REQUIRED</h4>
 <p><a href="#required-wallet-parameters">Required Wallet Parameters</a></p>
 <h4 id='optional-string'>OPTIONAL | string</h4>
 <p><a href="#optional-wallet-parameters">Optional Wallet Parameters</a></p>
-<h3 id='response-35'>Response</h3>
+<h3 id='response-34'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-seeds-get'>/wallet/seeds [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/wallet/seeds"</span><span class="x">
+</span></code></pre>
 <p>Returns the list of seeds in use by the wallet. The primary seed is the only seed that gets used to generate new addresses. This call is unavailable when the wallet is locked.</p>
-<h3 id='query-string-parameters-30'>Query String Parameters</h3><h4 id='required-36'>REQUIRED</h4>
+<h3 id='query-string-parameters-30'>Query String Parameters</h3><h4 id='required-35'>REQUIRED</h4>
 <p><strong>dictionary</strong> | string 
 Name of the dictionary that should be used when encoding the seed. &#39;english&#39; is the most common choice when picking a dictionary.  </p>
-<h3 id='json-response-30'>JSON Response</h3>
+<h3 id='json-response-31'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2700,8 +3030,13 @@ Number of addresses that remain in the primary seed until exhaustion has been re
 <p><strong>allseeds</strong><br>
 Array of all seeds that the wallet references when scanning the blockchain for outputs. The wallet is able to spend any output generated by any of the seeds, however only the primary seed is being used to generate new addresses.  </p>
 <h2 id='wallet-siacoins-post'>/wallet/siacoins [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"amount=1000&amp;destination=c134a8372bd250688b36867e6522a37bdc391a344ede72c2a79206ca1c34c84399d9ebf17773"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siacoins"</span><span class="x">
+</span></code></pre>
 <p>Sends siacoins to an address or set of addresses. The outputs are arbitrarily selected from addresses in the wallet. If &#39;outputs&#39; is supplied, &#39;amount&#39; and &#39;destination&#39; must be empty.  </p>
-<h3 id='query-string-parameters-31'>Query String Parameters</h3><h4 id='required-37'>REQUIRED</h4>
+<h3 id='query-string-parameters-31'>Query String Parameters</h3><h4 id='required-36'>REQUIRED</h4>
 <p>Amount and Destination or Outputs are required</p>
 
 <p><strong>amount</strong> | hastings<br>
@@ -2714,28 +3049,6 @@ Address that is receiving the coins.  </p>
 
 <p><strong>outputs</strong><br>
 JSON array of outputs. The structure of each output is: {&quot;unlockhash&quot;: &quot;<destination>&quot;, &quot;value&quot;: &quot;<amount>&quot;}  </p>
-<h3 id='json-response-31'>JSON Response</h3>
-<blockquote>
-<p>JSON Response Example</p>
-</blockquote>
-<pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
-  </span><span class="s">"transactionids"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="x">
-    </span><span class="s">"1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef"</span><span class="p">,</span><span class="x">
-    </span><span class="s">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</span><span class="p">,</span><span class="x">
-    </span><span class="s">"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"</span><span class="x">
-  </span><span class="p">]</span><span class="x">
-</span><span class="p">}</span><span class="x">
-</span></code></pre>
-<p><strong>transactionids</strong><br>
-Array of IDs of the transactions that were created when sending the coins. The last transaction contains the output headed to the &#39;destination&#39;. Transaction IDs are 64 character long hex strings.  </p>
-<h2 id='wallet-siafunds-post'>/wallet/siafunds [POST]</h2>
-<p>Sends siafunds to an address. The outputs are arbitrarily selected from addresses in the wallet. Any siacoins available in the siafunds being sent (as well as the siacoins available in any siafunds that end up in a refund address) will become available to the wallet as siacoins after 144 confirmations. To access all of the siacoins in the siacoin claim balance, send all of the siafunds to an address in your control (this will give you all the siacoins, while still letting you control the siafunds).</p>
-<h3 id='query-string-parameters-32'>Query String Parameters</h3><h4 id='required-38'>REQUIRED</h4>
-<p><strong>amount</strong> | siafunds<br>
-Number of siafunds being sent.  </p>
-
-<p><strong>destination</strong> | address<br>
-Address that is receiving the funds.  </p>
 <h3 id='json-response-32'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
@@ -2750,17 +3063,54 @@ Address that is receiving the funds.  </p>
 </span></code></pre>
 <p><strong>transactionids</strong><br>
 Array of IDs of the transactions that were created when sending the coins. The last transaction contains the output headed to the &#39;destination&#39;. Transaction IDs are 64 character long hex strings.  </p>
+<h2 id='wallet-siafunds-post'>/wallet/siafunds [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"amount=10&amp;destination=c134a8372bd250688b36867e6522a37bdc391a344ede72c2a79206ca1c34c84399d9ebf17773"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siafunds"</span><span class="x">
+</span></code></pre>
+<p>Sends siafunds to an address. The outputs are arbitrarily selected from addresses in the wallet. Any siacoins available in the siafunds being sent (as well as the siacoins available in any siafunds that end up in a refund address) will become available to the wallet as siacoins after 144 confirmations. To access all of the siacoins in the siacoin claim balance, send all of the siafunds to an address in your control (this will give you all the siacoins, while still letting you control the siafunds).</p>
+<h3 id='query-string-parameters-32'>Query String Parameters</h3><h4 id='required-37'>REQUIRED</h4>
+<p><strong>amount</strong> | siafunds<br>
+Number of siafunds being sent.  </p>
+
+<p><strong>destination</strong> | address<br>
+Address that is receiving the funds.  </p>
+<h3 id='json-response-33'>JSON Response</h3>
+<blockquote>
+<p>JSON Response Example</p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
+  </span><span class="s">"transactionids"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="x">
+    </span><span class="s">"1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</span><span class="p">,</span><span class="x">
+    </span><span class="s">"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"</span><span class="x">
+  </span><span class="p">]</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<p><strong>transactionids</strong><br>
+Array of IDs of the transactions that were created when sending the coins. The last transaction contains the output headed to the &#39;destination&#39;. Transaction IDs are 64 character long hex strings.  </p>
 <h2 id='wallet-siagkey-post'>/wallet/siagkey [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"encryptionpassword=&lt;password&gt;&amp;keyfiles=/file1,/home/file2"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/siagkey"</span><span class="x">
+</span></code></pre>
 <p>Loads a key into the wallet that was generated by siag. Most siafunds are currently in addresses created by siag.</p>
-<h3 id='query-string-parameters-33'>Query String Parameters</h3><h4 id='required-39'>REQUIRED</h4>
+<h3 id='query-string-parameters-33'>Query String Parameters</h3><h4 id='required-38'>REQUIRED</h4>
 <p><strong>encryptionpassword</strong><br>
 Key that is used to encrypt the siag key when it is imported to the wallet.  </p>
 
 <p><strong>keyfiles</strong><br>
 List of filepaths that point to the keyfiles that make up the siag key. There should be at least one keyfile per required signature. The filenames need to be commna separated (no spaces), which means filepaths that contain a comma are not allowed.  </p>
-<h3 id='response-36'>Response</h3>
+<h3 id='response-35'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-sign-post'>/wallet/sign [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"&lt;requestbody&gt;"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/sign"</span><span class="x">
+</span></code></pre>
 <p>Signs a transaction. The wallet will attempt to sign each input specified. The transaction&#39;s TransactionSignatures should be complete except for the Signature field. If <code>tosign</code> is provided, the wallet will attempt to fill in signatures for each TransactionSignature specified. If <code>tosign</code> is not provided, the wallet will add signatures for every TransactionSignature that it has keys for.</p>
 <h3 id='request-body'>Request Body</h3>
 <blockquote>
@@ -2804,7 +3154,7 @@ List of filepaths that point to the keyfiles that make up the siag key. There sh
     </span><span class="s">"af1a88781c362573943cda006690576b150537c1ae142a364dbfc7f04ab99584"</span><span class="x">
   </span><span class="p">]</span><span class="x">
 </span><span class="p">}</span><span class="x">
-</span></code></pre><h3 id='json-response-33'>JSON Response</h3>
+</span></code></pre><h3 id='json-response-34'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2843,14 +3193,19 @@ List of filepaths that point to the keyfiles that make up the siag key. There sh
   </span><span class="p">}</span><span class="x">
 </span><span class="p">}</span><span class="x">
 </span></code></pre><h2 id='wallet-sweep-seed-post'>/wallet/sweep/seed [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"seed=&lt;seed&gt;"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/sweep/seed"</span><span class="x">
+</span></code></pre>
 <p>Scans the blockchain for outputs belonging to a seed and send them to an address owned by the wallet.</p>
-<h3 id='query-string-parameters-34'>Query String Parameters</h3><h4 id='required-40'>REQUIRED</h4>
+<h3 id='query-string-parameters-34'>Query String Parameters</h3><h4 id='required-39'>REQUIRED</h4>
 <p><strong>seed</strong> | string
 Dictionary-encoded phrase that corresponds to the seed being added to the wallet.  </p>
 <h4 id='optional-15'>OPTIONAL</h4>
 <p><strong>dictionary</strong> | string<br>
 Name of the dictionary that should be used when decoding the seed. &#39;english&#39; is the most common choice when picking a dictionary.  </p>
-<h3 id='json-response-34'>JSON Response</h3>
+<h3 id='json-response-35'>JSON Response</h3>
 <blockquote>
 <p>JSON  Response Example
 <code>go
@@ -2866,15 +3221,25 @@ Number of siacoins, in hastings, transferred to the wallet as a result of the sw
 <p><strong>funds</strong> | siafunds, big int<br>
 Number of siafunds transferred to the wallet as a result of the sweep.  </p>
 <h2 id='wallet-lock-post'>/wallet/lock [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">-</span><span class="n">X</span><span class="x"> </span><span class="n">POST</span><span class="x"> </span><span class="s">"localhost:9980/wallet/lock"</span><span class="x">
+</span></code></pre>
 <p>Locks the wallet, wiping all secret keys. After being locked, the keys are encrypted. Queries for the seed, to send siafunds, and related queries become unavailable. Queries concerning transaction history and balance are still available.</p>
-<h3 id='response-37'>Response</h3>
+<h3 id='response-36'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-transaction-id-get'>/wallet/transaction/:<em>id</em> [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/transaction/22e8d5428abc184302697929f332fa0377ace60d405c39dd23c0327dc694fae7"</span><span class="x">
+</span></code></pre>
 <p>Gets the transaction associated with a specific transaction id.</p>
-<h3 id='path-parameters-17'>Path Parameters</h3><h4 id='required-41'>REQUIRED</h4>
+<h3 id='path-parameters-17'>Path Parameters</h3><h4 id='required-40'>REQUIRED</h4>
 <p><strong>id</strong> | hash
 ID of the transaction being requested.  </p>
-<h3 id='json-response-35'>JSON Response</h3>
+<h3 id='json-response-36'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2965,14 +3330,19 @@ Address that is affected. For outputs (incoming money), the related address fiel
 <p><strong>value</strong> | hastings or siafunds, depending on fundtype, big int<br>
 Amount of funds that have been moved in the output.  </p>
 <h2 id='wallet-transactions-get'>/wallet/transactions [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/transactions"</span><span class="x">
+</span></code></pre>
 <p>Returns a list of transactions related to the wallet in chronological order.</p>
-<h3 id='query-string-parameters-35'>Query String Parameters</h3><h4 id='required-42'>REQUIRED</h4>
+<h3 id='query-string-parameters-35'>Query String Parameters</h3><h4 id='required-41'>REQUIRED</h4>
 <p><strong>startheight</strong> | block height<br>
 // Height of the block where transaction history should begin.</p>
 
 <p><strong>endheight</strong> | block height<br>
 Height of of the block where the transaction history should end. If &#39;endheight&#39; is greater than the current height, or if it is &#39;-1&#39;, all transactions up to and including the most recent block will be provided.</p>
-<h3 id='json-response-36'>JSON Response</h3>
+<h3 id='json-response-37'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -2999,11 +3369,16 @@ All of the unconfirmed transactions.  </p>
 
 <p>See the documentation for &#39;/wallet/transaction/:id&#39; for more information.  </p>
 <h2 id='wallet-transactions-addr-get'>/wallet/transactions/:addr [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/transactions/abf1ba4ad65820ce2bd5d63466b8555d0ec9bfe5f5fa920b4fef6ad98f443e2809e5ae619b74"</span><span class="x">
+</span></code></pre>
 <p>Returns all of the transactions related to a specific address.</p>
-<h3 id='path-parameters-18'>Path Parameters</h3><h4 id='required-43'>REQUIRED</h4>
+<h3 id='path-parameters-18'>Path Parameters</h3><h4 id='required-42'>REQUIRED</h4>
 <p><strong>addr</strong> | hash
 Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
-<h3 id='json-response-37'>JSON Response</h3>
+<h3 id='json-response-38'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -3020,18 +3395,28 @@ Array of processed transactions that relate to the supplied address.  </p>
 
 <p>See the documentation for &#39;/wallet/transaction/:id&#39; for more information.  </p>
 <h2 id='wallet-unlock-post'>/wallet/unlock [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"encryptionpassword=&lt;password&gt;"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/unlock"</span><span class="x">
+</span></code></pre>
 <p>Unlocks the wallet. The wallet is capable of knowing whether the correct password was provided.</p>
-<h3 id='query-string-parameters-36'>Query String Parameters</h3><h4 id='required-44'>REQUIRED</h4>
+<h3 id='query-string-parameters-36'>Query String Parameters</h3><h4 id='required-43'>REQUIRED</h4>
 <p><strong>encryptionpassword</strong> | string<br>
 Password that gets used to decrypt the file. Most frequently, the encryption password is the same as the primary wallet seed.  </p>
-<h3 id='response-38'>Response</h3>
+<h3 id='response-37'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h2 id='wallet-unlockconditions-addr-get'>/wallet/unlockconditions/:addr [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/wallet/unlockconditions/2d6c6d705c80f17448d458e47c3fb1a02a24e018a82d702cda35262085a3167d98cc7a2ba339"</span><span class="x">
+</span></code></pre>
 <p>Returns the unlock conditions of :addr, if they are known to the wallet.</p>
-<h3 id='path-parameters-19'>Path Parameters</h3><h4 id='required-45'>REQUIRED</h4>
+<h3 id='path-parameters-19'>Path Parameters</h3><h4 id='required-44'>REQUIRED</h4>
 <p><strong>addr</strong> | hash
 Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
-<h3 id='json-response-38'>JSON Response</h3>
+<h3 id='json-response-39'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -3055,8 +3440,13 @@ The number of signatures required.  </p>
 <p><strong>publickeys</strong><br>
 The set of keys whose signatures count towards signaturesrequired.  </p>
 <h2 id='wallet-unspent-get'>/wallet/unspent [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/wallet/unspent"</span><span class="x">
+</span></code></pre>
 <p>Returns a list of outputs that the wallet can spend.</p>
-<h3 id='json-response-39'>JSON Response</h3>
+<h3 id='json-response-40'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -3094,11 +3484,16 @@ Amount of funds in the output; hastings for siacoin outputs, and siafunds for si
 <p><strong>iswatchonly</strong> | Boolean<br>
 Whether the output comes from a watched address or from the wallet&#39;s seed.  </p>
 <h2 id='wallet-verify-address-addr-get'>/wallet/verify/address/:addr [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/verify/address/75d9a7351022681ba3539d7e0c5699d143ab5a7747604998cace1299ab6c04c5ea2aa2e87aac"</span><span class="x">
+</span></code></pre>
 <p>Takes the address specified by :addr and returns a JSON response indicating if the address is valid.</p>
-<h3 id='path-parameters-20'>Path Parameters</h3><h4 id='required-46'>REQUIRED</h4>
+<h3 id='path-parameters-20'>Path Parameters</h3><h4 id='required-45'>REQUIRED</h4>
 <p><strong>addr</strong> | hash
 Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
-<h3 id='json-response-40'>JSON Response</h3>
+<h3 id='json-response-41'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -3109,8 +3504,13 @@ Unlock hash (i.e. wallet address) whose transactions are being requested.  </p>
 <p><strong>valid</strong><br>
 valid indicates if the address supplied to :addr is a valid UnlockHash.  </p>
 <h2 id='wallet-watch-get'>/wallet/watch [GET]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="s">"localhost:9980/wallet/watch"</span><span class="x">
+</span></code></pre>
 <p>Returns the set of addresses that the wallet is watching. This set only includes addresses that were explicitly requested to be watched; addresses that were generated automatically by the wallet, or by /wallet/address, are not included.</p>
-<h3 id='json-response-41'>JSON Response</h3>
+<h3 id='json-response-42'>JSON Response</h3>
 <blockquote>
 <p>JSON Response Example</p>
 </blockquote>
@@ -3123,7 +3523,12 @@ valid indicates if the address supplied to :addr is a valid UnlockHash.  </p>
 </span></code></pre>
 <p><strong>addresses</strong><br>
 The addresses currently watched by the wallet.  </p>
-<h2 id='wallet-watch-post'>/wallet/watch [POST]</h2><h3 id='request-body-2'>Request Body</h3>
+<h2 id='wallet-watch-post'>/wallet/watch [POST]</h2>
+<blockquote>
+<p>curl example  </p>
+</blockquote>
+<pre class="highlight go tab-go"><code><span class="n">curl</span><span class="x"> </span><span class="o">-</span><span class="n">A</span><span class="x"> </span><span class="s">"Sia-Agent"</span><span class="x"> </span><span class="o">-</span><span class="n">u</span><span class="x"> </span><span class="s">""</span><span class="o">:&lt;</span><span class="n">apipassword</span><span class="o">&gt;</span><span class="x"> </span><span class="o">--</span><span class="n">data</span><span class="x"> </span><span class="s">"&lt;requestbody&gt;"</span><span class="x"> </span><span class="s">"localhost:9980/wallet/watch"</span><span class="x">
+</span></code></pre><h3 id='request-body-2'>Request Body</h3>
 <blockquote>
 <p>Request Body Example</p>
 </blockquote>
@@ -3140,8 +3545,10 @@ The addresses currently watched by the wallet.  </p>
   </span><span class="c">// If true, the wallet will not rescan the blockchain. Only set this flag if</span><span class="x">
   </span><span class="c">// the addresses have never appeared in the blockchain.</span><span class="x">
   </span><span class="s">"unused"</span><span class="o">:</span><span class="x"> </span><span class="no">true</span><span class="p">,</span><span class="x">
-</span></code></pre><h3 id='response-39'>Response</h3>
+</span></code></pre><h3 id='response-38'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
+<h1 id='version'>Version</h1>
+<p><a href='https://sia.tech/docs/v140'><strong>v140</strong></p>
 
       </div>
       <div class="dark-box">
