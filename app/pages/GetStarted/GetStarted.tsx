@@ -240,17 +240,17 @@ class Download extends React.Component<{}, State> {
                 ]}
               />
               <LinkCard
-			    darktitle
-			    icon="third"
-			    title="Goobox"
-			    content="Use Sia through a no-hassle front end."
-			    links={[
-			      {
-				    title: 'goobox.io >',
-				    to: 'https://goobox.io/'
-			      }
-			    ]}
-		      />
+                darkTitle
+                icon="third"
+                title="Goobox"
+                content="Use Sia with a no-hassle front end"
+                links={[
+                  {
+                    title: 'goobox.io >',
+                    to: 'https://goobox.io/'
+                  }
+                ]}
+              />
               <LinkCard
                 darkTitle
                 icon="third"
