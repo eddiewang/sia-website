@@ -100,7 +100,7 @@ export default [
   {
     name: 'Eddie Wang',
     svg: Eddie,
-    role: 'Frontend Developer',
+    role: 'Computer Systems Analyst',
     social: [
       {
         title: 'Github',
