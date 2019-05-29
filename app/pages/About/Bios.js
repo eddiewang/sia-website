@@ -52,7 +52,7 @@ export default [
   {
     name: 'Zach Herbert',
     svg: Zach,
-    role: 'VP of Operations',
+    role: 'COO',
     social: [
       {
         title: 'LinkedIn',
