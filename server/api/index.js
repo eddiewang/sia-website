@@ -128,6 +128,24 @@ router.get('/siahub/network', (req, res) => {
   })
 })
 
+router.get('/siastats/storage', (req, res) => {
+  axios.get('https://siastats.info/dbs/storage.json').then(({data}) => {
+    res.send(data[data.length - 1])
+  })
+  .catch(err => {
+    res.status(400).send(err)
+  })
+})
+
+router.get('/siastats/host', (req, res) => {
+  axios.get('https://siastats.info/dbs/activehosts.json').then(({data}) => {
+    res.send(data[data.length - 1])
+  })
+  .catch(err => {
+    res.status(400).send(err)
+  })
+})
+
 function getCommits() {
   return axios.get('https://api.github.com/repos/NebulousLabs/Sia/contributors?per_page=100')
 }

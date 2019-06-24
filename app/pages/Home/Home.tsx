@@ -105,7 +105,7 @@ class Home extends React.Component<{ intl: any }, State> {
     marketCap: '0.5',
     usedStorage: '206',
     activeHosts: 895,
-    storageCapacity: '4.5',
+    storageCapacity: '2',
     mapData: null,
     github: {
       commits: 7000,
@@ -139,6 +139,14 @@ class Home extends React.Component<{ intl: any }, State> {
     return axios.get('api/siastats')
   }
 
+  public getStorage() {
+    return axios.get('api/siastats/storage')
+  }
+
+  public getHosts() {
+    return axios.get('/api/siastats/host')
+  }
+
   public componentDidMount() {
     axios
       .all([
@@ -146,16 +154,18 @@ class Home extends React.Component<{ intl: any }, State> {
         this.getNetwork(),
         this.getMap(),
         this.getGithub(),
-        this.getSiastats()
+        this.getSiastats(),
+        this.getStorage(),
+        this.getHosts()
       ])
       .then(
-        axios.spread((marketcap, stats, hosts, github, siastats) => {
+        axios.spread((marketcap, stats, hosts, github, siastats, storage, hostsOnline) => {
           const marketCap = parseInt(marketcap.data[0].market_cap_usd, 10)
-          const inBillions = (marketCap / 1000000000).toFixed(1)
+          const inMillions = (marketCap / 1000000).toFixed(1)
           const { data } = stats
-          const activeHosts = data.active_hosts
-          const totalStorage = data.totalstorage
-          const usedStorage = siastats.data.used.toFixed(0)
+          const activeHosts = hostsOnline.data.hostsonline
+          const totalStorage = storage.data.total
+          const usedStorage = storage.data.used.toFixed(1)
           const storageCapacity = (data.totalstorage / 1e15).toFixed(1)
 
           const mapData = hosts.data
@@ -178,7 +188,7 @@ class Home extends React.Component<{ intl: any }, State> {
           const geoData = geoJsonFormatter(mapData)
 
           this.setState({
-            marketCap: inBillions,
+            marketCap: inMillions,
             usedStorage,
             activeHosts,
             storageCapacity,
@@ -300,7 +310,7 @@ class Home extends React.Component<{ intl: any }, State> {
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
-                  ${this.state.marketCap}B
+                  ${this.state.marketCap}M
                 </TypeHeading>
                 <Text type="stat">Market Cap</Text>
               </div>
