@@ -165,8 +165,8 @@ class Home extends React.Component<{ intl: any }, State> {
           const { data } = stats
           const activeHosts = hostsOnline.data.hostsonline
           const totalStorage = storage.data.total
-          const usedStorage = storage.data.used.toFixed(1)
-          const storageCapacity = (data.totalstorage / 1e15).toFixed(1)
+          const usedStorage = storage.data.used.toFixed(0)
+          const storageCapacity = (data.totalstorage / 1e15).toFixed(0)
 
           const mapData = hosts.data
           const geoJsonFormatter = hostdata => {
@@ -292,9 +292,9 @@ class Home extends React.Component<{ intl: any }, State> {
             <div className={styles.Stats}>
               <div>
                 <TypeHeading level={4} type="stat">
-                  1.2M
+                  {this.state.storageCapacity}PB
                 </TypeHeading>
-                <Text type="stat">Downloads</Text>
+                <Text type="stat">Storage Capacity</Text>
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
@@ -310,9 +310,9 @@ class Home extends React.Component<{ intl: any }, State> {
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
-                  ${this.state.marketCap}M
+                  1.2M
                 </TypeHeading>
-                <Text type="stat">Market Cap</Text>
+                <Text type="stat">Downloads</Text>
               </div>
             </div>
           </LayoutContainer>
