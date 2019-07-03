@@ -292,9 +292,9 @@ class Home extends React.Component<{ intl: any }, State> {
             <div className={styles.Stats}>
               <div>
                 <TypeHeading level={4} type="stat">
-                  {this.state.storageCapacity}PB
+                  1.2M
                 </TypeHeading>
-                <Text type="stat">Storage Capacity</Text>
+                <Text type="stat">Downloads</Text>
               </div>
               <div>
                 <TypeHeading level={4} type="stat">
