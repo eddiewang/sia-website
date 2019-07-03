@@ -42,7 +42,7 @@ const addCount = async (req, res, next) => {
 }
 app.use('/static', addCount, express.static('public'))
 app.use('/docs', express.static('apiDocs'))
-app.use('/docs/v140', express.static('apiDocs'))
+app.use('/docs/v140', express.static('v140'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

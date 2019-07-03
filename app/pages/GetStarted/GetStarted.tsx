@@ -51,44 +51,44 @@ class Download extends React.Component<{}, State> {
               <LinkCard
                 icon="sia"
                 title="Sia UI"
-                content="Download version 1.4.0 of Sia-UI with a Graphical User Interface. Built for users who prefer to use a GUI over command line."
+                content="Download version 1.4.1 of Sia-UI with a Graphical User Interface. Built for users who prefer to use a GUI over command line."
                 linkTitle="Guide to Getting Started with Sia"
                 tag={siaui}
                 linkTo="http://support.sia.tech/category/2ybqa8fh1f-get-started"
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.0.exe'
+                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.exe'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.0.dmg'
+                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.dmg'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.0.AppImage'
+                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.AppImage'
                   }
                 ]}
               />
               <LinkCard
                 icon="sia"
                 title="Sia Daemon"
-                content="Download version 1.4.0 of Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
+                content="Download version 1.4.1 of Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
                 linkTitle="Documentation for Developers"
                 linkTo="https://gitlab.com/NebulousLabs/Sia/tree/master/doc"
                 tag={sia}
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://sia.tech/releases/Sia-v1.4.0-windows-amd64.zip'
+                    to: 'https://sia.tech/releases/Sia-v1.4.1-windows-amd64.zip'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://sia.tech/releases/Sia-v1.4.0-darwin-amd64.zip'
+                    to: 'https://sia.tech/releases/Sia-v1.4.1-darwin-amd64.zip'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://sia.tech/releases/Sia-v1.4.0-linux-amd64.zip'
+                    to: 'https://sia.tech/releases/Sia-v1.4.1-linux-amd64.zip'
                   }
                 ]}
               />
