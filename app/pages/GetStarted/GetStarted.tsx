@@ -103,7 +103,7 @@ class Download extends React.Component<{}, State> {
                 <br />
                 You can download the key{' '}
                 <strong>
-                  <a href="/static/releases/sia.pem">here</a>
+                  <a href="https://sia.tech/releases/sia.pem">here</a>
                 </strong>.
               </div>
             </div>
