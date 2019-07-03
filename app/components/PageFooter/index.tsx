@@ -78,7 +78,7 @@ export default class PageFooter extends React.Component {
           },
           {
             name: 'Learn',
-            url: '/learn'
+            url: 'https://support.sia.tech'
           },
           {
             name: 'Get Started',
