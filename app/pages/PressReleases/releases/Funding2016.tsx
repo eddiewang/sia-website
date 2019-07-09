@@ -19,11 +19,6 @@ class Funding2016 extends React.Component {
         <Helmet title="About" />
         <Section>
           <LayoutContainer classes={styles.Vision}>
-            <div className={styles.VisionHeading}>
-              <TypeHeading level={3} inline underlined>
-                2016
-              </TypeHeading>
-            </div>
             <div>
               <Text.Paragraph type="visionHeading">
                 Sia Startup raises $750k seed round to further blockchain-powered, distributed

@@ -10,18 +10,23 @@ import Talk from 'svg/media-talk.svg'
 import Documentation from 'svg/media-document.svg'
 import Blog from 'svg/media-blog.svg'
 import MLink from 'svg/media-link.svg'
+import PR from 'svg/media-pr.svg'
 import { TypeHeading } from 'components/TypeHeading/TypeHeading.scss'
 
 interface Props {
-  type: 'video' | 'talks' | 'documentation' | 'blog' | 'link'
+  type: 'video' | 'talks' | 'documentation' | 'blog' | 'link' | 'pr'
   customTitle?: string
+  target: string
   // Should be mandantory
   href?: string
 }
 
 class MediaCard extends React.Component<Props, {}> {
+  static defaultProps = {
+    target: '_blank'
+  }
   public render() {
-    const { type, children, href, customTitle } = this.props
+    const { type, children, href, customTitle, target } = this.props
     let mediaType
     switch (type) {
       case 'video':
@@ -39,11 +44,14 @@ class MediaCard extends React.Component<Props, {}> {
       case 'link':
         mediaType = MLink
         break
+      case 'pr':
+        mediaType = PR
+        break
       default:
         console.warn('Something is very wrong - wrong prop for Media Card!')
     }
     return (
-      <a href={href || '#'} target="_blank" className={styles.MediaCard}>
+      <a href={href || '#'} target={target} className={styles.MediaCard}>
         <div className={styles.MediaCardUpper}>
           <Icon
             src={mediaType.id}

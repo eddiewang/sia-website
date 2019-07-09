@@ -27,11 +27,11 @@ class PressReleases extends React.Component {
         <Section>
           <LayoutContainer classes={styles.Learn}>
             <div className={styles.LearnBoxes}>
-              <MediaCard customTitle="2017" href="/2017grant" type="blog">
+              <MediaCard customTitle="2017" href="/2017grant" type="pr" target="_self">
                 Sia receives $400k grant from INBlockchain for development of its cloud storage
                 platform
               </MediaCard>
-              <MediaCard type="blog" customTitle="2016" href="/funding2016">
+              <MediaCard type="pr" customTitle="2016" href="/funding2016" target="_self">
                 Sia raises $750k seed round to further blockchain-powered, distributed storage ...
               </MediaCard>
             </div>

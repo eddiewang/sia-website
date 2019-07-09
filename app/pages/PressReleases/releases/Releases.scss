@@ -4,12 +4,15 @@
     padding-bottom: rem(30px);
     text-align: center;
   }
-  // text-align: center;
-  @media screen and (min-width: sg-breakpoint()) {
-    text-align: left;
-    display: grid;
-    grid-template-columns: 370px 1fr;
+  a {
+    color: sg-color(sia-green);
   }
+  // text-align: center;
+  // @media screen and (min-width: sg-breakpoint()) {
+  //   text-align: left;
+  //   display: grid;
+  //   grid-template-columns: 370px 1fr;
+  // }
 }
 
 .Team {
