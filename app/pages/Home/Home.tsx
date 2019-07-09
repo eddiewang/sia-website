@@ -446,11 +446,14 @@ class Home extends React.Component<{ intl: any }, State> {
               Learn
             </TypeHeading>
             <div className={styles.LearnBoxes}>
-              <MediaCard type="blog" href="https://blog.sia.tech">
-                Read our updates on product, engineering, blockchain philosophy and more.
+              <MediaCard type="blog" href="https://blog.sia.tech/the-sia-ethos-48f72f1cf382">
+                The Sia Ethos
               </MediaCard>
-              <MediaCard href="http://youtube.com/c/siatvofficial" type="video">
-                Go to our official Youtube Channel and keep up to date with all things Sia.
+              <MediaCard
+                href="https://support.sia.tech/article/dk91b0eibc-welcome-to-sia"
+                type="blog"
+              >
+                Welcome to Sia
               </MediaCard>
               <MediaCard
                 href="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
@@ -460,7 +463,7 @@ class Home extends React.Component<{ intl: any }, State> {
               </MediaCard>
             </div>
             <div className={styles.LearnMore}>
-              <Text.Link to="/learn" type="mediaCardTextLink">
+              <Text.Link href="https://support.sia.tech/" type="mediaCardTextLink">
                 Learn More
               </Text.Link>
             </div>

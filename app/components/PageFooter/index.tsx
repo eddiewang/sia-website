@@ -111,6 +111,10 @@ export default class PageFooter extends React.Component {
             url: '/get-siacoin'
           },
           {
+            name: 'Newsroom',
+            url: '/newsroom'
+          },
+          {
             name: 'Whitepaper',
             url: 'https://sia.tech/sia.pdf'
           }
