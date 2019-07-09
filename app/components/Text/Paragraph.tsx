@@ -8,15 +8,17 @@ interface Props {
   children?: React.ReactNode
   inverse?: boolean
   type?: string
+  bold?: boolean
 }
 
 class Paragraph extends React.PureComponent<Props, {}> {
   public render() {
-    const { children, inverse, type } = this.props
+    const { children, inverse, type, bold } = this.props
     const textClass = classNames(
       styles.Text,
       inverse && styles[variationName('is', 'inverse')],
-      type && styles[variationName('type', type)]
+      type && styles[variationName('type', type)],
+      bold && styles[variationName('is', 'bold')]
     )
     return <p className={textClass}>{children}</p>
   }

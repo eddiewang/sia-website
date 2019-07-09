@@ -23,6 +23,12 @@ const pageRoutes = ({ location }) => {
       <Route exact path="/about" component={getComponent('About')} />
       <Route exact path="/technology" component={getComponent('Technology')} />
       <Route exact path="/learn" component={getComponent('Learn')} />
+      <Route exact path="/newsroom" component={getComponent('PressReleases')} />
+      <Route
+        exact
+        path="/funding2016"
+        component={getComponent('PressReleases/releases/Funding2016')}
+      />
       {/* <Route exact path="/roadmap" component={Roadmap} /> */}
       <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />
     </Switch>

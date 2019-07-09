@@ -346,31 +346,6 @@ class Home extends React.Component<{ intl: any }, State> {
             />
           </LayoutContainer>
         </Section>
-        <Section type="skyLight">
-          <LayoutContainer classes={styles.Newsletter}>
-            <TypeHeading level={6}>Sign up for announcements</TypeHeading>
-            <div className={styles.NewsletterCTA}>
-              <Input
-                error={this.state.newsletterStatus === 'error'}
-                success={this.state.newsletterStatus === 'success'}
-                value={this.state.newsletterEmail}
-                onChange={this.handleCTA}
-                placeholder="Your email"
-              />
-              <Button
-                loading={newsletterStatus === 'sending'}
-                classes={styles.NewsletterButton}
-                onClick={this.submitEmail}
-                type="largeCTA"
-              >
-                Submit
-              </Button>
-              <div className={styles.NewsletterStatus}>
-                <Text>{this.state.newsletterMessage}</Text>
-              </div>
-            </div>
-          </LayoutContainer>
-        </Section>
         <Section>
           <LayoutContainer classes={styles.Developer}>
             <div className={styles.DeveloperStatBlock}>
@@ -437,6 +412,31 @@ class Home extends React.Component<{ intl: any }, State> {
               <TypeHeading type="developerStatSubheading" level={6}>
                 Contributors
               </TypeHeading>
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section type="skyLight">
+          <LayoutContainer classes={styles.Newsletter}>
+            <TypeHeading level={6}>Sign up for announcements</TypeHeading>
+            <div className={styles.NewsletterCTA}>
+              <Input
+                error={this.state.newsletterStatus === 'error'}
+                success={this.state.newsletterStatus === 'success'}
+                value={this.state.newsletterEmail}
+                onChange={this.handleCTA}
+                placeholder="Your email"
+              />
+              <Button
+                loading={newsletterStatus === 'sending'}
+                classes={styles.NewsletterButton}
+                onClick={this.submitEmail}
+                type="largeCTA"
+              >
+                Submit
+              </Button>
+              <div className={styles.NewsletterStatus}>
+                <Text>{this.state.newsletterMessage}</Text>
+              </div>
             </div>
           </LayoutContainer>
         </Section>

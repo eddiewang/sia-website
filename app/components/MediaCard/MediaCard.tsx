@@ -14,13 +14,14 @@ import { TypeHeading } from 'components/TypeHeading/TypeHeading.scss'
 
 interface Props {
   type: 'video' | 'talks' | 'documentation' | 'blog' | 'link'
+  customTitle?: string
   // Should be mandantory
   href?: string
 }
 
 class MediaCard extends React.Component<Props, {}> {
   public render() {
-    const { type, children, href } = this.props
+    const { type, children, href, customTitle } = this.props
     let mediaType
     switch (type) {
       case 'video':
@@ -54,7 +55,7 @@ class MediaCard extends React.Component<Props, {}> {
           />
         </div>
         <div className={styles.MediaCardLower}>
-          <Text type="mediaCardTitle">{capitalize(type)}</Text>
+          <Text type="mediaCardTitle">{capitalize(customTitle || type)}</Text>
           <Text.Paragraph type="mediaCardText">{children}</Text.Paragraph>
         </div>
       </a>

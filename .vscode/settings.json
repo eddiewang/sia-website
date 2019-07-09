@@ -1,3 +1,7 @@
 {
   "editor.formatOnSave": false,
+  "search.exclude": {
+    "**/.cache-loader": true,
+    "node_modules": true
+  },
 }

@@ -1,0 +1,33 @@
+.Intro {
+  padding: 0;
+  @media screen and (min-width: sg-breakpoint()) {
+    padding: rem(10px) 0;
+  }
+  &Heading {
+    max-width: rem(770px);
+    line-height: 1.4;
+  }
+}
+
+.Learn {
+  text-align: center;
+  padding-bottom: 140px;
+  @media screen and (min-width: sg-breakpoint()) {
+    text-align: initial;
+  }
+  &Boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: sg-breakpoint()) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: rem(30px);
+    }
+  }
+  &More {
+    margin-top: rem(100px);
+    margin-bottom: rem(100px);
+    text-align: center;
+  }
+}
