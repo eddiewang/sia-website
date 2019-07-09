@@ -28,6 +28,7 @@ import twitter from 'svg/social-twitter.svg'
 import linkedin from 'svg/social-linkedin.svg'
 import github from 'svg/social-github.svg'
 import gitlab from 'svg/social-gitlab.svg'
+import { AngellistSVG } from './SVG'
 
 @inject('main')
 @observer
@@ -90,9 +91,14 @@ class About extends React.Component {
                 </TypeHeading>
                 <Text type="bioText">
                   We're looking for talented & passionate individuals to join our team. Check out
-                  our job postings{' '}
-                  <Text.Link href="https://angel.co/company/nebulous/jobs">here.</Text.Link>
+                  our job postings today:
                 </Text>
+                <Button.Link type="joinUs" href="https://angel.co/company/nebulous/jobs">
+                  <div>
+                    <AngellistSVG />
+                  </div>
+                  Join Our Team
+                </Button.Link>
               </div>
             </div>
           </LayoutContainer>

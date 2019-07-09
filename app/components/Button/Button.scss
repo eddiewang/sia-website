@@ -51,3 +51,12 @@ a.Button {
     border: none;
   }
 }
+
+.typeJoinUs {
+  display: flex;
+  align-items: center;
+  svg {
+    fill: white;
+    margin-right: rem(10px);
+  }
+}

@@ -6,4 +6,5 @@ export const link: string
 export const typeLargeCTA: string
 export const typeLargeCta: string
 export const typeFooter: string
+export const typeJoinUs: string
 export const skeletonShimmerAnimation: string
