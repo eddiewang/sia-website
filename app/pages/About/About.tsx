@@ -16,11 +16,17 @@ import Helmet from 'react-helmet'
 import * as styles from './About.scss'
 import Bios from './Bios'
 
-import investorLogos from 'img/investor-logos.png'
 import raptor from 'img/investor-raptor.png'
 import fbs from 'img/investor-fbs.png'
 import fsv from 'img/investor-fsv.png'
 import inb from 'img/investor-inb.png'
+import bc from 'img/investor-bc.png'
+import sv from 'img/investor-svangel.png'
+import hackvc from 'img/investor-hackvc.png'
+import dcp from 'img/investor-dcp.png'
+import collab from 'img/investor-collab.png'
+import acap from 'img/investor-acap.png'
+import bessemer from 'img/investor-bessemer.png'
 
 import facebook from 'svg/social-facebook.svg'
 import medium from 'svg/social-medium.svg'
@@ -112,11 +118,17 @@ class About extends React.Component {
               <QuoteBlock />
             </div>
             <div className={styles.InvestorsLogos}>
-              {/* <img src={investorLogos} /> */}
-              <img src={raptor} />
-              <img src={fsv} />
+              <img src={acap} />
+              <img src={bc} />
+              <img src={bessemer} />
+              <img src={collab} />
+              <img src={dcp} />
               <img src={fbs} />
+              <img src={fsv} />
+              <img src={hackvc} />
               <img src={inb} />
+              <img src={raptor} />
+              <img src={sv} />
             </div>
           </LayoutContainer>
         </Section>
