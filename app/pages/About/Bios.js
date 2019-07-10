@@ -12,7 +12,7 @@ export default [
   {
     name: 'David Vorick',
     svg: David,
-    role: 'CEO, Cofounder, Core Developer',
+    role: 'CEO, Cofounder, Lead Developer',
     social: [
       {
         title: 'Github',

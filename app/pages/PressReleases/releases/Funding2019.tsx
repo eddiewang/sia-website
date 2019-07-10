@@ -16,10 +16,10 @@ class Funding2019 extends React.Component {
   public render() {
     return (
       <div>
-        <Helmet title="About" />
+        <Helmet title="Newsroom" />
         <Section>
           <LayoutContainer classes={styles.Vision}>
-            <div class={styles.VisionBody}>
+            <div className={styles.VisionBody}>
               <Text.Paragraph type="visionHeading">
                 Sia Announces $3.25M Seed Round to Accelerate Development of the Sia Decentralized
                 Cloud Storage Platform

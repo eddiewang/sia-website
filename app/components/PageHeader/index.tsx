@@ -16,14 +16,13 @@ export default function PageHeader({ children }: Props) {
   const className = classNames(styles.PageHeader)
   return (
     <div>
-      {/* <div className={styles.Announcement}>
+      <div className={styles.Announcement}>
         <LayoutContainer classes={styles.AnnouncementLayout}>
-          <Text.Link href="https://siafunds.tech/" type="topbarLink">
-            Nebulous is currently conducting a Tokenized Securities Offering of Siafunds to fund Sia
-            development. Learn more at Siafunds.tech
+          <Text.Link to="/funding2019" type="topbarLink">
+            Sia announces a $3.25M funding round led by Bain Capital Ventures!
           </Text.Link>
         </LayoutContainer>
-      </div> */}
+      </div>
       <header id="PageHeader" className={className}>
         <LayoutContainer type="header">
           <Icon
