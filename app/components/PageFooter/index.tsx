@@ -81,6 +81,10 @@ export default class PageFooter extends React.Component {
             url: 'https://support.sia.tech'
           },
           {
+            name: 'API',
+            url: '/docs'
+          },
+          {
             name: 'Get Started',
             url: '/get-started'
           }
@@ -93,30 +97,25 @@ export default class PageFooter extends React.Component {
             name: 'Jobs',
             url: 'https://sia.tech/jobs'
           },
-
           {
-            name: 'Support',
-            url: 'https://support.sia.tech/'
+            name: 'Newsroom',
+            url: '/newsroom'
           },
           {
-            name: 'Trello',
+            name: 'Roadmap',
             url: 'https://trello.com/b/Io1dDyuI/sia-public-roadmap'
-          },
-          {
-            name: 'Wiki',
-            url: 'https://siawiki.tech/'
           },
           {
             name: 'Get Siacoin',
             url: '/get-siacoin'
           },
           {
-            name: 'Newsroom',
-            url: '/newsroom'
-          },
-          {
             name: 'Whitepaper',
             url: 'https://sia.tech/sia.pdf'
+          },
+          {
+            name: 'Wiki',
+            url: 'https://siawiki.tech/'
           }
         ]
       },
