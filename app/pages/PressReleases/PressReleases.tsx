@@ -16,7 +16,7 @@ class PressReleases extends React.Component {
   public render() {
     return (
       <div>
-        <Helmet title="Technology" />
+        <Helmet title="Newsroom" />
         <Section>
           <LayoutContainer classes={styles.Intro}>
             <TypeHeading classes={styles.IntroHeading} level={6}>
@@ -27,12 +27,14 @@ class PressReleases extends React.Component {
         <Section>
           <LayoutContainer classes={styles.Learn}>
             <div className={styles.LearnBoxes}>
-              <MediaCard customTitle="2017" href="/2017grant" type="pr" target="_self">
-                Sia receives $400k grant from INBlockchain for development of its cloud storage
-                platform
+              <MediaCard customTitle="2019" href="/funding2019" type="pr" target="_self">
+                Sia raises $3.25M seed round led by Bain Capital Ventures
               </MediaCard>
-              <MediaCard type="pr" customTitle="2016" href="/funding2016" target="_self">
-                Sia raises $750k seed round to further blockchain-powered, distributed storage ...
+              <MediaCard customTitle="2017" href="/2017grant" type="pr" target="_self">
+                Sia receives $400k grant from INBlockchain
+              </MediaCard>
+              <MediaCard customTitle="2016" href="/funding2016" type="pr" target="_self">
+                Sia raises $750k seed round led by Procyon Ventures and Raptor Group
               </MediaCard>
             </div>
           </LayoutContainer>
