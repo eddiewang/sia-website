@@ -26,6 +26,7 @@ export const typeQuoteRole: string
 export const typeContactHeader: string
 export const typeStat: string
 export const typeBioText: string
+export const typeJoinText: string
 export const typeBioLink: string
 export const isInverse: string
 export const isInk: string

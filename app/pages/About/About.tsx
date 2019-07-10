@@ -87,9 +87,9 @@ class About extends React.Component {
               {mappedBios}
               <div className={styles.JobCard}>
                 <TypeHeading type="bioHeading" level={6}>
-                  Join us.
+                  Join us!
                 </TypeHeading>
-                <Text type="bioText">
+                <Text type="joinText">
                   We're looking for talented & passionate individuals to join our team. Check out
                   our job postings today.
                 </Text>

@@ -465,11 +465,6 @@ class Home extends React.Component<{ intl: any }, State> {
                 <br />Learn how to backup and restore your files on Sia
               </MediaCard>
             </div>
-            <div className={styles.LearnMore}>
-              <Text.Link href="https://support.sia.tech/" type="mediaCardTextLink">
-                Learn More
-              </Text.Link>
-            </div>
           </LayoutContainer>
         </Section>
       </div>
