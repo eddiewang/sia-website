@@ -78,7 +78,7 @@ class Funding2019 extends React.Component {
                   Filebase
                 </a>{' '}
                 and{' '}
-                <a href="hhttps://sia-cloud.tech" target="_blank">
+                <a href="https://sia-cloud.tech" target="_blank">
                   Sia-Cloud
                 </a>,and companion apps like{' '}
                 <a href="https://keops.cc/decentralizer" target="_blank">
@@ -121,7 +121,7 @@ class Funding2019 extends React.Component {
               <Text.Paragraph>
                 Want to help us re-decentralize the Internet? Nebulous is hiring for positions in
                 engineering and operations. Learn more about our projects and{' '}
-                <a href="https://discord.gg/sia" target="_blank">
+                <a href="https://angel.co/company/nebulous/jobs" target="_blank">
                   apply today
                 </a>!
               </Text.Paragraph>

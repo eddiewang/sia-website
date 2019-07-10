@@ -58,7 +58,7 @@ class Download extends React.Component<{}, State> {
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.exe'
+                    to: '/releases/Sia-UI-v1.4.1.exe'
                   },
                   {
                     title: 'macOS',
