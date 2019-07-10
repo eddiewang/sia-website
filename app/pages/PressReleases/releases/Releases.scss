@@ -4,6 +4,9 @@
     padding-bottom: rem(30px);
     text-align: center;
   }
+  &Body {
+    max-width: 800px;
+  }
   a {
     color: sg-color(sia-green);
   }

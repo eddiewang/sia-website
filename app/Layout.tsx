@@ -35,11 +35,13 @@ class Layout extends React.Component<Props, any> {
       },
       {
         name: 'Learn',
-        link: 'https://support.sia.tech'
+        link: 'https://support.sia.tech',
+        target: '_blank'
       },
       {
         name: 'API',
-        link: 'docs'
+        link: '/docs',
+        target: '_blank'
       }
     ]
 

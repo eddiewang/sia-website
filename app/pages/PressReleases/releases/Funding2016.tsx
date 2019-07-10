@@ -19,7 +19,7 @@ class Funding2016 extends React.Component {
         <Helmet title="About" />
         <Section>
           <LayoutContainer classes={styles.Vision}>
-            <div>
+            <div class={styles.VisionBody}>
               <Text.Paragraph type="visionHeading">
                 Sia Startup raises $750k seed round to further blockchain-powered, distributed
                 storage platform

@@ -91,7 +91,7 @@ class About extends React.Component {
                 </TypeHeading>
                 <Text type="bioText">
                   We're looking for talented & passionate individuals to join our team. Check out
-                  our job postings today:
+                  our job postings today.
                 </Text>
                 <Button.Link type="joinUs" href="https://angel.co/company/nebulous/jobs">
                   <div>

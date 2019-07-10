@@ -2,6 +2,8 @@ export const Vision: string
 export const vision: string
 export const VisionHeading: string
 export const visionHeading: string
+export const VisionBody: string
+export const visionBody: string
 export const Team: string
 export const team: string
 export const TeamCofounders: string

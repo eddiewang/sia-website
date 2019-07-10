@@ -89,7 +89,7 @@ class PageNav extends React.Component<Props & BreakpointContext, State> {
       if (subitems) {
         return <Dropdown key={index} title={name} subitems={subitems} />
       } else if (link) {
-        return <Item key={index} link={link} href="" title={name} current={false} />
+        return <Item key={index} link={link} href="" title={name} target="_blank" current={false} />
       } else {
         const fullPath = `${basePath}/${path}`
         const isActiveRoute = activePath.indexOf(fullPath.replace(/([^/])\/.+$/, '$1')) === 0

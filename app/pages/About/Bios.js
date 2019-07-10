@@ -6,6 +6,7 @@ import Steve from 'svg/avatar-steve.svg'
 import Eddie from 'svg/avatar-eddie.svg'
 import Matt from 'svg/avatar-matt.svg'
 import Manasi from 'svg/avatar-manasi.svg'
+import Marcin from 'svg/avatar-marcin.svg'
 
 export default [
   {
@@ -166,5 +167,30 @@ export default [
     ],
     content:
       'Sia is building the perfect marketplace for data storage with focus on privacy, cost and reliability. With a strong technical foundation, Sia is poised to be the storage layer of the decentralized internet.'
+  },
+  {
+    name: 'Marcin Jachymiak',
+    svg: Marcin,
+    role: 'Core Developer',
+    social: [
+      {
+        title: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/marcin-jachymiak/'
+      },
+      {
+        title: 'Twitter',
+        url: 'https://twitter.com/marcinjachymiak'
+      },
+      {
+        title: 'Github',
+        url: 'https://github.com/marcinja'
+      },
+      {
+        title: 'Gitlab',
+        url: 'https://gitlab.com/marcinja'
+      }
+    ],
+    content:
+      "Decentralized, censorship-resistant file storage is necessary for a healthy Internet of the future. I'm excited that by working on Sia, we can slowly make this future a reality."
   }
 ]

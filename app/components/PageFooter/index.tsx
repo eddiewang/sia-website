@@ -82,7 +82,7 @@ export default class PageFooter extends React.Component {
           },
           {
             name: 'API',
-            url: '/docs'
+            url: 'https://sia.tech/docs'
           },
           {
             name: 'Get Started',
@@ -185,9 +185,9 @@ export default class PageFooter extends React.Component {
             <div>
               <Text type="footerTitle">Questions?</Text>
               <Text type="footerContact">We're here to help!</Text>
-              <Button.Link href="http://support.sia.tech/" type="footer">
-                Get Support
-              </Button.Link>
+              <a href="http://support.sia.tech/" target="_blank">
+                <Button type="footer">Get Support</Button>
+              </a>
             </div>
           </div>
         </LayoutContainer>

@@ -9,15 +9,21 @@ export interface Props {
   title: string
   current?: boolean
   link?: string
+  target?: string
 }
 
-export default function Item({ href, title, current, link }: Props) {
+export default function Item({ href, title, current, target = '_self', link }: Props) {
   const className = classNames(styles.Item, current && styles.isCurrent)
 
   return (
     <li className={className}>
       {link ? (
-        <a href={link} className={styles.Link} aria-current={current ? 'page' : null}>
+        <a
+          href={link}
+          className={styles.Link}
+          target={target}
+          aria-current={current ? 'page' : null}
+        >
           {title}
         </a>
       ) : (

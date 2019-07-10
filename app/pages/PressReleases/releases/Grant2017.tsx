@@ -19,7 +19,7 @@ class Grant2017 extends React.Component {
         <Helmet title="About" />
         <Section>
           <LayoutContainer classes={styles.Vision}>
-            <div>
+            <div class={styles.VisionBody}>
               <Text.Paragraph type="visionHeading">
                 Sia receives $400k grant from INBlockchain for development of its cloud storage
                 platform
