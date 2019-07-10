@@ -137,6 +137,14 @@ export default class PageFooter extends React.Component {
           {
             name: 'Twitter',
             url: 'https://twitter.com/siatechhq'
+          },
+          {
+            name: 'Youtube',
+            url: 'http://youtube.com/siatvofficial'
+          },
+          {
+            name: 'Reddit',
+            url: 'https://www.reddit.com/r/siacoin/'
           }
         ]
       }
