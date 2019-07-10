@@ -96,11 +96,10 @@ class HowItWorks extends React.Component {
               </Text.Paragraph>
               <Text.Paragraph>
                 Sia uses the{' '}
-                <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/Twofish">
-                  Twofish
+                <Text.Link type="techLink" href="https://en.wikipedia.org/wiki/threefish">
+                  Threefish
                 </Text.Link>{' '}
-                algorithm, an open source and secure encryption standard that was a finalist in the
-                Advanced Encryption Standard (AES) contest.
+                algorithm, an open source, secure, high-performance encryption standard.
               </Text.Paragraph>
             </div>
           </LayoutContainer>

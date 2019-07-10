@@ -111,6 +111,205 @@ class Download extends React.Component<{}, State> {
         </Section>
         <Section>
           <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Network Stats</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard
+                icon="sia"
+                darkTitle
+                title="Sia Explorer"
+                content="The official Sia explorer made by the Sia team"
+                links={[
+                  {
+                    title: 'explore.sia.tech >',
+                    to: 'https://explore.sia.tech/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="SiaStats"
+                content="Charts, metrics, and explorer for the Sia network"
+                links={[
+                  {
+                    title: 'siastats.info >',
+                    to: 'https://siastats.info/'
+                  }
+                ]}
+              />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Cloud Storage Apps</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Filebase"
+                content="S3-compatible object storage service that uses Sia on the backend"
+                links={[
+                  {
+                    title: 'filebase.com >',
+                    to: 'https://filebase.com'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Goobox"
+                content="File sharing site and S3-compatible object storage service that uses Sia on the backend"
+                links={[
+                  {
+                    title: 'goobox.io >',
+                    to: 'https://goobox.io'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="PixelDrain"
+                content="File sharing site that uses Sia on the backend; similar to MegaUpload"
+                links={[
+                  {
+                    title: 'pixeldrain.com >',
+                    to: 'https://pixeldrain.com/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Sia-Cloud"
+                content="Cloud storage and file sharing website that uses Sia on the backend"
+                links={[
+                  {
+                    title: 'sia-cloud.tech >',
+                    to: 'https://sia-cloud.tech/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="ZeroBit"
+                content="Cloud storage service for developers that provides an API to store files on Sia"
+                links={[
+                  {
+                    title: 'zero-bit.io >',
+                    to: 'https://zero-bit.io'
+                  }
+                ]}
+              />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Desktop Apps</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Decentralizer"
+                content="Sia companion app that provides renters with more granular controls over hosts and contracts"
+                links={[
+                  {
+                    title: 'keops.cc >',
+                    to: 'https://keops.cc/decentralizer'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Repertory"
+                content="FUSE-compatible app that allows users to mount Sia as a drive on their desktops; similar to Google Drive"
+                links={[
+                  {
+                    title: 'bitbucket.org >',
+                    to: 'https://bitbucket.org/blockstorage/repertory/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="SiaCentral"
+                content="Sia companion app that provides hosts with better pricing controls and reporting (in alpha)"
+                links={[
+                  {
+                    title: 'siacentral.com >',
+                    to: 'https://siacentral.com/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Siasync"
+                content="Lightweight app that monitors a folder and syncs its contents to the Sia network; similar to Dropbox"
+                links={[
+                  {
+                    title: 'github.com >',
+                    to: 'https://github.com/tbenz9/siasync'
+                  }
+                ]}
+              />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
+            <TypeHeading level={6}>Beta Integrations</TypeHeading>
+            <div className={styles.Grid}>
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Duplicati"
+                content="Automated full-computer backup software with friendly UI"
+                links={[
+                  {
+                    title: 'Tutorial >',
+                    to:
+                      'https://blog.sia.tech/introducing-full-computer-backup-with-sia-through-the-new-duplicati-integration-62dd17cbcfb7'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Minio"
+                content="S3-compatible, open source, distributed object storage server"
+                links={[
+                  {
+                    title: 'Tutorial >',
+                    to:
+                      'https://blog.sia.tech/introducing-s3-style-file-sharing-for-sia-through-the-new-minio-integration-bb880af2366a'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="Nextcloud"
+                content="Self-hosted Dropbox / Google Drive alternative"
+                links={[
+                  {
+                    title: 'Tutorial >',
+                    to:
+                      'https://blog.sia.tech/using-sia-as-a-storage-back-end-for-nextcloud-90eab037959d'
+                  }
+                ]}
+              />
+            </div>
+          </LayoutContainer>
+        </Section>
+        <Section>
+          <LayoutContainer classes={styles.LinkSection}>
             <TypeHeading level={6}>Mining Pools</TypeHeading>
             <div className={styles.Grid}>
               <LinkCard
@@ -138,162 +337,6 @@ class Download extends React.Component<{}, State> {
                   {
                     title: 'siamining.com',
                     to: 'https://siamining.com/'
-                  }
-                ]}
-              />
-            </div>
-          </LayoutContainer>
-        </Section>
-        <Section>
-          <LayoutContainer classes={styles.LinkSection}>
-            <TypeHeading level={6}>Network Stats</TypeHeading>
-            <div className={styles.Grid}>
-              <LinkCard
-                icon="sia"
-                darkTitle
-                title="Explorer"
-                content="The official Sia Explorer"
-                links={[
-                  {
-                    title: 'explore.sia.tech >',
-                    to: 'https://explore.sia.tech/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="SiaHub"
-                content="Sia hosting stats, blockchain download, and explorer"
-                links={[
-                  {
-                    title: 'siahub.info >',
-                    to: 'https://siahub.info/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="SiaStats"
-                content="Charts and metrics for the Sia network"
-                links={[
-                  {
-                    title: 'siastats.info >',
-                    to: 'https://siastats.info/'
-                  }
-                ]}
-              />
-            </div>
-          </LayoutContainer>
-        </Section>
-        <Section>
-          <LayoutContainer classes={styles.LinkSection}>
-            <TypeHeading level={6}>Built on Sia</TypeHeading>
-            <div className={styles.Grid}>
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="Luxor"
-                content="Building Sia-centric apps and services"
-                links={[
-                  {
-                    title: 'luxor.tech >',
-                    to: 'https://mining.luxor.tech/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="Minebox"
-                content="Next generation NAS powered by Sia"
-                links={[
-                  {
-                    title: 'minebox.io >',
-                    to: 'https://minebox.io/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="Obelisk"
-                content="The first ASIC miner for Siacoin"
-                links={[
-                  {
-                    title: 'obelisk.tech >',
-                    to: 'https://obelisk.tech'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="PixelDrain"
-                content="File sharing site powered by Sia"
-                links={[
-                  {
-                    title: 'sia.pixeldrain.com >',
-                    to: 'https://sia.pixeldrain.com/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="SiaDrive"
-                content="Mount Sia as a drive on your desktop"
-                links={[
-                  {
-                    title: 'bitbucket.org >',
-                    to: 'https://bitbucket.org/siaextensions/siadrive/overview'
-                  }
-                ]}
-              />
-            </div>
-          </LayoutContainer>
-        </Section>
-        <Section>
-          <LayoutContainer classes={styles.LinkSection}>
-            <TypeHeading level={6}>Integrations (Beta)</TypeHeading>
-            <div className={styles.Grid}>
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="Duplicati"
-                content="Automated backup software with friendly UI"
-                links={[
-                  {
-                    title: 'Link >',
-                    to:
-                      'https://blog.sia.tech/introducing-full-computer-backup-with-sia-through-the-new-duplicati-integration-62dd17cbcfb7'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="Minio"
-                content="S3-compatible distributed object storage server"
-                links={[
-                  {
-                    title: 'Link >',
-                    to:
-                      'https://blog.sia.tech/introducing-s3-style-file-sharing-for-sia-through-the-new-minio-integration-bb880af2366a'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="Nextcloud"
-                content="Self-hosted Dropbox alternative"
-                links={[
-                  {
-                    title: 'Link >',
-                    to:
-                      'https://blog.sia.tech/using-sia-as-a-storage-back-end-for-nextcloud-90eab037959d'
                   }
                 ]}
               />

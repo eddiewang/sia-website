@@ -91,7 +91,7 @@ const messages = defineMessages({
   greeting: {
     id: 'app.home.greeting',
     description: 'Welcome hero text',
-    defaultMessage: 'Fully decentralized cloud storage is finally here.'
+    defaultMessage: 'Decentralized storage for the post-cloud world.'
   }
 })
 
@@ -270,7 +270,7 @@ class Home extends React.Component<{ intl: any }, State> {
                 providers.
               </Text.Paragraph>
               <Button.Link to="/get-started" type="largeCTA">
-                Get Started
+                Download Now
               </Button.Link>
             </div>
             <div className={styles.HeroImage}>
@@ -326,7 +326,7 @@ class Home extends React.Component<{ intl: any }, State> {
             />
             <PitchRow
               title="Far More Affordable"
-              content="On average, Sia's decentralized cloud storage costs 90% less than incumbent cloud storage providers. Storing 1TB of files on Sia costs about $2 per month, compared with $23 on Amazon S3."
+              content="On average, Sia's decentralized cloud storage costs 90% less than incumbent cloud storage providers. Storing 1TB of files on Sia costs about $1-2 per month, compared with $23 on Amazon S3."
               src={PitchAffordable}
             />
             <PitchRow
@@ -447,19 +447,22 @@ class Home extends React.Component<{ intl: any }, State> {
             </TypeHeading>
             <div className={styles.LearnBoxes}>
               <MediaCard type="blog" href="https://blog.sia.tech/the-sia-ethos-48f72f1cf382">
-                The Sia Ethos
+                <b>The Sia Ethos</b>
+                <br />Learn about Sia's principles and values
               </MediaCard>
               <MediaCard
                 href="https://support.sia.tech/article/dk91b0eibc-welcome-to-sia"
-                type="blog"
-              >
-                Welcome to Sia
-              </MediaCard>
-              <MediaCard
-                href="https://blog.sia.tech/how-to-put-data-on-the-sia-network-784499a65b"
                 type="documentation"
               >
-                Learn how to upload data to the Sia network.
+                <b>Welcome to Sia</b>
+                <br />Get up to speed with Sia basics; great for new users!
+              </MediaCard>
+              <MediaCard
+                href="https://blog.sia.tech/guide-seed-based-file-recovery-on-sia-e11dcdf283ea"
+                type="blog"
+              >
+                <b>Seed-Based File Recovery</b>
+                <br />Learn how to backup and restore your files on Sia
               </MediaCard>
             </div>
             <div className={styles.LearnMore}>
