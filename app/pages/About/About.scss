@@ -54,8 +54,8 @@
   text-align: center;
   &Logos {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: rem(80px);
+    grid-gap: rem(20px);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     img {
       max-width: rem(130px);
@@ -63,7 +63,8 @@
     @media screen and (min-width: sg-breakpoint()) {
       flex-direction: row;
       margin-top: rem(100px);
-      justify-content: space-between;
+      grid-gap: rem(40px);
+      grid-template-columns: repeat(4, 1fr);
       img {
         max-width: 100%;
       }

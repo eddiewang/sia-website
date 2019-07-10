@@ -118,17 +118,17 @@ class About extends React.Component {
               <QuoteBlock />
             </div>
             <div className={styles.InvestorsLogos}>
-              <img src={raptor} />
-              <img src={fsv} />
-              <img src={fbs} />
-              <img src={inb} />
-              <img src={bc} />
-              <img src={sv} />
-              <img src={hackvc} />
-              <img src={dcp} />
-              <img src={collab} />
               <img src={acap} />
+              <img src={bc} />
               <img src={bessemer} />
+              <img src={collab} />
+              <img src={dcp} />
+              <img src={fbs} />
+              <img src={fsv} />
+              <img src={hackvc} />
+              <img src={inb} />
+              <img src={raptor} />
+              <img src={sv} />
             </div>
           </LayoutContainer>
         </Section>
