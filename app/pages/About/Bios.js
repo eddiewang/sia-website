@@ -174,20 +174,20 @@ export default [
     role: 'Core Developer',
     social: [
       {
-        title: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/marcin-jachymiak/'
-      },
-      {
-        title: 'Twitter',
-        url: 'https://twitter.com/marcinjachymiak'
-      },
-      {
         title: 'Github',
         url: 'https://github.com/marcinja'
       },
       {
         title: 'Gitlab',
         url: 'https://gitlab.com/marcinja'
+      },
+      {
+        title: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/marcin-jachymiak/'
+      },
+      {
+        title: 'Twitter',
+        url: 'https://twitter.com/marcinjachymiak'
       }
     ],
     content:
