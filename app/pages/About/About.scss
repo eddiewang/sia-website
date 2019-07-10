@@ -53,11 +53,11 @@
 .Investors {
   text-align: center;
   &Logos {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: rem(80px);
+    align-items: center;
     img {
-      margin-top: rem(30px);
-      align-self: center;
       max-width: rem(130px);
     }
     @media screen and (min-width: sg-breakpoint()) {
