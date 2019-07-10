@@ -5,6 +5,7 @@ import Zach from 'svg/avatar-zach.svg'
 import Steve from 'svg/avatar-steve.svg'
 import Eddie from 'svg/avatar-eddie.svg'
 import Matt from 'svg/avatar-matt.svg'
+import Manasi from 'svg/avatar-manasi.svg'
 
 export default [
   {
@@ -63,7 +64,8 @@ export default [
         url: 'https://twitter.com/zachherbert'
       }
     ],
-    content: 'At Sia, we are constantly thinking long-term, putting product ahead of marketing, and building a strong technical foundation for future success.'
+    content:
+      'At Sia, we are constantly thinking long-term, putting product ahead of marketing, and building a strong technical foundation for future success.'
   },
   {
     name: 'Chris Schinnerl',
@@ -83,7 +85,8 @@ export default [
         url: 'https://twitter.com/ChrisSchinnerl'
       }
     ],
-    content: 'In a world of distributed storage there will be no downtime, no companies spying on your data, and no massive cloud leaks. Storage will be faster, safer, and cheaper.'
+    content:
+      'In a world of distributed storage there will be no downtime, no companies spying on your data, and no massive cloud leaks. Storage will be faster, safer, and cheaper.'
   },
   {
     name: 'Steve Funk',
@@ -95,7 +98,8 @@ export default [
         url: 'https://www.linkedin.com/in/stevengfunk'
       }
     ],
-    content: 'Sia has a team that truly cares about the experience, and a passionate community that inspires us to do our best.'
+    content:
+      'Sia has a team that truly cares about the experience, and a passionate community that inspires us to do our best.'
   },
   {
     name: 'Eddie Wang',
@@ -143,6 +147,24 @@ export default [
         url: 'https://twitter.com/MJSevey'
       }
     ],
-    content: 'Sia is leading the way and defining what decentralized data storage can be. It enables users to take control over how their data is stored and have the confidence it is safe and secure.'
+    content:
+      'Sia is leading the way and defining what decentralized data storage can be. It enables users to take control over how their data is stored and have the confidence it is safe and secure.'
+  },
+  {
+    name: 'Manasi Vora',
+    svg: Manasi,
+    role: 'Head of Product Strategy',
+    social: [
+      {
+        title: 'LinkedIn',
+        url: 'http://linkedin.com/in/manasi-vora-cfa-bb9a1715'
+      },
+      {
+        title: 'Twitter',
+        url: 'https://twitter.com/manasilvora'
+      }
+    ],
+    content:
+      'Sia is building the perfect marketplace for data storage with focus on privacy, cost and reliability. With a strong technical foundation, Sia is poised to be the storage layer of the decentralized internet.'
   }
 ]
