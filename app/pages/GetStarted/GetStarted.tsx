@@ -58,37 +58,37 @@ class Download extends React.Component<{}, State> {
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.exe'
+                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.1.exe'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.dmg'
+                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.1.dmg'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.AppImage'
+                    to: 'https://sia.tech/releases/Sia-UI-v1.4.1.1.AppImage'
                   }
                 ]}
               />
               <LinkCard
                 icon="sia"
                 title="Sia Daemon"
-                content="Download version 1.4.1 of Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
+                content="Download version 1.4.1.1 of Sia Daemon for use with your preferred CLI. Built for technical users comfortable with command line."
                 linkTitle="Documentation for Developers"
                 linkTo="https://gitlab.com/NebulousLabs/Sia/tree/master/doc"
                 tag={sia}
                 links={[
                   {
                     title: 'Windows',
-                    to: 'https://sia.tech/releases/Sia-v1.4.1-windows-amd64.zip'
+                    to: 'https://sia.tech/releases/Sia-v1.4.1.1-windows-amd64.zip'
                   },
                   {
                     title: 'macOS',
-                    to: 'https://sia.tech/releases/Sia-v1.4.1-darwin-amd64.zip'
+                    to: 'https://sia.tech/releases/Sia-v1.4.1.1-darwin-amd64.zip'
                   },
                   {
                     title: 'Linux',
-                    to: 'https://sia.tech/releases/Sia-v1.4.1-linux-amd64.zip'
+                    to: 'https://sia.tech/releases/Sia-v1.4.1.1-linux-amd64.zip'
                   }
                 ]}
               />
