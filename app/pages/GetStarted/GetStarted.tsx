@@ -283,6 +283,10 @@ class Download extends React.Component<{}, State> {
                   }
                 ]}
               />
+              {/* 
+              
+              Commenting out the Minio card for now in case they decide to re-enable support for Sia.
+
               <LinkCard
                 darkTitle
                 icon="third"
@@ -295,7 +299,7 @@ class Download extends React.Component<{}, State> {
                       'https://blog.sia.tech/introducing-s3-style-file-sharing-for-sia-through-the-new-minio-integration-bb880af2366a'
                   }
                 ]}
-              />
+              /> */}
               <LinkCard
                 darkTitle
                 icon="third"
