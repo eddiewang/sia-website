@@ -34,6 +34,11 @@ const pageRoutes = ({ location }) => {
         path="/funding2019"
         component={getComponent('PressReleases/releases/Funding2019')}
       />
+      <Route
+        exact
+        path="/settlement2019"
+        component={getComponent('PressReleases/releases/Settlement2019')}
+      />
       {/* <Route exact path="/roadmap" component={Roadmap} /> */}
       <Route exact path="/get-siacoin" component={getComponent('GetSiacoin')} />
     </Switch>
