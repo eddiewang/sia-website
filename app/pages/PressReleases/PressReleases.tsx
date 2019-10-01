@@ -27,13 +27,16 @@ class PressReleases extends React.Component {
         <Section>
           <LayoutContainer classes={styles.Learn}>
             <div className={styles.LearnBoxes}>
-              <MediaCard customTitle="2019" href="/funding2019" type="pr" target="_self">
+              <MediaCard customTitle="October 2019" href="/settlement2019" type="pr" target="_self">
+                Sia announces settlement with SEC regarding Siafunds
+              </MediaCard>
+              <MediaCard customTitle="July 2019" href="/funding2019" type="pr" target="_self">
                 Sia raises $3.25M seed round led by Bain Capital Ventures
               </MediaCard>
-              <MediaCard customTitle="2017" href="/2017grant" type="pr" target="_self">
+              <MediaCard customTitle="July 2017" href="/2017grant" type="pr" target="_self">
                 Sia receives $400k grant from INBlockchain
               </MediaCard>
-              <MediaCard customTitle="2016" href="/funding2016" type="pr" target="_self">
+              <MediaCard customTitle="September 2016" href="/funding2016" type="pr" target="_self">
                 Sia raises $750k seed round led by Procyon Ventures and Raptor Group
               </MediaCard>
             </div>
