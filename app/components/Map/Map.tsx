@@ -12,7 +12,7 @@ interface Props {
 const MapBox = ReactMapboxGl({
   accessToken:
     'pk.eyJ1IjoiZWRkaWVsdXhvciIsImEiOiJjamR4NzV4eTgzbzlhMnFxcDhuZTc2MXNyIn0.GYFUp0T8Fgel_Dbxh59VYw',
-  apiUrl: 'http://maps.eddiewang.me',
+  apiUrl: 'https://maps.eddiewang.me',
   interactive: true,
   scrollZoom: false,
   attributionControl: false
@@ -23,7 +23,7 @@ export default class Map extends React.Component<Props, {}> {
     const { data } = this.props
     return (
       <MapBox
-        style="http://maps.eddiewang.me/styles/positron/style.json"
+        style="https://maps.eddiewang.me/styles/positron/style.json"
         className={styles.MapBox}
         zoom={[1.2]}
         center={[0, 30]}
