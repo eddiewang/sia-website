@@ -1,4 +1,5 @@
 import David from 'svg/avatar-david.svg'
+import PJ from 'svg/avatar-pj.svg'
 import Luke from 'svg/avatar-luke.svg'
 import Chris from 'svg/avatar-chris.svg'
 import Zach from 'svg/avatar-zach.svg'
@@ -192,5 +193,28 @@ export default [
     ],
     content:
       "Decentralized, censorship-resistant file storage is necessary for a healthy Internet of the future. I'm excited that by working on Sia, we can slowly make this future a reality."
+  },
+  {
+    name: 'PJ Brone',
+    content: 'Through elegant design without compromise nor shortcuts, Sia is on its way to become the backbone of the decentralized web. I’m excited to contribute to tech that gives ownership of data back to users.',
+    svg: PJ,
+    social: [
+      {
+        title: 'Github',
+        url: 'https://github.com/peterjanbrone'
+      },
+      {
+        title: 'Gitlab',
+        url: 'https://gitlab.com/pjbrone'
+      },
+      {
+        title: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/peterjanbrone'
+      },
+      {
+        title: 'Twitter',
+        url: 'https://twitter.com/peterjanbrone'
+      }
+    ]
   }
 ]
