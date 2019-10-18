@@ -198,6 +198,7 @@ export default [
     name: 'PJ Brone',
     content: 'Through elegant design without compromise nor shortcuts, Sia is on its way to become the backbone of the decentralized web. I’m excited to contribute to tech that gives ownership of data back to users.',
     svg: PJ,
+    role: 'Core Developer',
     social: [
       {
         title: 'Github',
