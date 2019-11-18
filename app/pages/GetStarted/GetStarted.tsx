@@ -238,8 +238,20 @@ class Download extends React.Component<{}, State> {
               <LinkCard
                 darkTitle
                 icon="third"
-                title="SiaCentral"
-                content="Sia companion app that provides hosts with better pricing controls and reporting (in alpha)"
+                title="Goobox"
+                content="Use Sia with a no-hassle front end"
+                links={[
+                  {
+                    title: 'goobox.io >',
+                    to: 'https://goobox.io/'
+                  }
+                ]}
+              />
+              <LinkCard
+                darkTitle
+                icon="third"
+                title="SiaDrive"
+                content="Mount Sia as a drive on your desktop"
                 links={[
                   {
                     title: 'siacentral.com >',
@@ -279,6 +291,10 @@ class Download extends React.Component<{}, State> {
                   }
                 ]}
               />
+              {/*
+
+              Commenting out the Minio card for now in case they decide to re-enable support for Sia.
+
               <LinkCard
                 darkTitle
                 icon="third"
@@ -291,7 +307,7 @@ class Download extends React.Component<{}, State> {
                       'https://blog.sia.tech/introducing-s3-style-file-sharing-for-sia-through-the-new-minio-integration-bb880af2366a'
                   }
                 ]}
-              />
+              /> */}
               <LinkCard
                 darkTitle
                 icon="third"

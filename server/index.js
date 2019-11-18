@@ -70,6 +70,10 @@ app.get('/jobs', (req, res) => {
   res.redirect('https://angel.co/nebulous/jobs')
 })
 
+app.get('/blog', (req, res) => {
+  res.redirect('https://blog.sia.tech/')
+})
+
 app.get('/img/svg/sia-wordmark.svg', (req, res) => {
   res.redirect('/assets/svg/sia-wordmark.svg')
 })
