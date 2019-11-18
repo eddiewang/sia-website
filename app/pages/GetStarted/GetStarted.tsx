@@ -238,20 +238,8 @@ class Download extends React.Component<{}, State> {
               <LinkCard
                 darkTitle
                 icon="third"
-                title="Goobox"
-                content="Use Sia with a no-hassle front end"
-                links={[
-                  {
-                    title: 'goobox.io >',
-                    to: 'https://goobox.io/'
-                  }
-                ]}
-              />
-              <LinkCard
-                darkTitle
-                icon="third"
-                title="SiaDrive"
-                content="Mount Sia as a drive on your desktop"
+                title="SiaCentral"
+                content="Sia companion app that provides hosts with better pricing controls and reporting (in alpha)"
                 links={[
                   {
                     title: 'siacentral.com >',
