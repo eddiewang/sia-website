@@ -67,7 +67,7 @@ app.get('/downloads', (req, res) => {
 })
 
 app.get('/jobs', (req, res) => {
-  res.redirect('https://angel.co/nebulous/jobs')
+  res.redirect('https://jobs.lever.co/nebulous')
 })
 
 app.get('/blog', (req, res) => {
