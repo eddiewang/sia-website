@@ -750,8 +750,8 @@ BlockHeight of the requested block.  </p>
 <p>JSON Response Example</p>
 </blockquote>
 <pre class="highlight go tab-go"><code><span class="p">{</span><span class="x">
-    </span><span class="s">"height"</span><span class="o">:</span><span class="x"> </span><span class="m">20032</span><span class="p">,</span><span class="x"> 
-    </span><span class="s">"id"</span><span class="o">:</span><span class="x"> </span><span class="s">"00000000000033b9eb57fa63a51adeea857e70f6415ebbfe5df2a01f0d0477f4"</span><span class="p">,</span><span class="x"> 
+    </span><span class="s">"height"</span><span class="o">:</span><span class="x"> </span><span class="m">20032</span><span class="p">,</span><span class="x">
+    </span><span class="s">"id"</span><span class="o">:</span><span class="x"> </span><span class="s">"00000000000033b9eb57fa63a51adeea857e70f6415ebbfe5df2a01f0d0477f4"</span><span class="p">,</span><span class="x">
     </span><span class="s">"minerpayouts"</span><span class="o">:</span><span class="x"> </span><span class="p">[</span><span class="x">
         </span><span class="p">{</span><span class="x">
             </span><span class="s">"unlockhash"</span><span class="o">:</span><span class="x"> </span><span class="s">"c199cd180e19ef7597bcf4beecdd4f211e121d085e24432959c42bdf9030e32b9583e1c2727c"</span><span class="p">,</span><span class="x">
@@ -1098,7 +1098,7 @@ The price that a renter has to pay to store files with the host.  </p>
 <p><strong>uploadbandwidthprice</strong> | hastings / byte<br>
 The price that a renter has to pay when uploading data to the host.  </p>
 
-<p><strong>revisionnumber</strong> | int 
+<p><strong>revisionnumber</strong> | int
 The revision number indicates to the renter what iteration of settings the host is currently at. Settings are generally signed. If the renter has multiple conflicting copies of settings from the host, the renter can expect the one with the higher revision number to be more recent.  </p>
 
 <p><strong>version</strong> | string
@@ -1192,7 +1192,7 @@ The minimum price that the host will demand from a renter when the renter is upl
 <h4 id='networkmetrics'>networkmetrics</h4>
 <p>Information about the network, specifically various ways in which renters have contacted the host.  </p>
 
-<p><strong>downloadcalls</strong> | int 
+<p><strong>downloadcalls</strong> | int
 The number of times that a renter has attempted to download something from the host.  </p>
 
 <p><strong>errorcalls</strong> | int
@@ -1484,13 +1484,13 @@ Merkleroot of the sector to delete.  </p>
 <h3 id='query-string-parameters-8'>Query String Parameters</h3><h4 id='optional-5'>OPTIONAL</h4>
 <p>See <a href="#internalsettings">host internal settings</a>
  - acceptingcontracts<br>
- - maxdownloadbatchsize 
+ - maxdownloadbatchsize
  - maxduration<br>
  - maxrevisebatchsize<br>
  - netaddress<br>
  - windowsize<br>
  - collateral<br>
- - collateralbudget 
+ - collateralbudget
  - maxcollateral<br>
  - mincontractprice<br>
  - mindownloadbandwidthprice<br>
@@ -1666,13 +1666,13 @@ Total amount of time the host has been offline.  </p>
 <p><strong>historicuptime</strong> | nanoseconds<br>
 Total amount of time the host has been online.  </p>
 
-<p><strong>scanhistory</strong> 
+<p><strong>scanhistory</strong>
 Measurements that have been taken on the host. The most recent measurements are kept in full detail.  </p>
 
 <p><strong>historicfailedinteractions</strong> | int
 Number of historic failed interactions with the host.  </p>
 
-<p><strong>historicsuccessfulinteractions</strong> | int 
+<p><strong>historicsuccessfulinteractions</strong> | int
 Number of historic successful interactions with the host.  </p>
 
 <p><strong>recentfailedinteractions</strong> | int<br>
@@ -1690,7 +1690,7 @@ List of IP subnet masks used by the host. For IPv4 the /24 and for IPv6 the /54 
 <p><strong>lastipnetchange</strong> | date<br>
 The last time the list of IP subnet masks was updated. When equal subnet masks are found for different hosts, the host that occupies the subnet mask for a longer time is preferred.  </p>
 
-<p><strong>publickey</strong> 
+<p><strong>publickey</strong>
 Public key used to identify and verify hosts.  </p>
 
 <p><strong>algorithm</strong> | string
@@ -1699,7 +1699,7 @@ Algorithm used for signing and verification. Typically &quot;ed25519&quot;.  </p
 <p><strong>key</strong> | hash
 Key used to verify signed host messages.  </p>
 
-<p><strong>publickeystring</strong> | string 
+<p><strong>publickeystring</strong> | string
 The string representation of the full public key, used when calling /hostdb/hosts.  </p>
 
 <p><strong>filtered</strong> | boolean
@@ -1760,31 +1760,31 @@ A set of scores as determined by the renter. Generally, the host&#39;s final sco
 <p><strong>score</strong> | big int
 The overall score for the host. Scores are entriely relative, and are consistent only within the current hostdb. Between different machines, different configurations, and different versions the absolute scores for a given host can be off by many orders of magnitude. When displaying to a human, some form of normalization with respect to the other hosts (for example, divide all scores by the median score of the hosts) is recommended.  </p>
 
-<p><strong>conversionrate</strong> | float64 
+<p><strong>conversionrate</strong> | float64
 conversionrate is the likelihood that the host will be selected by renters forming contracts.  </p>
 
-<p><strong>ageadjustment</strong> | float64 
+<p><strong>ageadjustment</strong> | float64
 The multiplier that gets applied to the host based on how long it has been a host. Older hosts typically have a lower penalty.  </p>
 
-<p><strong>burnadjustment</strong> | float64 
+<p><strong>burnadjustment</strong> | float64
 The multiplier that gets applied to the host based on how much proof-of-burn the host has performed. More burn causes a linear increase in score.  </p>
 
-<p><strong>collateraladjustment</strong> | float64 
+<p><strong>collateraladjustment</strong> | float64
 The multiplier that gets applied to a host based on how much collateral the host is offering. More collateral is typically better, though above a point it can be detrimental.  </p>
 
-<p><strong>interactionadjustment</strong> | float64 
+<p><strong>interactionadjustment</strong> | float64
 The multipler that gets applied to a host based on previous interactions with the host. A high ratio of successful interactions will improve this hosts score, and a high ratio of failed interactions will hurt this hosts score. This adjustment helps account for hosts that are on unstable connections, don&#39;t keep their wallets unlocked, ran out of funds, etc.  </p>
 
-<p><strong>pricesmultiplier</strong> | float64 
+<p><strong>pricesmultiplier</strong> | float64
 The multiplier that gets applied to a host based on the host&#39;s price. Lower prices are almost always better. Below a certain, very low price, there is no advantage.  </p>
 
-<p><strong>storageremainingadjustment</strong> | float64 
+<p><strong>storageremainingadjustment</strong> | float64
 The multiplier that gets applied to a host based on how much storage is remaining for the host. More storage remaining is better, to a point.  </p>
 
-<p><strong>uptimeadjustment</strong> | float64 
+<p><strong>uptimeadjustment</strong> | float64
 The multiplier that gets applied to a host based on the uptime percentage of the host. The penalty increases extremely quickly as uptime drops below 90%.  </p>
 
-<p><strong>versionadjustment</strong> | float64 
+<p><strong>versionadjustment</strong> | float64
 The multiplier that gets applied to a host based on the version of Sia that they are running. Versions get penalties if there are known bugs, scaling limitations, performance limitations, etc. Generally, the most recent version is always the one with the highest score.  </p>
 <h2 id='hostdb-filtermode-post'>/hostdb/filtermode [POST]</h2>
 <blockquote>
@@ -2156,7 +2156,7 @@ Block height that the file contract ends on.  </p>
 <p><strong>fees</strong> | hastings<br>
 Fees paid in order to form the file contract.  </p>
 
-<p><strong>hostpublickey</strong> 
+<p><strong>hostpublickey</strong>
 Public key of the host that the file contract is formed with.  </p>
 
 <p><strong>hostversion</strong> | string
@@ -2171,7 +2171,7 @@ Key used to verify signed host messages.  </p>
 <p><strong>id</strong> | hash
 ID of the file contract.  </p>
 
-<p><strong>lasttransaction</strong> | transaction 
+<p><strong>lasttransaction</strong> | transaction
 A signed transaction containing the most recent contract revision.  </p>
 
 <p><strong>netaddress</strong> | string
@@ -2471,7 +2471,7 @@ Block height at which the file ceases availability.  </p>
 <p><strong>filesize</strong> | bytes<br>
 Size of the file in bytes.  </p>
 
-<p><strong>health</strong> | float64 
+<p><strong>health</strong> | float64
 health is an indication of the amount of redundancy missing where 0 is full redundancy and &gt;1 means the file is not available. The health of the siafile is the health of the worst unstuck chunk.</p>
 
 <p><strong>localpath</strong> | string
@@ -2638,7 +2638,7 @@ that have already been scanned.</p>
 <p><strong>siapath</strong> | string
 Path to the file in the renter on the network.</p>
 <h3 id='query-string-parameters-19'>Query String Parameters</h3><h4 id='required-23'>REQUIRED</h4>
-<p><strong>newsiapath</strong> | string 
+<p><strong>newsiapath</strong> | string
 New location of the file in the renter on the network.  </p>
 <h3 id='response-26'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
@@ -2731,7 +2731,7 @@ the maximum estimated fee</p>
 </span></code></pre>
 <p>returns the ID for the requested transaction and its raw encoded parents and transaction data.</p>
 <h3 id='path-parameters-16'>Path Parameters</h3><h4 id='required-28'>REQUIRED</h4>
-<p><strong>id</strong> | hash 
+<p><strong>id</strong> | hash
 id of the transaction being queried</p>
 <h3 id='json-response-24'>JSON Response</h3>
 <blockquote>
@@ -2759,7 +2759,7 @@ raw, base64 encoded transaction data  </p>
 </span></code></pre>
 <p>submits a raw transaction to the transaction pool, broadcasting it to the transaction pool&#39;s peers.  </p>
 <h3 id='query-string-parameters-21'>Query String Parameters</h3><h4 id='required-29'>REQUIRED</h4>
-<p><strong>parents</strong> | string 
+<p><strong>parents</strong> | string
 JSON- or base64-encoded transaction parents</p>
 
 <p><strong>transaction</strong> | string
@@ -3006,7 +3006,7 @@ Dictionary-encoded phrase that corresponds to the seed being used to initialize 
 </span></code></pre>
 <p>Returns the list of seeds in use by the wallet. The primary seed is the only seed that gets used to generate new addresses. This call is unavailable when the wallet is locked.</p>
 <h3 id='query-string-parameters-30'>Query String Parameters</h3><h4 id='required-35'>REQUIRED</h4>
-<p><strong>dictionary</strong> | string 
+<p><strong>dictionary</strong> | string
 Name of the dictionary that should be used when encoding the seed. &#39;english&#39; is the most common choice when picking a dictionary.  </p>
 <h3 id='json-response-31'>JSON Response</h3>
 <blockquote>
@@ -3548,7 +3548,9 @@ The addresses currently watched by the wallet.  </p>
 </span></code></pre><h3 id='response-38'>Response</h3>
 <p>standard success or error response. See <a href="#standard-responses">standard responses</a>.</p>
 <h1 id='version'>Version</h1>
-<p><a href='https://sia.tech/docs/v141'><strong>v141</strong><br>
+<p>
+  <a href='https://sia.tech/docs/v142'><strong>v142</strong><br>
+  <a href='https://sia.tech/docs/v141'><strong>v141</strong><br>
 <a href='https://sia.tech/docs/v140'><strong>v140</strong></p>
 
       </div>
