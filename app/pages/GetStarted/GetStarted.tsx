@@ -66,7 +66,7 @@ class Download extends React.Component<{}, State> {
                   },
                   {
                     title: 'Linux',
-                    to: 'https://sia.tech/releases/Sia-UI-v1.4.2.AppImage'
+                    to: 'https://sia.tech/releases/Sia-UI-1.4.2.AppImage'
                   }
                 ]}
               />
